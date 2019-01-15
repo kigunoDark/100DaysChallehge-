@@ -1,0 +1,737 @@
+/* body */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+/* Index controll */
+.card-image,
+.waves-effect,
+.card {
+  z-index: 0;
+}
+#index-banner {
+  height: 700px;
+  z-index: 0;
+}
+
+/* Text */
+.title {
+  color: white;
+  text-shadow: 1px 1px 4px #000000;
+  margin-top: 60px;
+  padding-bottom: 60px;
+  letter-spacing: 0.26em;
+  font-weight: 100;
+  font-size: 6vmin;
+  font-family: "Russo One", sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.teamtitle {
+  padding: 60px;
+  color: white;
+  text-shadow: 1px 1px 8px #000000;
+  letter-spacing: 0.26em;
+  font-weight: 100;
+  font-size: 6vmin;
+  font-family: "Russo One", sans-serif;
+  font-weight: normal;
+}
+
+.title1 {
+  color: rgba(31, 29, 29, 0.8);
+  padding-bottom: 50px;
+  padding-top: 50px;
+  letter-spacing: 0.15em;
+  font-weight: 100;
+  font-size: 6vmin;
+  font-family: "Russo One", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.vector {
+  color: #f2d243;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px #000000;
+  font-family: "Russo One", sans-serif;
+  font-weight: normal;
+  font-size: 6vmin;
+}
+.fio {
+  color: #f2d243;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px #000000;
+  font-family: "Russo One", sans-serif;
+  font-weight: normal;
+  font-size: 3vmin;
+}
+.owncolor {
+  color: #f2d243;
+  font-weight: bold;
+  text-shadow: 2px 1px 2px #302f2f;
+  font-family: "Russo One", sans-serif;
+  font-weight: normal;
+  font-size: 6vmin;
+  text-transform: uppercase;
+}
+
+.subtitle-video {
+  color: white;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 4px #000000;
+  padding: 5px 0px 5px 0px;
+  letter-spacing: 0.26em;
+  font-family: "Open Sans", sans-serif;
+}
+.activator {
+  font-family: "Russo One", sans-serif;
+  color: #f2d243;
+  text-shadow: 1px 1px 3px #000000;
+  font-size: 20px;
+  cursor: pointer;
+}
+.subtitle {
+  color: #fad221;
+  font-size: 20px;
+  padding: 5px 0px 5px 0px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-family: "Russo One", sans-serif;
+  text-shadow: 2px 1px 4px #000000;
+  margin-top: 40px;
+}
+.vedeo-text {
+  margin-bottom: 30px;
+  text-align: center;
+  margin: 2rem 3rem 0;
+  z-index: 1;
+  color: #fff;
+}
+.video-title {
+  padding-bottom: 15px;
+  font-size: 4vmin;
+  text-align: center;
+  margin: 20rem 3rem 0;
+  z-index: 1;
+  color: #fff;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+/*Header*/
+
+nav {
+  top: 0;
+  left: 0;
+  height: 80px;
+  z-index: 1;
+  background: rgba(7, 7, 7, 0);
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  padding-top: 10px;
+  box-shadow: none;
+  transition: 1s;
+}
+nav.limem {
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(31, 29, 29, 0.8);
+  color: white;
+  padding-top: 0px;
+  height: 70px;
+  box-shadow: #263238;
+  border-bottom: 1px solid white;
+}
+.menu {
+  margin-right: 1px;
+  margin-top: -11px;
+  padding-top: 9px;
+  padding-bottom: 8px;
+  transition: 1s;
+  font-family: "Russo One", sans-serif;
+}
+.menu:hover {
+  color: rgb(44, 50, 74, 0.8);
+  background-color: white;
+}
+
+nav ul a,
+nav .brand-logo {
+  color: white;
+}
+nav .brand-logo {
+  color: white;
+}
+#nav-icon1 {
+  width: 20px;
+  height: 10px;
+  position: relative;
+  margin: 20px auto;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+#nav-icon1 span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+#nav-icon1 span:nth-child(1) {
+  top: 5px;
+}
+
+#nav-icon1 span:nth-child(2) {
+  top: 10px;
+}
+
+#nav-icon1 span:nth-child(3) {
+  top: 15px;
+}
+
+#nav-icon1.open span:nth-child(1) {
+  top: 18px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+#nav-icon1.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+#nav-icon1.open span:nth-child(3) {
+  top: 18px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+.heading-primary-main {
+  display: block;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 5px;
+}
+.sidenav {
+  background: rgb(0, 0, 0, 0);
+  width: 50%;
+  margin-top: 70px;
+}
+
+.sidenav li {
+  border-bottom: 1px solid rgb(56, 51, 51);
+  padding: 10px 0 0 0;
+}
+.sidenav li a {
+  color: #fff;
+  font-family: "Russo One", sans-serif;
+  text-align: center;
+  font-size: 18px;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 10px;
+  line-height: 50px;
+  text-transform: uppercase;
+  font-size: bold;
+}
+.sidenav li a:hover {
+  color: #2c324a;
+  background: #fff;
+  font-family: "Russo One", sans-serif;
+  text-align: center;
+  font-size: 20px;
+  height: 50px;
+  line-height: 50px;
+}
+
+#sidenav {
+  margin-left: 300px;
+  z-index: 999;
+}
+
+.video-background {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+}
+
+video {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+header {
+  height: 107vh;
+  background: linear-gradient(
+    to right bottom,
+    rgba(19, 19, 19, 0.9),
+    rgba(211, 191, 16, 0.1)
+  );
+
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  border-bottom: 1px solid white;
+}
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* InfoAbout */
+.card-item {
+  padding: 8px 0px 40px 0px;
+}
+.itempro {
+  padding: 7%;
+}
+.itempro {
+  background: white;
+  border: 3px rgba(54, 50, 50, 0.8) solid;
+  width: 50%;
+  border-radius: 50%;
+  transition: 0.2s;
+  color: rgba(53, 49, 49, 0.8);
+}
+.itempro:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border: 3px rgba(243, 201, 16, 0.8) solid;
+  width: 60%;
+  border-radius: 50%;
+  transition: 0.2s;
+  color: rgba(243, 201, 16, 0.8);
+}
+.card-item h2 {
+  margin-bottom: 10%;
+}
+
+.def {
+  text-align: center;
+  color: rgba(59, 55, 55, 0.8);
+  font-size: 18px;
+  padding: 1px 5% 5% 5%;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+}
+/*  Statistic */
+.statistic {
+  position: relative;
+  min-height: 500px;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(19, 19, 19, 0.9),
+      rgba(211, 191, 16, 0.1)
+    ),
+    url("../image/static.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+}
+.statitle {
+  color: white;
+  font-size: 47px;
+  padding: 10%;
+  font-weight: bold;
+  font-family: "Russo One", sans-serif;
+  text-shadow: 2px 1px 3px #000000;
+  margin-top: 15%;
+}
+.numbers {
+  margin: 10% 0% 15% 0%;
+}
+hr {
+  border: 1px solid rgba(242, 210, 67, 0.4);
+  width: 80%;
+  margin-top: -15px;
+}
+.statinfo {
+  color: white;
+  font-size: 22px;
+  text-align: center;
+  text-shadow: 1px 2px 4px #000000;
+  font-family: "Open Sans", sans-serif;
+}
+/* REGISTER STYLE */
+.reginfo {
+  color: white;
+  font-size: 22px;
+  text-align: center;
+  text-shadow: 1px 2px 4px #000000;
+  font-family: "Open Sans", sans-serif;
+}
+
+.register {
+  position: relative;
+  min-height: 700px;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(19, 19, 19, 0.9),
+      rgba(211, 191, 16, 0.1)
+    ),
+    url("../image/reg.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+}
+.register #top {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 10vw;
+  fill: white;
+}
+.register #bot {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10vw;
+  fill: white;
+}
+.regbutton {
+  font-size: 18px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 15px 30px;
+  margin: 60px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.1s ease-out;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #f2d243;
+  border: 3px solid #f2d243;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-font-smoothing: antialiased;
+}
+.regbutton:hover {
+  color: white;
+  background-color: #f2d243;
+  border: 3px solid #ffffff;
+}
+
+.reg-card {
+  background-color: rgba(7, 7, 7, 0);
+}
+.teamreg {
+  width: 100%;
+  height: auto;
+  font-family: "Open Sans", sans-serif;
+}
+.selfreg {
+  width: 100%;
+  height: auto;
+  font-family: "Open Sans", sans-serif;
+}
+.card-action .regbutton {
+  margin-left: 35%;
+}
+.register .title {
+  padding-top: 12%;
+}
+
+/* INFO ABOUT PROGRAMM */
+#aboutvector {
+  margin-top: 50px;
+}
+.defenition {
+  width: 100%;
+  padding: 10%;
+  margin-left: 10%;
+  margin-top: 15%;
+  height: 90%;
+  margin-bottom: 30%;
+  cursor: auto;
+}
+.defabout {
+  text-align: left;
+  color: rgba(59, 55, 55, 0.8);
+  font-size: 18px;
+  padding: 1px 3% 2% 3%;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+}
+
+#about {
+  position: relative;
+  min-height: 570px;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.5)
+  );
+
+  margin: 0% 0px 5% 0px;
+}
+.proginfo {
+  background: #ffffff;
+  padding: 20px 10px 0 10px;
+  border-top: 1px solid #f2d243;
+  color: rgba(31, 46, 61, 0.5);
+  font-size: 20px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.infotitle {
+  color: #f2d243;
+  text-shadow: 1px 1px 3px #000000;
+  font-family: "Russo One", sans-serif;
+}
+
+/* TEAM INFORMATION */
+
+#team {
+  position: relative;
+  min-height: 1100px;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(19, 19, 19, 0.9),
+      rgba(211, 191, 16, 0.1)
+    ),
+    url("../image/team.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+}
+.team {
+  padding-top: 100px;
+}
+#team #top {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 10vw;
+  fill: white;
+}
+#team #bot {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10vw;
+  fill: white;
+}
+
+.bio {
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 1px 2px 1px #000000;
+  font-family: "Open Sans", sans-serif;
+}
+
+.mamber:hover {
+  cursor: auto;
+  border: 3px rgba(31, 46, 61, 0.9) solid;
+}
+.social {
+  margin-right: 10px;
+}
+.mamber {
+  width: 60%;
+  left: 20%;
+  border: 3px #f2d243 solid;
+  text-shadow: 1px 1px 4px #000000;
+  transition: 1s;
+  cursor: auto;
+}
+/* PARTNERS */
+#partners {
+  margin: 0% 0% 10% 0%;
+}
+/* CONTACTS SECTION */
+
+#mail {
+  font-size: 24px;
+  color: rgba(31, 46, 61, 0.5);
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Footer */
+.copy {
+  padding: 3%;
+  font-size: 18px;
+}
+main {
+  flex: 1 0 auto;
+}
+.inst {
+  color: rgba(243, 243, 243, 0.9);
+  padding: 9px;
+  padding-right: 11px;
+  padding-left: 11px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  text-shadow: 1px 1px 4px #000000;
+  transition: 0.2s;
+}
+.inst:hover {
+  background-color: rgba(216, 172, 29, 0.9);
+  border-radius: 20%;
+  color: white;
+}
+.fab {
+  margin-bottom: 20px;
+}
+.vk {
+  color: rgba(243, 243, 243, 0.9);
+  padding: 7px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  text-shadow: 1px 1px 4px #000000;
+  transition: 0.2s;
+}
+.vk:hover {
+  background-color: rgba(216, 172, 29, 0.9);
+  border-radius: 20%;
+  color: white;
+}
+.page-footer {
+  background-color: rgba(31, 29, 29, 0.9);
+}
+footer.page-footer {
+  font-family: "Open Sans", sans-serif;
+  margin-top: -20px;
+}
+.press li {
+  list-style: none;
+  display: inline-block;
+}
+
+/* Media */
+@media only screen and (max-width: 1200px) {
+  .defenition {
+    width: 100%;
+    padding: 2%;
+    margin-top: 54%;
+    margin-left: 7%;
+    height: 90%;
+    cursor: auto;
+  }
+  .defabout {
+    text-align: left;
+    margin-bottom: 20%;
+    color: rgba(59, 55, 55, 0.8);
+    font-size: 17 px;
+    padding: 1px 1% 2% 1%;
+    font-weight: bold;
+    font-family: "Open Sans", sans-serif;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  #index-banner .section {
+    top: 10%;
+  }
+  .btn-large {
+    margin-left: 10px;
+  }
+  .defenition {
+    width: 100%;
+    padding: 2%;
+    margin-top: 59%;
+    margin-left: 7%;
+    height: 90%;
+    cursor: auto;
+  }
+  .defabout {
+    text-align: left;
+    margin-bottom: 20%;
+    color: rgba(59, 55, 55, 0.8);
+    font-size: 17 px;
+    padding: 1px 1% 2% 1%;
+    font-weight: bold;
+    font-family: "Open Sans", sans-serif;
+  }
+  .statitle {
+    color: white;
+    font-size: 35px;
+    padding: 10%;
+    font-weight: bold;
+    font-family: "Russo One", sans-serif;
+    text-shadow: 1px 1px 2px #000000;
+    margin-top: 15%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .defenition {
+    width: 100%;
+    padding: 10%;
+    margin-top: 20%;
+    margin-bottom: 20%;
+    margin-left: 0%;
+    height: 90%;
+    cursor: auto;
+  }
+  .defabout {
+    text-align: center;
+    color: rgba(59, 55, 55, 0.8);
+    font-size: 17 px;
+    padding: 1px 3% 2% 3%;
+    font-weight: bold;
+    font-family: "Open Sans", sans-serif;
+  }
+}
+
+@font-face {
+  font-family: "Brody";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Brody"), url("../fonts/BRODY.woff") format("woff");
+}
+.spons {
+  width: 100%;
+  margin: 5%;
+}
+#rsm {
+  margin-top: 5%;
+}

@@ -4,7 +4,7 @@
 <h4> I will code for at least an hour every day for the next 100 days. </h4>
 
 <p> <b> Start Date </b> 
-  <p>January 15 2019 </p> 
+  <p> <b> January 15 2019  </b></p> 
 </p>
 <h1> Additional Rules </h1>
 <p>
