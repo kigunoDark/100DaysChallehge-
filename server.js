@@ -1,16 +1,20 @@
 const express = require('express');
-const landShow = require('./routes/users');
+const landShow = require('./routes/userRoute');
+const adminShow = require('./routes/adminRoute');
 const path = require('path');
 const app = express();
 
 
-// use ejs engine
+// app.use of ejs engine
 app.set('view engine', 'ejs');
 app.set('views', 'views');
+
+// app.use of our routes
 app.use(landShow);
+app.use( adminShow);
 
 
-// use  a static path
+// app.use of a static path
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(3000, (err,next) => {

@@ -5,6 +5,11 @@
   });
 })(jQuery);
 
+$('.dropdown-trigger').dropdown({
+  closeOnClick: false,
+  hover: true
+});
+
 $(document).ready(function() {
   if (
     $(window).scroll(function() {

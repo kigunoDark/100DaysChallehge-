@@ -35,6 +35,11 @@
     <!-- Header with a navigation -->
 
     <header>
+
+    <!-- Divide navbar for 2 type of users -->
+
+
+
         <div class="navbar-fixed">
             <nav role="navigation">
                 <div class="nav-wrapper container">
@@ -47,6 +52,11 @@
                             <span></span>
                         </div>
                     </a>
+
+                    <!-- PC Navbar for users -->
+
+                    <% if(pageTipe === "users") { %>
+
                     <ul class="right hide-on-med-and-down">
                         <li>
                             <a class="menu" href="#aboutvector">О нас</a>
@@ -65,6 +75,50 @@
                             <a class="menu" href="#contacts">Контакты</a>
                         </li>
                     </ul>
+                    <% } else if (pageTipe === "admin"){ %>
+
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a class="menu" href="#aboutvector">О нас</a>
+                        </li>
+                        
+                        <li>
+                            <a class="menu" href="#info">О проекте</a>
+                        </li>
+
+                        <li>
+                            <a class="menu" href="#about">Программа</a>
+                        </li>
+
+                        <li>
+                            <a class="menu" href="#team">Команда</a>
+                        </li>
+
+                        <li>
+                            <a class="menu" href="#contacts">Контакты</a>
+                        </li>
+
+                        <li>
+                           <!-- Dropdown Trigger -->
+                            <a class='menu dropdown-trigger ' href='#' data-target='dropdown1'>Войти</a>
+
+                            <!-- Dropdown Structure -->
+                            <ul id='dropdown1' class='dropdown-content'>
+                                <form action="/adminPage", mathod="POST"> 
+                                <div class="container">
+                                    <p>
+                                        <input type="text" name="username" placeholder="Логин"> <br />
+                                        <input type="text" name="username" placeholder="Пароль"> 
+                                        <button type="submit"> Submit</button>
+                                     </p>
+
+                                   </div>
+                                </form>
+                            </ul>
+                        </li>
+
+                    </ul> 
+                    <% } %>
                 </div>
             </nav>
 
@@ -102,7 +156,6 @@
                             </span> </p>
                     </h2>
                 </span>
-
                 <span class="heading-primary-sub">
                     <h6 class="subtitle-video header col s12 light">6-10 октября, Пятигорск, база «Машук» </h6>
                 </span>
@@ -115,4 +168,4 @@
         </video>
         </div>
         </div>
-    </header>
+</header>
