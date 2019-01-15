@@ -14,4 +14,4 @@
 5. I will work on real projects, facing real challenges. The time spent doing tutorials, online courses and other similar resources will NOT count towards this challenge. 
       
 ## Progress
-* [a Log file](log.md)
+* [A Log file](log.md)
