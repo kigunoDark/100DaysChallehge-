@@ -1,0 +1,24 @@
+{
+  "name": "vectore",
+  "version": "1.0.0",
+  "description": "this is project for vectorskfo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kigunoDark/100DaysChallehge-.git"
+  },
+  "author": "FoxBukaa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kigunoDark/100DaysChallehge-/issues"
+  },
+  "homepage": "https://github.com/kigunoDark/100DaysChallehge-#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}
