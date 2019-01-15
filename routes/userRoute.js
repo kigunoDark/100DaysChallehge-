@@ -4,4 +4,5 @@ const userControll = require('../controllers/userControll');
 
 router.get('/', userControll.getLanding);
 
+
 module.exports = router;
