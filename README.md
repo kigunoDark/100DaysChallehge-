@@ -19,4 +19,4 @@
 
 </p>
 
-[Log file] (log.md)
+[a Log file] (log.md)
