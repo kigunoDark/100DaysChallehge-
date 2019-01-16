@@ -6100,7 +6100,7 @@ button:focus {
 }
 
 label {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: #9e9e9e;
 }
 
@@ -6790,12 +6790,12 @@ textarea.materialize-textarea {
 [type="radio"]:checked + span:after,
 [type="radio"].with-gap:checked + span:before,
 [type="radio"].with-gap:checked + span:after {
-  border: 2px solid #26a69a;
+  border: 2px solid #fad221;
 }
 
 [type="radio"]:checked + span:after,
 [type="radio"].with-gap:checked + span:after {
-  background-color: #26a69a;
+  background-color:#fad221;
 }
 
 [type="radio"]:checked + span:after {
