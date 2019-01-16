@@ -308,6 +308,7 @@ video {
 }
 
 header {
+  margin-top: -10%; 
   height: 107vh;
   background: linear-gradient(
     to right bottom,
@@ -389,6 +390,10 @@ header {
 .numbers {
   margin: 10% 0% 15% 0%;
 }
+.admSubmit{
+  display: none;
+}
+
 hr {
   border: 1px solid rgba(242, 210, 67, 0.4);
   width: 80%;

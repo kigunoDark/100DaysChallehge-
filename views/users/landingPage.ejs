@@ -1,5 +1,33 @@
  <%- include('../layouts/navbar.ejs')%>
- 
+ <header>
+
+ <!-- Divide navbar for 2 type of users -->
+         <div class="text-box">
+         <h1 class="heading-primary">
+             <span class="heading-primary-main">
+                 <h2 class=" video-title">Межрегиональный
+                     лагерь
+                     студенческого
+                     самоуправления и
+                     личностного
+                     развития <p><span class="vector"> <br>«Вектор»
+                         </span> </p>
+                 </h2>
+             </span>
+             <span class="heading-primary-sub">
+                 <h6 class="subtitle-video header col s12 light">6-10 октября, Пятигорск, база «Машук» </h6>
+             </span>
+                  <a href="#register" class="smooth"> <button class="regbutton"> <span class="regword">Регистрация</span></button></a>
+             </p>
+         </h1>
+     </div>
+         <video id="video" poster="./image/poster.jpg" playsinline autobuffer autoplay muted loop>
+             <source src="./video/vector.mp4" type="video/mp4">
+         </video>
+     </div>
+    
+     </div>
+</header>
  <!-- About vector and team -->
 
  <section id="aboutvector">
@@ -156,9 +184,48 @@
                          проектную
                          сессию и составить дорожную карту развития своего объединения</h5>
                      <div class="center">
-                         <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSekBNPtZo7v6GcD8EpbHUoQuit7odeUOW1zbncVA8wdOQ44-g/viewform"
-                             class="smooth">
-                             <button class="regbutton">Подать заявку</button></a>
+                       
+                             <button data-target="modal1"  class="regbutton modal-trigger">Подать заявку</button>
+
+                             <!-- Modal Structure -->
+                        <div id="modal1" class="modal">
+                          
+                                <div class="modal-content" style="text-align: left">
+                                    <h4>Межрегиональный лагерь студенческого самоуправления и личностного развития СКФО "Вектор - 2018": регистрация команды </h4>
+                                    <p>Команда образовательной организации состоит из 4-5 участников. Для команд в рамках общей программы будет проведена проектно-стратегическая сессия, в которой они смогут проанализировать систему своей работы и выработать эффективный план дальнейшего развития своего объединения. В состав команды приглашаются лидеры студенческого самоуправления (председатели, заместители председателей советов обучающихся, координаторы направлений деятельности органа студенческого самоуправления, лидеры молодежных объединений). Приветствуется опыт участия в молодежном самоуправлении более 1,5-2 лет. </p>
+                                    <form>
+          
+                                            <div class="row">
+                                                    <div class="input-field col s12">
+                                                         <input value="Учебное заведение" id="first_name2" type="text" class="validate">                                                  
+                                                    </div>
+                                            </div>
+
+                                            <div class="row">
+                                                    <div class="input-field col s12">
+                                                        <input value="Регион, город" id="first_name2" type="text" class="validate">
+                                                    </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <input value="Наименование органа студенческого самоуправления, который представляет команда" id="first_name2" type="text" class="validate">
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <input value="ФИО лидера команды" id="first_name2" type="text" class="validate">
+                                                </div>
+                                            </div>
+                                    
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                                </div>
+                                </div>
+                                    
                      </div>
                  </div>
              </div>

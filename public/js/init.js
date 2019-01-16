@@ -9,6 +9,10 @@ $('.dropdown-trigger').dropdown({
   closeOnClick: false,
   hover: true
 });
+// Modals Controller
+$(document).ready(function(){
+  $('.modal').modal();
+});
 
 $(document).ready(function() {
   if (
@@ -20,6 +24,10 @@ $(document).ready(function() {
       }
     })
   );
+});
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.autocomplete');
+  var instances = M.Autocomplete.init(elems, options);
 });
 $(document).ready(function() {
   $(".menu").click(function(e) {
@@ -34,6 +42,7 @@ $(document).ready(function() {
     e.preventDefault();
   });
 });
+
 
 $(document).ready(function() {
   $(".smooth").click(function(e) {
