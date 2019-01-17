@@ -15,3 +15,12 @@
 **Thoughts:** Finished my registration form for one type of users and understood for whom I'm going to develop this project because I found a client.
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 2: January 16 2019 
+
+**Today's Progress**: I haven't worked today because I've spent my time at university and with my friends and girlfriend. 
+
+**Thoughts:** However, I have finished my work at the evning. I made a modal for registration of one person and changed css style. I'have been working about one hour, but I can be better and work harder.
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
