@@ -74,6 +74,13 @@ img {
   font-weight: normal;
   font-size: 3vmin;
 }
+.regTitle{
+  font-weight: bold;
+  color:#f2d243; 
+  text-transform:uppercase;
+}
+
+
 .owncolor {
   color: #f2d243;
   font-weight: bold;

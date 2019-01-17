@@ -5760,7 +5760,7 @@ body.keyboard-focused .dropdown-content li:focus {
   position: fixed;
   left: 0;
   right: 0;
-  background-color: #fafafa;
+  background-color:rgba(52, 55, 56,0.5);
   padding: 0;
   max-height: 70%;
   width: 55%;
@@ -5768,6 +5768,7 @@ body.keyboard-focused .dropdown-content li:focus {
   overflow-y: auto;
   border-radius: 2px;
   will-change: top, opacity;
+  color: white;
 }
 
 @media only screen and (max-width: 992px) {
@@ -5790,11 +5791,12 @@ body.keyboard-focused .dropdown-content li:focus {
 
 .modal .modal-footer {
   border-radius: 0 0 2px 2px;
-  background-color: #fafafa;
+
   padding: 4px 6px;
   height: 56px;
   width: 100%;
   text-align: right;
+  color: white;
 }
 
 .modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-small, .modal .modal-footer .btn-flat {
