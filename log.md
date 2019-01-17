@@ -17,9 +17,9 @@
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
 
-## Day 2: January 16 2019 
+## Day 3: January 17 2019 
 
-**Today's Progress**: I haven't worked today because I've spent my time at university and with my friends and girlfriend. 
+**Today's Progress**: I haven't worked today because I've spent my time at university and with my friends and girlfriend.  Hehehe
 
 **Thoughts:** However, I have finished my work at the evning. I made a modal for registration of one person and changed css style. I'have been working about one hour, but I can be better and work harder.
 
