@@ -24,3 +24,15 @@
 **Thoughts:** However, I have finished my work at the evning. I made a modal for registration of one person and changed css style. I'have been working about one hour, but I can be better and work harder.
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+
+## Day 3: January 18 2019 
+
+**Today's Progress**: file system, work with a simple data in a my project but it doesnt work yet.
+**Thoughts:** Don't give up bro. You will find a mistake tommorow 
+
+Why can't I commit my log file fuck
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
