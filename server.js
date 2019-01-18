@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const landShow = require('./routes/userRoute');
 const adminShow = require('./routes/adminRoute');
 const path = require('path');
@@ -13,7 +14,7 @@ app.set('views', 'views');
 app.use(landShow);
 app.use( adminShow);
 
-
+app.use(bodyParser.urlencoded({extended: false}));
 // app.use of a static path
 app.use(express.static(path.join(__dirname, 'public')));
 

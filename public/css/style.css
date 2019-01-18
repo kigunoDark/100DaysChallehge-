@@ -80,7 +80,11 @@ img {
   text-transform:uppercase;
 }
 
-
+input,
+textarea{
+  font-weight: bold;
+  color: white;
+}
 .owncolor {
   color: #f2d243;
   font-weight: bold;

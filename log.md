@@ -17,7 +17,7 @@
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
 
-## Day 3: January 17 2019 
+## Day 2: January 17 2019 
 
 **Today's Progress**: I haven't worked today because I've spent my time at university and with my friends and girlfriend.  Hehehe
 
