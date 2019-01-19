@@ -36,3 +36,14 @@ Why can't I commit my log file?
 
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 4: January 19 2019 
+
+**Today's Progress**: I've begane to work with and admin page. My project in a process 
+**Thoughts:** I'm going to work with data on a backend tomorrow.
+
+Why can't I commit my log file?
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
