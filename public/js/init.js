@@ -18,13 +18,15 @@ $(document).ready(function() {
   if (
     $(window).scroll(function() {
       if ($(window).scrollTop() > 300) {
-        $("nav").addClass("limem");
+        $(".navanim").addClass("limem");
       } else {
-        $("nav").removeClass("limem");
+        $(".navanim").removeClass("limem");
       }
     })
   );
 });
+
+
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.autocomplete');
   var instances = M.Autocomplete.init(elems, options);

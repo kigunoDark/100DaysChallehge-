@@ -32,7 +32,7 @@
 **Today's Progress**: file system, work with a simple data in a my project but it doesnt work yet.
 **Thoughts:** Don't give up bro. You will find a mistake tommorow 
 
-Why can't I commit my log file fuck
+Why can't I commit my log file?
 
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-

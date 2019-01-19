@@ -3,6 +3,7 @@ exports.getAdminLogin = (req, res) => {
     {
         pageTitle: "Вектор Admin",
         pageTipe:"admin"
+        
     });
 };
 

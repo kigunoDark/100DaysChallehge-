@@ -85,6 +85,10 @@ textarea{
   font-weight: bold;
   color: white;
 }
+
+#user-info{
+  margin: 00% 0% 10% 0%;
+}
 .owncolor {
   color: #f2d243;
   font-weight: bold;
@@ -109,6 +113,15 @@ textarea{
   text-shadow: 1px 1px 3px #000000;
   font-size: 20px;
   cursor: pointer;
+}
+
+.more{
+  color: #fad221;
+  padding: 5px 0px 5px 0px;
+  text-shadow: 2px 1px 4px #000000;
+  font-weight: bold;
+  
+ 
 }
 .subtitle {
   color: #fad221;
