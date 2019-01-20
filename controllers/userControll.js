@@ -7,31 +7,31 @@ exports.getLanding = (req, res) => {
         pageTipe:"users",
         path: '/'
     });
-};
+}
 
-exports.postNewUser = (req, res)=>{
+exports.postNewUser = (req, res) => {
+    const parUnivercity = req.body.parUnivercity;
+    const parCity = req.body.parCity;
+    const parEmail = req.body.parEmail;
+    const parPhone = req.body.parPhone;
+    const parDate = req.body.parDate;
+    const parSocial = req.body.parSocial;
+    const parPosition = req.body.parPosition;
+    const parExp = req.body.parExp;
+    const parSocityExp = req.body.parSocityExp;
+    const parEventsExp = req.body.parEventsExp;
+    const parCharacter = req.body.parCharacter;
+    const parStrengths = req.body.parStrengths;
+    const parWhy = req.body.parWhy;
+    const parSize = req.body.parSize
 
-    const parUniversity = req.body.paruniversity;
-    // const parCity = req.bod.parCity;
-    // const parEmail = req.boyd.parEmail;
-    // const parPhone = req.body.parPhone;
-    // const parDate  = req.body.parDate;
-    // const parSocial = req.body.parSocial;
-    // const parPosition = req.body.parPosition;
-    // const parExp = req.body.parExp;
-    // const parSocityExp = req.body.parSocityExp;
-    // const parEventsExp = req.body.parEventsExp;
-    // const parCharacter = req.body.parCharacter;
-    // const parStrengths = req.body.parStrengths;
-    // const parWhy = req.body.parWhy;
-    // const parSize = req.body.parSize;
-
-    const user = new User(parUniversity);
-        //  parUniversity, parCity, parEmail,
-        //  parPhone, parDate, parSocial,
-        //  parPosition, parExp, parSocityExp,
-        //  parEventsExp, parCharacter,parStrengths,
-        //  parWhy, parSize);
+    const user = new User(
+        parUnivercity, parCity, parEmail,
+        parPhone, parDate, parSocial,
+        parPosition, parExp, parSocityExp,
+        parEventsExp, parCharacter, parStrengths,
+        parWhy, parSize
+        );
     user.save();
     res.redirect('/');
-};
+}
