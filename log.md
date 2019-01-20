@@ -49,7 +49,7 @@ Why can't I commit my log file?
 
 ## Day 5: January 20 2019 
 
-**Today's Progress**: I have worked with back-end and solved some problems which I had. Everithing is working right now and I'm so happy. I also learnt how to get data from our back-end in my main project.
+**Today's Progress**: I have worked with back-end and solved some problems which I had. Everithing is working right now and I'm so happy. I also learned how to get data from our back-end in my main project.
 
 **Thoughts:** I have a good results today. Tomorro I'm going to understand how to work with a mysql db and will make some front-end for my project.
 
