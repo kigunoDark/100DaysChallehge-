@@ -43,7 +43,17 @@ Why can't I commit my log file?
 **Today's Progress**: I've begane to work with and admin page. My project in a process 
 **Thoughts:** I'm going to work with data on a backend tomorrow.
 
-Why can't I commit my log file?
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+## Day 5: January 20 2019 
+
+**Today's Progress**: I have worked with back-end and solved some problems which I had. Everithing is working right now and I'm so happy. I also learnt how to get data from our back-end in my main project.
+
+**Thoughts:** I have a good results today. Tomorro I'm going to understand how to work with a mysql db and will make some front-end for my project.
+
+
 
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
