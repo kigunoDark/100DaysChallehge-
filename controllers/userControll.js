@@ -10,6 +10,7 @@ exports.getLanding = (req, res) => {
 }
 
 exports.postNewUser = (req, res) => {
+    const parFio =  req.body.parFio;
     const parUnivercity = req.body.parUnivercity;
     const parCity = req.body.parCity;
     const parEmail = req.body.parEmail;
@@ -30,7 +31,7 @@ exports.postNewUser = (req, res) => {
         parPhone, parDate, parSocial,
         parPosition, parExp, parSocityExp,
         parEventsExp, parCharacter, parStrengths,
-        parWhy, parSize
+        parWhy, parSize, parFio
         );
     user.save();
     res.redirect('/');

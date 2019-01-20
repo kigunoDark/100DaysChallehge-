@@ -3,19 +3,23 @@
 
 
     <main class="user-dashboard"> 
-   
+
+        <% if(users.length > 0) { %>
+
           <div class="container">
             <h1 class="title1 center"> <span class="owncolor">Участники</span> без команды</h1>
             <div class="row">
+
+            <%  for(let user of users) { %>
+
                 <div id="user-info" class="col s12 m4">
                     <div class="card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1508921340878-ba53e1f016ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
-                        <span class="card-title">ФИО</span>
+                    <div class="card-image ">
+                        <img src="https://images.unsplash.com/photo-1510519138101-570d1dca3d66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1462&q=80">
+                        <span class="parFio card-title"><%= user.parFio %></span>
                     </div>
                     <div class="card-content">
-                        <p>Немного информации о себе чтобы узнать больше
-                        о человеке который подал заявку и узнать еще</p>
+                        <p><%= user.parCity %></p>
                     </div>
                     <div class="card-action">
                         
@@ -24,10 +28,25 @@
 
                         <!-- Modal Structure -->
                         <div id="modal1" class="modal">
+                        <div class="container-wrap modal-head">
+                                    <img class="mamberUser materialboxed z-depth-3 responsive-img circle" src="./image/vlad.jpg">
+                                    <p class="fioUser center" > <%= user.parFio %> </p>
+                                    <p class="fioUser center" > <%= user.parCity %> </p>
+                                    <p class="fioUser center" target="_blank"> <a href="<%=user.parSocial %>"> Ссылка на профиль</a> </p>
+                                </div>
                             <div class="modal-content">
-                            
-                            
-                            <p>A bunch of text</p>
+                                <p><%= user.parEmail %></P>
+                                <p><%= user.parPhone %></P>
+                                <p><%= user.parDate %></P>
+                                <p><%= user.parPosition %></P>
+                                <p><%= user.parExp %></P>
+                                <p><%= user.parSocityExp %></P>
+                                <p><%= user.parEventsExp %></P>
+                                <p><%= user.parCharacter %></P>
+                                <p><%= user.parStrengths %></P>
+                                <p><%= user.parWhy %></P>
+                                <p><%= user.parSize  %></P>
+                                <p><%= user.parFio %></P>
                             </div>
                             <div class="modal-footer">
                             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
@@ -36,11 +55,12 @@
                     </div>
                     </div>
                 </div>
+            <% } %>    
+        </div>       
 
-                
-            </div>       
-
-            
+        <% } else { %>
+            <h1> В списке нет пользователей </h1>
+        <% } %>
           </div>
   
     </main>

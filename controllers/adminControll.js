@@ -1,3 +1,4 @@
+const User = require('../models/users');
 exports.getAdminLogin = (req, res) => {
     res.render('./users/landingPage', 
     {
@@ -7,10 +8,15 @@ exports.getAdminLogin = (req, res) => {
     });
 };
 
-exports.getAdminPage = (req, res) => {
-    res.render('./admin/adminPage',{
-        pageTitle: "Admin page",
-        pageTipe: "adminIn"
-    });
+exports.getAllUsers = (req, res) => {
+    User.fetchAll(users => {
+        res.render('./admin/adminPage',{
+            users: users,
+            pageTitle: "Admin page",
+            pageTipe: "adminIn"
+        });
+    })
     
-}
+};
+
+

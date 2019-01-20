@@ -27,7 +27,7 @@ module.exports = class User{
         parPhone, parDate, parSocial,
         parPosition, parExp, parSocityExp,
         parEventsExp, parCharacter, parStrengths,
-        parWhy, parSize
+        parWhy, parSize, parFio
         ){
         this.parUnivercity = parUnivercity;
         this.parCity = parCity;
@@ -43,6 +43,7 @@ module.exports = class User{
         this.parStrengths = parStrengths;
         this.parWhy = parWhy;
         this.parSize = parSize;
+        this.parFio = parFio;
     }
 
     save() {

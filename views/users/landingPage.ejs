@@ -359,7 +359,14 @@
                             <h5 class="regTitle">Межрегиональный лагерь студенческого самоуправления и личностного развития СКФО "Вектор - 2018": регистрация участника</h5>
                             <p>Участник программы лагеря по траектории "Личностное развитие" в рамках общей программы сможет посетить мастер-классы и проработать индивидуальный план своего развития. Для участия в данном направлении приглашаются активисты студенческого самоуправления и молодежных объединений.</p>
                             <form action="/add-paruser" method="POST">
-  
+
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input placeholder="Введите отыет" name="parFio"  id="parFio" type="text" class="validate">
+                                            <label style="font-size: 18px;" for="parFio">ФИО участника</label>
+                                        </div>
+                                    </div>        
+
                                     <div class="row">
                                             <div class="input-field col s12">
                                                 <input placeholder="Введите название" name="parUniversity"  id="parUniversity" type="text" class="validate">
@@ -781,8 +788,9 @@
                  </div>
              </div>
              <div class="col s12 m4">
-                 <div class="icon-block">
-                     <img class="mamber materialboxed z-depth-3 responsive-img circle" src="./image/kira.jpg">
+                 <div class="icon-block ">
+                     <img class="mamber materialboxed z-depth-2 responsive-img circle" src="./image/kira.jpg">
+                </div>
                      <h5 class="fio center" style="text-transform:none;">Людмила <br> Кирюхина</h5>
                      <p class="bio light">Асессор,<br> модератор</p>
                      <ul class="center">

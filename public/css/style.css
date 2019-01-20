@@ -46,7 +46,13 @@ img {
   font-family: "Russo One", sans-serif;
   font-weight: normal;
 }
-
+.modal-head{
+  background-color: rgb(242, 210, 67, 0.8);
+  padding: 5% 0% 5% 0%;
+}
+.parFio{
+  text-shadow: 1px 1px 8px #000000;
+}
 .title1 {
   color: rgba(31, 29, 29, 0.8);
   padding-bottom: 50px;
@@ -73,6 +79,17 @@ img {
   font-family: "Russo One", sans-serif;
   font-weight: normal;
   font-size: 3vmin;
+}
+
+.fioUser
+{
+  
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px #000000;
+  font-family: "Russo One", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
 }
 .regTitle{
   font-weight: bold;
@@ -602,6 +619,8 @@ hr {
   cursor: auto;
   border: 3px rgba(31, 46, 61, 0.9) solid;
 }
+
+
 .social {
   margin-right: 10px;
 }
@@ -610,6 +629,17 @@ hr {
   left: 20%;
   border: 3px #f2d243 solid;
   text-shadow: 1px 1px 4px #000000;
+  transition: 1s;
+  cursor: auto;
+}
+
+
+.mamberUser {
+  width: 20%;
+  left: 40%;
+  border: 3px #ffffff solid;
+  text-shadow: 1px 1px 4px #000000;
+  margin-bottom: 30px;
   transition: 1s;
   cursor: auto;
 }
