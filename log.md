@@ -57,3 +57,14 @@ Why can't I commit my log file?
 
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+## Day 6: January 20 2019 
+
+**Today's Progress**: I have learned some new methods of working with data on udemy, but we cant count it because it's against our rules, so I decided to work with a front-end today. My project still alive he is in a process of developing. 
+
+**Thoughts:** At first they will ask, why you're doing it, Latter they will ask how you did it..
+
+
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
