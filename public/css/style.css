@@ -46,9 +46,13 @@ img {
   font-family: "Russo One", sans-serif;
   font-weight: normal;
 }
-.modal-head{
-  background-color: rgb(242, 210, 67, 0.8);
-  padding: 5% 0% 5% 0%;
+.modalHead{
+  background-image: url('https://images.unsplash.com/photo-1525422847952-7f91db09a364?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1530&q=80');
+  background-size: cover;
+  padding:20% 0% 20% 0%;
+  border-bottom: 3px solid #f2d243;
+  text-shadow: 1px 1px 8px #000000;
+  z-index: 1;
 }
 .parFio{
   text-shadow: 1px 1px 8px #000000;
@@ -79,6 +83,18 @@ img {
   font-family: "Russo One", sans-serif;
   font-weight: normal;
   font-size: 3vmin;
+}
+.userDateColor{
+  color: #f2d243;
+}
+
+.userBio{
+  padding: 5%;
+
+}
+
+#userBio{
+  text-align: right;
 }
 
 .fioUser
@@ -635,13 +651,14 @@ hr {
 
 
 .mamberUser {
-  width: 20%;
+  width: 25%;
   left: 40%;
-  border: 3px #ffffff solid;
+  border: 3px #f2d243  solid;
   text-shadow: 1px 1px 4px #000000;
-  margin-bottom: 30px;
+  margin-top: 7%;
   transition: 1s;
   cursor: auto;
+  position: absolute;
 }
 /* PARTNERS */
 #partners {
