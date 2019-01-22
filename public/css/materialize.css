@@ -5760,7 +5760,7 @@ body.keyboard-focused .dropdown-content li:focus {
   position: fixed;
   left: 0;
   right: 0;
-  background-color:rgba(52, 55, 56,0.5);
+  background-color:rgb(255, 255, 255);
   padding: 0;
   max-height: 70%;
   width: 55%;

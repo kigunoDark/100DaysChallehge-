@@ -30,29 +30,40 @@
                         <div id="modal1" class="modal">
                             <div class="container-wrap modalHead">
                                  <img class="mamberUser materialboxed z-depth-3 responsive-img circle" src="./image/vlad.jpg">
+                                 <h5 class="parfioUser center "><%= user.parFio %></h5>
+                                 <div class="container-wrap rowCont">
+                                    <div class="row">
+                                        <div class=" col s12 m4 ">
+                                             <i class="fas fa-map-marker-alt parContUser ">  <%= user.parCity %></i>
+                                        </div>
+                                        <div class=" col s12 m4 ">
+                                             <i class="fas fa-at parContUser"> <%= user.parEmail %></i>
+                                        </div>
+                                        <div class=" col s12 m4 ">
+                                            <i class="fas fa-mobile-alt parContUser">  <%= user.parPhone %>  </i>
+                                        </div>
+                                    </div>
+
+                                  
+                                 </div>
                             </div>
                             <div class="modal-content">
+
                                 <div class="container-wrap userBio">
                                     <div class="row">
-                                        <div class="col s12 m6 " id="userBio">
-
-                                            <span class="fioUser">  <span class="userDateColor"> ФИО</span> </span>
+                                        <div class="col s12 m12 " id="userBio">
                                             <p>
-                                                <span class="fioUser">  <%= user.parFio %>  </span>
-                                            </p> 
-                                             
-                                            <span class="fioUser">  <span class="userDateColor"> Город</span> </span>
-                                            <p>
-                                                <span class="fioUser">   <%= user.parCity %>  </span> 
+                                                <span class="fioUser"><span class="parUserOwncolor"> Город:</span></span>
+                                                <span class="defabout"> <%= user.parCity %></span> 
                                             <p>  
 
-                                            <span class="fioUser">  <span class="userDateColor"> Социальные сети</span> </span>
                                             <p>
-                                                <span class="fioUser"> <a href="<%=user.parSocial %>"> Ссылка </a>  </span>
+                                                <span class="fioUser"><span class="parUserOwncolor"> Социальные сети:</span></span>
+                                                <span class="fioUser"><a href="<%=user.parSocial %>"> Ссылка </a></span>
                                             </p>
 
-                                            <span class="fioUser">  <span class="userDateColor"> Номер телефона</span> </span>
                                             <p>
+                                                <span class="fioUser">  <span class="parUserOwncolor"> Номер телефона:</span> </span>
                                                 <span class="fioUser">  <%= user.parPhone %> </span> 
                                             <p>
 
@@ -83,7 +94,7 @@
                                                 <span class="fioUser"><%= user.parEmail %></span> 
                                             <p>  
        
-                                            <span class="fioUser"><span class="userDateColor"> Должность в оссу</span> </span>
+                                            <span class="fioUser"><span class="userDateColor"> Email</span> </span>
                                             <p>
                                                 <span class="fioUser">  <span class="userDateColor"> Должность в оссу: </span> <%= user.parPosition %> </span> 
                                             <p>

@@ -46,13 +46,8 @@ img {
   font-family: "Russo One", sans-serif;
   font-weight: normal;
 }
-.modalHead{
-  background-image: url('https://images.unsplash.com/photo-1525422847952-7f91db09a364?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1530&q=80');
-  background-size: cover;
-  padding:20% 0% 20% 0%;
-  border-bottom: 3px solid #f2d243;
-  text-shadow: 1px 1px 8px #000000;
-  z-index: 1;
+.userBlock{
+  background-color: rgb(242, 210, 67, 0.4);
 }
 .parFio{
   text-shadow: 1px 1px 8px #000000;
@@ -84,27 +79,38 @@ img {
   font-weight: normal;
   font-size: 3vmin;
 }
-.userDateColor{
-  color: #f2d243;
+.parfioUser{
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-shadow: 1px 1px 4px #000000;
+    font-family: "Russo One", sans-serif;
+    font-size: 14px;
+    margin-bottom: 2%; 
 }
 
-.userBio{
-  padding: 5%;
-
+.rowCont{
+  
+  margin-left: 50px;
+  margin-top:10%;
+  margin-bottom: -9%;
 }
-
-#userBio{
-  text-align: right;
+.parContUser{
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  text-shadow: 1px 1px 4px #000000;
+  font-family: "Russo One", sans-serif;
+  font-size: 14px;
+  margin-left: 10%;
 }
 
 .fioUser
 {
   
   color: white;
-  font-weight: bold;
-  text-shadow: 1px 1px 4px #000000;
+  font-weight:normal;
+  text-shadow: 1px 1px 8px #000000;
   font-family: "Russo One", sans-serif;
-  font-weight: normal;
+
   font-size: 14px;
 }
 .regTitle{
@@ -121,6 +127,14 @@ textarea{
 
 #user-info{
   margin: 00% 0% 10% 0%;
+}
+.parUserOwncolor{
+  color: #f2d243;
+  text-shadow: 2px 1px 2px #302f2f;
+  font-family: "Russo One", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  text-transform: uppercase;
 }
 .owncolor {
   color: #f2d243;
@@ -146,6 +160,23 @@ textarea{
   text-shadow: 1px 1px 3px #000000;
   font-size: 20px;
   cursor: pointer;
+}
+.mamberUser
+{
+  width: 25%;
+  left: 37%;
+  border: 3px solid white;
+  margin: 10px 0px 30px 0px;
+}
+.modalHead{
+  padding: 10% 0% 10% 0%;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(27, 27, 26, 0.9),
+    rgba(20, 20, 20, 0.9)
+  ),
+  url('https://images.unsplash.com/photo-1508145052393-b0328a3ab751?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');
+  background-size: cover;
 }
 
 .more{
@@ -647,18 +678,6 @@ hr {
   text-shadow: 1px 1px 4px #000000;
   transition: 1s;
   cursor: auto;
-}
-
-
-.mamberUser {
-  width: 25%;
-  left: 40%;
-  border: 3px #f2d243  solid;
-  text-shadow: 1px 1px 4px #000000;
-  margin-top: 7%;
-  transition: 1s;
-  cursor: auto;
-  position: absolute;
 }
 /* PARTNERS */
 #partners {
