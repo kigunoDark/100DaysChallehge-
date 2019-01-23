@@ -29,101 +29,89 @@
                         <!-- Modal Structure -->
                         <div id="modal1" class="modal">
                             <div class="container-wrap modalHead">
-                                 <img class="mamberUser materialboxed z-depth-3 responsive-img circle" src="./image/vlad.jpg">
+                                 <img class="mamberUser materialboxed z-depth-2 responsive-img circle" src="./image/vlad.jpg">
                                  <h5 class="parfioUser center "><%= user.parFio %></h5>
-                                 <div class="container-wrap rowCont">
-                                    <div class="row">
+                      
+                                <div class="container-wrap rowBlock">
+                                    <div class="row rowCont">
                                         <div class=" col s12 m4 ">
-                                             <i class="fas fa-map-marker-alt parContUser ">  <%= user.parCity %></i>
+                                            <a  href="#" class="parContUser"> <i class="fas fa-map-marker-alt  "></i> <%= user.parCity %></a>
                                         </div>
                                         <div class=" col s12 m4 ">
-                                             <i class="fas fa-at parContUser"> <%= user.parEmail %></i>
+                                           <a href="mailto:  <%= user.parEmail %>" class="parContUser" > <i class="fas fa-at"></i> Email</a>
                                         </div>
                                         <div class=" col s12 m4 ">
-                                            <i class="fas fa-mobile-alt parContUser">  <%= user.parPhone %>  </i>
+                                           <a href="tel:<%= user.parPhone %> " class=" parContUser"> <i class="fas fa-mobile-alt" ></i> Номер</a>
                                         </div>
-                                    </div>
-
-                                  
+                                    </div>                            
                                  </div>
                             </div>
                             <div class="modal-content">
-
                                 <div class="container-wrap userBio">
-                                    <div class="row">
-                                        <div class="col s12 m12 " id="userBio">
-                                            <p>
-                                                <span class="fioUser"><span class="parUserOwncolor"> Город:</span></span>
-                                                <span class="defabout"> <%= user.parCity %></span> 
-                                            <p>  
+
+                                    <div class="row" id="userBio">
+                                        <div class="col s12 m12 " >
 
                                             <p>
-                                                <span class="fioUser"><span class="parUserOwncolor"> Социальные сети:</span></span>
-                                                <span class="fioUser"><a href="<%=user.parSocial %>"> Ссылка </a></span>
+                                                <span class="fioUser"><span class="parUserOwncolor">Дата рождения:</span> </span>
+                                                <span class="fioUser"><%= user.parDate %>.</span> 
                                             </p>
 
                                             <p>
-                                                <span class="fioUser">  <span class="parUserOwncolor"> Номер телефона:</span> </span>
-                                                <span class="fioUser">  <%= user.parPhone %> </span> 
-                                            <p>
-
-                                            <span class="fioUser">  <span class="userDateColor"> Направления общественной деятельности</span> </span>
-                                            <p>
-                                                <span class="fioUser">  <%= user.parSocityExp %> </span> 
-                                            <p>
-
-                                            <span class="fioUser">  <span class="userDateColor">  Сильные стороны личности </span> </span>
-                                            <p>
-                                                <span class="fioUser">  <%= user.parStrengths %> </span> 
-                                            <p>
-                                            <p>
-                                                <span class="fioUser">  <span class="userDateColor"> Размер свитшота</span> <%= user.parSize  %> </span> 
-                                            <p>
-
-                                           
-                                        </div>
-                                        <div class="col s12 m6">
-
-                                            <span class="fioUser"><span class="userDateColor"> Общественной деятельность</span> </span>
-                                            <p>
-                                                <span class="fioUser"><%= user.parExp %></span> 
-                                            <p>
-        
-                                            <span class="fioUser"><span class="userDateColor"> Email</span> </span>
-                                            <p>
-                                                <span class="fioUser"><%= user.parEmail %></span> 
-                                            <p>  
-       
-                                            <span class="fioUser"><span class="userDateColor"> Email</span> </span>
-                                            <p>
-                                                <span class="fioUser">  <span class="userDateColor"> Должность в оссу: </span> <%= user.parPosition %> </span> 
-                                            <p>
+                                                <span class="fioUser">  <span class="parUserOwncolor"> Размер свитшота: </span> </span>
+                                                <span class="fioUser"> <%= user.parSize %>.</span> 
+                                            </p>
 
                                             <p>
-                                                <span class="fioUser">  <span class="userDateColor"> Дата рождения: </span> <%= user.parDate %> </span> 
-                                            <p>
+                                                <span class="fioUser"><span class="parUserOwncolor"> Социальные сети:</span></span>
+                                                <span class="fioUser"><a href="<%=user.parSocial %>"> Ссылка. </a></span>
+                                            </p>
 
-                                          
                                             <p>
-                                                <span class="fioUser">  <span class="userDateColor"> Мероприятия в которых участвовал: </span> <%= user.parEventsExp %> </span> 
-                                            <p>
-    
-                                            <p>
-                                                <span class="fioUser">  <span class="userDateColor"> Сильные качества характера: </span> <%= user.parCharacter %> </span> 
-                                            <p>
-                                               
-                                            <p>
-                                                <span class="fioUser">  <span class="userDateColor"> Почему хочет участвовать:</span> <%= user.parWhy %> </span> 
-                                            <p> 
+                                                <span class="fioUser"><span class="parUserOwncolor"> Должность в оссу:</span> </span>
+                                                <span class="fioUser"><%= user.parPosition %>.</span> 
+                                            </p>
 
-                                        </div>
+                                            
+                                            <p>
+                                                <span class="fioUser"><span class="parUserOwncolor"> Почему хочет участвовать:</span> </span>
+                                                <span class="fioUser"><%= user.parWhy %>.</span> 
+                                            </p>
+
+                                            <p>
+                                                <span class="fioUser">  <span class="parUserOwncolor">  Сильные стороны личности: </span> </span>
+                                                <span class="fioUser">  <%= user.parStrengths %>.</span> 
+                                            </p>
+
+                                            <p>
+                                                <span class="fioUser"><span class="parUserOwncolor"> Общественной деятельность:</span> </span>
+                                                <span class="fioUser"><%= user.parExp %>.</span> 
+                                            </p>
+
+                                            <p>
+                                                <span class="fioUser"><span class="parUserOwncolor"> Сильные качества характера:</span> </span>
+                                                <span class="fioUser"><%= user.parCharacter %>.</span> 
+                                            </p>
+                                            
+                                            <p>
+                                                <span class="fioUser"><span class="parUserOwncolor"> Мероприятия в которых участвовал:</span> </span>
+                                                <span class="fioUser"><%= user.parEventsExp %>.</span> 
+                                            </p>
+
+                                            
+                                            <p>
+                                                <span class="fioUser">  <span class="parUserOwncolor"> Направления общественной деятельности:</span> </span>
+                                                <span class="fioUser">  <%= user.parSocityExp %>.</span> 
+                                            </p>
+
+                                        </div>    
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <a class="waves-effect waves-light btn">Принять</a>
-                                <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Отклонить</a>
-                            </div>
+                                <a href="#!" class="fioUser modal-close waves-effect waves-green btn-flat">Отказать</a>
+                                <a href="#!" class="fioUser modal-close waves-effect waves-green btn-flat">Принять</a>
+                          </div>
                         </div>
                     </div>
                     </div>

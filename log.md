@@ -43,8 +43,6 @@ Why can't I commit my log file?
 **Today's Progress**: I've begane to work with and admin page. My project in a process 
 **Thoughts:** I'm going to work with data on a backend tomorrow.
 
-
-
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
 ## Day 5: January 20 2019 
@@ -52,8 +50,6 @@ Why can't I commit my log file?
 **Today's Progress**: I have worked with back-end and solved some problems which I had. Everithing is working right now and I'm so happy. I also learned how to get data from our back-end in my main project.
 
 **Thoughts:** I have a good results today. Tomorro I'm going to understand how to work with a mysql db and will make some front-end for my project.
-
-
 
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
@@ -64,17 +60,26 @@ Why can't I commit my log file?
 
 **Thoughts:** At first they will ask, why you're doing it, Latter they will ask how you did it..
 
-
-
-
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
 ## Day 7: January 22 2019 
 
-**Today's Progress**: Profile design in a process. 
+**Today's Progress**: Profile design in a process. . 
 
 **Thoughts:** At first they will ask, why you're doing it, Latter they will ask how you did it..
 
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 8: January 23 2019 
+
+**Today's Progress**:Have finished developing a modale for the user profile. It's not perfect and has some troubles with a backend, but it works. I worked hard today, and want to realize how to work with a base of data, that the most interesting and the hardest part of this challenge. Good luck Vlad. I hope you can. 
+
+**Thoughts:** 
+1. Fixhed problems with radiobattons - animation adn db correctness
+2. Fixhed designe of Accept buttons
+3. Email problems and maybe phone problems
+4. Image validation
 
 
 

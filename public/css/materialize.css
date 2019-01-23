@@ -5760,12 +5760,12 @@ body.keyboard-focused .dropdown-content li:focus {
   position: fixed;
   left: 0;
   right: 0;
-  background-color:rgb(255, 255, 255);
+  background-color:rgba(27, 27, 26, 0.9);
   padding: 0;
   max-height: 70%;
   width: 55%;
   margin: auto;
-  overflow-y: auto;
+  overflow-x: hidden;
   border-radius: 2px;
   will-change: top, opacity;
   color: white;
@@ -5790,13 +5790,15 @@ body.keyboard-focused .dropdown-content li:focus {
 }
 
 .modal .modal-footer {
+  margin-top: -7%;
+  border-top: 1px solid #f2d243;
   border-radius: 0 0 2px 2px;
-
   padding: 4px 6px;
   height: 56px;
   width: 100%;
   text-align: right;
   color: white;
+  background-color: rgba(27, 27, 26, 0.9);
 }
 
 .modal .modal-footer .btn, .modal .modal-footer .btn-large, .modal .modal-footer .btn-small, .modal .modal-footer .btn-flat {
@@ -5831,7 +5833,7 @@ body.keyboard-focused .dropdown-content li:focus {
 }
 
 .modal.modal-fixed-footer .modal-footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(27, 27, 26, 0.9);
   position: absolute;
   bottom: 0;
 }
