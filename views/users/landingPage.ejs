@@ -358,7 +358,7 @@
                         <div class="modal-content" style="text-align: left">
                             <h5 class="regTitle">Межрегиональный лагерь студенческого самоуправления и личностного развития СКФО "Вектор - 2018": регистрация участника</h5>
                             <p>Участник программы лагеря по траектории "Личностное развитие" в рамках общей программы сможет посетить мастер-классы и проработать индивидуальный план своего развития. Для участия в данном направлении приглашаются активисты студенческого самоуправления и молодежных объединений.</p>
-                            <form action="/add-paruser" method="POST">
+                            <form id="add-user" action="/add-paruser" method="POST">
 
                                     <div class="row">
                                         <div class="input-field col s12">
@@ -390,8 +390,10 @@
 
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input placeholder="Введите название" name="parPhone" id="parPhone" type="text" class="validate">
-                                            <label style="font-size: 18px;" for="parPhone">Контактный телефон участника</label>
+                                            <input placeholder="Введите номер" name="parPhone" id="parPhone" type="tel" class="validate"
+                                            pattern="[8]{1}[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}"
+                                            required>
+                                            <label style="font-size: 18px;" for="parPhone">Контактный телефон участника: (пример - 89887059855)</label>
                                         </div>
                                     </div>
 
@@ -419,29 +421,28 @@
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <p>
-                                            <label>Опыт участие в общественной деятельности? 
-
+                                            <label>Опыт участие в общественной деятельности?   </label>
                                                 <p>
-                                                    <input class="with-gap" name="parExp" type="radio" checked />
+                                                    <input class="with-gap"  type="radio"  value="до 1 года" name="parExp" checked />
                                                     <span>до 1 года</span>
-                                                </p>
+                                              
 
                                                 <p>
-                                                    <input class="with-gap" name="parExp" type="radio" />
+                                                    <input class="with-gap" type="radio" value="от 1 до 2 лет" name="parExp"/>
                                                     <span>от 1 до 2 лет</span>
                                                 </p>
 
                                                 <p>
-                                                    <input class="with-gap" name="parExp" type="radio"  />
+                                                    <input class="with-gap" type="radio" value="от 2 до 3 лет" name="parExp"/>
                                                     <span>от 2 до 3 лет</span>
                                                 </p>
 
                                                 <p>
-                                                    <input class="with-gap" name="parExp" type="radio"  />
+                                                    <input class="with-gap" type="radio"  value="3 и более лет" name="parExp"/>
                                                     <span>3 и более лет</span>
                                                 </p>
 
-                                            </label>
+                                           
                                         </p> 
                                     </div>
                                 </div>
@@ -533,12 +534,15 @@
                                 </div> 
 
                                 <button type="submit">Add user</button>
-                            </form>
+                            
                         </div>
                                 <div class="modal-footer">
-                                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                                    <a href="javascript:{}" onclick="document.getElementById('add-user').submit();" style="color:#f2d243;" class="fioUser modal-close waves-effect waves-green btn-flat">Принять</a>
+                                    <a href="#!" style="color:#f2d243;" class="fioUser modal-close waves-effect waves-green btn-flat">Закрыть</a>
                                  </div>
-                            </div>                                   
+                        </form>
+                            </div> 
+
                         </div>
                     </div>
                  </div>
@@ -992,5 +996,7 @@
          </div>
      </div>
  </div>
+
+ 
 </section>
 <%- include('../layouts/footer.ejs') %>

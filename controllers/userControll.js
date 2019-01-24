@@ -1,4 +1,5 @@
 const User = require('../models/users');
+const validOfOneUser = require('../validator/user-validator');
 
 exports.getLanding = (req, res) => {
     res.render('./users/landingPage',
@@ -10,6 +11,13 @@ exports.getLanding = (req, res) => {
 }
 
 exports.postNewUser = (req, res) => {
+
+    const { errors, isValid } = validOfOneUser(req.body);
+
+    if (!isValid) {
+        return res.status(400).json(errors);
+     }
+     
     const parFio =  req.body.parFio;
     const parUnivercity = req.body.parUnivercity;
     const parCity = req.body.parCity;

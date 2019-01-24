@@ -12,11 +12,7 @@ img {
   height: auto;
 }
 /* Index controll */
-.card-image,
-.waves-effect,
-.card {
-  z-index: 0;
-}
+
 #index-banner {
   height: 700px;
   z-index: 0;
@@ -134,7 +130,7 @@ textarea{
 }
 
 #user-info{
-  margin: 00% 0% 10% 0%;
+  margin: 0% 0% 10% 0%;
 }
 .parUserOwncolor{
   color: #f2d243;

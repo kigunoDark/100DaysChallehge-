@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+var expressValidator = require("express-validator");
 const landShow = require('./routes/userRoute');
 const adminShow = require('./routes/adminRoute');
 const path = require('path');
@@ -11,9 +12,10 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 // app.use of a static path
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(expressValidator());
 
 // app.use of our routes
 app.use(landShow);
