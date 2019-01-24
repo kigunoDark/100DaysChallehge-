@@ -84,3 +84,18 @@ Why can't I commit my log file?
 
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 8: January 23 2019 
+
+**Today's Progress**: Have some problems with getting information from radio buttons. When I get it, it dosen't show value. Just word "on". However, I created a validation of my input by using express-validator and validator.
+
+**Thoughts:** 
+1. Fixhed problems with radiobattons - animation adn db correctness
+2. Fixhed designe of Accept buttons
+3. Email problems and maybe phone problems
+4. Image validation
+
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
