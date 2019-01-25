@@ -7,30 +7,31 @@
 
 $('.dropdown-trigger').dropdown({
   closeOnClick: false,
-  hover: true
+  
 });
 // Modals Controller
 $(document).ready(function(){
   $('.modal').modal();
 });
 
-$(document).ready(function() {
-  if (
-    $(window).scroll(function() {
-      if ($(window).scrollTop() > 300) {
-        $(".navanim").addClass("limem");
-      } else {
-        $(".navanim").removeClass("limem");
-      }
-    })
-  );
-});
+// $(document).ready(function() {
+//   if (
+//     $(window).scroll(function() {
+//       if ($(window).scrollTop() > 300) {
+//         $(".navanim").addClass("limem");
+//       } else {
+//         $(".navanim").removeClass("limem");
+//       }
+//     })
+//   );
+// });
 
 
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.autocomplete');
   var instances = M.Autocomplete.init(elems, options);
 });
+
 $(document).ready(function() {
   $(".menu").click(function(e) {
     var linkHref = $(this).attr("href");
@@ -68,6 +69,8 @@ $(document).ready(function() {
   $(".slider").slider();
 });
 
+
+// Animation of navigation bar
 $(document).ready(function() {
   $(window).scroll(function() {
     if ($(window).scrollTop() > 150) {
@@ -80,9 +83,9 @@ $(document).ready(function() {
   if (
     $(window).scroll(function() {
       if ($(window).scrollTop() > 300) {
-        $("nav").addClass("limem");
+        $(".navanim").addClass("limem");
       } else {
-        $("nav").removeClass("limem");
+        $(".navanim").removeClass("limem");
       }
     })
   );
