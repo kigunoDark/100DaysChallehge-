@@ -76,10 +76,6 @@ Why can't I commit my log file?
 **Today's Progress**:Have finished developing a modale for the user profile. It's not perfect and has some troubles with a backend, but it works. I worked hard today, and want to realize how to work with a base of data, that the most interesting and the hardest part of this challenge. Good luck Vlad. I hope you can. 
 
 **Thoughts:** 
-1. Fixhed problems with radiobattons - animation adn db correctness
-2. Fixhed designe of Accept buttons
-3. Email problems and maybe phone problems
-4. Image validation
 
 
 
@@ -101,9 +97,9 @@ Why can't I commit my log file?
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
 
-## Day 9: January 24 2019 
+## Day 10: January 25 2019 
 
-**Today's Progress**: Have some problems with getting information from radio buttons. When I get it, it dosen't show value. Just word "on". However, I created a validation of my input by using express-validator and validator.
+**Today's Progress**: I have fixed some logic and design problems in my project, and also have done refactoring of some css code. Now it's better then it
 
 **Thoughts:** 
 1. Fixhed problems with radiobattons - animation adn db correctness
