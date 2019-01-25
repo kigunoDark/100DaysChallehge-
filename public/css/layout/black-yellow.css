@@ -1,0 +1,48 @@
+/* Color styles of our web templates. Usually text  */
+
+/* All classes of colors */
+.fio { color: #f2d243; font-weight: bold; text-shadow: 1px 1px 4px #000000; font-family: "Russo One", sans-serif; font-weight: normal; font-size: 3vmin;}
+.title { color: white; text-shadow: 1px 1px 4px #000000; margin-top: 60px; padding-bottom: 60px; letter-spacing: 0.26em; font-weight: 100; font-size: 6vmin; font-family: "Russo One", sans-serif; font-weight: normal; text-transform: uppercase;}
+.vector { color: #f2d243; font-weight: bold; text-shadow: 1px 1px 3px #000000; font-family: "Russo One", sans-serif; font-weight: normal; font-size: 6vmin;}
+.parFio { text-shadow: 1px 1px 8px #000000;}
+.fioUser { color: white; font-weight:normal; text-shadow: 1px 1px 8px #000000; font-family: "Russo One", sans-serif; font-size: 14px;}
+.par_cont { color: rgba(31, 29, 29, 0.8); font-weight: bold; font-family: "Russo One", sans-serif; font-size: 16px; margin-left: 10%;}
+.regTitle { font-weight: bold; color:#f2d243; text-transform:uppercase;}
+.rowBlock { margin-top:6%; background-color: #ffffff;}
+.teamtitle { padding: 60px; color: white; text-shadow: 1px 1px 8px #000000; letter-spacing: 0.26em; font-weight: 100; font-size: 6vmin; font-family: "Russo One", sans-serif; font-weight: normal;}
+.userBlock{ background-color: rgb(242, 210, 67, 0.4);}
+.parfioUser { color: rgb(255, 255, 255); font-weight: bold; text-shadow: 1px 1px 4px #000000; font-family: "Russo One", sans-serif; font-size: 16px; margin: 8% 0% 8% 0%; text-transform: uppercase;}
+.title1 { color: rgba(31, 29, 29, 0.8); padding-bottom: 50px; padding-top: 50px; letter-spacing: 0.15em; font-weight: 100; font-size: 6vmin; font-family: "Russo One", sans-serif; font-weight: bold; text-transform: uppercase;}
+input,textarea{ font-weight: bold; color: white;}
+.parUserOwncolor{ color: #f2d243; text-shadow: 2px 1px 2px #302f2f; font-family: "Russo One", sans-serif; font-weight: normal; font-size: 14px; text-transform: uppercase;}
+.owncolor { color: #f2d243; font-weight: bold; text-shadow: 2px 1px 2px #302f2f; font-family: "Russo One", sans-serif; font-weight: normal; font-size: 6vmin; text-transform: uppercase;}
+.subtitle-video { color: white; text-transform: uppercase; text-shadow: 1px 1px 4px #000000; padding: 5px 0px 5px 0px; letter-spacing: 0.26em; font-family: "Open Sans", sans-serif;}
+.activator { font-family: "Russo One", sans-serif; color: #f2d243; text-shadow: 1px 1px 3px #000000; font-size: 20px; cursor: pointer;}
+.mamberUser { width: 25%; left: 37%; padding: 0.5% 0.5% 0.5% 0.5%; background-color: #fad221; position: relative;}
+.more { color: #fad221; padding: 5px 0px 5px 0px; text-shadow: 2px 1px 4px #000000; font-weight: bold;}
+.subtitle { color: #fad221; font-size: 20px; padding: 5px 0px 5px 0px; letter-spacing: 1px; font-weight: bold; font-family: "Russo One", sans-serif; text-shadow: 2px 1px 4px #000000; margin-top: 40px;}
+.vedeo-text { margin-bottom: 30px; text-align: center; margin: 2rem 3rem 0; z-index: 1; color: #fff;}
+.video-title { padding-bottom: 15px; font-size: 4vmin; text-align: center; margin: 20rem 3rem 0; z-index: 1; color: #fff; font-weight: bold; font-family: "Open Sans", sans-serif; text-shadow: 1px 1px 2px #000000;}
+.sidenav li a { color: #fff; font-family: "Russo One", sans-serif; text-align: center; font-size: 18px; height: 100%; width: 100%; padding-bottom: 10px; line-height: 50px; text-transform: uppercase; font-size: bold; }
+.sidenav li a:hover { color: #2c324a; background: #fff; font-family: "Russo One", sans-serif; text-align: center; font-size: 20px; height: 50px; line-height: 50px; }
+.itempro { background: white; border: 3px rgba(54, 50, 50, 0.8) solid; width: 50%; border-radius: 50%; transition: 0.2s; color: rgba(53, 49, 49, 0.8); }
+.itempro:hover { background: rgba(255, 255, 255, 0.9); border: 3px rgba(243, 201, 16, 0.8) solid; width: 60%; border-radius: 50%; transition: 0.2s; color: rgba(243, 201, 16, 0.8); }
+.statitle { color: white; font-size: 47px; padding: 10%; font-weight: bold; font-family: "Russo One", sans-serif; text-shadow: 2px 1px 3px #000000; margin-top: 15%; }
+.statinfo { color: white; font-size: 22px; text-align: center; text-shadow: 1px 2px 4px #000000; font-family: "Open Sans", sans-serif; }
+.reginfo { color: white; font-size: 22px; text-align: center; text-shadow: 1px 2px 4px #000000; font-family: "Open Sans", sans-serif; }
+.regbutton { font-size: 18px; font-weight: bold; display: inline-block; padding: 15px 30px; margin: 60px; cursor: pointer; user-select: none; transition: all 0.1s ease-out; text-decoration: none; letter-spacing: 1px; text-transform: uppercase; color: #f2d243; border: 3px solid #f2d243; background-color: rgba(255, 255, 255, 0.2); -webkit-font-smoothing: antialiased; }
+.regbutton:hover { color: white; background-color: #f2d243; border: 3px solid #ffffff; }
+.teamreg { width: 100%; height: auto; font-family: "Open Sans", sans-serif; }
+.selfreg { width: 100%; height: auto; font-family: "Open Sans", sans-serif; }
+.proginfo { background: #ffffff; padding: 20px 10px 0 10px; border-top: 1px solid #f2d243; color: rgba(31, 46, 61, 0.5); font-size: 20px; font-family: "Open Sans", sans-serif; }
+.infotitle { color: #f2d243; text-shadow: 1px 1px 3px #000000; font-family: "Russo One", sans-serif; }
+.bio { color: white; font-size: 18px; text-align: center; font-weight: bold; margin-bottom: 20px; text-shadow: 1px 2px 1px #000000; font-family: "Open Sans", sans-serif; }
+.mamber { width: 60%; left: 20%; border: 3px #f2d243 solid; text-shadow: 1px 1px 4px #000000; transition: 1s; cursor: auto; }
+.inst { color: rgba(243, 243, 243, 0.9); padding: 9px; padding-right: 11px; padding-left: 11px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.3); text-shadow: 1px 1px 4px #000000; transition: 0.2s; }
+.inst:hover { background-color: rgba(216, 172, 29, 0.9); border-radius: 20%; color: white; }
+.vk { color: rgba(243, 243, 243, 0.9); padding: 7px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.3); text-shadow: 1px 1px 4px #000000; transition: 0.2s; }
+.vk:hover { background-color: rgba(216, 172, 29, 0.9); border-radius: 20%; color: white; }
+/* All ides of colors */
+
+#devider{ border-left: 1px solid #263238; border-right: 1px solid #263238;}
+#mail { font-size: 24px; color: rgba(31, 46, 61, 0.5); font-family: "Open Sans", sans-serif; }

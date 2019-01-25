@@ -86,7 +86,7 @@ Why can't I commit my log file?
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
 
-## Day 8: January 23 2019 
+## Day 9: January 24 2019 
 
 **Today's Progress**: Have some problems with getting information from radio buttons. When I get it, it dosen't show value. Just word "on". However, I created a validation of my input by using express-validator and validator.
 
