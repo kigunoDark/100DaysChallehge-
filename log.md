@@ -109,3 +109,17 @@ Why can't I commit my log file?
 
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 11: January 26 2019 
+
+**Today's Progress**: The begining of mysql in my project with a node js, but still have some the same problems
+
+**Thoughts:** 
+1. Fixhed problems with radiobattons - animation adn db correctness
+2. Email problems and maybe phone problems
+4. Image validation
+
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
