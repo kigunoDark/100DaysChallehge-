@@ -9,13 +9,16 @@ exports.getAdminLogin = (req, res) => {
 };
 
 exports.getAllUsers = (req, res) => {
-    User.fetchAll(users => {
+    User.fetchAll()
+    .then(([rows, fieldData]) => {
         res.render('./admin/adminPage',{
-            users: users,
+            users: rows,
             pageTitle: "Страница администратора",
             pageTipe: "adminIn"
         });
     })
+    .catch(err => console.log(err));
+    
     
 };
 

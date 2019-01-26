@@ -1,24 +1,4 @@
-const fs = require('fs');
-const path = require('path');
-
-const p = path.join(path.dirname(process.mainModule.filename),
-'data',
-'users.json'
-);
-
-// const users = [];
-const getUsersFromFile = cb => {
-
-    fs.readFile(p,(err, fileContent) =>{
-        if(err){
-            return cb ([]);
-        } else {
-            cb(JSON.parse(fileContent));
-        }
-        
-    });
-}
-
+const db = require('../data/database');
 
 
 module.exports = class User{
@@ -47,20 +27,19 @@ module.exports = class User{
     }
 
     save() {
-        getUsersFromFile(users => {
-            users.push(this);
-            fs.writeFile(p, JSON.stringify(users), (err) =>{
-                console.log(err);
-            });
-        });
-        // users.push(this);
        
-        // fs.readFile(p, (err, fileContent) => {    
-        // });
+        
       }
 
-    static fetchAll(cb) {
-        getUsersFromFile(cb);
-        // return users;
+    static deleteByIf(id){
+
+    }
+    
+    static findById(id){
+
+    }
+    static fetchAll() {
+       return db.execute("SELECT * FROM users")
+      
     }
 }
