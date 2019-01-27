@@ -123,3 +123,16 @@ Why can't I commit my log file?
 
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+## Day 12: January 27 2019 
+
+**Today's Progress**: It's hard and I have some errors. Yes, this topic is completely new for me, but I will find a solution to this problem. Just need time for the rest today. I stuck on radio buttons. It's work in a test project, but not in my main project. 
+
+**Thoughts:** 
+1. Fixhed problems with radiobattons - animation adn db correctness
+2. Email problems and maybe phone problems
+4. Image validation
+
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
