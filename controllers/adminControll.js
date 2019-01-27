@@ -1,4 +1,6 @@
 const User = require('../models/users');
+
+
 exports.getAdminLogin = (req, res) => {
     res.render('./users/landingPage', 
     {

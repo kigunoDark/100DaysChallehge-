@@ -27,9 +27,26 @@ module.exports = class User{
     }
 
     save() {
-       
+        db.execute('INSERT INTO (parUnivercity, parCity, parEmail, parPhone, parDate, parSocial, parPosition, parExp, parSocityExp, parEventsExp, parCharacter, parStrengths, parWhy, parSize , parFio) valuer (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [this.parUnivercity,
+             this.parCity,
+             this.parEmail,
+             this.parPhone,
+             this.parDate,
+             this.parSocia,
+             this.parPosition,
+             this.parExp,
+             this.parSocityExp,
+             this.parEventsExp,
+             this.parCharacter,
+             this.parStrengths,
+             this.parWhy,
+             this.parSize,
+             this.parFio]
+             
+        );
         
-      }
+    }
 
     static deleteByIf(id){
 

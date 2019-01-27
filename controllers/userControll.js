@@ -1,5 +1,5 @@
 const User = require('../models/users');
-const validOfOneUser = require('../validator/user-validator');
+// const validOfOneUser = require('../validator/user-validator');
 
 exports.getLanding = (req, res) => {
     res.render('./users/landingPage',
@@ -12,11 +12,11 @@ exports.getLanding = (req, res) => {
 
 exports.postNewUser = (req, res) => {
 
-    const { errors, isValid } = validOfOneUser(req.body);
+    // const { errors, isValid } = validOfOneUser(req.body);
 
-    if (!isValid) {
-        return res.status(400).json(errors);
-     }
+    // if (!isValid) {
+    //     return res.status(400).json(errors);
+    //  }
      
     const parFio =  req.body.parFio;
     const parUnivercity = req.body.parUnivercity;
@@ -27,6 +27,7 @@ exports.postNewUser = (req, res) => {
     const parSocial = req.body.parSocial;
     const parPosition = req.body.parPosition;
     const parExp = req.body.parExp;
+    console.log(parExp)
     const parSocityExp = req.body.parSocityExp;
     const parEventsExp = req.body.parEventsExp;
     const parCharacter = req.body.parCharacter;
@@ -41,6 +42,10 @@ exports.postNewUser = (req, res) => {
         parEventsExp, parCharacter, parStrengths,
         parWhy, parSize, parFio
         );
-    user.save();
-    res.redirect('/');
+    user.save()
+    .then(() =>{
+        res.redirect('/');
+    })
+    .catch(err => console.log(err));
+   
 }
