@@ -126,7 +126,7 @@ Why can't I commit my log file?
 
 ## Day 12: January 27 2019 
 
-**Today's Progress**: It's hard and I have some errors. Yes, this topic is completely new for me, but I will find a solution to this problem. Just need time for the rest today. I stuck on radio buttons. It's work in a test project, but not in my main project. 
+**Today's Progress**: 
 
 **Thoughts:** 
 1. Fixhed problems with radiobattons - animation adn db correctness

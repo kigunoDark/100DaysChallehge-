@@ -42,8 +42,7 @@ module.exports = class User{
              this.parStrengths,
              this.parWhy,
              this.parSize,
-             this.parFio]
-             
+             this.parFio] 
         );
         
     }
