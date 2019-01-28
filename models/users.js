@@ -3,14 +3,15 @@ const db = require('../data/database');
 
 module.exports = class User{
     constructor(
-        parUnivercity, parCity ,parEmail,
-        parPhone, parDate, parSocial,
-        parPosition, parExp, parSocityExp,
-        parEventsExp, parCharacter, parStrengths,
-        parWhy, parSize, parFio
+        parFio, parCity, parUnivercity,
+        parEmail, parPhone, parDate, 
+        parSocial, parPosition, parExp,
+        parSocityExp, parEventsExp, parCharacter,
+        parStrengths, parWhy, parSize
         ){
-        this.parUnivercity = parUnivercity;
+        this.parFio = parFio;
         this.parCity = parCity;
+        this.parUnivercity = parUnivercity;
         this.parEmail = parEmail;
         this.parPhone = parPhone;
         this.parDate = parDate;
@@ -23,27 +24,27 @@ module.exports = class User{
         this.parStrengths = parStrengths;
         this.parWhy = parWhy;
         this.parSize = parSize;
-        this.parFio = parFio;
+     
     }
 
     save() {
-        db.execute('INSERT INTO (parUnivercity, parCity, parEmail, parPhone, parDate, parSocial, parPosition, parExp, parSocityExp, parEventsExp, parCharacter, parStrengths, parWhy, parSize , parFio) valuer (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-            [this.parUnivercity,
-             this.parCity,
-             this.parEmail,
-             this.parPhone,
-             this.parDate,
-             this.parSocia,
-             this.parPosition,
-             this.parExp,
-             this.parSocityExp,
-             this.parEventsExp,
-             this.parCharacter,
-             this.parStrengths,
-             this.parWhy,
-             this.parSize,
-             this.parFio] 
-        );
+       
+        return db.execute("insert into users (parFio, parCity, parUnivercity, parEmail, parPhone, parDate, parSocial, parPosition, parExp, parSocityExp, parEventsExp, parCharacter,  parStrengths, parWhy, parSize) value (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        [this.parFio,
+         this.parCity,
+         this.parUnivercity,
+         this.parEmail,
+         this.parPhone,
+         this.parDate,
+         this.parSocial,
+         this.parPosition,
+         this.parExp,
+         this.parSocityExp,
+         this.parEventsExp,
+         this.parCharacter,
+         this.parStrengths,
+         this.parWhy,
+         this.parSize]);
         
     }
 

@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-var expressValidator = require("express-validator");
+// var expressValidator = require("express-validator");
 const landShow = require('./routes/userRoute');
 const adminShow = require('./routes/adminRoute');
 const db = require('./data/database');
@@ -20,7 +20,7 @@ db.execute('SELECT * FROM users').then((result) => {
 app.use(bodyParser.urlencoded({extended: true}));
 // app.use of a static path
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(expressValidator());
+// app.use(expressValidator());
 
 // app.use of our routes
 app.use(landShow);

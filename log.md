@@ -126,12 +126,26 @@ Why can't I commit my log file?
 
 ## Day 12: January 27 2019 
 
-**Today's Progress**: 
+**Today's Progress**: I haven't done to solve some problems wiith mysq, but I tested it in a different project and it works.
 
 **Thoughts:** 
 1. Fixhed problems with radiobattons - animation adn db correctness
 2. Email problems and maybe phone problems
 4. Image validation
+
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+## Day 13: January 28 2019 
+
+**Today's Progress**:  I've finished solving MySQL problems, actually with saving data in my database. It's fascinating, I feel pleasure and power. Like a Thanos have found a new stone, I found new knowledge and ready to be the king of the world of programmers
+
+**Thoughts:** 
+
+
+1. Email problems and maybe phone problems
+2. Image validation
 
 
 
