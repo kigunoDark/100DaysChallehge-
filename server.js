@@ -1,9 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 // var expressValidator = require("express-validator");
-const landShow = require('./routes/userRoute');
-const adminShow = require('./routes/adminRoute');
-const db = require('./data/database');
+const landRoute = require('./routes/userRoute');
+const adminRoute = require('./routes/adminRoute');
+const authRoute = require('./routes/authRoute');
+const sequelize = require('./data/database');
 const path = require('path');
 const app = express();
 
@@ -11,11 +12,11 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-db.execute('SELECT * FROM users').then((result) => {
-    console.log(result);
-}).catch(err => {
-    console.log(err);
-});
+// db.execute('SELECT * FROM users').then((result) => {
+//     console.log(result);
+// }).catch(err => {
+//     console.log(err);
+// });
 
 app.use(bodyParser.urlencoded({extended: true}));
 // app.use of a static path
@@ -23,10 +24,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(expressValidator());
 
 // app.use of our routes
-app.use(landShow);
-app.use( adminShow);
+app.use(landRoute);
+app.use( adminRoute);
+app.use(authRoute);
 
-
+sequelize.sync()
+.then(result => {
+    console.log(result);
+})
+.catch(err => {
+    console.log(err);
+});
 
 app.listen(3000, (err,next) => {
     if(err){

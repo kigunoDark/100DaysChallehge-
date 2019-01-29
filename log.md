@@ -148,5 +148,13 @@ Why can't I commit my log file?
 2. Image validation
 
 
+## Day 14: January 28 2019 
+
+**Today's Progress**:  I've understood how does a sequelize work, and I'm going to add authorization in my project and then sending of e-mail, from a web-site. 
+**Thoughts:** 
+1. Email problems and maybe phone problems
+2. Image validation
+
+
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
