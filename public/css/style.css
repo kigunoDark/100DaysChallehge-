@@ -50,6 +50,9 @@ main { flex: 1 0 auto; }
 .page-footer { background-color: rgba(31, 29, 29, 0.9); }
 .press li { list-style: none; display: inline-block; }
 .spons { width: 100%; margin: 5%; }
+.error{ margin:  22% 0% 22% 0% }
+
+.loginForm { margin-top: 22%; margin-bottom: 22%; padding: 0% 10% 0% 10%; }
 
 /* Ides of Structure */
 
@@ -98,5 +101,5 @@ main { flex: 1 0 auto; }
 .user-dashboard ::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  border-radius: 10px; }
 .user-dashboard ::-webkit-scrollbar-thumb { border-radius: 10px; background: rgb(242, 210, 67); -webkit-box-shadow: inset 0 0 6px rgb(242, 210, 67); }
 .landding-page ::-webkit-scrollbar { width: 12px; }
-landding-page ::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  border-radius: 10px; }
+.landding-page ::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);  border-radius: 10px; }
 .landding-page ::-webkit-scrollbar-thumb { border-radius: 10px; background: rgb(242, 210, 67); -webkit-box-shadow: inset 0 0 6px rgb(242, 210, 67); }

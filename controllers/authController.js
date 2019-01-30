@@ -2,13 +2,23 @@ exports.getLogin = (req, res) => {
     res.render('./users/landingPage', 
     {
         pageTitle: "ВЕКТОР АДМИН",
-        pageTipe:"admin"
+        pageTipe:"admin",
+        isAuthenticated: req.isLoggedIn
         
     });
 };
 
+exports.getMobileLogin = (req, res)  => {
+    res.render('./admin/mobileLogin',
+    {
+        pageTitle: "ВЕКТОР АДМИН",
+        pageTipe: "admin",
+        isAuthenticated: req.isLoggedIn
+    })
+}
+
 exports.postLogin = (req, res) => {
-    req.isLoggedIn = true;
+    res.setHeader('Set-Cookie', 'loogedIn = true');
     res.redirect('/adminPage');
 };
 

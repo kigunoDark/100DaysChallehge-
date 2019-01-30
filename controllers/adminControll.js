@@ -6,7 +6,8 @@ exports.getIndex = (req,res, next)  => {
         res.render("/user/index", {
             users: users,
             pageTitle: "Searching",
-            path: "/user/index"
+            path: "/user/index",
+            isAuthenticated: req.isLoggedIn
         })
     })
     .catch(err => {
@@ -21,7 +22,8 @@ exports.getAllUsers = (req, res) => {
         res.render("./admin/adminPage", {
             users: users,
             pageTitle: "Страница администратора",
-            pageTipe: "adminIn"
+            pageTipe: "adminIn",
+            isAuthenticated: req.isLoggedIn
         })
     })
     .catch(err => {

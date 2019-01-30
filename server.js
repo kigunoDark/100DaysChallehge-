@@ -1,32 +1,23 @@
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-// var expressValidator = require("express-validator");
-const landRoute = require('./routes/userRoute');
 const adminRoute = require('./routes/adminRoute');
-const authRoute = require('./routes/authRoute');
+const errControll = require('./controllers/errorController');
+// var expressValidator = require("express-validator");
+
 const sequelize = require('./data/database');
-const path = require('path');
+
+
 const app = express();
 
-// app.use of ejs engine
 app.set('view engine', 'ejs');
 app.set('views', 'views');
-
-// db.execute('SELECT * FROM users').then((result) => {
-//     console.log(result);
-// }).catch(err => {
-//     console.log(err);
-// });
-
 app.use(bodyParser.urlencoded({extended: true}));
-// app.use of a static path
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use(expressValidator());
 
-// app.use of our routes
-app.use(landRoute);
-app.use( adminRoute);
-app.use(authRoute);
+
+// USING OF SEQUELIZE FOR WORKING WIH MYSQL
 
 sequelize.sync()
 .then(result => {
@@ -35,6 +26,15 @@ sequelize.sync()
 .catch(err => {
     console.log(err);
 });
+const landRoute = require('./routes/userRoute');
+const authRoute = require('./routes/authRoute');
+// APP.USE OF ROUTES
+
+app.use(landRoute);
+app.use( adminRoute);
+app.use(authRoute);
+
+app.use(errControll.get404);
 
 app.listen(3000, (err,next) => {
     if(err){
@@ -43,3 +43,10 @@ app.listen(3000, (err,next) => {
         console.log("Your server is running on a port 3000");
     }
 });
+
+
+// db.execute('SELECT * FROM users').then((result) => {
+//     console.log(result);
+// }).catch(err => {
+//     console.log(err);
+// });

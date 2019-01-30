@@ -99,7 +99,7 @@
                         <a class='menu dropdown-trigger ' href='#' data-target='dropdown1'>Войти</a>
                         <!-- Dropdown Structure -->
                         <ul id='dropdown1' class='dropdown-content'>
-                            <form  action="/login", mathod="POST"> 
+                            <form  action="/login", method="POST"> 
                             <div class="container">
                                 <p>
                                     <h5 class="center" style="font-weight: bold;"> Вход </h5>
@@ -116,8 +116,7 @@
                 </ul> 
                 <% } else if(pageTipe === "adminIn") { %>
                 <ul class="right hide-on-med-and-down">
-                    <li>
-                  
+                    <li>              
                         <a class="menu" href="#aboutvector">Выход</a>
                     </li>
                 </ul>
@@ -128,8 +127,14 @@
     </div>
 
     <!-- Nav Mobile -->
+    
+  
+
 
     <ul id="nav-mobile" class="sidenav">
+
+     <% if(pageTipe === "users") { %>
+
         <li>
             <a class="menu" href="#team">О нас</a>
         </li>
@@ -145,7 +150,35 @@
         <li>
             <a class="menu" href="#contacts">Контакты</a>
         </li>
+        <% } else if (pageTipe === "admin"){ %>
+
+
+        <li>
+            <a class="menu" href="#team">О нас</a>
+        </li>
+        <li>
+            <a class="menu" href="#info">О проекте</a>
+        </li>
+        <li>
+            <a class="menu" href="#about">Программа</a>
+        </li>
+        <li>
+            <a class="menu" href="#team">Команда</a>
+        </li>
+        <li>
+            <a class="menu" href="#contacts">Контакты</a>
+        </li>
+        <li>
+            <a class="menu", href = "/mobileLogin" >Войти</a>
+        </li>
+
+
+    <% } %>
+    
+        
     </ul>
+
+   
     </div>
 
     <!-- Header with a navigation -->

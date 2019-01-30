@@ -42,6 +42,8 @@ input,textarea{ font-weight: bold; color: white;}
 .inst:hover { background-color: rgba(216, 172, 29, 0.9); border-radius: 20%; color: white; }
 .vk { color: rgba(243, 243, 243, 0.9); padding: 7px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.3); text-shadow: 1px 1px 4px #000000; transition: 0.2s; }
 .vk:hover { background-color: rgba(216, 172, 29, 0.9); border-radius: 20%; color: white; }
+.error {  font-family: "Russo One"; color: #2c324a;}
+
 /* All ides of colors */
 
 #devider{ border-left: 1px solid #263238; border-right: 1px solid #263238;}

@@ -148,12 +148,32 @@ Why can't I commit my log file?
 2. Image validation
 
 
-## Day 14: January 28 2019 
+## Day 14: January 29 2019 
 
 **Today's Progress**:  I've understood how does a sequelize work, and I'm going to add authorization in my project and then sending of e-mail, from a web-site. 
 **Thoughts:** 
 1. Email problems and maybe phone problems
 2. Image validation
+
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 15: January 30 2019 
+
+**Today's Progress**: Haven't done too much, but I thought about the future of my project. It's really hard to work with uncertainty, so I decided to divide and manage.
+**Thoughts:** 
+1. Login form for  mobile version
+2. Authorization for an admin
+3. Email problems and maybe phone problems
+4. Image validation
+5. Add a new member of a team
+6. Accept a user or group of users
+7. Deny a user or a group of users
+8. Delete a user or a group of users
+10. Sendin an email for all users which you accept
+
 
 
 

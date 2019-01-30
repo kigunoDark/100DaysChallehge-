@@ -6,15 +6,8 @@ exports.getLanding = (req, res) => {
      { 
         pageTitle: "ВекторСКФО",
         pageTipe:"users",
-        path: '/'
-    });
-}
-
-exports.getTestPage = (req, res ) => {
-    res.render('./users/testPage', {
-            pageTitle: "TEstPage",
-            pageTipe: "test",
-            path: '/testpage'
+        path: '/',
+        isAuthenticated: req.isLoggedIn
     });
 }
 
