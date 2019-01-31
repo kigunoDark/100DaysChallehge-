@@ -19,7 +19,9 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Oswald|Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
-
+    <% if (pageTipe === "mobileLogin") { %>
+        <link href="css/mobile.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <% } %>
     <!-- Fivicon -->
 
     <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
@@ -114,7 +116,7 @@
                     </li>
 
                 </ul> 
-                <% } else if(pageTipe === "adminIn") { %>
+                <% } else if(pageTipe === "adminIn" || pageTipe === "mobileLogin") { %>
                 <ul class="right hide-on-med-and-down">
                     <li>              
                         <a class="menu" href="#aboutvector">Выход</a>

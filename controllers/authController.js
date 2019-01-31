@@ -12,7 +12,7 @@ exports.getMobileLogin = (req, res)  => {
     res.render('./admin/mobileLogin',
     {
         pageTitle: "ВЕКТОР АДМИН",
-        pageTipe: "admin",
+        pageTipe:"mobileLogin",
         isAuthenticated: req.isLoggedIn
     })
 }

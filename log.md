@@ -178,3 +178,26 @@ Why can't I commit my log file?
 
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 16: January 31 2019 
+
+**Today's Progress**: Have found some bugs and solved this problem. Also finoshed my login from for mobile version. Start learning React on a FreeCodeCamp
+**Thoughts:** 
+
+2. Authorization for an admin
+3. Email problems and maybe phone problems
+4. Image validation
+5. Add a new member of a team
+6. Accept a user or group of users
+7. Deny a user or a group of users
+8. Delete a user or a group of users
+10. Sendin an email for all users which you accept
+
+
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+
