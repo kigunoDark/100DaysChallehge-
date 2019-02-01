@@ -1,12 +1,12 @@
 <%- include('../layouts/navbar.ejs')%>
     <div  id="loginForm">
-        <form>
+        <form action="/login", method="POST">
             <div class="container loginForm">
                 <p>
                      <h5 class="center mobileTitle" > Вход </h5>
-                    <input  id="autocomplete-input" class="autocomplete" type="text" name="username" placeholder="Логин"> <br />
-                    <input  id="autocomplete-input" class="autocomplete" type="text" name="username" placeholder="Пароль"> 
-                    <button class="admSubmit" type="submit"> Submit</button>
+                        <input  id="autocomplete-input" class="autocomplete" type="text" name="username" placeholder="Логин"> <br />
+                        <input  id="autocomplete-input" class="autocomplete" type="text" name="username" placeholder="Пароль"> 
+                    <button class="admSubmit" type="submit"></button>
                 </p>
             </div>
         </form>

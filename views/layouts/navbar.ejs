@@ -40,14 +40,20 @@
         <div class="navbar-fixed">
         <nav class="if <%= pageTipe === 'users' || pageTipe === 'admin' ? 'navanim' : 'limem' %>" role="navigation">
             <div class="nav-wrapper container">
+            <% if (pageTipe === "mobileLogin") { %>
+                <a id="logo-container" href="/" class="brand-logo"> <img src="./image/fakelogo.png" style="width:100px;"
+                alt=""></a>
+                
+            <% } else if( pageTipe === "users" || pageTipe === "admin" || pageTipe === "adminIn" ) { %>
                 <a id="logo-container" href="#video" class="brand-logo"> <img src="./image/fakelogo.png" style="width:100px;"
-                        alt=""></a>
+                alt=""></a>
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger">
                     <div id="nav-icon1">
                         <span></span>
                         <span></span>
                         <span></span>
                     </div>
+                <% } %>
                 </a>
 
                 <!-- PC Navbar for users -->
@@ -55,133 +61,92 @@
                 <% if(pageTipe === "users") { %>
 
                 <ul class="right hide-on-med-and-down">
-                    <li>
-                        <a class="menu" href="#aboutvector">О нас</a>
-                    </li>
-                    <li>
-                        <a class="menu" href="#info">О проекте</a>
-                    </li>
-                    <li>
-                        <a class="menu" href="#about">Программа</a>
-                    </li>
 
-                    <li>
-                        <a class="menu" href="#team">Команда</a>
-                    </li>
-                    <li>
-                        <a class="menu" href="#contacts">Контакты</a>
-                    </li>
+                    <li><a class="menu" href="#aboutvector">О нас</a></li>
+                    <li><a class="menu" href="#info">О проекте</a></li>
+                    <li><a class="menu" href="#about">Программа</a></li>
+                    <li><a class="menu" href="#team">Команда</a></li>
+                    <li><a class="menu" href="#contacts">Контакты</a></li>
+                    
                 </ul>
+
+                <!-- PC Navbar for admin -->
+                
                 <% } else if (pageTipe === "admin"){ %>
 
                 <ul class="right hide-on-med-and-down">
-                    <li>
-                        <a class="menu" href="#aboutvector">О нас</a>
-                    </li>
-                    
-                    <li>
-                        <a class="menu" href="#info">О проекте</a>
-                    </li>
 
-                    <li>
-                        <a class="menu" href="#about">Программа</a>
-                    </li>
+                    <li><a class="menu" href="#aboutvector">О нас</a></li>
+                    <li><a class="menu" href="#info">О проекте</a></li>
+                    <li><a class="menu" href="#about">Программа</a></li>
+                    <li><a class="menu" href="#team">Команда</a></li>
+                    <li><a class="menu" href="#contacts">Контакты</a></li>
 
-                    <li>
-                        <a class="menu" href="#team">Команда</a>
-                    </li>
-
-                    <li>
-                        <a class="menu" href="#contacts">Контакты</a>
-                    </li>
-
-                    <li>
                     <!-- Dropdown Trigger -->
-                    
+
+                    <li>
                         <a class='menu dropdown-trigger ' href='#' data-target='dropdown1'>Войти</a>
-                        <!-- Dropdown Structure -->
-                        <ul id='dropdown1' class='dropdown-content'>
-                            <form  action="/login", method="POST"> 
-                            <div class="container">
-                                <p>
-                                    <h5 class="center" style="font-weight: bold;"> Вход </h5>
-                                    <input  id="autocomplete-input" class="autocomplete" type="text" name="username" placeholder="Логин"> <br />
-                                    <input  id="autocomplete-input" class="autocomplete" type="text" name="username" placeholder="Пароль"> 
-                                    <button class="admSubmit" type="submit"> Submit</button>
-                                </p>
-
-                            </div>
-                            </form>
-                        </ul>
+                            <ul id='dropdown1' class='dropdown-content'>
+                                <form  action="/login", method="POST"> 
+                                    <div class="container">
+                                        <p>
+                                            <h5 class="center" style="font-weight: bold;"> Вход </h5>
+                                                <input  id="autocomplete-input" class="autocomplete" type="text" name="username" placeholder="Логин"> <br />
+                                                <input  id="autocomplete-input" class="autocomplete" type="text" name="username" placeholder="Пароль"> 
+                                            <button class="admSubmit" type="submit"> Submit</button>
+                                        </p>
+                                    </div>
+                                </form>
+                            </ul>
                     </li>
-
                 </ul> 
-                <% } else if(pageTipe === "adminIn" || pageTipe === "mobileLogin") { %>
+
+            <!-- AdminIn Version -->    
+                
+            <% } else if(pageTipe === "adminIn") { %>
+
                 <ul class="right hide-on-med-and-down">
-                    <li>              
-                        <a class="menu" href="#aboutvector">Выход</a>
-                    </li>
+                    <li><a class="menu" href="#aboutvector">Выход</a></li>
                 </ul>
-                <% } %>
-            </div>
-        </nav>
 
-    </div>
+            <% } %>
+        </div>
+    </nav>
+</div>
 
-    <!-- Nav Mobile -->
+        <!-- Nav Mobile -->
     
-  
+        <ul id="nav-mobile" class="sidenav">
 
+        <!-- Mobile navbar fro users -->
 
-    <ul id="nav-mobile" class="sidenav">
+        <% if(pageTipe === "users") { %>
 
-     <% if(pageTipe === "users") { %>
+            <li><a class="menu" href="#team">О нас</a></li>
+            <li><a class="menu" href="#info">О проекте</a></li>
+            <li><a class="menu" href="#about">Программа</a></li>
+            <li><a class="menu" href="#team">Команда</a></li>
+            <li><a class="menu" href="#contacts">Контакты</a></li>
 
-        <li>
-            <a class="menu" href="#team">О нас</a>
-        </li>
-        <li>
-            <a class="menu" href="#info">О проекте</a>
-        </li>
-        <li>
-            <a class="menu" href="#about">Программа</a>
-        </li>
-        <li>
-            <a class="menu" href="#team">Команда</a>
-        </li>
-        <li>
-            <a class="menu" href="#contacts">Контакты</a>
-        </li>
+        <!-- Mobile navbar for admin -->
+
         <% } else if (pageTipe === "admin"){ %>
 
+            <li><a class="menu" href="#team">О нас</a></li>
+            <li><a class="menu" href="#info">О проекте</a></li>
+            <li><a class="menu" href="#about">Программа</a></li>
+            <li><a class="menu" href="#team">Команда</a></li>
+            <li><a class="menu" href="#contacts">Контакты</a></li>
+            <li><a class="menu", href = "/mobileLogin" >Войти</a></li>
 
-        <li>
-            <a class="menu" href="#team">О нас</a>
-        </li>
-        <li>
-            <a class="menu" href="#info">О проекте</a>
-        </li>
-        <li>
-            <a class="menu" href="#about">Программа</a>
-        </li>
-        <li>
-            <a class="menu" href="#team">Команда</a>
-        </li>
-        <li>
-            <a class="menu" href="#contacts">Контакты</a>
-        </li>
-        <li>
-            <a class="menu", href = "/mobileLogin" >Войти</a>
-        </li>
+         <% } else if(pageTipe === "adminIn") { %>
 
+                <li><a class="menu" href="#aboutvector">Выход</a></li>
+         
 
-    <% } %>
-    
-        
-    </ul>
-
-   
-    </div>
+        <% } %>
+    </ul>   
+</div>
 
     <!-- Header with a navigation -->
 

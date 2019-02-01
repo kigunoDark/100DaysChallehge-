@@ -13,9 +13,9 @@ nav ul a, nav .brand-logo { color: white; }
 nav .brand-logo { color: white; }
 video { z-index: -1; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 header { margin-top: -10%;  height: 107vh; background: linear-gradient( to right bottom, rgba(19, 19, 19, 0.9), rgba(211, 191, 16, 0.1)); background-size: cover; background-position: top; position: relative; border-bottom: 1px solid white; }
-hr { border: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15px; }
 footer.page-footer { font-family: "Open Sans", sans-serif;  }
 main { flex: 1 0 auto; }
+hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15px; margin-left: 10%;}
 
 /* Classes of structure*/
 
@@ -50,7 +50,7 @@ main { flex: 1 0 auto; }
 .social { margin-right: 10px; }
 .copy { padding: 3%; font-size: 18px; }
 .fab { margin-bottom: 20px; }
-.page-footer { background-color: rgba(31, 29, 29, 0.9); }
+.page-footer { background-color: rgba(31, 29, 29, 0.9);}
 .press li { list-style: none; display: inline-block; }
 .spons { width: 100%;}
 .error{ margin:  22% 0% 22% 0% }
@@ -88,6 +88,7 @@ main { flex: 1 0 auto; }
 .defabout { text-align: left; margin-bottom: 20%; color: rgba(59, 55, 55, 0.8); font-size: 17 px; padding: 1px 1% 2% 1%; font-weight: bold; font-family: "Open Sans", sans-serif; }
 .statitle { color: white; font-size: 35px; padding: 10%; font-weight: bold; font-family: "Russo One", sans-serif; text-shadow: 1px 1px 2px #000000; margin-top: 15%; } }
 @media only screen and (max-width: 600px) {
+ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15px; margin-left: 10%; }
 .defenition { width: 100%; padding: 10%; margin-top: 20%; margin-bottom: 20%; margin-left: 0%; height: 90%; cursor: auto; }
 .defabout { text-align: center; color: rgba(59, 55, 55, 0.8); font-size: 17px; padding: 1px 3% 2% 3%; font-weight: bold; font-family: "Open Sans", sans-serif; } }
 
