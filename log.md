@@ -192,7 +192,7 @@ Why can't I commit my log file?
 6. Accept a user or group of users
 7. Deny a user or a group of users
 8. Delete a user or a group of users
-10. Sendin an email for all users which you accept
+10. Sending an email for all users which you accept
 
 
 
@@ -200,4 +200,22 @@ Why can't I commit my log file?
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
 
+## Day 17: February 1 2019 
+
+**Today's Progress**:Fixed front-end bugs in my project, and fixed email bug. Spent a lot of time on a searching and reading.
+
+**Thoughts:** 
+
+1. Authorization for an admin
+2. Image validation
+3. Add a new member of a team
+4. Accept a user or group of users
+5. Deny a user or a group of users
+6. Delete a user or a group of users
+7. Sending an email for all users which you accept
+
+
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
