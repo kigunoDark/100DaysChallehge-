@@ -1,30 +1,27 @@
+body{ background-color:#f8f8f8; background-size: cover; background-repeat: no-repeat; margin: 0%; }
 .mobileFooter{ position: absolute; bottom: -50%; width: 100%; left: 0; border-top: 1px solid white; }
-#loginForm{  min-height:100%; }
-.loginForm{ padding: 10% 7% 10% 7%; margin-top: 5%; background-color: white; border-radius: 3%;}
-.loginButton{ background-color: #f2d243; border: none; color: white; padding: 10px 20px 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; font-weight: bold; margin: 30px 2px; border-radius: 8px; }
+.loginForm{ padding: 10% 7% 10% 7%; margin-top: 5%; background-color: white; border-radius: 3%;box-shadow: 1px 6px 6px 1px #ccc;} 
+.loginButton{ cursor: pointer; background-color: #f2d243; border: none; color: white; padding: 10px 20px 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; font-weight: bold; margin: 30px 2px; border-radius: 8px; transition: 0.2s; }
+.loginButton:hover{ cursor: pointer; background-color: #141412; border: none; color: #f2d243; padding: 10px 20px 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; font-weight: bold; margin: 30px 2px; border-radius: 8px; }
 .mobileTitle{ font-weight: bold; color: black; margin-bottom: 6%;}
-body{
-   
-    background-color:#edeeef;
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin: 0%;
-}
-
-.her{
-    object-fit: cover;
-    width: 80%;
-    border-radius: 50%;
-    
- 
+.her{ object-fit: cover; width: 80%; border-radius: 50%; box-shadow: 2px 2px 6px 1px #ccc; }
 
 
-}
+#loginForm{  min-height:100%; }
 
-@media only screen and (max-width: 1200px) { .loginForm{ padding: 0% 20% 0% 20%; margin-top: 10%;} }
+@media only screen and (max-width: 1200px) { 
+.loginForm{ padding: 0% 20% 0% 20%; margin-top: 10%;} 
+.mobileFooter{ position: absolute; bottom: -50%; width: 100%; left: 0; border-top: 1px solid white; } }
 
     
-@media only screen and (max-width: 992px) {  .loginForm{ padding: 0% 20% 0% 20%;  margin-top: 30%;} }
+@media only screen and (max-width: 992px) {  
+.loginForm{ padding: 0% 20% 0% 20%;  margin-top: 30%;} 
+.her{ object-fit: cover; width: 90%; margin-left: -25%; margin-top: 40%; border-radius: 50%; } 
+.mobileFooter{ position: absolute; bottom: 0%; width: 100%; left: 0; border-top: 1px solid white; } }
    
-@media only screen and (max-width: 600px) { .loginForm{  margin-top: 40%; padding: 0% 20% 0% 20% } }
+@media only screen and (max-width: 600px) { .loginForm{  margin-top: 40%; padding: 0% 20% 0% 20% } 
+.her{ object-fit: cover; width: 80%; margin-left: 14%; margin-top: 16%; border-radius: 50%; } 
+.mobileFooter{ position: absolute; bottom: -40%; width: 100%; left: 0; border-top: 1px solid white; }}
+
+
     

@@ -240,3 +240,24 @@ Why can't I commit my log file?
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
+
+
+## Day 19: February 3 2019 
+
+**Today's Progress**: Created new team table and wrote some controllers adn routes for it. It's really interesting. I also stack with some new problems, but I'll find the solution, I promise. 
+**Thoughts:** 
+
+Adding a new teammate
+
+1. Authorization for an admin
+2. Image validation
+3. Add a new member of a team
+4. Accept a user or group of users
+5. Deny a user or a group of users
+6. Delete a user or a group of users
+7. Sending an email for all users which you accept
+
+
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
