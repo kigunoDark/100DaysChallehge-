@@ -3,10 +3,29 @@
         <form action="/login", method="POST">
             <div class="container loginForm">
                 <p>
-                     <h5 class="center mobileTitle" > Вход </h5>
-                        <input  id="autocomplete-input" class="autocomplete" type="text" name="username" placeholder="Логин"> <br />
-                        <input  id="autocomplete-input" class="autocomplete" type="text" name="username" placeholder="Пароль"> 
-                    <button class="admSubmit" type="submit"></button>
+                    <div class ="  row">
+
+                        <div class=" col s12 m6">
+                                <img src="./image/man.png" class="her"/>
+                         </div>
+
+                        <div class="col s12 m6">
+                            <h5 class="center mobileTitle" > Вход </h5>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">account_circle</i>
+                                <input id="icon_prefix" type="text" class="validate" name="username">
+                                <label for="icon_prefix">Введите E-mail</label>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">lock</i>
+                            <input id="icon_password" type="password" class="validate " name="password">
+                            <label for="icon_password">Введите пароль</label>
+                         </div>
+                             
+                            <button class="right loginButton"  type="submit">Войти</button>
+                        </div>
+                    </div>
                 </p>
             </div>
         </form>

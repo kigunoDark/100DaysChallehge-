@@ -1,13 +1,14 @@
 const User = require('../models/users');
+const TeamMate = require('../models/team');
 var moment = require('moment');
 
 
 exports.getIndex = (req,res, next)  => {
-
-    User.findAll()
-    .then(users => {
+    const id = req.params.id;
+    User.findById(id)
+    .then(user => {
         res.render("/user/index", {
-            users: users,
+            users: user,
             pageTitle: "Searching",
             path: "/user/index",
             isAuthenticated: req.isLoggedIn
@@ -23,8 +24,8 @@ exports.getAllPar = (req, res) => {
     User.findAll()
     .then(users => {
         res.render("./admin/adminPar", {
-            moment: moment,
             users: users,
+            moment: moment,
             pageTitle: "Участники без команды",
             pageTipe: "adminIn",
             isAuthenticated: req.isLoggedIn
@@ -51,6 +52,31 @@ exports.getAdminTeam = (req, res) => {
         pageTipe: 'adminIn'
     })
 }
+
+exports.addNewTeamMate = (req, res) => {
+    
+   const mateSurname = req.body.mateSurname;
+   const mateName = req.body.mateName;
+   const mateSecondName = req.body.mateSecondName;
+   const matePosition = req.body.matePosition;
+   const mateVK = req.body.mateVK;
+   const mateInstagram = req.body.mateInstagram;
+
+   TeamMate.create({
+        name: mateName,
+        secondName: mateSecondName,
+        surname: mateSurname,
+        position: matePosition,
+        instagram: mateInstagram,
+        vk: mateVK
+    })
+    .then(result => {
+        console.log('Created User');
+        res.redirect('/')
+    }).catch( err => {
+        console.log(err);
+    });
+} 
 
 exports.getAdminGroup = (req, res) =>{
     User.findAll()

@@ -6290,7 +6290,9 @@ input[type=search]:not(.browser-default):focus.invalid ~ label,
 textarea.materialize-textarea:focus.invalid ~ label {
   color: #F44336;
 }
-
+.validate{
+  color:black;
+}
 input:not([type]).validate + label,
 input[type=text]:not(.browser-default).validate + label,
 input[type=password]:not(.browser-default).validate + label,
@@ -6598,7 +6600,7 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
 }
 
 .input-field .prefix.active {
-  color: #26a69a;
+  color: #e6c532;
 }
 
 .input-field .prefix ~ input,

@@ -37,7 +37,7 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .statistic { position: relative; min-height: 500px; background-image: linear-gradient( to right bottom, rgba(19, 19, 19, 0.9), rgba(211, 191, 16, 0.1) ), url("../image/static.jpg"); background-attachment: fixed; background-size: cover; width: 100%; }
 .numbers { margin: 10% 0% 15% 0%; }
 .admSubmit{ display: none; }
-.register { position: relative; min-height: 700px; background-image: linear-gradient( to right bottom, rgba(19, 19, 19, 0.9), rgba(211, 191, 16, 0.1) ), url("../image/reg.jpg"); background-attachment: fixed; background-size: cover; }
+.register { position: relative; min-height: 700px; background-image: linear-gradient( to right bottom, rgba(51, 48, 48, 0.9), rgba(211, 191, 16, 0.1) ), url("../image/reg.jpg"); background-attachment: fixed; background-size: cover; }
 .register #top { position: absolute; top: 0; width: 100%; height: 10vw; fill: white; }
 .register #bot { position: absolute; bottom: 0; width: 100%; height: 10vw; fill: white; }
 .reg-card { background-color: rgba(7, 7, 7, 0); }
@@ -75,6 +75,8 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 #team #bot { position: absolute; bottom: 0; width: 100%; height: 10vw; fill: white; }
 #partners { margin: 0% 0% 10% 0%; }
 #rsm { margin-top: 5%; }
+#add-team { padding: 2%; background-color: rgba(31, 31, 33, 0.8); margin: 20% 0% 15% 0%; border-radius: 5px; width: 60%;margin-left: 25%; }
+#team {background-image: linear-gradient( to right bottom, rgba(224, 180, 36, 0.9), rgba(170, 134, 60, 0.1) ), url("https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"); margin-top: -10%;}
 
 /* Media */
 

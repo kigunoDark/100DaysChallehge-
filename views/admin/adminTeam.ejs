@@ -2,9 +2,60 @@
 
 
 
-    <main class="user-dashboard"> 
+    <main id="team" class="user-dashboard"> 
 
-        hello admin team
+    <div class="container">
+        <form id="add-team" action = "/adminAddMate" method = "POST" >
+        <div class="container">
+                <h1 style="font-size: 25px; color: white;" class="title1 center"> <span class="owncolor">Добавить</span> Сотрудника</h1>
+            <div class="row">
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" placeholder="Заполните поле", name="mateSurname" id="mateSurname">
+                    <label style="font-size: 18px;" for="mateSurname">Фамилия</label>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" placeholder="Заполните поле", name="mateName" id="mateName">
+                    <label style="font-size: 18px;" for="mateName">Имя</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" placeholder="Заполните поле", name="mateSecondName" id="mateSecondName">
+                    <label style="font-size: 18px;" for="mateSecondName">Отчество</label>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" placeholder="Заполните поле", name="matePosition" id="matePosition">
+                    <label style="font-size: 18px;" for="matePosition">Должность</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" placeholder="Заполните поле", name="mateVK" id="mateVK">
+                    <label style="font-size: 18px;" for="mateVK">VK</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" placeholder="Заполните поле", name="mateInstagram" id="mateInstagram">
+                    <label style="font-size: 18px;" for="mateInstagram">Instagram</label>
+                </div>
+            </div>
+
+          <a href="javascript:{}" onclick="document.getElementById('add-team').submit();" style="color:#f2d243;" class="fioUser right modal-close waves-effect waves-green btn-flat">Принять</a>
+         
+        </form>
     </main>
 
 
