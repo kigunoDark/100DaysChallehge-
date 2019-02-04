@@ -37,12 +37,13 @@ input,textarea{ font-weight: bold; color: white;}
 .proginfo { background: #ffffff; padding: 20px 10px 0 10px; border-top: 1px solid #f2d243; color: rgba(31, 46, 61, 0.5); font-size: 20px; font-family: "Open Sans", sans-serif; }
 .infotitle { color: #f2d243; text-shadow: 1px 1px 3px #000000; font-family: "Russo One", sans-serif; }
 .bio { color: white; font-size: 18px; text-align: center; font-weight: bold; margin-bottom: 20px; text-shadow: 1px 2px 1px #000000; font-family: "Open Sans", sans-serif; }
-.mamber { width: 60%; left: 20%; border: 3px #f2d243 solid; text-shadow: 1px 1px 4px #000000; transition: 1s; cursor: auto; }
-.inst { color: rgba(243, 243, 243, 0.9); padding: 9px; padding-right: 11px; padding-left: 11px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.3); text-shadow: 1px 1px 4px #000000; transition: 0.2s; }
-.inst:hover { background-color: rgba(216, 172, 29, 0.9); border-radius: 20%; color: white; }
-.vk { color: rgba(243, 243, 243, 0.9); padding: 7px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.3); text-shadow: 1px 1px 4px #000000; transition: 0.2s; }
-.vk:hover { background-color: rgba(216, 172, 29, 0.9); border-radius: 20%; color: white; }
+.mamber { width: 60%; left: 20%; border: 3px #f2d243 solid; text-shadow: 1px 1px 4px #000000; transition: 0.4s; cursor: auto; }
+.inst {  font-weight: bold;color:#f2d243;  padding: 9px; padding-right: 11px;  border: 3px solid #e7b615; padding-left: 11px; border-radius: 50%;  transition: 0.2s; font-size: 20px; }
+.inst:hover {  border: 3px solid white;   font-size: 20px; border-radius: 40%; color:  #f2d243; transition: 0.4s; }
+.vk {padding: 9px; border-radius: 50%;  text-shadow: 1px 1px 4px #000000; transition: 0.4s;  font-size: 20px; color:  #e7b615; border: 3px solid #e7b615;}
+.vk:hover { background-color: rgba(216, 172, 29, 0.9); border-radius: 40%; color: white;  border: 3px solid white;  }
 .error {  font-family: "Russo One"; color: #2c324a;}
+.brand { color: #f2d243; font-weight: bold; text-shadow: 2px 1px 2px #302f2f; font-family: "Russo One", sans-serif; font-weight: normal; font-size: 3vmin; text-transform: uppercase;}
 
 /* All ides of colors */
 

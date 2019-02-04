@@ -1,14 +1,23 @@
 const User = require('../models/users');
+const TeamMate = require('../models/team');
 // const validOfOneUser = require('../validator/user-validator');
 
 exports.getLanding = (req, res) => {
+    TeamMate.findAll()
+    .then(teams => {
     res.render('./users/landingPage',
      { 
+        teams: teams,
         pageTitle: "ВекторСКФО",
         pageTipe:"users",
         path: '/',
         isAuthenticated: req.isLoggedIn
     });
+    })
+    .catch(err => {
+        console.log(err);
+    })
+
 }
 
 exports.addNewUser = (req, res) => {

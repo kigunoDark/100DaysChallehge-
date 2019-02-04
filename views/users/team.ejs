@@ -1,0 +1,349 @@
+<section id="team">
+<% if (teams.length > 1 && teams.length % 2 === 0) { %>
+ <div class="section section-icons  lighten-4 center\">
+     <div class="container">
+         <div class="row">
+             <h3 class="title center"><span class="owncolor">Наша</span> команда</h3>
+             <% for (let team of teams ) { %>
+             <div class="col s12 m6">
+                 <div class="icon-block ">
+                     <a><img class="mamber materialboxed z-depth-3 responsive-img circle" width="650" src="<%= team.photo %>"></a>
+                     <h5 class="fio center" style="text-transform:none;"><%= team.name %><br> <%= team.surname %></h5>
+                     <p class="bio light"><%= team.position %></p>
+                     <ul class="center">
+                         <li>
+                             <a target="_blank" class="social text" href="<%= team.vk %>">
+                                 <i class="vk fab fa-vk "></i>
+                                 </i>
+                             </a>
+                             <a target="_blank" class="social text" href="<%= team.instagram %>">
+                                 <i class="inst fab fa-instagram "></i>
+                             </a>
+                         </li>
+                     </ul>
+                 </div>
+             </div>
+     <% } %>
+   
+   <!-- <div class="col s12 m4">
+
+     <div class="col s12 m4">
+    <div class="icon-block">
+        <a><img class=" mamber materialboxed z-depth-3 responsive-img circle" width="650" src="./image/levinsk.jpg"></a>
+        <h5 class="fio center" style="text-transform:none;">Елена <br> Сонина</h5>
+        <p class="bio light">Программный Руководитель проекта <br>директор, модератор</p>
+        <ul class="center">
+            <li>
+                <a target="_blank" class="social text" href="https://vk.com/elensonina">
+                    <i class="vk fab fa-vk "></i>
+                    </i>
+                </a>
+                <a target="_blank" class="social text" href="https://www.instagram.com/elen.sonina/ ">
+                    <i class="inst fab fa-instagram "></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    <div class="icon-block">
+        <a><img class=" mamber materialboxed z-depth-3 responsive-img circle" width="650" src="./image/levinsk.jpg"></a>
+        <h5 class="fio center" style="text-transform:none;">Елена <br> Ливенская</h5>
+        <p class="bio light">Программный <br>директор, модератор</p>
+        <ul class="center">
+            <li>
+                <a target="_blank" class="social text" href="https://vk.com/e.livenskaya">
+                    <i class="vk fab fa-vk "></i>
+                    </i>
+                </a>
+                <a target="_blank" class="social text" href="https://www.instagram.com/elenalivenskaya">
+                    <i class="inst fab fa-instagram "></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="col s12 m4">
+    <div class="bio icon-block">
+        <img class="mamber materialboxed z-depth-3 responsive-img circle" width="650" src="./image/kot.jpg">
+        <h5 class="fio center" style="text-transform:none;">Вероника <br> Катович</h5>
+        <p class="bio light">Координатор<br> штаба, модератор</p>
+        <ul class="center">
+            <li>
+                <a target="_blank" class="social text" href="https://vk.com/katovich_veronika1">
+                    <i class="vk fab fa-vk "></i>
+                    </i>
+                </a>
+                <a target="_blank" class="social text" href="https://www.instagram.com/katovich_veronika">
+                    <i class="inst fab fa-instagram "></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+
+<div class="row">
+<div class="col s12 m4">
+    <div class="icon-block">
+        <img class="mamber materialboxed z-depth-3 responsive-img circle" width="650" src="./image/dernovaya.jpg">
+        <h5 class="fio center" style="text-transform:none;">Сергей <br> Шафоростов</h5>
+        <p class="bio light">Тренер АТ РСМ,<br> модератор</p>
+        <ul class="center">
+            <li>
+                <a target="_blank" class="social text" href="https://vk.com/re">
+                    <i class="vk fab fa-vk "></i>
+                    </i>
+                </a>
+                <a target="_blank" class="social text" href="https://www.instagram.com/shaforostov_s/">
+                    <i class="inst fab fa-instagram "></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="col s12 m4">
+    <div class="icon-block">
+        <img class="mamber materialboxed z-depth-3 responsive-img circle" width="650" src="./image/baba.jpg">
+        <h5 class="fio center" style="text-transform:none;">Елена <br> Бабенко</h5>
+        <p class="bio light">Тренер АТ РСМ,<br> модератор</p>
+        <ul class="center">
+            <li>
+                <a target="_blank" class="social text" href="https://vk.com/helenbabenko">
+                    <i class="vk fab fa-vk "></i>
+                    </i>
+                </a>
+                <a target="_blank" class="social text" href="https://www.instagram.com/madambabenko/">
+                    <i class="inst fab fa-instagram "></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="col s12 m4">
+    <div class="icon-block">
+        <img class="mamber materialboxed z-depth-3 responsive-img circle" width="650" src="./image/uru.jpg">
+        <h5 class="fio center" style="text-transform:none;">Радмир <br> Яруллин</h5>
+        <p class="bio light">Тренер АТ РСМ,<br> модератор</p>
+        <ul class="center">
+            <li>
+                <a target="_blank" class="social text" href="https://vk.com/yarullin">
+                    <i class="vk fab fa-vk "></i>
+                    </i>
+                </a>
+                <a target="_blank" class="social text" href="http://instagram.com/yarullin">
+                    <i class="inst fab fa-instagram "></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</div>
+
+<div class="row">
+<div class="col s12 m4">
+    <div class="icon-block">
+        <img class="mamber materialboxed z-depth-3 responsive-img circle" src="./image/nazar.jpg">
+        <h5 class="fio center" style="text-transform:none;">Анна <br> Назаренко</h5>
+        <p class="bio light">Асессор,<br> модератор</p>
+        <ul class="center">
+            <li>
+                <a target="_blank" class="social text" href="https://vk.com/anne.nazarenko">
+                    <i class="vk fab fa-vk "></i>
+                    </i>
+                </a>
+                <a target="_blank" class="social text" href="https://www.instagram.com/annushka_nazarenko">
+                    <i class="inst fab fa-instagram "></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="col s12 m4">
+    <div class="icon-block ">
+        <img class="mamber materialboxed z-depth-2 responsive-img circle" src="./image/kira.jpg">  
+        <h5 class="fio center" style="text-transform:none;">Людмила <br> Кирюхина</h5>
+        <p class="bio light">Асессор,<br> модератор</p>
+        <ul class="center">
+            <li>
+                <a target="_blank" class="social text" href="https://vk.com/lyusya1995">
+                    <i class="vk fab fa-vk "></i>
+                    </i>
+                </a>
+                <a target="_blank" class="social text" href="https://www.instagram.com/ludmila_kiryukhina">
+                    <i class="inst fab fa-instagram "></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="col s12 m4">
+    <div class="icon-block">
+        <img class="mamber mamber materialboxed z-depth-2 responsive-img circle" src="./image/as9.jpg">
+        <h5 class="fio center" style="text-transform:none;">Ася <br> Магулаева</h5>
+        <p class="bio light">Асессор,<br> SMM-специалист</p>
+        <ul class="center ">
+            <li>
+                <a target="_blank" class="social text" href="https://vk.com/a_magulaeva">
+                    <i class="vk fab fa-vk "></i>
+                    </i>
+                </a>
+                <a target="_blank" class="social text" href="https://www.instagram.com/a_sya_">
+                    <i class="inst fab fa-instagram "></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</div>
+<div class="row">
+<div class="col s12 m4">
+    <div class="icon-block">
+        <img class=" mamber materialboxed z-depth-3 responsive-img circle" src="./image/chern.jpg">
+        <h5 class="fio center" style="text-transform:none;">Анастасия <br> Чернова</h5>
+        <p class="bio light">Координатор СМИ</p>
+        <ul class="center">
+            <li>
+                <a target="_blank" class="social text" href="https://vk.com/belugachernova">
+                    <i class="vk fab fa-vk "></i>
+                    </i>
+                </a>
+                <a target="_blank" class="social text" href="https://www.instagram.com/belugachernova">
+                    <i class="inst fab fa-instagram "></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="col s12 m4">
+    <div class="icon-block">
+        <img class="mamber materialboxed z-depth-3 responsive-img circle" src="./image/dezmand.jpg">
+        <h5 class="fio center" style="text-transform:none;">Андрей <br> Дзантиев</h5>
+        <p class="bio light">Видеооператор</p>
+        <ul class="center ">
+            <li>
+                <a target="_blank" class="social text" href="https://vk.com/dezmand91">
+                    <i class="vk fab fa-vk "></i>
+                    </i>
+                </a>
+                <a target="_blank" class="social text" href="https://www.instagram.com/dezmand91">
+                    <i class="inst fab fa-instagram "></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="col s12 m4">
+    <div class="icon-block">
+        <img class="mamber materialboxed z-depth-3 responsive-img circle" src="./image/hz.jpg">
+        <h5 class="
+fio center" style="text-transform:none;">Диана <br> Миронова</h5>
+        <p class="bio light">Фотограф</p>
+        <ul class="center">
+            <li>
+                <a target="_blank" class="social text" href="https://vk.com/loco.moloko">
+                    <i class="vk fab fa-vk "></i>
+                    </i>
+                </a>
+                <a target="_blank" class="social text" href="https://www.instagram.com/locomoloko/">
+                    <i class="inst fab fa-instagram "></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="col s12 m4">
+    <div class="icon-block">
+        <img class="mamber materialboxed z-depth-3 responsive-img circle" src="./image/chenko.jpg">
+        <h5 class="fio center" style="text-transform:none;">Роман <br> Фусточенко</h5>
+        <p class="bio light">Арт-директор</p>
+        <ul class="center">
+            <li>
+                <a target="_blank" class="social text" href="https://vk.com/fustochenko">
+                    <i class="vk fab fa-vk "></i>
+                    </i>
+                </a>
+                <a target="_blank" class="social text" href="https://www.instagram.com/roman_fustochenko/">
+                    <i class="inst fab fa-instagram "></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="col s12 m4">
+    <div class="icon-block">
+        <img class="mamber materialboxed z-depth-3 responsive-img circle" src="./image/rus.jpg">
+        <h5 class="fio center" style="text-transform:none;">Руслан <br> Елманбетов</h5>
+        <p class="bio light">Ведущий</p>
+        <ul class="center">
+            <li>
+                <a target="_blank" class="social text" href="https://vk.com/rusik_elmanbetov">
+                    <i class="vk fab fa-vk "></i>
+                    </i>
+                </a>
+                <a target="_blank" class="social text" href="https://www.instagram.com/ruslan.elm">
+                    <i class="inst fab fa-instagram "></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="col s12 m4">
+    <div class="icon-block">
+        <img class="mamber materialboxed z-depth-3 responsive-img circle" src="./image/dimka.jpg">
+        <h5 class="fio center" style="text-transform:none;">Дмитрий <br> Сакичев</h5>
+        <p class="bio light">Звукорежиссер</p>
+        <ul class="center ">
+            <li>
+                <a target="_blank" class="social text" href="https://vk.com/d.sakichev">
+                    <i class="vk fab fa-vk "></i>
+                    </i>
+                </a>
+                <a target="_blank" class="social text" href="https://www.instagram.com/sakichev_dimka">
+                    <i class="inst fab fa-instagram"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+ </div>
+ </div> -->
+ <% } else if(teams.length > 1 && teams.length % 3 === 0) {  %>
+ <div class="section section-icons  lighten-4 center\">
+     <div class="container">
+         <div class="row">
+             <h3 class="title center"><span class="owncolor">Наша</span> команда</h3>
+             <% for (let team of teams ) { %>
+             <div class="col s12 m4">
+                 <div class="icon-block ">
+                     <a><img class="mamber materialboxed z-depth-3 responsive-img circle" width="650" src="./image/sonina.jpg"></a>
+                     <h5 class="fio center" style="text-transform:none;"><%= team.name %><br> <%= team.surname %></h5>
+                     <p class="bio light"><%= team.position %></p>
+                     <ul class="center">
+                         <li>
+                             <a target="_blank" class="social text" href="<%= team.vk %>">
+                                 <i class="vk fab fa-vk "></i>
+                                 </i>
+                             </a>
+                             <a target="_blank" class="social text" href="<%= team.instagram %>">
+                                 <i class="inst fab fa-instagram "></i>
+                             </a>
+                         </li>
+                     </ul>
+                 </div>
+             </div>
+     <% } %>
+  <% } else { %>
+ <h1> There is no users in you table  <h2>
+ <% } %>
+</section>

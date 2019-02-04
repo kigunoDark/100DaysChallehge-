@@ -244,7 +244,7 @@ Why can't I commit my log file?
 
 ## Day 19: February 3 2019 
 
-**Today's Progress**: Created new team table and wrote some controllers adn routes for it. It's really interesting. I also stack with some new problems, but I'll find the solution, I promise. 
+**Today's Progress**: Created new team table and wrote some controllers and routes for it. It's really interesting. I also stack with some new problems, but I'll find the solution, I promise. 
 **Thoughts:** 
 
 Adding a new teammate
@@ -261,3 +261,25 @@ Adding a new teammate
 
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 20: February 4 2019 
+
+**Today's Progress**: Image validation and parsing in a process , fixed some bugs, and understand how can we work with a multer.jss
+**Thoughts:** 
+
+Adding a new teammate
+ Image validation
+ Add a new member of a team
+
+1. Authorization for an admin
+2. Accept a user or group of users
+3. Deny a user or a group of users
+4. Delete a user or a group of users
+5. Sending an email for all users which you accept
+
+
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+

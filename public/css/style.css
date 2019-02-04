@@ -12,7 +12,7 @@ nav.limem { top: 0;left: 0; z-index: 1; background-color: rgba(31, 29, 29, 0.8);
 nav ul a, nav .brand-logo { color: white; }
 nav .brand-logo { color: white; }
 video { z-index: -1; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-header { margin-top: -10%;  height: 107vh; background: linear-gradient( to right bottom, rgba(19, 19, 19, 0.9), rgba(211, 191, 16, 0.1)); background-size: cover; background-position: top; position: relative; border-bottom: 1px solid white; }
+header { margin-top: -5%;  height: 107vh; background: linear-gradient( to right bottom, rgba(19, 19, 19, 0.9), rgba(17, 17, 17, 0.6)); background-size: cover; background-position: top; position: relative; border-bottom: 1px solid white; }
 footer.page-footer { font-family: "Open Sans", sans-serif;  }
 main { flex: 1 0 auto; }
 hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15px; margin-left: 10%;}
@@ -34,10 +34,10 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .itempro { padding: 7%; }
 .card-item h2 { margin-bottom: 10%; }
 .def { text-align: center; color: rgba(59, 55, 55, 0.8); font-size: 18px; padding: 1px 5% 5% 5%; font-weight: bold; font-family: "Open Sans", sans-serif; }
-.statistic { position: relative; min-height: 500px; background-image: linear-gradient( to right bottom, rgba(19, 19, 19, 0.9), rgba(211, 191, 16, 0.1) ), url("../image/static.jpg"); background-attachment: fixed; background-size: cover; width: 100%; }
+#statistic { position: relative; min-height: 500px; background-image: linear-gradient( to right bottom, rgba(19, 19, 19, 0.9), rgba(8, 8, 8, 0.9) ), url("../image/static.jpg"); background-attachment: fixed; background-size: cover; width: 100%; }
 .numbers { margin: 10% 0% 15% 0%; }
 .admSubmit{ display: none; }
-.register { position: relative; min-height: 700px; background-image: linear-gradient( to right bottom, rgba(51, 48, 48, 0.9), rgba(211, 191, 16, 0.1) ), url("../image/reg.jpg"); background-attachment: fixed; background-size: cover; }
+.register { position: relative; min-height: 700px; background-image: linear-gradient( to right bottom, rgba(14, 13, 13, 0.9), rgba(19, 19, 18, 0.9) ), url("../image/reg.jpg"); background-attachment: fixed; background-size: cover; }
 .register #top { position: absolute; top: 0; width: 100%; height: 10vw; fill: white; }
 .register #bot { position: absolute; bottom: 0; width: 100%; height: 10vw; fill: white; }
 .reg-card { background-color: rgba(7, 7, 7, 0); }
@@ -46,14 +46,15 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .defenition { width: 100%; padding: 10%; margin-left: 10%; margin-top: 15%; height: 90%; margin-bottom: 30%; cursor: auto; }
 .defabout { text-align: left; color: rgba(59, 55, 55, 0.8); font-size: 18px; padding: 1px 3% 2% 3%; font-weight: bold; font-family: "Open Sans", sans-serif; }
 .team { padding-top: 100px; }
-.mamber:hover { cursor: auto; border: 3px rgba(31, 46, 61, 0.9) solid; }
+.mamber:hover { cursor: default; border: 3px solid rgba(255, 255, 255); }
 .social { margin-right: 10px; }
 .copy { padding: 3%; font-size: 18px; }
 .fab { margin-bottom: 20px; }
 .page-footer { background-color: rgba(31, 29, 29, 0.9);}
-.press li { list-style: none; display: inline-block; }
+.press li { list-style: none; display: inline-block;margin-top: 13%; }
 .spons { width: 100%;}
 .error{ margin:  22% 0% 22% 0% }
+
 
 /* Ides of Structure */
 
@@ -70,7 +71,7 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 #sidenav { margin-left: 300px; z-index: 999; }
 #aboutvector { margin-top: 50px; }
 #about { position: relative; min-height: 570px; background-image: linear-gradient( to right bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.5)); margin: 0% 0px 5% 0px; }
-#team { position: relative; min-height: 1100px; background-image: linear-gradient( to right bottom, rgba(19, 19, 19, 0.9), rgba(211, 191, 16, 0.1)), url("../image/team.jpg"); background-attachment: fixed; background-size: cover; } 
+#team { position: relative; min-height: 1100px; background-image: linear-gradient( to right bottom, rgba(0, 0, 0, 0.9), rgba(26, 25, 24, 0.9)), url("../image/team.jpg"); background-attachment: fixed; background-size: cover; } 
 #team #top { position: absolute; top: 0; width: 100%; height: 10vw; fill: white; }
 #team #bot { position: absolute; bottom: 0; width: 100%; height: 10vw; fill: white; }
 #partners { margin: 0% 0% 10% 0%; }
@@ -93,7 +94,7 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
  hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15px; margin-left: 10%; }
 .defenition { width: 100%; padding: 10%; margin-top: 20%; margin-bottom: 20%; margin-left: 0%; height: 90%; cursor: auto; }
 .defabout { text-align: center; color: rgba(59, 55, 55, 0.8); font-size: 17px; padding: 1px 3% 2% 3%; font-weight: bold; font-family: "Open Sans", sans-serif; } }
-
+.year { cursor: default; margin-right: 1px; margin-top: -11px; padding-top: 9px; padding-bottom: 8px; transition: 1s;font-family: "Russo One", sans-serif; }
 /* Font Face */
 
 @font-face { font-family: "Brody"; font-style: normal; font-weight: normal; src: local("Brody"), url("../fonts/BRODY.woff") format("woff"); }

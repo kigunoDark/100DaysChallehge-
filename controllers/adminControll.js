@@ -61,6 +61,7 @@ exports.addNewTeamMate = (req, res) => {
    const matePosition = req.body.matePosition;
    const mateVK = req.body.mateVK;
    const mateInstagram = req.body.mateInstagram;
+   const matePhoto = req.body.matePhoto;
 
    TeamMate.create({
         name: mateName,
@@ -68,7 +69,8 @@ exports.addNewTeamMate = (req, res) => {
         surname: mateSurname,
         position: matePosition,
         instagram: mateInstagram,
-        vk: mateVK
+        vk: mateVK,
+        photo: matePhoto
     })
     .then(result => {
         console.log('Created User');
