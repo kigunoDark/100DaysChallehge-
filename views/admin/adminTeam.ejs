@@ -3,9 +3,9 @@
 
 
     <main id="team" class="user-dashboard"> 
-
     <div class="container">
-        <form id="add-team" action = "/adminAddMate" method = "POST" >
+    <%= typeof msg != 'undefined' ? msg : '' %>
+        <form  enctype="multipart/form-data" id="add-team" action = "/adminAddMate" method = "POST" >
         <div class="container">
                 <h1 style="font-size: 25px; color: white;" class="title1 center"> <span class="owncolor">Добавить</span> Сотрудника</h1>
             <div class="row">
@@ -55,7 +55,7 @@
             
             <div class="row">
             <label for="avatar">Choose a profile picture:</label>
-            <input id="avatar" name="matePhoto" type="file"  accept="image/png, image/jpeg" >
+            <input name="matePhoto" id="avatar" type="file"  accept="image/png, image/jpeg" >
                 
             </div>
 

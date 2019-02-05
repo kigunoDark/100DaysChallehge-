@@ -1,7 +1,23 @@
 const User = require('../models/users');
 const TeamMate = require('../models/team');
-var moment = require('moment');
+const path = require('path');
+const multer = require('multer');
+const moment = require('moment');
 
+
+// Init multer storege
+
+const storage = multer.diskStorage({
+    destination:'../uploads',
+    filename: function(req, file, cb){
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+})
+// Init multer
+const upload = multer({
+    storage:storage
+}
+).single('matePhoto')
 
 exports.getIndex = (req,res, next)  => {
     const id = req.params.id;
@@ -61,7 +77,32 @@ exports.addNewTeamMate = (req, res) => {
    const matePosition = req.body.matePosition;
    const mateVK = req.body.mateVK;
    const mateInstagram = req.body.mateInstagram;
-   const matePhoto = req.body.matePhoto;
+    
+    // upload(req, res, (err) => {
+    //     if(err){
+    //         res.render('./admin/adminTeam',{
+    //             msg: err,
+    //             pageTitle: "Команда Вектор",
+    //             pageTipe: 'adminIn'
+    //         })
+    //     } else {
+    //         if(req.file === undefined){
+    //             res.render('./admin/adminTeam',{
+    //                 msg: "Файл не был выбран",
+    //                 pageTitle: "Команда Вектор",
+    //                 pageTipe: 'adminIn'
+    //             })
+    //         } else {
+    //             res.render('./admin/adminTeam', {
+    //                 msg: "File aploaded",
+    //                 pageTitle: "Команда Вектор",
+    //                 pageTipe: 'adminIn',
+    //                 file: `uploads/${req.file.filename}`
+                    
+    //                })
+    //         }
+    //     }
+    // })
 
    TeamMate.create({
         name: mateName,
@@ -70,7 +111,7 @@ exports.addNewTeamMate = (req, res) => {
         position: matePosition,
         instagram: mateInstagram,
         vk: mateVK,
-        photo: matePhoto
+      
     })
     .then(result => {
         console.log('Created User');

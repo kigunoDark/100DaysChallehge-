@@ -9,10 +9,6 @@ const TeamMate =  sequelize.define('teamMate', {
         primaryKey: true,
         allowNull: false    
     },
-    photo: {
-        type: Sequelize.BLOB,
-        allowNull: false
-    },
     name: {
         type: Sequelize.STRING,
         allowNull: false
