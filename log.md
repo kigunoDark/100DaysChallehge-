@@ -263,7 +263,7 @@ Adding a new teammate
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
 
-## Day 20: February 4 2019 
+## Day 20: February 5 2019 
 
 **Today's Progress**: Image validation and parsing in a process , fixed some bugs, and understand how can we work with a multer.jss
 **Thoughts:** 
@@ -283,3 +283,24 @@ Adding a new teammate
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
+
+
+## Day 21: February 6 2019 
+
+**Today's Progress**: Today I just work hard with a back-end part. It's a new field for me, so I'm going to work with a front end next 2-3 days, just for relax
+**Thoughts:** 
+
+Adding a new teammate
+ Image validation
+ Add a new member of a team
+
+1. Authorization for an admin
+2. Accept a user or group of users
+3. Deny a user or a group of users
+4. Delete a user or a group of users
+5. Sending an email for all users which you accept
+
+
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
