@@ -304,3 +304,23 @@ Adding a new teammate
 
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+## Day 22: February 6 2019 
+
+**Today's Progress**: This is not a productive day. I haven't work too much like I did last 21 days. Maybe I needed to be a relax. And I did it, today with my friends. However, I worked 1 hour and I'm going to learn to react.js on @FreeCodeCamp. Don't forget to relax guys.
+**Thoughts:** 
+
+Adding a new teammate
+ Image validation
+ Add a new member of a team
+
+1. Authorization for an admin
+2. Accept a user or group of users
+3. Deny a user or a group of users
+4. Delete a user or a group of users
+5. Sending an email for all users which you accept
+
+
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
