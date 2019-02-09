@@ -2964,7 +2964,7 @@ ul.staggered-list li {
           justify-content: space-between;
   padding: 10px 0px;
   color: rgba(255, 255, 255, 0.8);
-  background-color: rgba(51, 51, 51, 0.08);
+  background-color: rgba(0, 0, 0, 1);
 }
 
 table, th, td {
@@ -5541,15 +5541,15 @@ button.btn-floating {
 }
 
 .dropdown-content {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.9);
   margin:0;
   display: none;
-  min-width: 250px;
+  min-width: 220px;
   overflow-y: auto;
   opacity: 0;
   position: absolute;
   left: 0;
-  top: -117%;
+  top: -102%;
   z-index: 9999;
   overflow-y: hidden;
   -webkit-transform-origin: 0 0;
@@ -5571,7 +5571,7 @@ button.btn-floating {
 }
 
 .dropdown-content li:hover, .dropdown-content li.active {
-  background-color: #eee;
+  background-color: #f2d243;
 }
 
 .dropdown-content li:focus {

@@ -10,6 +10,6 @@ router.get('/adminTeam', adminControll.getAdminTeam);
 router.get('/adminGroup', adminControll.getAdminGroup);
 
 router.post('/adminAddMate', adminControll.addNewTeamMate);
-
+router.post('/delete-mate', adminControll.postDeleteTeamMate)
 
 module.exports = router;

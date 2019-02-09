@@ -305,7 +305,27 @@ Adding a new teammate
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
-## Day 22: February 6 2019 
+## Day 22: February 7 2019 
+
+**Today's Progress**: Had some problems with git commits so my log file has some missing of memo
+
+Adding a new teammate
+ Image validation
+ Add a new member of a team
+
+1. Authorization for an admin
+2. Accept a user or group of users
+3. Deny a user or a group of users
+4. Delete a user or a group of users
+5. Sending an email for all users which you accept
+
+
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 23: February 8 2019 
 
 **Today's Progress**: This is not a productive day. I haven't work too much like I did last 21 days. Maybe I needed to be a relax. And I did it, today with my friends. However, I worked 1 hour and I'm going to learn to react.js on @FreeCodeCamp. Don't forget to relax guys.
 **Thoughts:** 
@@ -324,3 +344,26 @@ Adding a new teammate
 
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 24: February 9 2019 
+
+**Today's Progress**: #100daysofcode. I'm still working with node.js. Develop my first website for my friends. Today I have made such functions like add, delete, edit a teammate, front-end for getting info about a teammate. 
+**Thoughts:** 
+
+Hard for me now
+Adding a new teammate
+ Image validation
+ Add a new member of a team
+
+1. Authorization for an admin
+2. Accept a user or group of users
+3. Deny a user or a group of users
+4. Delete a user or a group of users
+5. Sending an email for all users which you accept
+
+
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+

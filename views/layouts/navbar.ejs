@@ -40,7 +40,9 @@
         <div class="navbar-fixed">
         
         <nav class="if <%= pageTipe === 'users' || pageTipe === 'admin' ? 'navanim' : 'limem' %>" role="navigation">
-            <div class="nav-wrapper container-wrap">
+        <% if (pageTipe != "adminIn") { %>   
+        <div class="nav-wrapper container">
+        <% } %>
             <% if (pageTipe === "mobileLogin") { %>
                 <a id="logo-container" href="/" class="brand-logo"> <img src="./image/fakelogo.png" style="width:100px;"
                 alt=""></a>
@@ -83,30 +85,11 @@
                     <li><a class="menu" href="#team">Команда</a></li>
                     <li><a class="menu" href="#contacts">Контакты</a></li>
 
-                    <!-- Dropdown Trigger -->
-
-                    <li>
-                     <nav> <!-- navbar content here  --> </nav>
-
-  <ul id="slide-out" class="sidenav">
-    <li><div class="user-view">
-      <div class="background">
-        <img src="images/office.jpg">
-      </div>
-      <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-      <a href="#name"><span class="white-text name">John Doe</span></a>
-      <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-    </div></li>
-    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-    <li><a href="#!">Second Link</a></li>
-    <li><div class="divider"></div></li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-  </ul>
-  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                   <li>
+                    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                         <a class='menu dropdown-trigger ' href='#' data-target='dropdown1'>Войти</a>
                             <ul id='dropdown1' class='dropdown-content'>
-                                <form  action="/login", method="POST"> 
+                                <form class="log" action="/login", method="POST"> 
                                     <div class="container">
                                         <p>
                                             <h5 class="center" style="font-weight: bold;"> Вход </h5>
@@ -123,21 +106,19 @@
             <!-- AdminIn Version -->    
                 
             <% } else if(pageTipe === "adminIn") { %>
+                <ul id="dropdown1" class="dropdown-content">
+                    <li><a href="/adminPage"> <i class="far fa-list-alt"></i>Утврждение</a></li>
+                    <li><a href="/adminTeam"><i class="far fa-address-card"></i>Сотрудники</a></li>
+                    <li><a href="/adminGroup"><i class="fas fa-users"></i>Команды</a></li> 
+                    <li><a href="/adminPar"><i class="far fa-user"></i>Участники</a></li>
+                    <li><a href="/logOut"> <i class=" fas fa-sign-out-alt"></i>Выход</a></li>
+              </ul>
+            
+                  <ul class="adminUl right hide-on-med-and-down">
+                    <!-- Dropdown Trigger -->
+                    <li><a class='aminIcon dropdown-trigger ' href='#' data-target='dropdown1'><i style="font-size: 30px;" class="far fa-user-circle"></i></a> </li> 
+                  </ul>
 
-                <ul class="right hide-on-med-and-down">
-                    <li><a class="menu" href="/adminPage">Утврждение</a></li>
-                    <li><a class="menu" href="/adminTeam">Сотрудники</a></li>
-                    <li><a class="menu" href="/adminPar">Участники</a></li>
-                    <li><a class="menu" href="/adminGroup">Команды</a></li>
-                    <li><a class="menu" href="/logOut">Выход</a></li>
-                    
-                 <li> 
-                 
-                    <img src="./image/sonina.jpg" alt="" class=" adminPhoto circle responsive-img"> <!-- notice the "circle" class -->
-                    <h5> Elena Sonina </h5>
-               </li>
-           
-                </ul>
                 <% } else if(pageTipe === "mobileLogin") { %>
                     <ul class="right hide-on-med-and-down">
                         <li><a class="menu" href="/">Главная</a></li>

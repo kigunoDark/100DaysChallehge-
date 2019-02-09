@@ -1,11 +1,18 @@
 /* Color styles of our web templates. Usually text  */
-
 /* All classes of colors */
 .fio { color: #f2d243; font-weight: bold; text-shadow: 1px 1px 4px #000000; font-family: "Russo One", sans-serif; font-weight: normal; font-size: 3vmin;}
 .title { color: white; text-shadow: 1px 1px 4px #000000; margin-top: 60px; padding-bottom: 60px; letter-spacing: 0.26em; font-weight: 100; font-size: 6vmin; font-family: "Russo One", sans-serif; font-weight: normal; text-transform: uppercase;}
 .vector { color: #f2d243; font-weight: bold; text-shadow: 1px 1px 3px #000000; font-family: "Russo One", sans-serif; font-weight: normal; font-size: 6vmin;}
-.parFio { text-shadow: 1px 1px 8px #000000;}
+.parFio { text-shadow: 1px 1px 8px #000000; }
 .fioUser { color: white; font-weight:normal; text-shadow: 1px 1px 8px #000000; font-family: "Russo One", sans-serif; font-size: 14px;}
+.teamLink { transition: 0.2s; color:rgba(31, 29, 29, 0.8); font-weight:normal;  font-family: "Russo One", sans-serif; font-size: 16px;}
+.teamLink:hover { color:#f2d243; font-weight:normal;  font-family: "Russo One", sans-serif; font-size: 18px;}
+.teamEdit { transition: 0.2s; color:rgba(31, 29, 29, 0.8); font-weight:normal;  font-family: "Russo One", sans-serif; font-size: 16px;}
+.teamEdit:hover { color:#079b25; font-weight:normal;  font-family: "Russo One", sans-serif; font-size: 18px;}
+.teamDelete {transition: 0.52s; color:rgba(31, 29, 29, 0.8); font-weight:normal;  font-family: "Russo One", sans-serif; font-size: 16px;}
+.teamDelete:hover { color:#9b0718; font-weight:normal;  font-family: "Russo One", sans-serif; font-size: 18px;}
+.loginButton{ cursor: pointer; background-color: #f2d243; border: none; color: white; padding: 10px 20px 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; font-weight: bold; margin: 30px 2px; border-radius: 8px; transition: 0.2s; }
+.loginButton:hover{ cursor: pointer; background-color: #141412; border: none; color: #f2d243; padding: 10px 20px 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; font-weight: bold; margin: 30px 2px; border-radius: 8px; }
 .par_cont { color: rgba(31, 29, 29, 0.8); font-weight: bold; font-family: "Russo One", sans-serif; font-size: 16px; margin-left: 10%;}
 .regTitle { font-weight: bold; color:#f2d243; text-transform:uppercase;}
 .rowBlock { margin-top:6%; background-color: #ffffff;}

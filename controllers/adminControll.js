@@ -1,23 +1,13 @@
 const User = require('../models/users');
 const TeamMate = require('../models/team');
 const path = require('path');
-const multer = require('multer');
+
 const moment = require('moment');
 
 
 // Init multer storege
 
-const storage = multer.diskStorage({
-    destination:'../uploads',
-    filename: function(req, file, cb){
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-    }
-})
-// Init multer
-const upload = multer({
-    storage:storage
-}
-).single('matePhoto')
+
 
 exports.getIndex = (req,res, next)  => {
     const id = req.params.id;
@@ -61,12 +51,21 @@ exports.getAdminPage = (req,res) => {
 
 // we also need a post request for and adminTeam
 exports.getAdminTeam = (req, res) => {
-    
+    TeamMate.findAll()
+    .then(teams => {
     res.render('./admin/adminTeam',
-    {
+     { 
+        teams: teams,
         pageTitle: "Команда Вектор",
-        pageTipe: 'adminIn'
+        pageTipe: 'adminIn',
+        isAuthenticated: req.isLoggedIn
+
+    });
     })
+    .catch(err => {
+        console.log(err);
+    })
+  
 }
 
 exports.addNewTeamMate = (req, res) => {
@@ -77,32 +76,7 @@ exports.addNewTeamMate = (req, res) => {
    const matePosition = req.body.matePosition;
    const mateVK = req.body.mateVK;
    const mateInstagram = req.body.mateInstagram;
-    
-    // upload(req, res, (err) => {
-    //     if(err){
-    //         res.render('./admin/adminTeam',{
-    //             msg: err,
-    //             pageTitle: "Команда Вектор",
-    //             pageTipe: 'adminIn'
-    //         })
-    //     } else {
-    //         if(req.file === undefined){
-    //             res.render('./admin/adminTeam',{
-    //                 msg: "Файл не был выбран",
-    //                 pageTitle: "Команда Вектор",
-    //                 pageTipe: 'adminIn'
-    //             })
-    //         } else {
-    //             res.render('./admin/adminTeam', {
-    //                 msg: "File aploaded",
-    //                 pageTitle: "Команда Вектор",
-    //                 pageTipe: 'adminIn',
-    //                 file: `uploads/${req.file.filename}`
-                    
-    //                })
-    //         }
-    //     }
-    // })
+   const matePhone = req.body.matePhone;
 
    TeamMate.create({
         name: mateName,
@@ -111,16 +85,30 @@ exports.addNewTeamMate = (req, res) => {
         position: matePosition,
         instagram: mateInstagram,
         vk: mateVK,
+        phone: matePhone
       
     })
     .then(result => {
         console.log('Created User');
-        res.redirect('/')
+        res.redirect('/adminTeam')
     }).catch( err => {
         console.log(err);
     });
 } 
 
+exports.postDeleteTeamMate = (req, res) => {
+    const id = req.body.teamMateId;
+    TeamMate.findById(id)
+    .then(team => {
+        return team.destroy();
+    })
+    .then(result => {
+        console.log("DESTROYED TEAMMATE");
+        res.redirect('/adminTeam');
+    })
+  
+    
+}
 exports.getAdminGroup = (req, res) =>{
     User.findAll()
     .then(users => {

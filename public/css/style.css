@@ -5,10 +5,10 @@
     margin: 0%;
     padding: 0
 }
-body { margin: 0; padding: 0; width: 100%; display: flex; min-height: 100vh; flex-direction: column; height: 100%;}
+body { background:#f8f8f8; margin: 0; padding: 0; width: 100%; display: flex; min-height: 100vh; flex-direction: column; height: 100%;}
 img { max-width: 100%;height: auto; }
-nav { top: 0; left: 0; height: 80px; z-index: 1; background: rgba(7, 7, 7, 0); color: white; font-weight: bold; text-transform: uppercase; box-sizing: border-box; padding-top: 10px; box-shadow: none; transition: 1s; }
-nav.limem { top: 0;left: 0; z-index: 1; background-color: rgba(31, 29, 29, 0.8); color: white; padding-top: 0px; height: 70px; box-shadow: #263238; border-bottom: 1px solid white; }
+nav { top: 0; left: 0; height: 90px; z-index: 1; background: rgb(7, 7, 7, 0); color: white; font-weight: bold; text-transform: uppercase; box-sizing: border-box; padding-top: 10px; box-shadow: none; transition: 1s; }
+nav.limem { top: 0;left: 0; z-index: 1; background-color: rgba(31, 29, 29, 1  ); color: white; padding-top: 0px; height: 70px; box-shadow: #263238; border-bottom: 1px solid white; }
 nav ul a, nav .brand-logo { color: white; }
 nav .brand-logo { color: white; }
 video { z-index: -1; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
@@ -22,6 +22,8 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .linkElement{ margin: 12% 0% 12% 0%; }
 .userBio{ margin-top: -7%; padding: 0% 15% 0% 15%; }
 .rowCont{ margin-top:2%; text-align: center; }
+.memuAdmin {font-size: 14px; font-family: "Russo One", sans-serif; }
+.memuAdmin:hover {font-size: 14px; font-family: "Russo One", sans-serif; }
 .modalHead{ padding-top: 60px; background-image: linear-gradient( to right bottom, rgba(27, 27, 26, 0.9), rgba(20, 20, 20, 0.9)),url('https://images.unsplash.com/photo-1508145052393-b0328a3ab751?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');background-size: cover; }
 .menu { margin-right: 1px; margin-top: -11px; padding-top: 9px; padding-bottom: 8px; transition: 1s;font-family: "Russo One", sans-serif; }
 .menu:hover { color: rgb(44, 50, 74, 0.8); background-color: white; }
@@ -46,16 +48,23 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .defenition { width: 100%; padding: 10%; margin-left: 10%; margin-top: 15%; height: 90%; margin-bottom: 30%; cursor: auto; }
 .defabout { text-align: left; color: rgba(59, 55, 55, 0.8); font-size: 18px; padding: 1px 3% 2% 3%; font-weight: bold; font-family: "Open Sans", sans-serif; }
 .team { padding-top: 100px; }
+.team-table{margin: 5% 0% 5% 0%;}
+.adminInt li form {display: inline;  cursor: pointer;}
+
 .mamber:hover { cursor: default; border: 3px solid rgba(255, 255, 255); }
 .social { margin-right: 10px; }
 .copy { padding: 3%; font-size: 18px; }
 .fab { margin-bottom: 20px; }
-.page-footer { background-color: rgba(31, 29, 29, 0.9);}
+.page-footer { background-color: rgb(0, 0, 0);}
 .press li { list-style: none; display: inline-block;margin-top: 13%; }
 .spons { width: 100%;}
 .error{ margin:  22% 0% 22% 0% }
 .adminPhoto {width: 50px; margin-top: 10px; margin-left: 20px; border: 2px solid #f2d243;}
 .navManip {margin-right: 20%;}
+.aminIcon{color:#f2d243; font-size: 20px; }
+.adminUl{ margin-right: 5%; }
+.adminDrop{ margin-top: -30px;}
+.log{padding:10% 5% 15% 5%;}
 /* Ides of Structure */
 
 #index-banner { height: 700px; z-index: 0; }
@@ -76,7 +85,6 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 #team #bot { position: absolute; bottom: 0; width: 100%; height: 10vw; fill: white; }
 #partners { margin: 0% 0% 10% 0%; }
 #rsm { margin-top: 5%; }
-#add-team { padding: 2%; background-color: rgba(31, 31, 33, 0.8); margin: 20% 0% 15% 0%; border-radius: 5px; width: 60%;margin-left: 25%; }
 #logo-container { margin-left: 10%;}
 
 /* Media */

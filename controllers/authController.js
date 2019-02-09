@@ -1,15 +1,25 @@
+const TeamMate = require('../models/team');
+
 exports.getLogin = (req, res) => {
-    res.render('./users/landingPage', 
-    {
+ 
+    TeamMate.findAll()
+    .then(teams => {
+    res.render('./users/landingPage',
+     { 
+        teams: teams,
         pageTitle: "ВЕКТОР АДМИН",
         pageTipe:"admin",
         isAuthenticated: req.isLoggedIn
-        
+
     });
+    })
+    .catch(err => {
+        console.log(err);
+    })
 };
 
 exports.getMobileLogin = (req, res)  => {
-    res.render('./admin/mobileLogin',
+   res.render('./admin/mobileLogin',
     {
         pageTitle: "ВЕКТОР АДМИН",
         pageTipe:"mobileLogin",

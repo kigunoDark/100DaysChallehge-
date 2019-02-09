@@ -32,6 +32,10 @@ const TeamMate =  sequelize.define('teamMate', {
     instagram: { 
         type: Sequelize.STRING,
         allowNull: false
+    },
+    phone: {
+        type: Sequelize.TEXT,
+        allowNull: false
     }
 
 })
