@@ -367,3 +367,12 @@ Adding a new teammate
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
+
+
+## Day 25: February 10 2019 
+
+**Today's Progress**: have worked with a new project, make a landing and registration
+
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
