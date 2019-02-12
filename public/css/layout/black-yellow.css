@@ -35,7 +35,7 @@ input,textarea{ font-weight: bold; color: white;}
 .itempro { background: white; border: 3px rgba(54, 50, 50, 0.8) solid; width: 50%; border-radius: 50%; transition: 0.2s; color: rgba(53, 49, 49, 0.8); }
 .itempro:hover { background: rgba(255, 255, 255, 0.9); border: 3px rgba(243, 201, 16, 0.8) solid; width: 60%; border-radius: 50%; transition: 0.2s; color: rgba(243, 201, 16, 0.8); }
 .statitle { color: white; font-size: 47px; padding: 10%; font-weight: bold; font-family: "Russo One", sans-serif; text-shadow: 2px 1px 3px #000000; margin-top: 15%; }
-.statinfo { color: white; font-size: 22px; text-align: center; text-shadow: 1px 2px 4px #000000; font-family: "Open Sans", sans-serif; }
+.statinfo {  color: white; font-size: 22px; text-align: center; text-shadow: 1px 2px 4px #000000; font-family: "Open Sans", sans-serif; }
 .reginfo { margin-top: 5px; color: white; font-size: 22px; text-align: center; text-shadow: 1px 2px 4px #000000; font-family: "Open Sans", sans-serif; }
 .regbutton { font-size: 18px; font-weight: bold; display: inline-block; padding: 15px 30px; margin: 60px; cursor: pointer; user-select: none; transition: all 0.1s ease-out; text-decoration: none; letter-spacing: 1px; text-transform: uppercase; color: #f2d243; border: 3px solid #f2d243; background-color: rgba(255, 255, 255, 0.2); -webkit-font-smoothing: antialiased; }
 .regbutton:hover { color: white; background-color: #f2d243; border: 3px solid #ffffff; }
