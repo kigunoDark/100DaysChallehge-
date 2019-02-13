@@ -386,3 +386,14 @@ Adding a new teammate
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
+
+
+
+
+## Day 26-27: February 12 2019 
+
+**Today's Progress**: Checkout
+
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
