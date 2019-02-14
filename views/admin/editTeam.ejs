@@ -1,0 +1,86 @@
+<form  class="adminInt" action="/delete-mate" method="POST">  
+    <a  data-target="modal3" class="teamEdit modal-trigger" > <i class="fas fa-user-edit"> </i> </a>            
+</form>
+<% for (let team of teams ) { %>
+<form class="adminInt" id="delete-teammate" action="/delete-mate" method="POST"> 
+    <input type="hidden" value="<%= team.id %>" name="teamMateId">
+    <a href="javascript:{}" onclick="document.getElementById('delete-teammate').submit();" class="teamDelete"><i class=" fas fa-user-minus"></i></a>
+</form>
+
+<%}%>
+<div id="modal3" class="modal">  
+              
+<div class="modal-content" style="text-align: left">
+     <div class="container-wrap">
+
+    <form  id="add-team" action ="/adminAddMate" method = "POST" >
+    <div class="container">
+            <h1 style="font-size: 25px; color: white;" class="title1 center"> <span class="owncolor">Изменить</span> профиль</h1>
+        <div class="row">
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" placeholder="Заполните поле", name="mateSurname" id="mateSurname">
+                <label style="font-size: 18px;" for="mateSurname">Фамилия</label>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" placeholder="Заполните поле", name="mateName" id="mateName">
+                <label style="font-size: 18px;" for="mateName">Имя</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" placeholder="Заполните поле", name="mateSecondName" id="mateSecondName">
+                <label style="font-size: 18px;" for="mateSecondName">Отчество</label>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" placeholder="Заполните поле", name="matePosition" id="matePosition">
+                <label style="font-size: 18px;" for="matePosition">Должность</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" placeholder="Заполните поле", name="mateVK" id="mateVK">
+                <label style="font-size: 18px;" for="mateVK">VK</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" placeholder="Заполните поле", name="mateInstagram" id="mateInstagram">
+                <label style="font-size: 18px;" for="mateInstagram">Instagram</label>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" placeholder="Заполните поле", name="matePhone" id="matePhone">
+                <label style="font-size: 18px;" for="mateInstagram">Номер телефона</label>
+            </div>
+        </div>
+        
+        <div class="row">
+            <label for="avatar">Choose a profile picture:</label>
+            <input name="matePhoto" id="avatar" type="file"  accept="image/png, image/jpeg" > 
+        </div>
+    </form>
+</div>
+
+  
+    </div> 
+</div>
+
+</div>
+<div class="modal-footer">
+<a href="javascript:{}" onclick="document.getElementById('add-team').submit();" style="color:#f2d243;" class="fioUser right modal-close waves-effect waves-green btn-flat">Принять</a>
+<a href="#!" style="color:#f2d243;" class="fioUser modal-close waves-effect waves-green btn-flat">Закрыть</a>
+</div>

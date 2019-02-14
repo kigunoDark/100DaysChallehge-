@@ -96,6 +96,35 @@ exports.addNewTeamMate = (req, res) => {
     });
 } 
 
+exports.editTeamMate = (req,res, next) => {
+    const editMode = req.query.edit;
+    if(!editMode)
+    {
+        res.redirect('/');
+    }
+
+    const id = req.params.teamMateId;
+
+    Product.findById(id)
+    .then(teammate =>{
+        if(!teammate)
+        {
+            return res.redirect('/');
+        }
+        res.render('./admin/adminTeam',
+        { 
+           
+           pageTitle: "Команда Вектор",
+           pageTipe: 'adminIn',
+           editing: editMode,
+           teammmate: teammate
+   
+       });
+
+    })
+    .catch(err => console.log(err));
+   
+}
 exports.postDeleteTeamMate = (req, res) => {
     const id = req.body.teamMateId;
     TeamMate.findById(id)

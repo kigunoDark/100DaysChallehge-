@@ -20,8 +20,7 @@ exports.getLanding = (req, res) => {
 
 }
 
-exports.addNewUser = (req, res) => {
-    
+exports.addNewUser = (req, res) => {   
     const parFio = req.body.parFio;
     const parCity = req.body.parCity;
     const parUnivercity = req.body.parUnivercity;

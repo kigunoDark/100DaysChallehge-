@@ -390,10 +390,21 @@ Adding a new teammate
 
 
 
-## Day 26-27: February 12 2019 
+## Day 28: February 13 2019 
 
-**Today's Progress**: Checkout
+**Today's Progress**: Worked with mysql query))
 
 
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 29: February 14 2019 
+
+**Today's Progress**: Fixed some bugs, spent all time fr searching of problem. Worked 1 hour. Need to come back in a regime.
+
+Write an edite mode and understand a routing staff with it)
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+

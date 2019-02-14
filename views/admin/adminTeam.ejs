@@ -4,7 +4,7 @@
 
     <main  class="user-dashboard"> 
      
-            <div class="container">
+    <div class="container">
             <% if (teams.length > 0 ) { %>
             <h1  class="title1 center"> <span class="owncolor">Таблица</span> Сотрудников</h1>
       <table class="team-table">
@@ -26,21 +26,9 @@
           <td><a class="teamLink" href="<%= team.vk %>"> Vkontact </a></td>
           <td><a class="teamLink"   href="<%= team.instagram %>"> Instagram </a></td>
           <td><a href="tel:<%= team.phone %>" class="teamLink"> Номер</a> </td>
-          <td> 
-          <ul class="adminInt center">
-            <li>
+          <td class="center"> 
+            <%- include('./editTeam.ejs')%>           
             
-                <form action="/delete-mate" method="POST">  
-                    <a class="teamEdit"> <i class="fas fa-user-edit"> </i> </a>
-                </form>
-            </li>
-            <li>
-                <form id="delete-teammate" action="/delete-mate" method="POST"> 
-                    <input type="hidden" value="<%= team.id %>" name="teamMateId">
-                    <a    class="teamDelete"><i class=" fas fa-user-minus"></i></a>
-                 </form>
-             </li>
-          </ul>
           </td>
         </tr>
         
