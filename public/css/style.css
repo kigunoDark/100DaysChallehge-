@@ -61,7 +61,7 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .error{ margin:  22% 0% 22% 0% }
 .adminPhoto {width: 50px; margin-top: 10px; margin-left: 20px; border: 2px solid #f2d243;}
 .navManip {margin-right: 20%;}
-.aminIcon{color:#f2d243; font-size: 20px; }
+.aminIcon{color:#f2d243; font-size: 20px; margin-top: 5px; height: 62px; }
 .adminUl{ margin-right: 5%; }
 .adminDrop{ margin-top: -30px;}
 .log{padding:10% 5% 15% 5%;}

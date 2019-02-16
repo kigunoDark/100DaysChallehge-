@@ -97,21 +97,21 @@ exports.addNewTeamMate = (req, res) => {
 } 
 
 exports.editTeamMate = (req,res, next) => {
-    const editMode = req.query.edit;
-    if(!editMode)
-    {
-        res.redirect('/');
-    }
+    // const editMode = req.query.edit;
+    // if(!editMode)
+    // {
+    //     res.redirect('/');
+    // }
 
-    const id = req.params.teamMateId;
+    // const id = req.params.teamMateId;
 
-    Product.findById(id)
-    .then(teammate =>{
-        if(!teammate)
-        {
-            return res.redirect('/');
-        }
-        res.render('./admin/adminTeam',
+    // Product.findById(id)
+    // .then(teammate =>{
+    //     if(!teammate)
+    //     {
+    //         return res.redirect('/');
+    //     }
+        res.render('adminTeam',
         { 
            
            pageTitle: "Команда Вектор",
@@ -119,9 +119,9 @@ exports.editTeamMate = (req,res, next) => {
            editing: editMode,
            teammmate: teammate
    
-       });
+       })
 
-    })
+    // })
     .catch(err => console.log(err));
    
 }

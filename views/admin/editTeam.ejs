@@ -1,5 +1,6 @@
-<form  class="adminInt" action="/delete-mate" method="POST">  
-    <a  data-target="modal3" class="teamEdit modal-trigger" > <i class="fas fa-user-edit"> </i> </a>            
+<form  class="adminInt" id="edit-teammate" action="/edit-teammate" method="POST">  
+    <input type="hidden" value="<%= team.id %>" name="teamMateId">
+    <a  href="javascript:{}" onclick="document.getElementById('edit-teammate').submit();"  data-target="modal3" class="teamEdit modal-trigger" > <i class="fas fa-user-edit"> </i> </a>            
 </form>
 <% for (let team of teams ) { %>
 <form class="adminInt" id="delete-teammate" action="/delete-mate" method="POST"> 

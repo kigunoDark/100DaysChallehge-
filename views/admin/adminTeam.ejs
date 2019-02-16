@@ -4,7 +4,7 @@
 
     <main  class="user-dashboard"> 
      
-    <div class="container">
+    <div  class="container teamForm">
             <% if (teams.length > 0 ) { %>
             <h1  class="title1 center"> <span class="owncolor">Таблица</span> Сотрудников</h1>
       <table class="team-table">
@@ -27,7 +27,7 @@
           <td><a class="teamLink"   href="<%= team.instagram %>"> Instagram </a></td>
           <td><a href="tel:<%= team.phone %>" class="teamLink"> Номер</a> </td>
           <td class="center"> 
-            <%- include('./editTeam.ejs')%>           
+            <%- include('./editTeam.ejs' , { team:team })%>           
             
           </td>
         </tr>
