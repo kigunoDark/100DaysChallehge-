@@ -9,14 +9,20 @@ const moment = require('moment');
 
 
 
-exports.getIndex = (req,res, next)  => {
+exports.getUser = (req,res, next)  => {
     const id = req.params.id;
+
     User.findById(id)
     .then(user => {
-        res.render("/user/index", {
-            users: user,
-            pageTitle: "Searching",
-            path: "/user/index",
+        if(!user){
+            res.redirect('/');
+        }
+        res.render("./admin/userDetails", {
+            
+            user: user,
+            pageTitle: "Профиль пользователя",
+            pageTipe: "adminIn",
+            path: "/admin/userDetails",
             isAuthenticated: req.isLoggedIn
         })
     })

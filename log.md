@@ -408,3 +408,18 @@ Write an edite mode and understand a routing staff with it)
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
+## Day 30: February 15 2019 
+
+**Today's Progress**: Worked with a back-end. Find a mistake.
+
+Write an edite mode and understand a routing staff with it)
+
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+## Day 31: February 16 2019 
+
+**Today's Progress**: Worked 1 hour. Not hard. Just clean my code. Just for the rest. ) Tomorrow I'm going to work with a back-end) Hard times are coming.
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
