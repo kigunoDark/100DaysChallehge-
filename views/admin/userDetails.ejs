@@ -1,3 +1,74 @@
 <%- include('../layouts/navbar.ejs')%>
 
+<main  class="user-dashboard"> 
+     
+<div  class="container teamForm">
+
+<div class="container-wrap userBio">
+
+        <div class="row" id="userBio">
+
+            <div class="col s12 m12 " >
+
+                <p>
+                    <span class="fioUser"><span class="parUserOwncolor">Место обучения:</span> </span>
+                    <span class="fioUser"><%= user.parUnivercity %>.</span> 
+                </p>
+
+                <p>
+                    <span class="fioUser"><span class="parUserOwncolor">Дата рождения:</span> </span>
+                    <span id="userDate" class="fioUser"><%=  moment(user.parDate).format('L');%>.</span> 
+                </p>
+
+                <p>
+                    <span class="fioUser">  <span class="parUserOwncolor"> Размер свитшота: </span> </span>
+                    <span class="fioUser"> <%= user.parSize %>.</span> 
+                </p>
+
+                <p>
+                    <span class="fioUser"><span class="parUserOwncolor"> Социальные сети:</span></span>
+                    <span class="fioUser "><a href="<%=user.parSocial %>"> Ссылка. </a></span>
+                </p>
+
+                <p>
+                    <span class="fioUser"><span class="parUserOwncolor"> Должность в оссу:</span> </span>
+                    <span class="fioUser"><%= user.parPosition %>.</span> 
+                </p>
+
+                <p>
+                    <span class="fioUser"><span class="parUserOwncolor"> Почему хочет участвовать:</span> </span>
+                    <span class="fioUser"><%= user.parWhy %>.</span> 
+                </p>
+
+                <p>
+                    <span class="fioUser">  <span class="parUserOwncolor">  Сильные стороны личности: </span> </span>
+                    <span class="fioUser">  <%= user.parStrengths %>.</span> 
+                </p>
+
+                <p>
+                    <span class="fioUser"><span class="parUserOwncolor"> Общественная деятельность:</span> </span>
+                    <span class="fioUser"><%= user.parExp %>.</span> 
+                </p>
+
+                <p>
+                    <span class="fioUser"><span class="parUserOwncolor"> Сильные качества характера:</span> </span>
+                    <span class="fioUser"><%= user.parCharacter %>.</span> 
+                </p>
+                            
+                <p>
+                    <span class="fioUser"><span class="parUserOwncolor"> Мероприятия, в которых участвовал:</span> </span>
+                    <span class="fioUser"><%= user.parEventsExp %>.</span> 
+                </p>
+
+                <p>
+                    <span class="fioUser">  <span class="parUserOwncolor"> Направления общественной деятельности:</span> </span>
+                    <span class="fioUser">  <%= user.parSocityExp %>.</span> 
+                </p>
+
+            </div>
+   </div>
+</div>
+
+
+</main>
 <%- include('../layouts/footer.ejs') %>

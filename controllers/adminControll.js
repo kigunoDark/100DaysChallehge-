@@ -18,7 +18,7 @@ exports.getUser = (req,res, next)  => {
             res.redirect('/');
         }
         res.render("./admin/userDetails", {
-            
+            moment: moment,
             user: user,
             pageTitle: "Профиль пользователя",
             pageTipe: "adminIn",

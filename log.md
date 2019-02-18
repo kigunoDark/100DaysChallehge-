@@ -423,3 +423,18 @@ Write an edite mode and understand a routing staff with it)
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
+
+## Day 32: February 17 2019 
+
+**Today's Progress**: Now my web platform give me an opportunity to get a user details and editing a profile.
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+## Day 33: February 18 2019 
+
+**Today's Progress**: Tried a yandex test and failed
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+
