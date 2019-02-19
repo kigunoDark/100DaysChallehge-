@@ -27,7 +27,15 @@
           <td><a class="teamLink"   href="<%= team.instagram %>"> Instagram </a></td>
           <td><a href="tel:<%= team.phone %>" class="teamLink"> Номер</a> </td>
           <td class="center"> 
-            <%- include('./editTeam.ejs' , { team:team })%>           
+        
+    <a  href="/edit-teammate/<%= team.id %>"  class="teamEdit " > <i class="fas fa-user-edit"> </i> </a>            
+
+
+    <form class="adminInt" id="delete-teammate" action="/delete-mate" method="POST"> 
+        <input type="hidden" value="<%= team.id %>" name="teamMateId">
+        <a href="javascript:{}" onclick="document.getElementById('delete-teammate').submit();" class="teamDelete"><i class=" fas fa-user-minus"></i></a>
+    </form>
+            
             
           </td>
         </tr>

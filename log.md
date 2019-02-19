@@ -436,5 +436,9 @@ Write an edite mode and understand a routing staff with it)
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
+## Day 34: February 19 2019 
 
+**Today's Progress**: need to work with a form of teammate edit
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 

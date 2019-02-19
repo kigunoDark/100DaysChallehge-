@@ -2,11 +2,41 @@
 
 <main  class="user-dashboard"> 
      
-<div  class="container teamForm">
+<div  class="container teamForm modalHead">
 
-<div class="container-wrap userBio">
+<img class="mamberUser materialboxed z-depth-2 responsive-img circle" src="../image/vlad.jpg">
+<h5 class="parfioUser center "><%= user.parFio %></h5>
 
-        <div class="row" id="userBio">
+<div class="container-wrap userBio ">
+
+
+                     
+<div class="container-wrap rowBlock">
+                    
+    <div class="row rowCont">
+                        
+            <div class=" col s12 m4 ">
+                                    
+                <a  href="#" class="par_cont " style="color:rgba(31, 29, 29, 0.8);"> <i class="fas fa-map-marker-alt linkElement"></i> <%= user.parCity %></a>
+                                
+            </div>
+                                
+            <div class=" col s12 m4 " id="devider">
+                                
+                <a href="mailto:<%= user.parEmail %>" class="par_cont" style="color:rgba(31, 29, 29, 0.8);"> <i class="fas fa-at linkElement" ></i> Email</a>
+                                
+            </div>
+                                
+            <div class=" col s12 m4 ">
+                                
+                <a href="tel:<%= user.parPhone %>" class="par_cont" style="color:rgba(31, 29, 29, 0.8);"> <i class="fas fa-mobile-alt linkElement" ></i> Номер</a>
+                                
+            </div>
+                    
+    </div>                            
+                
+</div>
+ <div class="row" id="userBio">
 
             <div class="col s12 m12 " >
 
@@ -67,6 +97,8 @@
 
             </div>
    </div>
+</div>
+       
 </div>
 
 

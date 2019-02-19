@@ -6,7 +6,30 @@ const moment = require('moment');
 
 
 // Init multer storege
+exports.editTeamMate = (req,res, next) => {
+   const teamId = req.params.id;
+   TeamMate.findById(teamId)
+   .then(teammate => {
 
+    if(!teammate){
+        res.redirect('/');
+    }
+    res.render('./admin/editTeam',
+    { 
+       
+       pageTitle: "Профиль сотрудника",
+       pageTipe: 'adminIn',
+       teammmate: teammate,
+       isAuthenticated: req.isLoggedIn
+
+   })
+   })
+   .catch(err => {
+       console.log(err);
+   });
+  
+
+}
 
 
 exports.getUser = (req,res, next)  => {
@@ -102,35 +125,6 @@ exports.addNewTeamMate = (req, res) => {
     });
 } 
 
-exports.editTeamMate = (req,res, next) => {
-    // const editMode = req.query.edit;
-    // if(!editMode)
-    // {
-    //     res.redirect('/');
-    // }
-
-    // const id = req.params.teamMateId;
-
-    // Product.findById(id)
-    // .then(teammate =>{
-    //     if(!teammate)
-    //     {
-    //         return res.redirect('/');
-    //     }
-        res.render('adminTeam',
-        { 
-           
-           pageTitle: "Команда Вектор",
-           pageTipe: 'adminIn',
-           editing: editMode,
-           teammmate: teammate
-   
-       })
-
-    // })
-    .catch(err => console.log(err));
-   
-}
 exports.postDeleteTeamMate = (req, res) => {
     const id = req.body.teamMateId;
     TeamMate.findById(id)
@@ -140,10 +134,9 @@ exports.postDeleteTeamMate = (req, res) => {
     .then(result => {
         console.log("DESTROYED TEAMMATE");
         res.redirect('/adminTeam');
-    })
-  
-    
+    })  
 }
+
 exports.getAdminGroup = (req, res) =>{
     User.findAll()
     .then(users => {

@@ -15,7 +15,7 @@
 .loginButton:hover{ cursor: pointer; background-color: #141412; border: none; color: #f2d243; padding: 10px 20px 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; font-weight: bold; margin: 30px 2px; border-radius: 8px; }
 .par_cont { color: rgba(31, 29, 29, 0.8); font-weight: bold; font-family: "Russo One", sans-serif; font-size: 16px; margin-left: 10%;}
 .regTitle { font-weight: bold; color:#f2d243; text-transform:uppercase;}
-.rowBlock { margin-top:6%; background-color: #ffffff;}
+.rowBlock { margin-top:6%; background-color: #ffffff; border-radius: 2px;}
 .teamtitle { padding: 60px; color: white; text-shadow: 1px 1px 8px #000000; letter-spacing: 0.26em; font-weight: 100; font-size: 6vmin; font-family: "Russo One", sans-serif; font-weight: normal;}
 .userBlock{ background-color: rgb(242, 210, 67, 0.4);}
 .parfioUser { color: rgb(255, 255, 255); font-weight: bold; text-shadow: 1px 1px 4px #000000; font-family: "Russo One", sans-serif; font-size: 16px; margin: 8% 0% 8% 0%; text-transform: uppercase;}
@@ -25,7 +25,7 @@ input,textarea{ font-weight: bold; color: white;}
 .owncolor { color: #f2d243; font-weight: bold; text-shadow: 2px 1px 2px #302f2f; font-family: "Russo One", sans-serif; font-weight: normal; font-size: 6vmin; text-transform: uppercase;}
 .subtitle-video { color: white; text-transform: uppercase; text-shadow: 1px 1px 4px #000000; padding: 5px 0px 5px 0px; letter-spacing: 0.26em; font-family: "Open Sans", sans-serif;}
 .activator { font-family: "Russo One", sans-serif; color: #f2d243; text-shadow: 1px 1px 3px #000000; font-size: 20px; cursor: pointer;}
-.mamberUser { width: 25%; left: 37%; padding: 0.5% 0.5% 0.5% 0.5%; background-color: #fad221; position: relative;}
+.mamberUser { cursor: default; width: 25%; left: 37%; padding: 0.5% 0.5% 0.5% 0.5%; background-color: #fad221; position: relative; margin-top: 5%;}
 .more { color: #fad221; padding: 5px 0px 5px 0px; text-shadow: 2px 1px 4px #000000; font-weight: bold;}
 .subtitle { color: #fad221; font-size: 20px; padding: 5px 0px 5px 0px; letter-spacing: 1px; font-weight: bold; font-family: "Russo One", sans-serif; text-shadow: 2px 1px 4px #000000; margin-top: 40px;}
 .vedeo-text { margin-bottom: 30px; text-align: center; margin: 2rem 3rem 0; z-index: 1; color: #fff;}
@@ -54,6 +54,7 @@ input,textarea{ font-weight: bold; color: white;}
 .teamForm{ padding: 2% 7% 10% 7%; margin-top: 5%;  margin-bottom: 10%; background-color: white; border-radius: 3%;box-shadow: 1px 6px 6px 1px #ccc;} 
 .groupForm{ padding: 2% 4% 3% 4%; margin-top: 5%;  margin-bottom: 10%; background-color: white; border-radius: 3%;box-shadow: 1px 6px 6px 1px #ccc;} 
 /* All ides of colors */
+.teamMateInfo{margin: 0%; background: #353334; height: 500px; font-family: "Russo One"; color:  white; font-weight: bold; text-transform: uppercase}
 
 #devider{ border-left: 1px solid #263238; border-right: 1px solid #263238;}
 #mail { font-size: 24px; color: rgba(31, 46, 61, 0.5); font-family: "Open Sans", sans-serif; }

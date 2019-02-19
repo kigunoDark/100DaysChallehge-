@@ -20,7 +20,7 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 /* Classes of structure*/
 
 .linkElement{ margin: 12% 0% 12% 0%; }
-.userBio{ margin-top: 5%; padding: 0% 15% 0% 15%; }
+.userBio{ margin-top: 5%; padding: 0% 15% 0% 15%;  }
 .rowCont{ margin-top:2%; text-align: center; }
 .memuAdmin {font-size: 14px; font-family: "Russo One", sans-serif; }
 .memuAdmin:hover {font-size: 14px; font-family: "Russo One", sans-serif; }
@@ -84,7 +84,7 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 #team #top { position: absolute; top: 0; width: 100%; height: 10vw; fill: white; }
 #team #bot { position: absolute; bottom: 0; width: 100%; height: 10vw; fill: white; }
 #partners { margin: 0% 0% 10% 0%; }
-#rsm { margin-top: 5%; }
+#rsm { margin-top: 5%;}
 #logo-container { margin-left: 10%;}
 
 /* Media */
