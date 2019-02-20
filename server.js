@@ -31,8 +31,8 @@ const authRoute = require('./routes/authRoute');
 // APP.USE OF ROUTES
 
 app.use(landRoute);
-app.use( adminRoute);
-app.use(authRoute);
+app.use('/admin', adminRoute);
+app.use( authRoute);
 
 app.use(errControll.get404);
 

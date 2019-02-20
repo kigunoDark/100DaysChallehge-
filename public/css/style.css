@@ -3,7 +3,8 @@
 /* Just elements */
 *{
     margin: 0%;
-    padding: 0
+    padding: 0;
+    font-family: "Russo One", sans-serif;
 }
 body { background:#f8f8f8; margin: 0; padding: 0; width: 100%; display: flex; min-height: 100vh; flex-direction: column; height: 100%;}
 img { max-width: 100%;height: auto; }
@@ -65,6 +66,19 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .adminUl{ margin-right: 5%; }
 .adminDrop{ margin-top: -30px;}
 .log{padding:10% 5% 15% 5%;}
+
+/* edit-profile */
+.profile-header{background-image:linear-gradient( to right bottom, rgba(36, 76, 129, 0.3), rgba(20, 20, 20, 0.9)), url('https://images.unsplash.com/photo-1502656109408-152680a8ad1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'); background-size: cover; background-attachment: fixed;}
+.valign{ margin-top: 20%; color: rgba(255,255,255,0.6);  }
+.profile-text-header{ font-size: 20px; text-transform: uppercase; }
+.line-up{ width: 50%;  margin:auto; border: 1px solid rgba(255,255,255,0.6);}
+.line-down{ width: 50%;  margin:auto; border: 1px solid rgba(255,255,255,0.6);}
+.name-title-profile{ text-transform: uppercase; color:#f2d243;}
+.profile-arrow{ margin-top: 7%; font-size: 40px; color: rgba(255,255,255,0.6);}
+.contact-info{ text-align: center; margin-top: 10%;}
+.contact-info li {margin-top: 2%;}
+.edit-person{margin: 15% 0% 5% 0%;}
+.team-info{ color: #f2d243; text-shadow: 1px 1px 2px #000000; margin-top: 15%;}
 /* Ides of Structure */
 
 #index-banner { height: 700px; z-index: 0; }
@@ -86,7 +100,7 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 #partners { margin: 0% 0% 10% 0%; }
 #rsm { margin-top: 5%;}
 #logo-container { margin-left: 10%;}
-
+#per-info{font-size: 20px;}
 /* Media */
 
 @media only screen and (max-width: 1200px) { 

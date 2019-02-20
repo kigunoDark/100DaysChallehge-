@@ -19,7 +19,7 @@ exports.editTeamMate = (req,res, next) => {
        
        pageTitle: "Профиль сотрудника",
        pageTipe: 'adminIn',
-       teammmate: teammate,
+       teammate: teammate,
        isAuthenticated: req.isLoggedIn
 
    })

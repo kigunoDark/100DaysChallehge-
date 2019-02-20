@@ -29,6 +29,6 @@ exports.getMobileLogin = (req, res)  => {
 
 exports.postLogin = (req, res) => {
     res.setHeader('Set-Cookie', 'loogedIn = true');
-    res.redirect('/adminPage');
+    res.redirect('/admin/adminPage');
 };
 
