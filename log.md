@@ -442,3 +442,13 @@ Write an edite mode and understand a routing staff with it)
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
+
+## Day 35: February 20 2019 
+
+**Today's Progress**: Have began to learn alghorithms, also took coursers of css and html on htmlacademy, worked with my project "New form edit teammate profile"
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+## Day 36: February 22 2019 
+
+**Today's Progress**: Finished my forms for editing of teammates and participants. I'm going to finish working with editing routers tomorrow. Then it'll be time for making cards for users and teammates.
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-

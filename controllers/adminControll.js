@@ -6,30 +6,47 @@ const moment = require('moment');
 
 
 // Init multer storege
-exports.editTeamMate = (req,res, next) => {
+exports.getTeammate = (req,res, next) => {
    const teamId = req.params.id;
    TeamMate.findById(teamId)
    .then(teammate => {
-
-    if(!teammate){
-        res.redirect('/');
-    }
-    res.render('./admin/editTeam',
+    res.render('./admin/teamMateDetail',
     { 
-       
        pageTitle: "Профиль сотрудника",
        pageTipe: 'adminIn',
        teammate: teammate,
        isAuthenticated: req.isLoggedIn
-
    })
    })
    .catch(err => {
        console.log(err);
    });
-  
-
 }
+exports.getEditTeammate = (req, res, next) => {
+    const editMode = req.query.edit;
+    if(!editMode){
+        return res.redirect('/');
+    }
+    const teamId = req.params.teamId;
+    TeamMate.findById(teamId)
+    .then(teammate => {
+        if(!teammate)
+        {
+            return res.redirect('/')
+        }
+        res.render('/admin/edit-teammate',{
+            pageTitle: "Изменение профиля",
+            pageTipe: 'adminIn',
+            teammate: teammate,
+            editing: editMode,
+            isAuthenticated: req.isLoggedIn
+        })
+    })
+    .catch(err => console.log(err));
+
+      
+
+};
 
 
 exports.getUser = (req,res, next)  => {

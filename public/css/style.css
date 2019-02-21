@@ -79,6 +79,13 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .contact-info li {margin-top: 2%;}
 .edit-person{margin: 15% 0% 5% 0%;}
 .team-info{ color: #f2d243; text-shadow: 1px 1px 2px #000000; margin-top: 15%;}
+.menu2 { transition: 0.3s}
+.menu2:hover{ color:#f2d243; font-size: 45px; text-shadow: 1px 1px 2px #000000; }
+.team-title{ font-size: 40px;}
+.team-desctiption { color: gray; text-align: justify; margin-bottom: 1.5%}
+.selfpresent{padding-left: 10%;}
+.additional-info{ margin-top: 5%;}
+
 /* Ides of Structure */
 
 #index-banner { height: 700px; z-index: 0; }
@@ -101,6 +108,7 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 #rsm { margin-top: 5%;}
 #logo-container { margin-left: 10%;}
 #per-info{font-size: 20px;}
+#teammate { margin-bottom: 10%;}
 /* Media */
 
 @media only screen and (max-width: 1200px) { 

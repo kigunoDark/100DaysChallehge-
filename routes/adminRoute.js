@@ -7,7 +7,8 @@ router.get('/adminPar',adminControll.getAllPar);
 router.get('/adminPar/:id', adminControll.getUser);
 router.get('/adminPage', adminControll.getAdminPage);
 router.get('/adminTeam', adminControll.getAdminTeam);
-router.get('/edit-teammate/:id', adminControll.editTeamMate);
+router.get('/detail-teammate/:id', adminControll.getTeammate);
+router.get('/edit-teammate/:id', adminControll.getEditTeammate);
 
 router.get('/adminGroup', adminControll.getAdminGroup);
 

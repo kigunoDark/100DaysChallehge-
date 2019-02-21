@@ -47,6 +47,23 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function() {
+  $(".menu2").click(function(e) {
+    var linkHref = $(this).attr("href");
+    console.log($(linkHref).offset().top);
+    $("html, body").animate(
+      {
+        scrollTop: $(linkHref).offset().top
+      },
+      1200
+    );
+    e.preventDefault();
+  });
+});
+$(document).ready(function(){
+  $('.collapsible').collapsible();
+});
+      
 
 $(document).ready(function() {
   $(".smooth").click(function(e) {
