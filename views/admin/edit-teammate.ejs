@@ -1,0 +1,107 @@
+<%- include('../layouts/navbar.ejs')%>
+
+    <div class=" container teamForm">
+
+    <form  id="add-team" action ="/admin/<%if (editing) { %>edit-teammate<% } else { %>admin-addTeammate<% } %>" method = "POST" >   
+         <div class="container-wrap">
+           
+            <div class="container">
+                <h1 style="font-size: 2=35px; " class="title1 center"> <span class="owncolor"><% if (editing) { %> Изменить <% } else { %> Добавить <% } %></span> профиль</h1>
+            <div class="row">
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" placeholder="Заполните поле", name="mateSurname" id="mateSurname" value="<% if (editing) { %> <%=teammate.surname %> <% } %>">
+                    <label style="font-size: 18px;" for="mateSurname">Фамилия</label>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" placeholder="Заполните поле", name="mateName" id="mateName"  value="<% if (editing) { %> <%=teammate.name %> <% } %>">
+                    <label style="font-size: 18px;" for="mateName">Имя</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" placeholder="Заполните поле", name="mateSecondName" id="mateSecondName"  value="<% if (editing) { %> <%=teammate.secondName %> <% } %>">
+                    <label style="font-size: 18px;" for="mateSecondName">Отчество</label>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" placeholder="Заполните поле", name="matePosition" id="matePosition"  value="<% if (editing) { %> <%=teammate.position %> <% } %>">
+                    <label style="font-size: 18px;" for="matePosition">Должность</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" placeholder="Заполните поле", name="mateVK" id="mateVK"  value="<% if (editing) { %> <%=teammate.vk %> <% } %>">
+                    <label style="font-size: 18px;" for="mateVK">VK</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" placeholder="Заполните поле", name="mateInstagram" id="mateInstagram"  value="<% if (editing) { %> <%=teammate.instagram %> <% } %>">
+                    <label style="font-size: 18px;" for="mateInstagram">Instagram</label>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" placeholder="Заполните поле", name="matePhone" id="matePhone"  value="<% if (editing) { %> <%=teammate.phone %> <% } %>">
+                    <label style="font-size: 18px;" for="mateInstagram">Номер телефона</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" placeholder="Заполните поле", name="mateCrowns" id="mateCrowns"  value="<% if (editing) { %> <%=teammate.crowns %> <% } %>">
+                    <label style="font-size: 18px;" for="mateCrowns">В чем вы хороши больше всего</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" placeholder="Заполните поле", name="mateHobby" id="mateHobby"  value="<% if (editing) { %> <%=teammate.hobby %> <% } %>">
+                    <label style="font-size: 18px;" for="mateHobby">Ваши увлечения и интересы</label>
+                </div>
+            </div>
+
+            <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea1" placeholder="Заполните поле" name="mateAbout" class="materialize-textarea" ><% if (editing) { %> <%=teammate.about %> <% } %></textarea>
+                  <label for="textarea1">Расскажите о себе</label>
+                </div>
+              </div>
+            </form>
+          </div>
+            
+            <div class="row">
+                <label for="avatar">Choose a profile picture:</label>
+                <input name="matePhoto" id="avatar" type="file"  accept="image/png, image/jpeg" > 
+            </div>     
+        </div>
+        <% if (editing) { %>
+             <input class="hidden" value="<%= teammate.id%>" name="teamId"/>
+        <% } %>
+     
+    </div> 
+    <button class="right loginButton" type="submit"> <% if(editing) { %> Изменить <% } else { %>Добавить <% } %></button>
+    </form>
+    <form action="/admin/adminTeam">
+         <button class="right loginButton"  type="submit" >Назад</button>
+    </form> 
+</div>
+</div>
+        
+   
+
+<%- include('../layouts/footer.ejs') %>

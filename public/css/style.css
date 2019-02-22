@@ -85,7 +85,7 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .team-desctiption { color: gray; text-align: justify; margin-bottom: 1.5%}
 .selfpresent{padding-left: 10%;}
 .additional-info{ margin-top: 5%;}
-
+.hidden{display: none;}
 /* Ides of Structure */
 
 #index-banner { height: 700px; z-index: 0; }

@@ -1,7 +1,6 @@
 const User = require('../models/users');
 const TeamMate = require('../models/team');
 const path = require('path');
-
 const moment = require('moment');
 
 
@@ -10,7 +9,7 @@ exports.getTeammate = (req,res, next) => {
    const teamId = req.params.id;
    TeamMate.findById(teamId)
    .then(teammate => {
-    res.render('./admin/teamMateDetail',
+    res.render('./admin/teammate-details',
     { 
        pageTitle: "Профиль сотрудника",
        pageTipe: 'adminIn',
@@ -27,14 +26,16 @@ exports.getEditTeammate = (req, res, next) => {
     if(!editMode){
         return res.redirect('/');
     }
-    const teamId = req.params.teamId;
+
+    const teamId = req.params.id;
+
     TeamMate.findById(teamId)
     .then(teammate => {
         if(!teammate)
         {
             return res.redirect('/')
         }
-        res.render('/admin/edit-teammate',{
+        res.render('./admin/edit-teammate',{
             pageTitle: "Изменение профиля",
             pageTipe: 'adminIn',
             teammate: teammate,
@@ -43,11 +44,42 @@ exports.getEditTeammate = (req, res, next) => {
         })
     })
     .catch(err => console.log(err));
-
-      
-
 };
 
+exports.postEditTemmmate = (req, res, next) => {
+    const teamId = req.body.teamId;
+    const updatedMateSurname = req.body.mateSurname;
+    const updatedMateName = req.body.mateName;
+    const updatedMateSecondName = req.body.mateSecondName;
+    const updatedMatePosition = req.body.matePosition;
+    const updatedMateVK = req.body.mateVK;
+    const updatedMateInstagram = req.body.mateInstagram;
+    const updatedMatePhone = req.body.matePhone;
+    const updatedMateAbout = req.body.mateAbout;
+    const updatedMateCrowns = req.body.mateCrowns;
+    const updatedMateHobby = req.body.mateHobby;
+
+   TeamMate.findById(teamId)
+   .then(teammate=>{
+       teammate.surname = updatedMateSurname;
+       teammate.name = updatedMateName;
+       teammate.secondName = updatedMateSecondName;
+       teammate.position = updatedMatePosition;
+       teammate.vk = updatedMateVK;
+       teammate.instagram = updatedMateInstagram;
+       teammate.phone = updatedMatePhone;
+       teammate.about = updatedMateAbout;
+       teammate.crowns = updatedMateCrowns;
+       teammate.hobby = updatedMateHobby;
+       return teammate.save();
+   })
+   .then(retult =>{
+       console.log('Updated product');
+       res.redirect('/admin/adminTeam');
+   })
+   .catch(err => console.log(err));
+
+}
 
 exports.getUser = (req,res, next)  => {
     const id = req.params.id;
@@ -57,7 +89,7 @@ exports.getUser = (req,res, next)  => {
         if(!user){
             res.redirect('/');
         }
-        res.render("./admin/userDetails", {
+        res.render("./admin/user-details", {
             moment: moment,
             user: user,
             pageTitle: "Профиль пользователя",
@@ -75,7 +107,7 @@ exports.getAllPar = (req, res) => {
     
     User.findAll()
     .then(users => {
-        res.render("./admin/adminPar", {
+        res.render("./admin/admin-participants", {
             users: users,
             moment: moment,
             pageTitle: "Участники без команды",
@@ -89,7 +121,7 @@ exports.getAllPar = (req, res) => {
 };
 
 exports.getAdminPage = (req,res) => {
-        res.render('./admin/adminPage',{
+        res.render('./admin/admin-page',{
             pageTitle: "Страница администратора",
             pageTipe: "adminIn",
         })
@@ -99,7 +131,7 @@ exports.getAdminPage = (req,res) => {
 exports.getAdminTeam = (req, res) => {
     TeamMate.findAll()
     .then(teams => {
-    res.render('./admin/adminTeam',
+    res.render('./admin/admin-team',
      { 
         teams: teams,
         pageTitle: "Команда Вектор",
@@ -114,6 +146,16 @@ exports.getAdminTeam = (req, res) => {
   
 }
 
+exports.getAddTeammate = (req,res) => {
+    
+    res.render('./admin/edit-teammate',{
+        pageTitle: "Добавление сотрудника",
+        pageTipe: "adminIn",
+        editing: false,
+        isAuthenticated: req.isLoggedIn
+    });
+}
+
 exports.addNewTeamMate = (req, res) => {
     
    const mateSurname = req.body.mateSurname;
@@ -123,6 +165,9 @@ exports.addNewTeamMate = (req, res) => {
    const mateVK = req.body.mateVK;
    const mateInstagram = req.body.mateInstagram;
    const matePhone = req.body.matePhone;
+   const mateAbout = req.body.mateAbout;
+   const mateCrowns = req.body.mateCrowns;
+   const mateHobby = req.body.mateHobby;
 
    TeamMate.create({
         name: mateName,
@@ -131,12 +176,15 @@ exports.addNewTeamMate = (req, res) => {
         position: matePosition,
         instagram: mateInstagram,
         vk: mateVK,
-        phone: matePhone
+        phone: matePhone,
+        about: mateAbout,
+        hobby: mateHobby,
+        crowns: mateCrowns
       
     })
     .then(result => {
         console.log('Created User');
-        res.redirect('/adminTeam')
+        res.redirect('/admin/adminTeam')
     }).catch( err => {
         console.log(err);
     });
@@ -150,14 +198,14 @@ exports.postDeleteTeamMate = (req, res) => {
     })
     .then(result => {
         console.log("DESTROYED TEAMMATE");
-        res.redirect('/adminTeam');
+        res.redirect('/admin/adminTeam');
     })  
 }
 
 exports.getAdminGroup = (req, res) =>{
     User.findAll()
     .then(users => {
-    res.render('./admin/adminGroup', {
+    res.render('./admin/admin-group', {
         users: users,
         pageTitle: "Команды участников",
         pageTipe: 'adminIn'

@@ -36,7 +36,19 @@ const TeamMate =  sequelize.define('teamMate', {
     phone: {
         type: Sequelize.TEXT,
         allowNull: false
-    }
+    },
+    about: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+    },
+    crowns: {
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    hobby:{
+        type: Sequelize.CHAR,
+        allowNull: false
+    } 
 
 })
 

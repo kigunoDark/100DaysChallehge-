@@ -20,7 +20,7 @@
 .userBlock{ background-color: rgb(242, 210, 67, 0.4);}
 .parfioUser { color: rgb(255, 255, 255); font-weight: bold; text-shadow: 1px 1px 4px #000000; font-family: "Russo One", sans-serif; font-size: 16px; margin: 8% 0% 8% 0%; text-transform: uppercase;}
 .title1 { color: rgba(31, 29, 29, 0.8); padding-bottom: 50px; padding-top: 50px; letter-spacing: 0.15em; font-weight: 100; font-size: 6vmin; font-family: "Russo One", sans-serif; font-weight: bold; text-transform: uppercase;}
-input,textarea{ font-weight: bold; color: white;}
+input,textarea{ font-weight: bold; color: rgb(27, 26, 26);}
 .parUserOwncolor{ color: #f2d243; text-shadow: 2px 1px 2px #302f2f; font-family: "Russo One", sans-serif; font-weight: normal; font-size: 14px; text-transform: uppercase;}
 .owncolor { color: #f2d243; font-weight: bold; text-shadow: 2px 1px 2px #302f2f; font-family: "Russo One", sans-serif; font-weight: normal; font-size: 6vmin; text-transform: uppercase;}
 .subtitle-video { color: white; text-transform: uppercase; text-shadow: 1px 1px 4px #000000; padding: 5px 0px 5px 0px; letter-spacing: 0.26em; font-family: "Open Sans", sans-serif;}

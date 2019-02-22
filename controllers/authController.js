@@ -19,7 +19,7 @@ exports.getLogin = (req, res) => {
 };
 
 exports.getMobileLogin = (req, res)  => {
-   res.render('./admin/mobileLogin',
+   res.render('./admin/mobile-login',
     {
         pageTitle: "ВЕКТОР АДМИН",
         pageTipe:"mobileLogin",
