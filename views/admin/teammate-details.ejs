@@ -56,21 +56,24 @@
                 </li>
                 <li>
                     <div class="collapsible-header"><i class="fas fa-mobile"></i>Как со мной связаться?</div>
-                    <div class="collapsible-body"><span><ul>   <li>ВКОНТАКТЕ:</li>
-                    <li > <a class="team-info" href="<%= teammate.vk %>"> <%= teammate.vk %> </a> </li> 
-                    <li>INSTAGRAM:</li>
-                    <li> <a class="team-info" href="<%= teammate.instagram %>"> <%= teammate.instagram %> </a> </li> </ul></span></div>
+                    <div class="collapsible-body"><span>
+                    <ul>   
+                        <li>ВКОНТАКТЕ:</li>
+                        <li > <a class="team-info" href="<%= teammate.vk %>"> <%= teammate.vk %> </a> </li> 
+                        <li>INSTAGRAM:</li>
+                        <li> <a class="team-info" href="<%= teammate.instagram %>"> <%= teammate.instagram %> </a>  </li> 
+                        <li>E-mail:</li>
+                        <li> <a class="team-info" href="mailto:<%= teammate.email %>"> <%= teammate.email%> </a>  </li>
+                    </ul>
+                    </span></div>
                 </li>
             </ul>
             </p>
         </div>
        </div>     
     </div>
-    <a style="color:red;"href="/admin/edit-teammate/<%= teammate.id %>?edit=ture">ssada </a>
+    <a class="right linkButton" href="/admin/edit-teammate/<%= teammate.id %>?edit=ture">Изменить </a>
 
-    <form action="/admin/edit-teammate/<%= teammate.id %>?edit=ture">
-        <button class="right loginButton" type="submit">Изменить</button>
-    </form>
         <form action="/admin/adminTeam">
              <button class="right loginButton"  type="submit" >Назад</button>
         </form>

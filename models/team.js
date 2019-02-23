@@ -46,7 +46,11 @@ const TeamMate =  sequelize.define('teamMate', {
         allowNull: false
     },
     hobby:{
-        type: Sequelize.CHAR,
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    email:{
+        type: Sequelize.TEXT,
         allowNull: false
     } 
 

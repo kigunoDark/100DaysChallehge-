@@ -2,6 +2,7 @@ const User = require('../models/users');
 const TeamMate = require('../models/team');
 const path = require('path');
 const moment = require('moment');
+const validatorOfTeammate = require('../validator/teammate-validator');
 
 
 // Init multer storege
@@ -58,6 +59,7 @@ exports.postEditTemmmate = (req, res, next) => {
     const updatedMateAbout = req.body.mateAbout;
     const updatedMateCrowns = req.body.mateCrowns;
     const updatedMateHobby = req.body.mateHobby;
+    const updatedMateEmail = req.body.mateEmail;
 
    TeamMate.findById(teamId)
    .then(teammate=>{
@@ -71,6 +73,7 @@ exports.postEditTemmmate = (req, res, next) => {
        teammate.about = updatedMateAbout;
        teammate.crowns = updatedMateCrowns;
        teammate.hobby = updatedMateHobby;
+       teammate.email = updatedMateEmail;
        return teammate.save();
    })
    .then(retult =>{
@@ -157,7 +160,11 @@ exports.getAddTeammate = (req,res) => {
 }
 
 exports.addNewTeamMate = (req, res) => {
-    
+    const { errors, isValid } =validatorOfTeammate(req.body);
+
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
    const mateSurname = req.body.mateSurname;
    const mateName = req.body.mateName;
    const mateSecondName = req.body.mateSecondName;
@@ -168,6 +175,7 @@ exports.addNewTeamMate = (req, res) => {
    const mateAbout = req.body.mateAbout;
    const mateCrowns = req.body.mateCrowns;
    const mateHobby = req.body.mateHobby;
+   const mateEmail = req.body.mateEmail;
 
    TeamMate.create({
         name: mateName,
@@ -179,8 +187,8 @@ exports.addNewTeamMate = (req, res) => {
         phone: matePhone,
         about: mateAbout,
         hobby: mateHobby,
-        crowns: mateCrowns
-      
+        crowns: mateCrowns,
+        email: mateEmail
     })
     .then(result => {
         console.log('Created User');
@@ -191,7 +199,10 @@ exports.addNewTeamMate = (req, res) => {
 } 
 
 exports.postDeleteTeamMate = (req, res) => {
+
     const id = req.body.teamMateId;
+    console.log(id);
+
     TeamMate.findById(id)
     .then(team => {
         return team.destroy();
