@@ -7252,7 +7252,7 @@ select:disabled {
 .select-dropdown li.disabled,
 .select-dropdown li.disabled > span,
 .select-dropdown li.optgroup {
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.3);
   background-color: transparent;
 }
 
@@ -7290,15 +7290,20 @@ body.keyboard-focused .select-dropdown.dropdown-content li:focus {
 }
 
 .select-dropdown li.optgroup.selected > span {
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .select-dropdown li.optgroup > span {
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .select-dropdown li.optgroup ~ li.optgroup-option {
   padding-left: 1rem;
+}
+
+
+span{
+  color:white;
 }
 
 /* File Input
@@ -8700,11 +8705,13 @@ input[type=range]::-ms-thumb {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  
 }
 
 .datepicker-controls .select-wrapper input {
   border-bottom: none;
   text-align: center;
+  color:white;
   margin: 0;
 }
 
@@ -8737,7 +8744,7 @@ input[type=range]::-ms-thumb {
   -webkit-flex: 1 auto;
       -ms-flex: 1 auto;
           flex: 1 auto;
-  background-color: #26a69a;
+  background-color: #f2d243;
   color: #fff;
   padding: 20px 22px;
   font-weight: 500;
@@ -8786,7 +8793,7 @@ input[type=range]::-ms-thumb {
 
 .datepicker-table abbr {
   text-decoration: none;
-  color: #999;
+  color: #f2d243;
 }
 
 .datepicker-table td {
@@ -8795,12 +8802,12 @@ input[type=range]::-ms-thumb {
 }
 
 .datepicker-table td.is-today {
-  color: #26a69a;
+  color: #f2d243;
 }
 
 .datepicker-table td.is-selected {
-  background-color: #26a69a;
-  color: #fff;
+  background-color: #f2d243;
+  color: black;
 }
 
 .datepicker-table td.is-outside-current-month, .datepicker-table td.is-disabled {
@@ -8843,7 +8850,7 @@ input[type=range]::-ms-thumb {
 .datepicker-clear,
 .datepicker-today,
 .datepicker-done {
-  color: #26a69a;
+  color: #f2d243;
   padding: 0 1rem;
 }
 

@@ -86,7 +86,10 @@ $(document).ready(function() {
 $(document).ready(function() {
   $(".slider").slider();
 });
-
+$(document).ready(function(){
+  $('.datepicker').datepicker();
+});
+    
 
 // Animation of navigation bar
 $(document).ready(function() {

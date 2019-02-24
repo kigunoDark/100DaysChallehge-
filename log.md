@@ -458,3 +458,13 @@ Write an edite mode and understand a routing staff with it)
 
 **Today's Progress**: My editing and updating of users works, The best and the most productive day in my life. I'm happy
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 38: February 23 2019 
+
+**Today's Progress**: I fixed some bugs on a back-end. For example, when I posted my delete query, it could only delete by the first id. Also, I finished my adding and updating of user with validation. Now everythin is working correct.
+My next step: 
+Change a redister form for users
+Create Cart for choices of adding members that were accepted
+Authenfication.
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-

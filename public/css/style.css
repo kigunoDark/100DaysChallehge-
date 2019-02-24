@@ -68,6 +68,34 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .log{padding:10% 5% 15% 5%;}
 
 /* edit-profile */
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.avatar {
+    font-size: 20px;
+    color: grey;
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 6%;
+    margin-left: 2%;
+}
+
+
+.avatar:hover {
+    color: #f2d243;
+}
+
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
 .profile-header{background-image:linear-gradient( to right bottom, rgba(36, 76, 129, 0.3), rgba(20, 20, 20, 0.9)), url('https://images.unsplash.com/photo-1502656109408-152680a8ad1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'); background-size: cover; background-attachment: fixed;}
 .valign{ margin-top: 20%; color: rgba(255,255,255,0.6);  }
 .profile-text-header{ font-size: 20px; text-transform: uppercase; }
