@@ -468,3 +468,18 @@ Change a redister form for users
 Create Cart for choices of adding members that were accepted
 Authenfication.
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+## Day 39: February 24 2019 
+
+**Today's Progress**: Fixied some bugs, redesign some pages and created new game picker
+My next step: 
+Change a redister form for users
+Create Cart for choices of adding members that were accepted
+Authenfication.
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+# Day 40 41 42: March 2 2019 
+
+**Today's Progress**: Udemy
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-

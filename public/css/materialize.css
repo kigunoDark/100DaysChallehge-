@@ -8669,8 +8669,8 @@ input[type=range]::-ms-thumb {
 
 /* Modal */
 .datepicker-modal {
-  max-width: 325px;
-  min-width: 300px;
+  max-width: 300px;
+  min-width: 325px;
   max-height: none;
 }
 
@@ -8773,7 +8773,7 @@ input[type=range]::-ms-thumb {
 }
 
 .datepicker-table {
-  width: 280px;
+  width: 250px;
   font-size: 1rem;
   margin: 0 auto;
 }

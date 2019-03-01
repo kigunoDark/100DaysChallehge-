@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const adminRoute = require('./routes/adminRoute');
 const errControll = require('./controllers/errorController');
+const session = require('express-session');
 // var expressValidator = require("express-validator");
 
 const sequelize = require('./data/database');
@@ -14,6 +15,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({secret: 'be a human', resave: false, saveUninitialized: false}));
 // app.use(expressValidator());
 
 

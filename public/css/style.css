@@ -6,7 +6,7 @@
     padding: 0;
     font-family: "Russo One", sans-serif;
 }
-body { background:#f8f8f8; margin: 0; padding: 0; width: 100%; display: flex; min-height: 100vh; flex-direction: column; height: 100%;}
+body { background:#f8f8f8; color: black; margin: 0; padding: 0; width: 100%; display: flex; min-height: 100vh; flex-direction: column; height: 100%;}
 img { max-width: 100%;height: auto; }
 nav { top: 0; left: 0; height: 90px; z-index: 1; background: rgb(7, 7, 7, 0); color: white; font-weight: bold; text-transform: uppercase; box-sizing: border-box; padding-top: 10px; box-shadow: none; transition: 1s; }
 nav.limem { top: 0;left: 0; z-index: 1; background-color: rgba(31, 29, 29, 1  ); color: white; padding-top: 0px; height: 70px; box-shadow: #263238; border-bottom: 1px solid white; }
@@ -135,7 +135,8 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 #partners { margin: 0% 0% 10% 0%; }
 #rsm { margin-top: 5%;}
 #logo-container { margin-left: 10%;}
-#per-info{font-size: 20px;}
+#per-info{font-size: 20px; color: grey;}
+span { color: grey;}
 #teammate { margin-bottom: 10%;}
 /* Media */
 

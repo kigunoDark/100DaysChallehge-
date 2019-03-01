@@ -115,7 +115,7 @@ exports.getAllPar = (req, res) => {
             moment: moment,
             pageTitle: "Участники без команды",
             pageTipe: "adminIn",
-            isAuthenticated: req.isLoggedIn
+            isAuthenticated: isLoggedIn
         })
     })
     .catch(err => {
@@ -124,9 +124,12 @@ exports.getAllPar = (req, res) => {
 };
 
 exports.getAdminPage = (req,res) => {
+    
+
         res.render('./admin/admin-page',{
             pageTitle: "Страница администратора",
             pageTipe: "adminIn",
+            isAuthenticated: req.isLoggedIn
         })
 }
 
@@ -219,7 +222,8 @@ exports.getAdminGroup = (req, res) =>{
     res.render('./admin/admin-group', {
         users: users,
         pageTitle: "Команды участников",
-        pageTipe: 'adminIn'
+        pageTipe: 'adminIn',
+        isAuthenticated: req.isLoggedIn
     })
 })
     .catch(err => {

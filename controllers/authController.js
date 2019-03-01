@@ -1,7 +1,7 @@
 const TeamMate = require('../models/team');
 
 exports.getLogin = (req, res) => {
- 
+    console.log(req.session.isLoggedIn);
     TeamMate.findAll()
     .then(teams => {
     res.render('./users/landingPage',
@@ -9,7 +9,7 @@ exports.getLogin = (req, res) => {
         teams: teams,
         pageTitle: "ВЕКТОР АДМИН",
         pageTipe:"admin",
-        isAuthenticated: req.isLoggedIn
+        isAuthenticated: false
 
     });
     })
@@ -28,7 +28,7 @@ exports.getMobileLogin = (req, res)  => {
 }
 
 exports.postLogin = (req, res) => {
-    res.setHeader('Set-Cookie', 'loogedIn = true');
-    res.redirect('/admin/adminPage');
+    req.session.isLoggedIn = true;
+    res.redirect('/admin/adminPage');   
 };
 
