@@ -15,7 +15,7 @@ exports.getTeammate = (req,res, next) => {
        pageTitle: "Профиль сотрудника",
        pageTipe: 'adminIn',
        teammate: teammate,
-       isAuthenticated: req.isLoggedIn
+       isAuthenticated: req.session.isLoggedIn
    })
    })
    .catch(err => {
@@ -41,7 +41,7 @@ exports.getEditTeammate = (req, res, next) => {
             pageTipe: 'adminIn',
             teammate: teammate,
             editing: editMode,
-            isAuthenticated: req.isLoggedIn
+            isAuthenticated: req.session.isLoggedIn
         })
     })
     .catch(err => console.log(err));
@@ -98,7 +98,7 @@ exports.getUser = (req,res, next)  => {
             pageTitle: "Профиль пользователя",
             pageTipe: "adminIn",
             path: "/admin/userDetails",
-            isAuthenticated: req.isLoggedIn
+            isAuthenticated: req.session.isLoggedIn
         })
     })
     .catch(err => {
@@ -115,7 +115,7 @@ exports.getAllPar = (req, res) => {
             moment: moment,
             pageTitle: "Участники без команды",
             pageTipe: "adminIn",
-            isAuthenticated: isLoggedIn
+            isAuthenticated: req.session.isLoggedIn
         })
     })
     .catch(err => {
@@ -129,7 +129,7 @@ exports.getAdminPage = (req,res) => {
         res.render('./admin/admin-page',{
             pageTitle: "Страница администратора",
             pageTipe: "adminIn",
-            isAuthenticated: req.isLoggedIn
+            isAuthenticated: req.session.isLoggedIn
         })
 }
 
@@ -142,7 +142,7 @@ exports.getAdminTeam = (req, res) => {
         teams: teams,
         pageTitle: "Команда Вектор",
         pageTipe: 'adminIn',
-        isAuthenticated: req.isLoggedIn
+        isAuthenticated: req.session.isLoggedIn
 
     });
     })
@@ -158,7 +158,7 @@ exports.getAddTeammate = (req,res) => {
         pageTitle: "Добавление сотрудника",
         pageTipe: "adminIn",
         editing: false,
-        isAuthenticated: req.isLoggedIn
+        isAuthenticated: req.session.isLoggedIn
     });
 }
 
@@ -223,7 +223,7 @@ exports.getAdminGroup = (req, res) =>{
         users: users,
         pageTitle: "Команды участников",
         pageTipe: 'adminIn',
-        isAuthenticated: req.isLoggedIn
+        isAuthenticated: req.session.isLoggedIn
     })
 })
     .catch(err => {

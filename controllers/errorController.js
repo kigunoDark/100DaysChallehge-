@@ -3,6 +3,6 @@ exports.get404 = (req, res) => {
         pageTitle: "Страница не найдена",
         path: '/404',
         pageTipe: "error",
-        isAuthenticated: req.isLoggedIn
+        isAuthenticated: req.session.isLoggedIn
     });
 }

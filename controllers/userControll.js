@@ -11,7 +11,7 @@ exports.getLanding = (req, res) => {
         pageTitle: "ВекторСКФО",
         pageTipe:"users",
         path: '/',
-        isAuthenticated: req.isLoggedIn
+        isAuthenticated: req.session.isLoggedIn
     });
     })
     .catch(err => {
