@@ -483,3 +483,22 @@ Authenfication.
 
 **Today's Progress**: Udemy
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 43: March 3 2019 
+
+**Today's Progress**: Add a session and it's working. Actually sessions, which works with sequelize. Also add dummy admin without authentification.
+
+Change a redister form for users
+Create Cart for choices of adding members that were accepted
+Authenfication.
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 43: March 3 2019 
+
+**Today's Progress**: I'm working with authentication. I've spent a lot of time to find one mistake.  My hypoteza were correct, so tomorrow I will continue to wroke with authentication.
+ I hope I will finish my work tomorrow 
+
+Authenfication.
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
