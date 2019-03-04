@@ -46,8 +46,8 @@ sequelize
 .then(admin => {
     if(!admin)
     {   
-        return Admin.create({password: "1995OP1995", email: 'KRUSHENITSKII@GMAIL.COM'});
-    }
+        return Admin.create({password: "1995op1995", email: 'KRUSHENITSKII@GMAIL.COM', name:"Елена", surname: 'Сонина'});
+    } 
     return admin
 })
 .then( admin => {

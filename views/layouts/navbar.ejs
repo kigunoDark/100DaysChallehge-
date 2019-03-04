@@ -96,8 +96,8 @@
                                         <p>
                                             <h5 class="center" style="font-weight: bold;"> Вход </h5>
                                                 <input  id="autocomplete-input" class="autocomplete" type="text" name="adminEmail" placeholder="E-mail"> <br />
-                                                <input  id="autocomplete-input" class="autocomplete" type="text" name="adminPassword" placeholder="Пароль"> 
-                                            <button  type="submit"> Submit</button>
+                                                <input  id="autocomplete-input" class="autocomplete" type="password" name="adminPassword" placeholder="Пароль"> 
+                                            <button class="admSubmit" type="submit"> Submit</button>
                                         </p>
                                     </div>
                                 </form>
@@ -113,6 +113,7 @@
                     <li><a href="/admin/adminTeam"><i class="far fa-address-card"></i>Сотрудники</a></li>
                     <li><a href="/admin/adminGroup"><i class="fas fa-users"></i>Команды</a></li> 
                     <li><a href="/admin/adminPar"><i class="far fa-user"></i>Участники</a></li>
+                    <li><a href="/admin/admin-new"><i class="fas fa-plus"></i></i>Админ</a></li>
                     <form id="logOut" action="/logout" method="POST">  
                         <li>  
                             <a href="javascript:{}" onclick="document.getElementById('logOut').submit();"> <i class=" fas fa-sign-out-alt"></i>Выход</a>

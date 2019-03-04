@@ -3,6 +3,7 @@ const TeamMate = require('../models/team');
 const path = require('path');
 const moment = require('moment');
 const validatorOfTeammate = require('../validator/teammate-validator');
+const Admin = require('../models/admin');
 
 
 // Init multer storege
@@ -162,6 +163,22 @@ exports.getAddTeammate = (req,res) => {
     });
 }
 
+exports.getAddAdmin = (req,res) => {
+    Admin.findAll()
+    .then( admins => {
+        res.render('./admin/admin-new',{
+            admins: admins,
+            pageTitle: "Добавить админа",
+            pageTipe: "adminIn",
+            editing: false,
+            isAuthenticated: req.session.isLoggedIn
+        })
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+}
+
 exports.addNewTeamMate = (req, res) => {
     const { errors, isValid } =validatorOfTeammate(req.body);
 
@@ -204,8 +221,6 @@ exports.addNewTeamMate = (req, res) => {
 exports.postDeleteTeamMate = (req, res) => {
 
     const id = req.body.teamMateId;
-    console.log(id);
-
     TeamMate.findById(id)
     .then(team => {
         return team.destroy();
@@ -216,6 +231,17 @@ exports.postDeleteTeamMate = (req, res) => {
     })  
 }
 
+exports.postDeleteAdmin = (req,res) => {
+    const id = req.body.adminId;
+    Admin.findById(id)
+    .then( admin => {
+        return admin.destroy();
+    })
+    .then( result => {
+        console.log("DESTROYED ADMIN");
+        res.redirect('/admin/admin-new');
+    })
+}
 exports.getAdminGroup = (req, res) =>{
     User.findAll()
     .then(users => {
@@ -230,3 +256,4 @@ exports.getAdminGroup = (req, res) =>{
         console.log(err);
     })
 }
+

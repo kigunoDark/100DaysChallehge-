@@ -11,13 +11,13 @@ router.get('/adminTeam', adminControll.getAdminTeam);
 router.get('/add-teammate', adminControll.getAddTeammate);
 router.get('/detail-teammate/:id', adminControll.getTeammate);
 router.get('/edit-teammate/:id', adminControll.getEditTeammate);
-router.post('/edit-teammate', adminControll.postEditTemmmate);
-
 router.get('/adminGroup', adminControll.getAdminGroup);
-
+router.get('/admin-new', adminControll.getAddAdmin);
 
 router.post('/admin-addTeammate', adminControll.addNewTeamMate);
 router.post('/delete-mate', adminControll.postDeleteTeamMate);
+router.post('/delete-admin', adminControll.postDeleteAdmin);
+router.post('/edit-teammate', adminControll.postEditTemmmate);
 
 
 module.exports = router;

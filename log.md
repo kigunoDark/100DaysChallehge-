@@ -502,3 +502,11 @@ Authenfication.
 
 Authenfication.
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 44: March 4 2019 
+
+**Today's Progress**: Changed the logic of administrator)) Fixed some bugs and created new forms.
+
+Authenfication.
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-

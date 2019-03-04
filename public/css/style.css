@@ -114,6 +114,7 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .selfpresent{padding-left: 10%;}
 .additional-info{ margin-top: 5%;}
 .hidden{display: none;}
+.adInput{color:rgb(253, 252, 252)};
 /* Ides of Structure */
 
 #index-banner { height: 700px; z-index: 0; }
