@@ -510,3 +510,18 @@ Authenfication.
 
 Authenfication.
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+## Day 45: March 5 2019 
+
+**Today's Progress**: Day 45: #100DaysofCode   still working with authentication. Lear it deeply.
+
+Authenfication.
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 46: March 5 2019 
+
+**Today's Progress**: Day 45: #100DaysofCode   fineshed work with csrf , learned it. Learned how to show a user messages in node.js. Step by step I improve my skill.
+
+Authenfication.
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-

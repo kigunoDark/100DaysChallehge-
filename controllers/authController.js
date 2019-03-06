@@ -11,14 +11,13 @@ exports.getLogin = (req, res) => {
         teams: teams,
         pageTitle: "ВЕКТОР АДМИН",
         pageTipe:"admin",
-        isAuthenticated: req.session.isLoggedIn
-
+        errorMessage: req.flash('error')
     });
     })
     .catch(err => {
         console.log(err);
     })
-};
+}
 
 exports.getMobileLogin = (req, res)  => {
    res.render('./admin/mobile-login',
@@ -30,41 +29,57 @@ exports.getMobileLogin = (req, res)  => {
 }
 
 exports.postLogin = (req, res) => {
-
     const email= req.body.adminEmail;
-    console.log(email);
-    const password = req.body.adminPassword;
-    console.log(password);
-    Admin.findOne({where: {email: email}})
-    .then(admin => 
-    {
+    const password = req.body.adminPassword;  
+
+    Admin.findOne({where: {email: email }})
+    .then(admin => {
+
         if(!admin)
         {
+            req.flash('error', 'Проверьте email или пароль.');
             return res.redirect('/login');
         }
-    
-        // bcrypt
-        // .compare(password, admin.password)
-        // .then(doMatch => {
-            if(password === admin.password){
+
+        bcrypt
+        .compare(password, admin.password)
+        .then(doMatch => {
+            if(doMatch){
                 req.session.isLoggedIn = true;
                 req.session.admin = admin;
-            return req.session.save(err=>{
-                console.log(err);
-                return res.redirect('/admin/adminPage')
-            });
-        }
-        console.log('You are not able to login');
-        res.redirect('/login')
-    })
-        .catch(err=> {
-            console.log(err);
+               return req.session.save(err=>
+                {
+                    console.log(err);
+                    return res.redirect('/admin/adminPage');
+                })
+              
+            }
             res.redirect('/login');
         })
-        .catch(err => console.log(err));
-    };
+        .catch(err => {
+            console.log(err);
+            res.redirect('/login');
+        });
+    //     .then(doMatch => {
+    //         if(doMatch){
+    //             req.session.isLoggedIn = true;
+    //             req.session.admin = admin;
+    //             return res.session.save(err => {
+    //                 console.log(err);
+    //                 return res.redirect('/admin/adminPage');
+    //             })
+                
+    //         }
+    //         res.redirect('/login')
+    //     })
+    //     .catch(err => {
+    //         console.log(err);
+    //         res.redirect('/login');
+    //     })
+    // })
+    })
+}
         
-    
 
 
 exports.postLogout  = (req, res, next) => {

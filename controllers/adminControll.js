@@ -4,7 +4,7 @@ const path = require('path');
 const moment = require('moment');
 const validatorOfTeammate = require('../validator/teammate-validator');
 const Admin = require('../models/admin');
-
+const bcrypt = require('bcryptjs');
 
 // Init multer storege
 exports.getTeammate = (req,res, next) => {
@@ -15,8 +15,7 @@ exports.getTeammate = (req,res, next) => {
     { 
        pageTitle: "Профиль сотрудника",
        pageTipe: 'adminIn',
-       teammate: teammate,
-       isAuthenticated: req.session.isLoggedIn
+       teammate: teammate
    })
    })
    .catch(err => {
@@ -41,8 +40,7 @@ exports.getEditTeammate = (req, res, next) => {
             pageTitle: "Изменение профиля",
             pageTipe: 'adminIn',
             teammate: teammate,
-            editing: editMode,
-            isAuthenticated: req.session.isLoggedIn
+            editing: editMode
         })
     })
     .catch(err => console.log(err));
@@ -98,8 +96,7 @@ exports.getUser = (req,res, next)  => {
             user: user,
             pageTitle: "Профиль пользователя",
             pageTipe: "adminIn",
-            path: "/admin/userDetails",
-            isAuthenticated: req.session.isLoggedIn
+            path: "/admin/userDetails"
         })
     })
     .catch(err => {
@@ -115,8 +112,7 @@ exports.getAllPar = (req, res) => {
             users: users,
             moment: moment,
             pageTitle: "Участники без команды",
-            pageTipe: "adminIn",
-            isAuthenticated: req.session.isLoggedIn
+            pageTipe: "adminIn"
         })
     })
     .catch(err => {
@@ -129,8 +125,7 @@ exports.getAdminPage = (req,res) => {
 
         res.render('./admin/admin-page',{
             pageTitle: "Страница администратора",
-            pageTipe: "adminIn",
-            isAuthenticated: req.session.isLoggedIn
+            pageTipe: "adminIn"
         })
 }
 
@@ -142,9 +137,7 @@ exports.getAdminTeam = (req, res) => {
      { 
         teams: teams,
         pageTitle: "Команда Вектор",
-        pageTipe: 'adminIn',
-        isAuthenticated: req.session.isLoggedIn
-
+        pageTipe: 'adminIn'
     });
     })
     .catch(err => {
@@ -158,25 +151,64 @@ exports.getAddTeammate = (req,res) => {
     res.render('./admin/edit-teammate',{
         pageTitle: "Добавление сотрудника",
         pageTipe: "adminIn",
-        editing: false,
-        isAuthenticated: req.session.isLoggedIn
+        editing: false
     });
 }
 
 exports.getAddAdmin = (req,res) => {
+  
     Admin.findAll()
     .then( admins => {
         res.render('./admin/admin-new',{
             admins: admins,
             pageTitle: "Добавить админа",
             pageTipe: "adminIn",
-            editing: false,
-            isAuthenticated: req.session.isLoggedIn
+            editing: false
         })
     })
     .catch(err=>{
         console.log(err)
     })
+}
+
+exports.postAddAdmin = (req,res) => {
+    const email= req.body.adEmail;
+    console.log(email);
+    const name = req.body.adName;
+    console.log(name);
+    const surname = req.body.adSurname;
+    console.log(surname);
+    const password = req.body.adPassword;
+    console.log(password);
+    const adRPassword = req.body.adRPassword;
+
+    Admin.findOne({where: {email: email}})
+    .then(userDoc =>{
+        if(userDoc)
+        {
+            console.log('The admin with same email already exits');
+            return res.redirect('/admin/admins');  
+        }
+        return bcrypt
+        .hash(password, 12)
+        .then(hashedPassword => {
+            const admin = new Admin({
+                email: email,
+                name: name,
+                surname: surname,
+                password:hashedPassword 
+            });
+            return admin.save();
+        }) 
+        .then(result => {
+            res.redirect('/admin/admins');
+        })
+        .catch(err=> {
+            console.log(err);
+        });
+       
+    })
+
 }
 
 exports.addNewTeamMate = (req, res) => {
@@ -239,7 +271,7 @@ exports.postDeleteAdmin = (req,res) => {
     })
     .then( result => {
         console.log("DESTROYED ADMIN");
-        res.redirect('/admin/admin-new');
+        res.redirect('/admin/admins');
     })
 }
 exports.getAdminGroup = (req, res) =>{
@@ -248,8 +280,7 @@ exports.getAdminGroup = (req, res) =>{
     res.render('./admin/admin-group', {
         users: users,
         pageTitle: "Команды участников",
-        pageTipe: 'adminIn',
-        isAuthenticated: req.session.isLoggedIn
+        pageTipe: 'adminIn'
     })
 })
     .catch(err => {

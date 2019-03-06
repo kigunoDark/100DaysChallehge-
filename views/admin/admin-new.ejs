@@ -24,6 +24,7 @@
             <td><%= admin.email %> </td>
             <td>    
                 <form class="adminInt" id="delete-teammate" action="/admin/delete-admin" method="POST"> 
+                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                     <input type="hidden" value="<%= admin.id %>" name="adminId">
                     <button type="submint"  class="teamDelete">  <i class=" fas fa-user-minus"></i> </button>
                 </form>
@@ -46,7 +47,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                 <a href="javascript:{}" onclick="document.getElementById('add-user').submit();" style="color:#f2d243;" class="fioUser modal-close waves-effect waves-green btn-flat">Принять</a>
+                 <a href="javascript:{}" onclick="document.getElementById('add-admin').submit();" style="color:#f2d243;" class="fioUser modal-close waves-effect waves-green btn-flat">Принять</a>
                 <a href="#!" style="color:#f2d243;" class="fioUser modal-close waves-effect waves-green btn-flat">Закрыть</a>
              </div>
             </div>
@@ -56,9 +57,25 @@
    <% } else { %>
    <div class="container-wrap">
         <h1 class="center error"> Вы пока не добавили администраторов в список</h1>
-        <form action="/admin/add-teammate">
-            <button class="right loginButton "  type="submit">Добавить</button>
-        </form>
+        <button data-target="modal2"  class="right loginButton  modal-trigger" >Добавить</button>
+        <div id="modal2" class="modal"> 
+            <div class="modal-content" style="text-align: left">
+                <h5 class="regTitle center">Добавить администратора</h5>
+                <div class="row">
+                            
+                <div class="input-field col s12">
+
+                    <%- include('./add-admin.ejs')%>
+                    
+                </div>
+            </div>
+            <div class="modal-footer">
+                 <a href="javascript:{}" onclick="document.getElementById('add-admin').submit();" style="color:#f2d243;" class="fioUser modal-close waves-effect waves-green btn-flat">Принять</a>
+                <a href="#!" style="color:#f2d243;" class="fioUser modal-close waves-effect waves-green btn-flat">Закрыть</a>
+             </div>
+            </div>
+        </div>
+  
     </div>
    <% } %>
     </div>
