@@ -5,6 +5,15 @@ const moment = require('moment');
 const validatorOfTeammate = require('../validator/teammate-validator');
 const Admin = require('../models/admin');
 const bcrypt = require('bcryptjs');
+const fileHelper = require('../util/file');
+const nodemailer = require('nodemailer');
+const sendgridTransport= require('nodemailer-sendgrid-transport');
+const key = require('../sendGridKey');
+const transporter = nodemailer.createTransport(sendgridTransport({
+    auth:{
+        api_key: key
+    }
+}));
 
 // Init multer storege
 exports.getTeammate = (req,res, next) => {
@@ -59,6 +68,7 @@ exports.postEditTemmmate = (req, res, next) => {
     const updatedMateCrowns = req.body.mateCrowns;
     const updatedMateHobby = req.body.mateHobby;
     const updatedMateEmail = req.body.mateEmail;
+    const updatedMatePhoto = req.file;
 
    TeamMate.findById(teamId)
    .then(teammate=>{
@@ -73,6 +83,10 @@ exports.postEditTemmmate = (req, res, next) => {
        teammate.crowns = updatedMateCrowns;
        teammate.hobby = updatedMateHobby;
        teammate.email = updatedMateEmail;
+       if(updatedMatePhoto){
+           fileHelper.deleteFile(teammate.photo);
+           teammate.photo = updatedMatePhoto.path;
+       }
        return teammate.save();
    })
    .then(retult =>{
@@ -172,14 +186,10 @@ exports.getAddAdmin = (req,res) => {
 }
 
 exports.postAddAdmin = (req,res) => {
-    const email= req.body.adEmail;
-    console.log(email);
+    const email= req.body.adEmail;;
     const name = req.body.adName;
-    console.log(name);
     const surname = req.body.adSurname;
-    console.log(surname);
     const password = req.body.adPassword;
-    console.log(password);
     const adRPassword = req.body.adRPassword;
 
     Admin.findOne({where: {email: email}})
@@ -202,12 +212,22 @@ exports.postAddAdmin = (req,res) => {
         }) 
         .then(result => {
             res.redirect('/admin/admins');
+           return transporter.sendMail({
+                to: email,
+                from: 'kiguno1996@gmail.com',
+                subject: 'Вас назвначили администратором в топовой компании Vector! Поздравляю!',
+                html: '<h1 style="padding: 5%; margin: 0 auto;"> Вы успешно назначенны администратором!!! </h1>',
+                html: '<p style="text-align: justify; padding: 5%; margin: 0 auto;"> Задача организации, в особенности же реализация намеченных плановых заданий влечет за собой процесс внедрения и модернизации форм развития. С другой стороны дальнейшее развитие различных форм деятельности влечет за собой процесс внедрения и модернизации модели развития. С другой стороны реализация намеченных плановых заданий представляет собой интересный эксперимент проверки новых предложений. Повседневная практика показывает, что новая модель организационной деятельности способствует подготовки и реализации новых предложений. Таким образом постоянный количественный рост и сфера нашей активности позволяет оценить значение дальнейших направлений развития. Повседневная практика показывает, что новая модель организационной деятельности требуют определения и уточнения направлений прогрессивного развития. Не следует, однако забывать, что дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание системы обучения кадров, соответствует насущным потребностям. Не следует, однако забывать, что начало повседневной работы по формированию позиции способствует подготовки и реализации направлений прогрессивного развития. Задача организации, в особенности же начало повседневной работы по формированию позиции играет важную роль в формировании форм развития. Повседневная практика показывает, что реализация намеченных плановых заданий влечет за собой процесс внедрения и модернизации системы обучения кадров, соответствует насущным потребностям. </p>'
+            });
+         
         })
         .catch(err=> {
             console.log(err);
         });
        
-    })
+    }) .catch(err=> {
+        console.log(err);
+    });
 
 }
 
@@ -228,7 +248,15 @@ exports.addNewTeamMate = (req, res) => {
    const mateCrowns = req.body.mateCrowns;
    const mateHobby = req.body.mateHobby;
    const mateEmail = req.body.mateEmail;
+   const matePhoto = req.file;
 
+   if(!matePhoto)
+   {
+       console.log(" you didn't get the data");
+       res.redirect('/admin/adminTeam');
+   }
+
+   const imageUrl = matePhoto.path;
    TeamMate.create({
         name: mateName,
         secondName: mateSecondName,
@@ -240,7 +268,8 @@ exports.addNewTeamMate = (req, res) => {
         about: mateAbout,
         hobby: mateHobby,
         crowns: mateCrowns,
-        email: mateEmail
+        email: mateEmail,
+        photo: imageUrl
     })
     .then(result => {
         console.log('Created User');
@@ -254,13 +283,22 @@ exports.postDeleteTeamMate = (req, res) => {
 
     const id = req.body.teamMateId;
     TeamMate.findById(id)
-    .then(team => {
-        return team.destroy();
+    .then(teammate => {
+        if(!teammate)
+        {
+            return next(new Error ('Teammate not found'));
+        }
+        fileHelper.deleteFile(teammate.photo);
+        return teammate.destroy();
     })
     .then(result => {
         console.log("DESTROYED TEAMMATE");
         res.redirect('/admin/adminTeam');
     })  
+    .catch(err => console.log(err));
+    
+    
+   
 }
 
 exports.postDeleteAdmin = (req,res) => {

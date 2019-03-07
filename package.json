@@ -4,7 +4,8 @@
   "description": "this is project for vectorskfo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,11 @@
     "moment": "^2.24.0",
     "multer": "^1.4.1",
     "mysql2": "^1.6.4",
+    "nodemailer": "^5.1.1",
+    "nodemailer-sendgrid-transport": "^0.2.0",
     "sequelize": "^4.42.0",
     "validator": "^10.11.0"
-  }
+  },
+  "devDependencies": {},
+  "keywords": []
 }

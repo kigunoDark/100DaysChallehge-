@@ -30,6 +30,7 @@
           <a  href="/admin/detail-teammate/<%= team.id %>"  class="teamEdit " > <i class="fas fa-user-edit"> </i> </a> 
 
           <form class="adminInt" id="delete-teammate" action="/admin/delete-mate" method="POST"> 
+              <input type="hidden" name="_csrf" value="<%=csrfToken%>">
               <input type="hidden" value="<%= team.id %>" name="teamMateId">
 
               <button type="submint"  class="teamDelete">  <i class=" fas fa-user-minus"></i> </button>

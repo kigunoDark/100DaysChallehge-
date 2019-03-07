@@ -6,6 +6,7 @@ const errControll = require('./controllers/errorController');
 const session = require('express-session');
 var SequelizeStore = require('connect-session-sequelize')(session.Store);
 const Admin = require('./models/admin');
+const multer = require('multer');
 // Зачища от csrf
 const csrf = require('csurf');
 // Для вывода ошибок через сессию
@@ -18,12 +19,31 @@ const sequelize = require('./data/database');
 const app = express();
 const csrfProtection = csrf();
 
-
+const fileFilter = (req,file, cb) => {
+    if(file.mimetype === 'image/png' || file.mimetype === 'image/jpg' || file.mimetype === 'image/jpeg'){
+        cb(null, true);
+    } else {
+        cb(null, false);
+    }
+ 
+}
+const fileStorage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'images');
+    },
+    filename: (req, file, cb) => {
+        cb(null, Math.random() + '-' + Date.now() +  '-' + file.originalname);
+    }
+});
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 app.use(bodyParser.urlencoded({extended: false}));
+
+app.use(multer({storage: fileStorage, fileFilter: fileFilter }).single('image'));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/images' ,express.static(path.join(__dirname, 'images')));
 app.use(session({secret: 'be a human', resave: false, saveUninitialized: false, 
     store: new SequelizeStore({
     db: sequelize

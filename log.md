@@ -519,9 +519,16 @@ Authenfication.
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
 
-## Day 46: March 5 2019 
+## Day 46: March 6 2019 
 
 **Today's Progress**: Day 45: #100DaysofCode   fineshed work with csrf , learned it. Learned how to show a user messages in node.js. Step by step I improve my skill.
 
+Authenfication.
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 47: March 7 2019 
+
+**Today's Progress**: Day 45: #100DaysofCode   fineshed file uploading adn delliting with a multer.
 Authenfication.
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-

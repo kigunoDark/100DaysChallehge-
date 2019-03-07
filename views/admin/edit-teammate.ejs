@@ -2,7 +2,7 @@
 
     <div class=" container teamForm">
 
-    <form  id="add-team" action ="/admin/<%if (editing) { %>edit-teammate<% } else { %>admin-addTeammate<% } %>" method = "POST" >   
+    <form  id="add-team" action ="/admin/<%if (editing) { %>edit-teammate<% } else { %>admin-addTeammate<% } %>" method = "POST" enctype="multipart/form-data" >   
     <input type="hidden" name="_csrf" value="<%=csrfToken%>">
          <div class="container-wrap">
            
@@ -83,7 +83,7 @@
             
             <div class="row">
                 <label class="avatar" for="avatar"><i class="fas fa-camera-retro"></i> Выбрать фото</label>
-                <input class="inputfile" name="matePhoto" id="avatar" type="file"  accept="image/png, image/jpeg" > 
+                <input class="inputfile" name="image" id="avatar" type="file"  accept="image/png, image/jpeg" > 
             </div>      
         </div>
         <% if (editing) { %>

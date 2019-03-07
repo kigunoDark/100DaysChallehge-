@@ -2,6 +2,7 @@ const TeamMate = require('../models/team');
 const Admin = require('../models/admin');
 const bcrypt = require('bcryptjs');
 
+
 exports.getLogin = (req, res) => {
     
     TeamMate.findAll()
@@ -54,29 +55,13 @@ exports.postLogin = (req, res) => {
                 })
               
             }
+            
             res.redirect('/login');
         })
         .catch(err => {
             console.log(err);
             res.redirect('/login');
         });
-    //     .then(doMatch => {
-    //         if(doMatch){
-    //             req.session.isLoggedIn = true;
-    //             req.session.admin = admin;
-    //             return res.session.save(err => {
-    //                 console.log(err);
-    //                 return res.redirect('/admin/adminPage');
-    //             })
-                
-    //         }
-    //         res.redirect('/login')
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //         res.redirect('/login');
-    //     })
-    // })
     })
 }
         

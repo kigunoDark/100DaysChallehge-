@@ -52,8 +52,11 @@ const TeamMate =  sequelize.define('teamMate', {
     email:{
         type: Sequelize.TEXT,
         allowNull: false
-    } 
-
+    },
+    photo: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }
 })
 
 module.exports = TeamMate;
