@@ -8,10 +8,13 @@ const bcrypt = require('bcryptjs');
 const fileHelper = require('../util/file');
 const nodemailer = require('nodemailer');
 const sendgridTransport= require('nodemailer-sendgrid-transport');
-const key = require('../sendGridKey');
+const crypto = require('crypto');
+require('dotenv').config();
+console.log(process.env.SENDGRID_API_KEY)
+
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth:{
-        api_key: key
+        api_key: process.env.SENDGRID_API_KEY
     }
 }));
 
@@ -326,3 +329,42 @@ exports.getAdminGroup = (req, res) =>{
     })
 }
 
+exports.getReset = (req, res, next) => {
+    res.render('./admin/reset',{
+        pageTitle: "Изменить пароль администратора",
+        pageTipe: "adminIn"
+    })
+}
+exports.postReset = (req, res, next) => {
+    crypto.randomBytes(32, (err, buffer) => {
+        if(err){
+            console.log(err);
+            return res.redirect('/admin/reset');
+        }
+        const token = buffer.toString('hex');
+        Admin.findOne({where: {email: req.body.adEmail}}).
+        then(admin => {
+            if(!admin){
+                console.log('You do not account with that email');
+            }
+            admin.resetToken = token;
+            admin.resetTokenExpiration = Date.now() +  3600000;
+            return admin.save();
+        })
+        .then(result => {
+            res.redirect('/admin/admins');
+            transporter.sendMail({
+                to: req.body.adEmail,
+                from: 'kiguno1996@gmail.com',
+                subject: 'Пароль изменен',
+                html: `<h1 style="padding: 5%; margin: 0 auto;"> Вы успешно поменяли пароль</h1>
+                <p style="text-align: justify; padding: 5%; margin: 0 auto;"> Нажмите на <a href="http://localhost:3000/admin/reset/${token}">ссылку</a> чтобы получить новый пароль  </p>`
+            });
+         
+
+        })
+        .catch(err =>{
+            console.log(err);
+        });
+    })
+}

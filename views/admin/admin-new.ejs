@@ -17,16 +17,17 @@
         </tr>
       </thead>
       <% for (let admin of admins ) { %>
-      <tbody>
+      <tbody >
         <tr class="if <%= admin.id === 1  ? 'hidden' : '' %>">
             <td> <%= admin.name%> </td>
             <td> <%= admin.surname %> </td>
-            <td><%= admin.email %> </td>
-            <td>    
+            <td><a href="mailto:<%= admin.email %>" class="teamDelete"> <i class="fas fa-envelope"></i> </a></td>
+            <td > 
+            <a href="/admin/reset" class="teamEdit"><i class="fas fa-user-edit"></i> </a>  
                 <form class="adminInt" id="delete-teammate" action="/admin/delete-admin" method="POST"> 
                     <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                     <input type="hidden" value="<%= admin.id %>" name="adminId">
-                    <button type="submint"  class="teamDelete">  <i class=" fas fa-user-minus"></i> </button>
+                    <button type="submint"  class="teamDelete">  <i class="fas fa-user-times"></i> </button>
                 </form>
           </td>
         </tr>

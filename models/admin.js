@@ -24,8 +24,13 @@ const Admin = sequelize.define('admin', {
     {
         type:Sequelize.CHAR,
         allowNull: false
+    },
+    resetToken:{
+        type: Sequelize.TEXT
+    },
+    resetTokenExpiration:{
+        type:  Sequelize.DATE
     }
-
 })
 
 module.exports = Admin;

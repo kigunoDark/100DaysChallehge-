@@ -73,3 +73,7 @@ exports.postLogout  = (req, res, next) => {
         res.redirect('/login');
     });
 }
+
+exports.getNewPassword = (req, res, next) => {
+    
+}

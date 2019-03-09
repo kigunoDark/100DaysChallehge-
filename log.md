@@ -532,3 +532,21 @@ Authenfication.
 **Today's Progress**: Day 45: #100DaysofCode   fineshed file uploading adn delliting with a multer.
 Authenfication.
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+## Day 48: March 8 2019 
+
+**Today's Progress**: I've spent a lot of my time to buy some gifts for women. Today is a women day. Also, I wanted to continue my work on a project but I had some troubles with a sendgrid package, so I've spent only one hour to find a problem. A day without a result.
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 49: March 9 2019 
+
+**Today's Progress**: Like I said I had a problems with a sendgrid service. They didn't like my code. I souldn't have to push my code on a github with my API key. However, I understud what is .env file, how does it work with dotenv  by using nodeJs.  
+
+Next step - finish my reset of password
+Next step - validation advance level
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+

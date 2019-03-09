@@ -7,7 +7,7 @@
 .fioUser { color: white; font-weight:normal; text-shadow: 1px 1px 8px #000000; font-family: "Russo One", sans-serif; font-size: 14px;}
 .teamLink { transition: 0.2s; color:rgba(31, 29, 29, 0.8); font-weight:normal;  font-family: "Russo One", sans-serif; font-size: 16px;}
 .teamLink:hover { color:#f2d243; font-weight:normal;  font-family: "Russo One", sans-serif; font-size: 18px;}
-.teamEdit { transition: 0.2s; color:rgba(31, 29, 29, 0.8); font-weight:normal;  font-family: "Russo One", sans-serif; font-size: 16px;}
+.teamEdit { transition: 0.2s; color:rgba(31, 29, 29, 0.8); font-weight:normal;  font-family: "Russo One", sans-serif; font-size: 16px; margin-right: 10%;}
 .teamEdit:hover { color:#079b25; font-weight:normal;  font-family: "Russo One", sans-serif; }
 .teamDelete { outline: none; border: 0; background: transparent; cursor: pointer; transition: 0.2s; color:rgba(31, 29, 29, 0.8); font-weight:normal;  font-family: "Russo One", sans-serif; font-size: 16px;}
 .teamDelete:hover { color:#9b0718; font-weight:normal;  font-family: "Russo One", sans-serif;}
@@ -57,6 +57,6 @@ input,textarea{ font-weight: bold; color: rgb(27, 26, 26);}
 .groupForm{ padding: 2% 4% 3% 4%; margin-top: 5%;  margin-bottom: 10%; background-color: white; border-radius: 3%;box-shadow: 1px 6px 6px 1px #ccc;} 
 /* All ides of colors */
 .teamMateInfo{margin: 0%; background: #353334; height: 500px; font-family: "Russo One"; color:  white; font-weight: bold; text-transform: uppercase}
-
+.resetFrom{ padding: 10% 20% 10% 20%; margin-top: 10%; margin-bottom: 10%; background-color: white; border-radius: 3%;box-shadow: 1px 6px 6px 1px #ccc; width: 60%; } 
 #devider{ border-left: 1px solid #263238; border-right: 1px solid #263238;}
 #mail { font-size: 24px; color: rgba(31, 46, 61, 0.5); font-family: "Open Sans", sans-serif; }
