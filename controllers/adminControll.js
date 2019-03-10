@@ -209,7 +209,7 @@ exports.postAddAdmin = (req,res) => {
                 email: email,
                 name: name,
                 surname: surname,
-                password:hashedPassword 
+                password: hashedPassword 
             });
             return admin.save();
         }) 
@@ -366,5 +366,45 @@ exports.postReset = (req, res, next) => {
         .catch(err =>{
             console.log(err);
         });
+    })
+}
+
+exports.getResetPassword = (req, res ,next) => {
+    const token = req.params.token;
+    Admin.findOne({where: {resetToken:token,resetTokenExpiration: {$gt: Date.now()}}})
+    .then(admin => {
+        res.render('./admin/new-password',{
+            pageTitle: "Изменить пароль администратора",
+            pageTipe: "adminIn",
+            adminId: admin.id.toString(),
+            passwordToken: token
+        })
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
+
+exports.postNewPassword = (req, res, next) => {
+    const newPassword = req.body.adNewPassword;
+    const adminId = req.body.adminId;
+    const passwordToken = req.body.passwordToken;
+    let resetAdmin;
+    Admin.findOne({where: {resetToken: passwordToken , resetTokenExpiration: {$gt: Date.now()}, id: adminId}})
+    .then(admin => {
+        resetAdmin = admin;
+         return bcrypt.hash(newPassword, 12);
+    })
+    .then(hashedPassword => {
+        resetAdmin.password = hashedPassword;
+        resetAdmin.token = null;
+        resetAdmin.resetTokenExpiration = undefined;
+        return resetAdmin.save();
+    })
+    .then(result => {
+        res.redirect('/login');
+    })
+    .catch(err => {
+        console.log(err);
     })
 }

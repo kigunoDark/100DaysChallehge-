@@ -549,4 +549,10 @@ Next step - validation advance level
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
+## Day 49: March 9 2019 
 
+**Today's Progress**:#100DaysofCode  Finished a new function on my website - reset the password by using email.  The next step is fixed bugs and redesign.
+
+Next step - validation advance level
+
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-

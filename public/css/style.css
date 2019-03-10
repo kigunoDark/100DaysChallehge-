@@ -58,7 +58,7 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .fab { margin-bottom: 20px; }
 .page-footer { background-color: rgb(0, 0, 0);}
 .press li { list-style: none; display: inline-block;margin-top: 13%; }
-.spons { width: 100%;}
+.spons { width: 100%; margin-top: 5%; margin-bottom: 15%;}
 .error{ margin:  22% 0% 22% 0% }
 .adminPhoto {width: 50px; margin-top: 10px; margin-left: 20px; border: 2px solid #f2d243;}
 .navManip {margin-right: 20%;}
@@ -116,6 +116,7 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .hidden{display: none;}
 .adInput{color:rgb(253, 252, 252)};
 .user-message { color:black; font-size: 14px; margin: auto; width: 90%;border: 1px solid rgb(118, 104, 247); background-color: rgb(149, 180, 236);}
+.contacts{ padding: 5% 0% 10% 0%;}
 
 /* Ides of Structure */
 
@@ -135,7 +136,7 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 #team { position: relative; min-height: 1100px; background-image: linear-gradient( to right bottom, rgba(0, 0, 0, 0.9), rgba(26, 25, 24, 0.9)), url("../image/team.jpg"); background-attachment: fixed; background-size: cover; } 
 #team #top { position: absolute; top: 0; width: 100%; height: 10vw; fill: white; }
 #team #bot { position: absolute; bottom: 0; width: 100%; height: 10vw; fill: white; }
-#partners { margin: 0% 0% 10% 0%; }
+#partners { margin: 10% 0% 10% 0%; }
 #rsm { margin-top: 5%;}
 #logo-container { margin-left: 10%;}
 #per-info{font-size: 20px; color: grey;}

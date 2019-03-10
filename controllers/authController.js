@@ -68,12 +68,11 @@ exports.postLogin = (req, res) => {
 
 
 exports.postLogout  = (req, res, next) => {
-    req.session.destroy((err)=>{
-        console.log(err);
+    req.session.destroy(() => {
         res.redirect('/login');
     });
 }
 
 exports.getNewPassword = (req, res, next) => {
-    
+
 }

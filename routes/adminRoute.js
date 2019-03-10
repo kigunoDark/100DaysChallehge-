@@ -16,6 +16,8 @@ router.get('/adminGroup', isAuth, adminControll.getAdminGroup);
 router.get('/admins', isAuth, adminControll.getAddAdmin);
 router.get('/reset', isAuth, adminControll.getReset);
 router.post('/reset',isAuth, adminControll.postReset);
+router.get('/reset/:token', isAuth, adminControll.getResetPassword);
+router.post('/new-password', isAuth, adminControll.postNewPassword);
 router.post('/admin-add', isAuth, adminControll.postAddAdmin);
 
 router.post('/admin-addTeammate', isAuth, adminControll.addNewTeamMate);
