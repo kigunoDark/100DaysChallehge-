@@ -19,6 +19,7 @@ router.post('/reset',isAuth, adminControll.postReset);
 router.get('/reset/:token', isAuth, adminControll.getResetPassword);
 router.post('/new-password', isAuth, adminControll.postNewPassword);
 router.post('/admin-add', isAuth, adminControll.postAddAdmin);
+router.post('/add-camp', isAuth, adminControll.postToCamp);
 
 router.post('/admin-addTeammate', isAuth, adminControll.addNewTeamMate);
 router.post('/delete-mate', isAuth, adminControll.postDeleteTeamMate);

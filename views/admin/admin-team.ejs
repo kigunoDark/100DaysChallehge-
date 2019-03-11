@@ -12,10 +12,9 @@
         <tr>
             <th>ФИО</th>
             <th>Должность</th>
-            <th>ВК</th>
-            <th>Instagram</th>
-            <th>Телефон</th>
-            <th class="center">Управление</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Add</th>
         </tr>
       </thead>
       <% for (let team of teams ) { %>
@@ -23,26 +22,47 @@
         <tr>
           <td><%= team.surname %> <%= team.name%> <%= team.secondName%></td>
           <td><%= team.position %> </td>
-          <td><a class="teamLink" href="<%= team.vk %>"> Vkontact </a></td>
-          <td><a class="teamLink"   href="<%= team.instagram %>"> Instagram </a></td>
-          <td><a href="tel:<%= team.phone %>" class="teamLink"> Номер</a> </td>
-          <td class="center"> 
-          <a  href="/admin/detail-teammate/<%= team.id %>"  class="teamEdit " > <i class="fas fa-user-edit"> </i> </a> 
-
+          <td> 
+          <a  href="/admin/detail-teammate/<%= team.id %>"  class="teamEdit " > <i class="fas fa-user-edit"> </i> </a>
+          </td>
+          <td>
           <form class="adminInt" id="delete-teammate" action="/admin/delete-mate" method="POST"> 
-              <input type="hidden" name="_csrf" value="<%=csrfToken%>">
-              <input type="hidden" value="<%= team.id %>" name="teamMateId">
-
-              <button type="submint"  class="teamDelete">  <i class=" fas fa-user-minus"></i> </button>
-             
+            <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+            <input type="hidden" value="<%= team.id %>" name="teamMateId">
+            <button type="submint"  class="teamDelete">  <i class=" fas fa-user-minus"></i> </button>
           </form>
-                  
-            
+          </td>
+          <td>
+            <form class="adminInt"  action="/admin/add-camp" method="POST"> 
+              <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+
+              <input type="hidden" value="<%= team.name %>" name="teamMateName">
+              <input type="hidden" value="<%= team.secondName %>" name="teamMateSecondName">
+              <input type="hidden" value="<%= team.surname %>" name="teamMateSurname">
+              <input type="hidden" value="<%= team.position %>" name="teamMatePosition">
+              <input type="hidden" value="<%= team.vk %>" name="teamMateVk">
+              <input type="hidden" value="<%= team.instagram %>" name="teamMateInstagram">
+              <input type="hidden" value="<%= team.email %>" name="teamMateEmail">
+              <input type="hidden" value="<%= team.photo %>" name="teamMatePhoto">
+              
+              <button type="submint"  class="teamDelete">  <i class="fas fa-plus"></i> </button>
+            </form>
           </td>
         </tr>
       </tbody>
       <% } %>
     </table>
+    <section class="pagination">
+      <ul class="pagination center">
+        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+        <li class="active"><a href="/admin/adminTeam/?page=1">1</a></li>
+        <li class="waves-effect"><a href="/admin/adminTeam/?page=2">2</a></li>
+        <li class="waves-effect"><a href="/admin/adminTeam/?page=3">3</a></li>
+        <li class="waves-effect"><a href="/admin/adminTeam/?page=4">4</a></li>
+        <li class="waves-effect"><a href="/admin/adminTeam/?page=5">5</a></li>
+        <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+    </ul>
+   </section>
     <form action="/admin/add-teammate">
         <button class="right loginButton "  type="submit">Добавить</button>
     </form>

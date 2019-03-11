@@ -1,4 +1,5 @@
 const User = require('../models/users');
+const Accepted = require('../models/accepted-team');
 const TeamMate = require('../models/team');
 const path = require('path');
 const moment = require('moment');
@@ -9,6 +10,7 @@ const fileHelper = require('../util/file');
 const nodemailer = require('nodemailer');
 const sendgridTransport= require('nodemailer-sendgrid-transport');
 const crypto = require('crypto');
+
 require('dotenv').config();
 console.log(process.env.SENDGRID_API_KEY)
 
@@ -148,7 +150,10 @@ exports.getAdminPage = (req,res) => {
 
 // we also need a post request for and adminTeam
 exports.getAdminTeam = (req, res) => {
+ 
+   
     TeamMate.findAll()
+   
     .then(teams => {
     res.render('./admin/admin-team',
      { 
@@ -189,13 +194,12 @@ exports.getAddAdmin = (req,res) => {
 }
 
 exports.postAddAdmin = (req,res) => {
-    const email= req.body.adEmail;;
+    const email= req.body.adEmail;
     const name = req.body.adName;
     const surname = req.body.adSurname;
     const password = req.body.adPassword;
     const adRPassword = req.body.adRPassword;
-
-    Admin.findOne({where: {email: email}})
+ Admin.findOne({where: {email: email}})
     .then(userDoc =>{
         if(userDoc)
         {
@@ -232,10 +236,11 @@ exports.postAddAdmin = (req,res) => {
         console.log(err);
     });
 
+
 }
 
 exports.addNewTeamMate = (req, res) => {
-    const { errors, isValid } =validatorOfTeammate(req.body);
+    const { errors, isValid } = validatorOfTeammate(req.body);
 
   if (!isValid) {
     return res.status(400).json(errors);
@@ -407,4 +412,58 @@ exports.postNewPassword = (req, res, next) => {
     .catch(err => {
         console.log(err);
     })
+}
+
+exports.postToCamp = (req, res) => {
+
+    const name =  req.body.teamMateName;
+    const secondName = req.body.teamMateSecondName;
+    const surname = req.body.teamMateSurname;
+    const position = req.body.teamMatePosition;
+    const vk = req.body.teamMateVk;
+    const instagram = req.body.teamMateInstagram;
+    const email = req.body.teamMateEmail;
+    const photo = req.body.teamMatePhoto;
+
+
+    Accepted.findOne({where: {email: email}})
+    .then(userDoc =>{
+    if(userDoc)
+    {
+        console.log('Пользователь с таким email уже принят в команду.');
+        return res.redirect('/admin/adminTeam')
+    }
+    Accepted.create({
+        name:name,
+        secondName: secondName,
+        surname: surname,
+        position: position,
+        vk: vk,
+        instagram: instagram,
+        email: email,
+        photo: photo
+    })
+    .then(result => {
+        console.log('Accepted Teammate');
+        res.redirect('/admin/adminTeam')
+           return transporter.sendMail({
+                to: email,
+                from: 'kiguno1996@gmail.com',
+                subject: 'Поздравляем вы стали частью команды Вектор и едете работать вместе с нами!',
+                html: '<h1 style="padding: 5%; margin: 0 auto;"> Вы успешно назначенны администратором!!! </h1>',
+                html: '<p style="text-align: justify; padding: 5%; margin: 0 auto;"> Задача организации, в особенности же реализация намеченных плановых заданий влечет за собой процесс внедрения и модернизации форм развития. С другой стороны дальнейшее развитие различных форм деятельности влечет за собой процесс внедрения и модернизации модели развития. С другой стороны реализация намеченных плановых заданий представляет собой интересный эксперимент проверки новых предложений. Повседневная практика показывает, что новая модель организационной деятельности способствует подготовки и реализации новых предложений. Таким образом постоянный количественный рост и сфера нашей активности позволяет оценить значение дальнейших направлений развития. Повседневная практика показывает, что новая модель организационной деятельности требуют определения и уточнения направлений прогрессивного развития. Не следует, однако забывать, что дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание системы обучения кадров, соответствует насущным потребностям. Не следует, однако забывать, что начало повседневной работы по формированию позиции способствует подготовки и реализации направлений прогрессивного развития. Задача организации, в особенности же начало повседневной работы по формированию позиции играет важную роль в формировании форм развития. Повседневная практика показывает, что реализация намеченных плановых заданий влечет за собой процесс внедрения и модернизации системы обучения кадров, соответствует насущным потребностям. </p>'
+            });
+         
+        })
+        .catch(err=> {
+            console.log(err);
+        });
+       
+    }) .catch(err=> {
+        console.log(err);
+    });
+
+    
+     
+
 }

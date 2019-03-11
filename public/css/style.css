@@ -117,6 +117,9 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .adInput{color:rgb(253, 252, 252)};
 .user-message { color:black; font-size: 14px; margin: auto; width: 90%;border: 1px solid rgb(118, 104, 247); background-color: rgb(149, 180, 236);}
 .contacts{ padding: 5% 0% 10% 0%;}
+.all-tables{margin: 5% 0% 5% 0% }
+.accepted{ background-color: rgb(27, 25, 25); color:#f2d243;}
+th{ border-radius: 0%;}
 
 /* Ides of Structure */
 
@@ -142,6 +145,7 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 #per-info{font-size: 20px; color: grey;}
 span { color: grey;}
 #teammate { margin-bottom: 10%;}
+#tables{margin: 5% 0% 5% 0%; background-color: white; border-radius: 1%; padding: 5%;box-shadow: 1px 6px 6px 1px #ccc;}
 /* Media */
 
 @media only screen and (max-width: 1200px) { 

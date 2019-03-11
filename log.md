@@ -549,10 +549,17 @@ Next step - validation advance level
 
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
-## Day 49: March 9 2019 
+## Day 50: March 10 2019 
 
 **Today's Progress**:#100DaysofCode  Finished a new function on my website - reset the password by using email.  The next step is fixed bugs and redesign.
 
 Next step - validation advance level
 
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+
+## Day 50: March 10 2019 
+
+**Today's Progress**:Day 51: #100DaysOfCode  Have a new model in my code and that is works, but I have trouble with a #sequelize pagination, still don't know how does it works (( #NodeJS  #ExpressJS
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-

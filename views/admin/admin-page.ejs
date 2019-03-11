@@ -1,12 +1,65 @@
 <%- include('../layouts/navbar.ejs')%>
-
-
-
     <main class="user-dashboard"> 
+         <div class="container">
+            <section id="tables">
+                <div class="row">
+                    <div  class="col s12 m6">
+                        <p>
+                            <label>
+                                <input name="group1" type="radio" />
+                                <span>Участники</span>
+                            </label>
+                            <label>
+                                <input name="group1" type="radio" />
+                                <span>Команды</span>
+                            </label>
+                            <label>
+                            <input name="group1" type="radio" />
+                            <span>Тренеры</span>
+                        </label>
+                        </p>
+                    </div>
+                    <div  class="col s12 m6">
+                            Тут будет поиск и удаление целой таблицы
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m12">
+                            <table class="all-tables">
+                            <h1  class="title1 center"> <span class="owncolor">Таблица</span> принятых сотрудников</h1>
+                                <thead>
+                                    <tr class="accepted">
+                                        <th>Имя</th>
+                                        <th>Фамилия</th>
+                                        <th>Должность</th>
+                                        <th>Контакт</th>
+                                        <th>Инстаграмм</th>
+                                        <th>Email</th>
+                                        <th>Оплатить</th>
+                                        <th>Удалить</th>
+                                    </tr>
+                                </thead>
 
-        Hello admin page
+                                <tbody>
+                                    <tr>
+                                    <td>Alvin</td>
+                                    <td>Eclair</td>
+                                    <td>$0.87</td>
+                                    </tr>
+                                    <tr>
+                                    <td>Alan</td>
+                                    <td>Jellybean</td>
+                                    <td>$3.76</td>
+                                    </tr>
+                                    <tr>
+                                    <td>Jonathan</td>
+                                    <td>Lollipop</td>
+                                    <td>$7.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            </section>
+        </div>
     </main>
-
-
-
 <%- include('../layouts/footer.ejs') %>

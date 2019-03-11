@@ -1,9 +1,9 @@
 const User = require('../models/users');
-const TeamMate = require('../models/team');
+const Acceptedd = require('../models/accepted-team');
 // const validOfOneUser = require('../validator/user-validator');
 
 exports.getLanding = (req, res) => {
-    TeamMate.findAll()
+   Acceptedd.findAll()
     .then(teams => {
     res.render('./users/landingPage',
      { 
