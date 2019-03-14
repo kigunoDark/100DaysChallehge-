@@ -559,7 +559,23 @@ Next step - validation advance level
 
 
 
-## Day 50: March 10 2019 
+## Day 51: March 11 2019 
 
 **Today's Progress**:Day 51: #100DaysOfCode  Have a new model in my code and that is works, but I have trouble with a #sequelize pagination, still don't know how does it works (( #NodeJS  #ExpressJS
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 52: March 12 2019 
+
+**Today's Progress**:Day 52: #100DaysOfCode Continue working with tables and pagination
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+
+
+My problems
+pagination
+link of pagination
+table connection
+groupofteam
+teammate - date

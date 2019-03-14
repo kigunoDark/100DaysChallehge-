@@ -53,7 +53,7 @@ input,textarea{ font-weight: bold; color: rgb(27, 26, 26);}
 .vk:hover { background-color: rgba(216, 172, 29, 0.9); border-radius: 40%; color: white;  border: 3px solid white;  }
 .error {  font-family: "Russo One"; color: #2c324a;}
 .brand { color: #f2d243; font-weight: bold; text-shadow: 2px 1px 2px #302f2f; font-family: "Russo One", sans-serif; font-weight: normal; font-size: 3vmin; text-transform: uppercase;}
-.teamForm{ padding: 2% 7% 10% 7%; margin-top: 5%;  margin-bottom: 10%; background-color: white; border-radius: 3%;box-shadow: 1px 6px 6px 1px #ccc;} 
+
 .groupForm{ padding: 2% 4% 3% 4%; margin-top: 5%;  margin-bottom: 10%; background-color: white; border-radius: 3%;box-shadow: 1px 6px 6px 1px #ccc;} 
 /* All ides of colors */
 .teamMateInfo{margin: 0%; background: #353334; height: 500px; font-family: "Russo One"; color:  white; font-weight: bold; text-transform: uppercase}

@@ -3,12 +3,11 @@
 
 
     <main  class="user-dashboard"> 
-     
-    <div  class="container teamForm">
+    <div  class="container ">
         <% if (teams.length > 0 ) { %>
-            <h1  class="title1 center"> <span class="owncolor">Таблица</span> Сотрудников</h1>
-      <table class="team-table">
+      <table  class="team-table highlight" >
       <thead>
+      <caption class="accepted"> Сотридники </caption>
         <tr>
             <th>ФИО</th>
             <th>Должность</th>
@@ -33,9 +32,9 @@
           </form>
           </td>
           <td>
-            <form class="adminInt"  action="/admin/add-camp" method="POST"> 
+            <form class="adminInt"  action="/admin/add-camp/:pageNumber" method="POST"> 
               <input type="hidden" name="_csrf" value="<%=csrfToken%>">
-
+              <input type="hidden" value="<%= currentPage %>" name="pageNumber">
               <input type="hidden" value="<%= team.name %>" name="teamMateName">
               <input type="hidden" value="<%= team.secondName %>" name="teamMateSecondName">
               <input type="hidden" value="<%= team.surname %>" name="teamMateSurname">
@@ -55,14 +54,25 @@
     <section class="pagination">
       <ul class="pagination center">
         <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-        <li class="active"><a href="/admin/adminTeam/?page=1">1</a></li>
-        <li class="waves-effect"><a href="/admin/adminTeam/?page=2">2</a></li>
-        <li class="waves-effect"><a href="/admin/adminTeam/?page=3">3</a></li>
-        <li class="waves-effect"><a href="/admin/adminTeam/?page=4">4</a></li>
-        <li class="waves-effect"><a href="/admin/adminTeam/?page=5">5</a></li>
+        <% if (currentPage != 1) { %>
+        <li class="active"><a href="/admin/adminTeam/?page=1">1 </a></li> 
+        <% } %>
+
+        <li class="waves-effect"><a href="/admin/adminTeam/?page=<%= currentPage %>"><%= currentPage %></a></li>
+        
+        <% if( hasNextPage) { %>
+            <li class="waves-effect"><a href="/admin/adminTeam/?page=<%= nextPage %>" ><%= nextPage %></a></li>
+        <% } %>
+
+        <% if (lastPage !== currentPage && nextPage !== lastPage) { %>
+        <li class="waves-effect"><a href="/admin/adminTeam/?page=<%= lastPage %>"> <%= lastPage %></a></li>
+        <% } %>
+
         <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
     </ul>
+ 
    </section>
+
     <form action="/admin/add-teammate">
         <button class="right loginButton "  type="submit">Добавить</button>
     </form>

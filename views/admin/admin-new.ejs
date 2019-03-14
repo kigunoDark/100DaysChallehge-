@@ -6,8 +6,11 @@
      
     <div  class="container teamForm">
         <% if (admins.length > 0   ) { %>
-            <h1  class="title1 center"> <span class="owncolor">Таблица</span> <br> Администраторов</h1>
-      <table class="team-table">
+      <table class="team-table highlight">
+      <% if (errorMassage) { %>
+      <div class="error" ><%= errorMassage %></div>
+      <% } %>
+      <caption class="accepted"> Администраторы </caption>
       <thead>
         <tr>
             <th>Имя</th>
@@ -31,14 +34,15 @@
                 </form>
           </td>
         </tr>
+        
       </tbody>
       <% } %>
     </table>
-  
         <button data-target="modal2"  class="right loginButton  modal-trigger" >Добавить</button>
         <div id="modal2" class="modal"> 
             <div class="modal-content" style="text-align: left">
                 <h5 class="regTitle center">Добавить администратора</h5>
+                
                 <div class="row">
                             
                 <div class="input-field col s12">

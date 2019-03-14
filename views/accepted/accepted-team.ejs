@@ -1,0 +1,52 @@
+<%- include('../layouts/navbar.ejs')%>
+<main class="user-dashboard"> 
+    <div class="container">
+        <section id="tables">
+<%- include('../accepted/manip')%>
+            <div class="row">
+                <div class="col s12 m12">
+                    <table class="all-tables highlight centered">
+                    <caption class="accepted">Сотрудники смены</caption>
+                        <thead>
+                            <tr>
+                                <th>Имя</th>
+                                <th>Фамилия</th>
+                                <th>Должность</th>
+                                <th>Контакт</th>
+                                <th>Инстаграмм</th>
+                                <th>Email</th>
+                                <th>Оплатить</th>
+                                <th>Удалить</th>
+                            </tr>
+                        </thead>
+                        <% for (let team of acTeam) { %>
+                        <tbody>
+                            <tr>
+                            <td><%= team.name%></td>
+                            <td><%= team.surname%></td>
+                            <td><%= team.position%></td>
+                            <td><a href="<%= team.vk%>" target="_blank" class="table-manip"> Ссылка </a></td>
+                            <td><a href="<%= team.instagram %>"  target="_blank" class="table-manip"> Ссылка </a></td>
+                            <td><a href="mailto:<%= team.email %>" class="table-manip"> Ссылка </a></td>
+                            <td><a href="" class="table-payment"> <i class="far fa-money-bill-alt"></i></a></td>
+                            <td>
+                                <form class="adminInt" id="delete-teammate" action="/admin/delete-accepted" method="POST"> 
+                                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                                    <input type="hidden" value="<%= team.id %>" name="teamMateId">
+                                    <button type="submint"  class="teamDelete">  <i class=" fas fa-user-minus"></i> </button>
+                                </form>
+                            </td>
+                            </tr>
+                            
+                            </tr>
+                        </tbody>
+                        <% }%>
+                    </table>
+                </div>
+            </div>
+            
+        </section>
+      
+    </div>
+</main>
+<%- include('../layouts/footer.ejs') %>

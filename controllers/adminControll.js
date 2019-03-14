@@ -10,6 +10,7 @@ const fileHelper = require('../util/file');
 const nodemailer = require('nodemailer');
 const sendgridTransport= require('nodemailer-sendgrid-transport');
 const crypto = require('crypto');
+const {validationResult } = require('express-validator/check');
 
 require('dotenv').config();
 console.log(process.env.SENDGRID_API_KEY)
@@ -150,17 +151,32 @@ exports.getAdminPage = (req,res) => {
 
 // we also need a post request for and adminTeam
 exports.getAdminTeam = (req, res) => {
- 
-   
-    TeamMate.findAll()
-   
-    .then(teams => {
+    const page = +req.query.page;
+    const offset = (page-1) * 2;
+    const ITEMS_PER_PAGE = 2;
+    let totalItems;
+
+    TeamMate.findAll({
+        offset: offset, limit: ITEMS_PER_PAGE})
+     .then(teams => {
+      // How can I get a number of teammates here//
+        console.log('this is your total items' + totalItems);
     res.render('./admin/admin-team',
      { 
+         
         teams: teams,
         pageTitle: "Команда Вектор",
-        pageTipe: 'adminIn'
+        pageTipe: 'adminIn',
+        currentPage: page,
+        hasNextPage: ITEMS_PER_PAGE * page < totalItems,
+        hasPreviousPage: page > 1,
+        nextPage: page + 1,
+        previousPage: page - 1,
+        lastPage: Math.ceil(totalItems / ITEMS_PER_PAGE)
+        
+
     });
+    console.log('This is a number of teams:' + totalItems);
     })
     .catch(err => {
         console.log(err);
@@ -199,6 +215,21 @@ exports.postAddAdmin = (req,res) => {
     const surname = req.body.adSurname;
     const password = req.body.adPassword;
     const adRPassword = req.body.adRPassword;
+    const errors = validationResult(req);
+    if(!errors.isEmpty()){
+        console.log(errors.array());
+        return Admin.findAll()
+        .then( admins => {
+             res.status(422).render('./admin/admin-new',{
+            pageTitle: "Добавить админа",
+            pageTipe: "adminIn",
+            editing: false,
+            admins: admins,
+            errorMassage: errors.array()[0].msg
+        });
+    })
+    }
+
  Admin.findOne({where: {email: email}})
     .then(userDoc =>{
         if(userDoc)
@@ -261,7 +292,7 @@ exports.addNewTeamMate = (req, res) => {
    if(!matePhoto)
    {
        console.log(" you didn't get the data");
-       res.redirect('/admin/adminTeam');
+       res.redirect('/admin/adminTeam/?page=1');
    }
 
    const imageUrl = matePhoto.path;
@@ -281,15 +312,16 @@ exports.addNewTeamMate = (req, res) => {
     })
     .then(result => {
         console.log('Created User');
-        res.redirect('/admin/adminTeam')
+        res.redirect('/admin/adminTeam/?page=1')
     }).catch( err => {
         console.log(err);
     });
 } 
 
 exports.postDeleteTeamMate = (req, res) => {
-
     const id = req.body.teamMateId;
+    const page = req.query.page;
+ 
     TeamMate.findById(id)
     .then(teammate => {
         if(!teammate)
@@ -301,12 +333,9 @@ exports.postDeleteTeamMate = (req, res) => {
     })
     .then(result => {
         console.log("DESTROYED TEAMMATE");
-        res.redirect('/admin/adminTeam');
+        res.redirect('/admin/adminTeam/?page=1');
     })  
     .catch(err => console.log(err));
-    
-    
-   
 }
 
 exports.postDeleteAdmin = (req,res) => {
@@ -415,7 +444,8 @@ exports.postNewPassword = (req, res, next) => {
 }
 
 exports.postToCamp = (req, res) => {
-
+    const pageNumber = req.params.pageNumber;
+    console.log('This is a page number:' + pageNumber);
     const name =  req.body.teamMateName;
     const secondName = req.body.teamMateSecondName;
     const surname = req.body.teamMateSurname;
@@ -425,13 +455,14 @@ exports.postToCamp = (req, res) => {
     const email = req.body.teamMateEmail;
     const photo = req.body.teamMatePhoto;
 
+    
 
     Accepted.findOne({where: {email: email}})
     .then(userDoc =>{
     if(userDoc)
     {
         console.log('Пользователь с таким email уже принят в команду.');
-        return res.redirect('/admin/adminTeam')
+        return res.redirect('/admin/adminTeam/?page=' + page);
     }
     Accepted.create({
         name:name,
@@ -441,11 +472,12 @@ exports.postToCamp = (req, res) => {
         vk: vk,
         instagram: instagram,
         email: email,
-        photo: photo
+        photo: photo,
+        page: pageNumber
     })
     .then(result => {
         console.log('Accepted Teammate');
-        res.redirect('/admin/adminTeam')
+        res.redirect('/admin/adminTeam/?page=1')
            return transporter.sendMail({
                 to: email,
                 from: 'kiguno1996@gmail.com',
@@ -463,7 +495,43 @@ exports.postToCamp = (req, res) => {
         console.log(err);
     });
 
-    
-     
+}
 
+exports.getAcceptedTeam = (req, res, next) => {
+    Accepted.findAll()
+    .then(accepted => {
+        res.render('./accepted/accepted-team',{
+            acTeam: accepted,
+            pageTitle: "Команда Вектор",
+            pageTipe: 'adminIn'
+        })
+
+    })
+    .catch(err => {
+        console.log(err);
+    })  
+}
+
+exports.postDeleteAceepted = (req, res) => {
+    const id = req.body.teamMateId;
+    Accepted.findById(id)
+    .then(teammate => {
+        if(!teammate)
+        {
+            return next(new Error ('Teammate not found'));
+        }
+        return teammate.destroy();
+    })
+    .then(result => {
+        console.log("DESTROYED TEAMMATE FROM ACCEPTED");
+        res.redirect('/admin/accepted-team');
+        return transporter.sendMail({
+            to: email,
+            from: 'kiguno1996@gmail.com',
+            subject: 'Вас только что убрали из команды Вектор!',
+            html: '<h1 style="padding: 5%; margin: 0 auto;"> Вы успешно назначенны администратором!!! </h1>',
+            html: '<p style="text-align: justify; padding: 5%; margin: 0 auto;"> Задача организации, в особенности же реализация намеченных плановых заданий влечет за собой процесс внедрения и модернизации форм развития. С другой стороны дальнейшее развитие различных форм деятельности влечет за собой процесс внедрения и модернизации модели развития. С другой стороны реализация намеченных плановых заданий представляет собой интересный эксперимент проверки новых предложений. Повседневная практика показывает, что новая модель организационной деятельности способствует подготовки и реализации новых предложений. Таким образом постоянный количественный рост и сфера нашей активности позволяет оценить значение дальнейших направлений развития. Повседневная практика показывает, что новая модель организационной деятельности требуют определения и уточнения направлений прогрессивного развития. Не следует, однако забывать, что дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание системы обучения кадров, соответствует насущным потребностям. Не следует, однако забывать, что начало повседневной работы по формированию позиции способствует подготовки и реализации направлений прогрессивного развития. Задача организации, в особенности же начало повседневной работы по формированию позиции играет важную роль в формировании форм развития. Повседневная практика показывает, что реализация намеченных плановых заданий влечет за собой процесс внедрения и модернизации системы обучения кадров, соответствует насущным потребностям. </p>'
+        });
+    })  
+    .catch(err => console.log(err));
 }
