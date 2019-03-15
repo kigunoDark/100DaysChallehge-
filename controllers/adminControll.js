@@ -184,24 +184,31 @@ exports.getAdminTeam = (req, res) => {
   
 }
 
-exports.getAddTeammate = (req,res) => {
-    
-    res.render('./admin/edit-teammate',{
-        pageTitle: "Добавление сотрудника",
-        pageTipe: "adminIn",
-        editing: false
-    });
-}
 
 exports.getAddAdmin = (req,res) => {
-  
+
+    let message = req.flash('error');
+    if(message.length > 0){
+        message = message[0];
+    } else {
+        message = null;
+    }
     Admin.findAll()
     .then( admins => {
         res.render('./admin/admin-new',{
             admins: admins,
             pageTitle: "Добавить админа",
             pageTipe: "adminIn",
-            editing: false
+            editing: false,
+            errorMessage: message,
+            oldInput: {
+                email:'',
+                password: '',
+                name: '',
+                surname: '',
+                cunfurmPassword:''
+                
+            }
         })
     })
     .catch(err=>{
@@ -214,30 +221,20 @@ exports.postAddAdmin = (req,res) => {
     const name = req.body.adName;
     const surname = req.body.adSurname;
     const password = req.body.adPassword;
-    const adRPassword = req.body.adRPassword;
+
     const errors = validationResult(req);
     if(!errors.isEmpty()){
         console.log(errors.array());
-        return Admin.findAll()
-        .then( admins => {
-             res.status(422).render('./admin/admin-new',{
-            pageTitle: "Добавить админа",
+        return res.status(422).render('./admin/admin-new',{
+            pageTitle: "Добавить сотрудника",
             pageTipe: "adminIn",
             editing: false,
-            admins: admins,
-            errorMassage: errors.array()[0].msg
+            errorMessage: errors.array()[0].msg,
+            oldInput: {    
+            }
         });
-    })
     }
-
- Admin.findOne({where: {email: email}})
-    .then(userDoc =>{
-        if(userDoc)
-        {
-            console.log('The admin with same email already exits');
-            return res.redirect('/admin/admins');  
-        }
-        return bcrypt
+         bcrypt
         .hash(password, 12)
         .then(hashedPassword => {
             const admin = new Admin({
@@ -261,21 +258,47 @@ exports.postAddAdmin = (req,res) => {
         })
         .catch(err=> {
             console.log(err);
-        });
-       
-    }) .catch(err=> {
-        console.log(err);
+    })
+}
+
+exports.getAddTeammate = (req,res) => {
+    let message = req.flash('error');
+    if( message.length > 0)
+    {
+        message = message[0];
+    } else {
+        message = null;
+    }
+
+    res.render('./admin/edit-teammate',{
+        pageTitle: "Добавление сотрудника",
+        pageTipe: "adminIn",
+        editing: false,
+        errorMessage: message,
+        oldInput: {
+            mateSurname:'',
+            mateName:'',
+            mateSecondName:'',
+            matePosition:'',
+            mateVK:'',
+            mateInstagram:'',
+            matePhone: '',
+            mateAbout: '',
+            mateCrowns: '',
+            mateHobby:  '',
+            mateEmail: '',
+            matePhoto: ''
+        },
+        validationErrors:[]
     });
-
-
 }
 
 exports.addNewTeamMate = (req, res) => {
-    const { errors, isValid } = validatorOfTeammate(req.body);
+//     const { errors, isValid } = validatorOfTeammate(req.body);
 
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
+//   if (!isValid) {
+//     return res.status(400).json(errors);
+//   }
    const mateSurname = req.body.mateSurname;
    const mateName = req.body.mateName;
    const mateSecondName = req.body.mateSecondName;
@@ -289,6 +312,31 @@ exports.addNewTeamMate = (req, res) => {
    const mateEmail = req.body.mateEmail;
    const matePhoto = req.file;
 
+   const errors = validationResult(req);
+    if(!errors.isEmpty()){
+        return  res.status(422).render('./admin/edit-teammate',{
+            pageTitle: "Добавление Cотрудника",
+            pageTipe: "adminIn",
+            editing: false,
+            errorMessage: errors.array()[0].msg,
+            oldInput: {
+                mateSurname: mateSurname,
+                mateName: mateName,
+                mateSecondName: mateSecondName,
+                matePosition: matePosition,
+                mateVk: mateVK,
+                mateInstagram: mateInstagram,
+                matePhone: matePhone,
+                mateAbout: mateAbout,
+                mateCrowns: mateCrowns,
+                mateHobby:  mateHobby,
+                mateEmail: mateEmail,
+                matePhoto: matePhoto
+            },
+            validationErrors: errors.array()
+        });
+
+    }
    if(!matePhoto)
    {
        console.log(" you didn't get the data");

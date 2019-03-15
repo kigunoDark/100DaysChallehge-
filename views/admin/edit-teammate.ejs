@@ -1,7 +1,9 @@
 <%- include('../layouts/navbar.ejs')%>
 
     <div class=" container teamForm">
-
+    <% if (errorMessage) { %>
+      <div class="error" ><%= errorMessage %></div>
+      <% } %>
     <form  id="add-team" action ="/admin/<%if (editing) { %>edit-teammate<% } else { %>admin-addTeammate<% } %>" method = "POST" enctype="multipart/form-data" > 
       
     <input type="hidden" name="_csrf" value="<%=csrfToken%>">
@@ -13,16 +15,16 @@
 
             <div class="row">
                 <div class="input-field col s4">
-                    <input type="text"  name="mateSurname" id="mateSurname" value="<% if (editing) { %> <%=teammate.surname %> <% } %>">
+                    <input type="text"  name="mateSurname" id="mateSurname" class="<%= validationErrors.find(e => e.param === 'mateSurname') ? 'invalid' : '' %>" value="<% if (editing) { %> <%=teammate.surname %> <% } else {%><%=oldInput.mateSurname%><% } %>">
                     <label style="font-size: 18px;" for="mateSurname">Фамилия</label>
                     
                 </div>
                 <div class="input-field col s4">
-                    <input type="text"  name="mateName" id="mateName"  value="<% if (editing) { %> <%=teammate.name %> <% } %>">
+                    <input type="text"  name="mateName" id="mateName"  class="<%= validationErrors.find(e => e.param === 'mateName') ? 'invalid' : '' %>"  value="<% if (editing) { %> <%=teammate.name %> <% } else {%><%=oldInput.mateName%><% } %>">
                     <label style="font-size: 18px;" for="mateName">Имя</label>
                 </div>
                 <div class="input-field col s4">
-                    <input type="text"  name="mateSecondName" id="mateSecondName"  value="<% if (editing) { %> <%=teammate.secondName %> <% } %>">
+                    <input type="text"  name="mateSecondName" id="mateSecondName" class="<%= validationErrors.find(e => e.param === 'mateSecondName') ? 'invalid' : '' %>"   value="<% if (editing) { %><%=teammate.secondName %><% } else {%><%=oldInput.mateSecondName %><% } %>">
                     <label style="font-size: 18px;" for="mateSecondName">Отчество</label>
                 </div>
             </div>
@@ -30,26 +32,26 @@
 
             <div class="row">
                 <div class="input-field col s4">
-                    <input type="text"  name="mateEmail" id="mateEmail"  value="<% if (editing) { %> <%=teammate.email %> <% } %>">
+                    <input type="text"  name="mateEmail" id="mateEmail" class="<%= validationErrors.find(e => e.param === 'mateEmail') ? 'invalid' : '' %>"  value="<% if (editing) { %> <%=teammate.email %> <% } else {%><%=oldInput.mateEmail %><% } %>">
                     <label style="font-size: 18px;" for="mateEmail">E-mail</label>
                 </div>
                 <div class="input-field col s4">
-                    <input type="text"  name="mateVK" id="mateVK"  value="<% if (editing) { %> <%=teammate.vk %> <% } %>">
+                    <input type="text"  name="mateVK" id="mateVK"  class="<%= validationErrors.find(e => e.param === 'mateVK') ? 'invalid' : '' %>"  value="<% if (editing) { %> <%=teammate.vk %> <% } else {%><%=oldInput.mateVk %><% } %>">
                     <label style="font-size: 18px;" for="mateVK">VK</label>
                 </div>
                 <div class="input-field col s4">
-                    <input type="text"  name="mateInstagram" id="mateInstagram"  value="<% if (editing) { %> <%=teammate.instagram %> <% } %>">
+                    <input type="text"  name="mateInstagram" id="mateInstagram" class="<%= validationErrors.find(e => e.param === 'mateInstagram') ? 'invalid' : '' %>"  value="<% if (editing) { %> <%=teammate.instagram %> <% } else {%><%=oldInput.mateInstagram %><% } %>">
                     <label style="font-size: 18px;" for="mateInstagram">Instagram</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s6">
-                    <input type="text" name="matePosition" id="matePosition"  value="<% if (editing) { %> <%=teammate.position %> <% } %>">
+                    <input type="text" name="matePosition" id="matePosition" class="<%= validationErrors.find(e => e.param === 'matePosition') ? 'invalid' : '' %>"  value="<% if (editing) { %> <%=teammate.position %> <% }  else {%><%=oldInput.matePosition %><% } %>">
                     <label style="font-size: 18px;" for="matePosition">Должность</label>
                 </div>
                 <div class="input-field col s6">
-                    <input type="text"  name="matePhone" id="matePhone"  value="<% if (editing) { %> <%=teammate.phone %> <% } %>">
+                    <input type="text"  name="matePhone" id="matePhone" class="<%= validationErrors.find(e => e.param === 'matePhone') ? 'invalid' : '' %>"   value="<% if (editing) { %> <%=teammate.phone %> <% }  else {%><%=oldInput.matePhone %><% } %>">
                     <label style="font-size: 18px;" for="matePhone">Номер телефона</label>
                 </div>
             </div>
@@ -59,14 +61,14 @@
 
             <div class="row">
                 <div class="input-field col s12">
-                    <input type="text" name="mateCrowns" id="mateCrowns"  value="<% if (editing) { %> <%=teammate.crowns %> <% } %>">
+                    <input type="text" name="mateCrowns" id="mateCrowns" class="<%= validationErrors.find(e => e.param === 'mateCrowns') ? 'invalid' : '' %>"  value="<% if (editing) { %> <%=teammate.crowns %> <% }  else {%><%=oldInput.mateCrowns %><% } %>">
                     <label style="font-size: 18px; " for="mateCrowns">В чем вы хороши больше всего</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12">
-                    <input type="text"  name="mateHobby" id="mateHobby"  value="<% if (editing) { %> <%=teammate.hobby %> <% } %>">
+                    <input type="text"  name="mateHobby" id="mateHobby" class="<%= validationErrors.find(e => e.param === 'mateHobby') ? 'invalid' : '' %>"  value="<% if (editing) { %> <%=teammate.hobby %> <% }  else {%><%=oldInput.mateHobby %><% } %>">
                     <label style="font-size: 18px;" for="mateHobby">Ваши увлечения и интересы</label>
                 </div>
             </div>
@@ -75,7 +77,7 @@
             <form class="col s12">
               <div class="row">
                 <div class="input-field col s12">
-                  <textarea id="textarea1"  name="mateAbout" class="materialize-textarea" ><% if (editing) { %> <%=teammate.about %> <% } %></textarea>
+                  <textarea id="textarea1"  name="mateAbout"  class="<%= validationErrors.find(e => e.param === 'mateAbout') ? 'invalid' : '' %>"  class="materialize-textarea" ><% if (editing) { %> <%=teammate.about %> <% }  else {%><%=oldInput.mateAbout %><% } %></textarea>
                   <label for="textarea1" style="font-size: 18px;">Расскажите о себе</label>
                 </div>
               </div>

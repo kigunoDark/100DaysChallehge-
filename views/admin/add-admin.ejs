@@ -3,32 +3,32 @@
 <input type="hidden" name="_csrf" value="<%=csrfToken%>">
     <div class="row">
         <div class="input-field col s6">
-            <input class="adInput" type="text" placeholder="Заполните поле" name="adName" id="adName">
+            <input class="adInput" type="text" placeholder="Заполните поле" name="adName" id="adName" value="<%= oldInput.name %>">
             <label style="font-size: 18px;" for="adName">Имя</label>
         </div>
        <div class="input-field col s6">
-            <input class="adInput" type="text" placeholder="Заполните поле" name="adSurname" id="adSurname">
+            <input class="adInput" type="text" placeholder="Заполните поле" name="adSurname" id="adSurname" value='<%=oldInput.surname%>'>
             <label style="font-size: 18px;" for="adSurname">Фамилия</label>
         </div>
     </div>
 
     <div class="row">
         <div class="input-field col s12">
-            <input class="adInput" type="email" placeholder="Заполните поле", name="adEmail" id="adEmail">
-            <label style="font-size: 18px;" for="adEmail">E-mail участника</label>
+            <input class="adInput" type="email" placeholder="Заполните поле", name="adEmail" id="adEmail" value='<%=oldInput.email%>'>
+            <label style="font-size: 18px;" for="adEmail" >E-mail участника</label>
         </div>
     </div>
 
     <div class="row">
         <div class="input-field col s12">
-            <input class="adInput" type="password" placeholder="Заполните поле", name="adPassword" id="adPassword">
+            <input class="adInput" type="password" placeholder="Заполните поле", name="adPassword" id="adPassword" value='<%=oldInput.password%>'>
             <label style="font-size: 18px;" for="adPassword">Пароль</label>
         </div>
     </div>
 
     <div class="row">
         <div class="input-field col s12">
-            <input class="adInput" type="password" placeholder="Заполните поле", name="adRPassword" id="adRPassword">
+            <input class="adInput" type="password" placeholder="Заполните поле", name="adRPassword" id="adRPassword" value='<%=oldInput.cunfurmPassword %>'>
             <label style="font-size: 18px;" for="adRPassword">Повторить пароль</label>
         </div>
     </div>
