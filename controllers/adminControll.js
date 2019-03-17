@@ -11,6 +11,8 @@ const nodemailer = require('nodemailer');
 const sendgridTransport= require('nodemailer-sendgrid-transport');
 const crypto = require('crypto');
 const {validationResult } = require('express-validator/check');
+let totalItems = 0;
+const sequelize = require('../data/database');
 
 require('dotenv').config();
 console.log(process.env.SENDGRID_API_KEY)
@@ -38,6 +40,14 @@ exports.getTeammate = (req,res, next) => {
    });
 }
 exports.getEditTeammate = (req, res, next) => {
+    let message = req.flash('error');
+    if(message.length > 0)
+    {
+        messege = message[0];
+    } else {
+        message = null;
+    }
+ 
     const editMode = req.query.edit;
     if(!editMode){
         return res.redirect('/');
@@ -55,8 +65,26 @@ exports.getEditTeammate = (req, res, next) => {
             pageTitle: "Изменение профиля",
             pageTipe: 'adminIn',
             teammate: teammate,
-            editing: editMode
+            editing: editMode,
+            errorMessage: message,
+            oldInput: {
+                mateSurname:'',
+                mateName:'',
+                mateSecondName:'',
+                matePosition:'',
+                mateVK:'',
+                mateInstagram:'',
+                matePhone: '',
+                mateAbout: '',
+                mateCrowns: '',
+                mateHobby:  '',
+                mateEmail: '',
+                matePhoto: ''
+            },
+            validationErrors:[]
+         
         })
+        
     })
     .catch(err => console.log(err));
 };
@@ -76,6 +104,31 @@ exports.postEditTemmmate = (req, res, next) => {
     const updatedMateEmail = req.body.mateEmail;
     const updatedMatePhoto = req.file;
 
+    const errors = validationResult(req);
+    
+    if(!errors.isEmpty()){
+        return  res.status(422).render('./admin/edit-teammate',{
+            pageTitle: "Изменение Cотрудника",
+            pageTipe: "adminIn",
+            editing: true,
+            errorMessage: errors.array()[0].msg,
+            oldInput: {
+                mateSurname: updatedMateSurname,
+                mateName: updatedMateName,
+                mateSecondName: updatedMateSecondName,
+                matePosition: updatedMatePosition,
+                mateVk: updatedMateVK,
+                mateInstagram: updatedMateInstagram,
+                matePhone: updatedMatePhone,
+                mateAbout: updatedMateAbout,
+                mateCrowns: updatedMateCrowns,
+                mateHobby: updatedMateHobby ,
+                mateEmail: updatedMateEmail,
+                matePhoto: updatedMatePhoto
+            },
+            validationErrors: errors.array()
+        });
+    }
    TeamMate.findById(teamId)
    .then(teammate=>{
        teammate.surname = updatedMateSurname;
@@ -97,7 +150,7 @@ exports.postEditTemmmate = (req, res, next) => {
    })
    .then(retult =>{
        console.log('Updated product');
-       res.redirect('/admin/adminTeam');
+       res.redirect('/admin/adminTeam/?page=1');
    })
    .catch(err => console.log(err));
 
@@ -154,13 +207,17 @@ exports.getAdminTeam = (req, res) => {
     const page = +req.query.page;
     const offset = (page-1) * 2;
     const ITEMS_PER_PAGE = 2;
-    let totalItems;
-
+ 
+    TeamMate.count()
+    .then(numrows => {
+        totalItems = numrows;
+    })
+    
     TeamMate.findAll({
-        offset: offset, limit: ITEMS_PER_PAGE})
+        offset: offset, 
+        limit: ITEMS_PER_PAGE})
      .then(teams => {
-      // How can I get a number of teammates here//
-        console.log('this is your total items' + totalItems);
+   
     res.render('./admin/admin-team',
      { 
          
@@ -364,11 +421,14 @@ exports.addNewTeamMate = (req, res) => {
     }).catch( err => {
         console.log(err);
     });
+    totalItems++;
+    console.log('This is your total item ' +  totalItems);
 } 
 
 exports.postDeleteTeamMate = (req, res) => {
     const id = req.body.teamMateId;
     const page = req.query.page;
+
  
     TeamMate.findById(id)
     .then(teammate => {

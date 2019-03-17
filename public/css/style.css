@@ -74,7 +74,8 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 	opacity: 0;
 	overflow: hidden;
 	position: absolute;
-	z-index: -1;
+    z-index: -1;
+   
 }
 .avatar {
     font-size: 20px;
