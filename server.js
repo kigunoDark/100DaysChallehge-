@@ -11,10 +11,9 @@ const multer = require('multer');
 const csrf = require('csurf');
 // Для вывода ошибок через сессию
 const flash = require('connect-flash');
-
-
 const sequelize = require('./data/database');
-
+const TeamMate = require('./models/team');
+const Accepted = require('./models/accepted-team');
 
 const app = express();
 const csrfProtection = csrf();
@@ -66,6 +65,9 @@ app.use('/admin', adminRoute);
 app.use( authRoute);
 app.use(errControll.get404);
 
+TeamMate.belongsTo(Accepted, {constraints: true, onDelete: 'CASCADE'});
+
+Accepted.hasMany(TeamMate);
 
 sequelize
 .sync()
@@ -76,7 +78,7 @@ sequelize
    
 })
 .then( admin => {
-    app.listen(3000, (err,next) => {
+    app.listen(process.env.PORT || 3000, (err,next) => {
         if(err){
             console.log("Server is not working!");
         } else {

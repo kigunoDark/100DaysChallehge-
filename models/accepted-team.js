@@ -9,14 +9,16 @@ const Accepted =  sequelize.define('accepted-teammate', {
         primaryKey: true,
         allowNull: false    
     },
+    team_id:
+    {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
     name: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    secondName:{
-        type: Sequelize.STRING,
-        allowNull: false
-    },
+
     surname: {
         type: Sequelize.STRING,
         allowNull: false
@@ -36,11 +38,8 @@ const Accepted =  sequelize.define('accepted-teammate', {
     email:{
         type: Sequelize.TEXT,
         allowNull: false
-    },
-    photo: {
-        type: Sequelize.STRING,
-        allowNull: false
     }
+  
 })
 
 module.exports = Accepted;

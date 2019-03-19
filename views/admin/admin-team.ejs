@@ -34,15 +34,15 @@
           <td>
             <form class="adminInt"  action="/admin/add-camp/:pageNumber" method="POST"> 
               <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+              <input type="hidden" value="<%= team.id %>" name="teamId">
               <input type="hidden" value="<%= currentPage %>" name="pageNumber">
               <input type="hidden" value="<%= team.name %>" name="teamMateName">
-              <input type="hidden" value="<%= team.secondName %>" name="teamMateSecondName">
               <input type="hidden" value="<%= team.surname %>" name="teamMateSurname">
               <input type="hidden" value="<%= team.position %>" name="teamMatePosition">
               <input type="hidden" value="<%= team.vk %>" name="teamMateVk">
               <input type="hidden" value="<%= team.instagram %>" name="teamMateInstagram">
               <input type="hidden" value="<%= team.email %>" name="teamMateEmail">
-              <input type="hidden" value="<%= team.photo %>" name="teamMatePhoto">
+ 
               
               <button type="submint"  class="teamDelete">  <i class="fas fa-plus"></i> </button>
             </form>

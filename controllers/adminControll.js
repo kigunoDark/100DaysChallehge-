@@ -553,6 +553,7 @@ exports.postNewPassword = (req, res, next) => {
 
 exports.postToCamp = (req, res) => {
     const pageNumber = req.params.pageNumber;
+    const teamId = req.body.teamId;
     console.log('This is a page number:' + pageNumber);
     const name =  req.body.teamMateName;
     const secondName = req.body.teamMateSecondName;
@@ -572,6 +573,8 @@ exports.postToCamp = (req, res) => {
         console.log('Пользователь с таким email уже принят в команду.');
         return res.redirect('/admin/adminTeam/?page=' + page);
     }
+
+    
     Accepted.create({
         name:name,
         secondName: secondName,
@@ -583,6 +586,7 @@ exports.postToCamp = (req, res) => {
         photo: photo,
         page: pageNumber
     })
+  
     .then(result => {
         console.log('Accepted Teammate');
         res.redirect('/admin/adminTeam/?page=1')
