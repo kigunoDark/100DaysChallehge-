@@ -1,4 +1,4 @@
-<form action = "/add-user" method = "POST" >
+<form action = "/add-user" id="add-user" method = "POST" >
     <div class="row">
         <div class="input-field col s6">
             <input type="text" placeholder="Заполните поле", name="parFio" id="parFio">
@@ -173,6 +173,6 @@
         </div>
     </div>  
 
-    
+    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
 </div>  
 </form>

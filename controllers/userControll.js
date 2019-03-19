@@ -1,6 +1,5 @@
 const User = require('../models/users');
 const Acceptedd = require('../models/accepted-team');
-// const validOfOneUser = require('../validator/user-validator');
 
 exports.getLanding = (req, res) => {
    Acceptedd.findAll()
@@ -11,7 +10,8 @@ exports.getLanding = (req, res) => {
         pageTitle: "ВекторСКФО",
         pageTipe:"users",
         path: '/',
-        errorMessage: req.flash('error')
+        errorMessage: req.flash('error'),
+        
     });
     })
     .catch(err => {
@@ -19,6 +19,8 @@ exports.getLanding = (req, res) => {
     })
 
 }
+
+
 
 exports.addNewUser = (req, res) => {   
     const parFio = req.body.parFio;
@@ -53,6 +55,7 @@ exports.addNewUser = (req, res) => {
         parStrengths: parStrengths,
         parWhy: parWhy,
         parSize: parSize
+        
     })
     .then(result => {
         console.log('Created User');

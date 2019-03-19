@@ -3,7 +3,6 @@ const Accepted = require('../models/accepted-team');
 const TeamMate = require('../models/team');
 const path = require('path');
 const moment = require('moment');
-const validatorOfTeammate = require('../validator/teammate-validator');
 const Admin = require('../models/admin');
 const bcrypt = require('bcryptjs');
 const fileHelper = require('../util/file');
@@ -11,8 +10,8 @@ const nodemailer = require('nodemailer');
 const sendgridTransport= require('nodemailer-sendgrid-transport');
 const crypto = require('crypto');
 const {validationResult } = require('express-validator/check');
-let totalItems = 0;
 const sequelize = require('../data/database');
+let totalItems = 0;
 
 require('dotenv').config();
 console.log(process.env.SENDGRID_API_KEY)

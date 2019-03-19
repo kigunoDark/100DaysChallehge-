@@ -56,6 +56,8 @@ app.use((req,res,next) => {
     next();
 })
 
+
+
 const landRoute = require('./routes/userRoute');
 const authRoute = require('./routes/authRoute');
 // APP.USE OF ROUTES
@@ -67,15 +69,17 @@ app.use(errControll.get404);
 
 TeamMate.belongsTo(Accepted, {constraints: true, onDelete: 'CASCADE'});
 
-Accepted.hasMany(TeamMate);
-
 sequelize
 .sync()
 .then(result => {
    return Admin.findById(1);
 })
 .then(admin => {
-   
+   if(!admin)
+   {
+     console.log("You need to create an admin")
+   }
+   return admin;
 })
 .then( admin => {
     app.listen(process.env.PORT || 3000, (err,next) => {
