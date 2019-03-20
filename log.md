@@ -577,15 +577,32 @@ Next step - validation advance level
 **Today's Progress**:Day 53-54: #100DaysOfCode  Create a new validation, almost solve problems with a pagination. rechange design.
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
-## Day 53 - 55: March 12 2019 
+## Day 53 - 55: March 15 2019 
 
 **Today's Progress**:Day 55: Made a validation for "add Admin from" and "add Teammate form", ganna finish it tomorrow and then continue working on a pagination and db problems
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
 
-## Day 53 - 55: March 12 2019 
+## Day 53 - 55: March 1 2019 
 
 **Today's Progress**:Fixed some bugs. Also, I didn't push my git repo yesterday, and forgot to save everything.  That is a total fail. But I find my way to save a problems with a pagination by using a sequelize
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 56: March 12 2019 
+
+**Today's Progress**:Fixed some bugs. Also, I didn't push my git repo yesterday, and forgot to save everything.  That is a total fail. But I find my way to save a problems with a pagination by using a sequelize
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+## Day 59: March 19 2019 
+
+**Today's Progress**: Change the style of data input, learn and practice mysql)) need a time to understand how to solve my problem;
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 60: March 20 2019 
+
+**Today's Progress**: Fixed problem with a datapicker , made new photo upload , made a new validation for a usercreate post.
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
 My problems

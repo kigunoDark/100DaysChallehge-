@@ -11,6 +11,7 @@ const sendgridTransport= require('nodemailer-sendgrid-transport');
 const crypto = require('crypto');
 const {validationResult } = require('express-validator/check');
 const sequelize = require('../data/database');
+let sizeOf = require('image-size');
 let totalItems = 0;
 
 require('dotenv').config();
@@ -22,7 +23,7 @@ const transporter = nodemailer.createTransport(sendgridTransport({
     }
 }));
 
-// Init multer storege
+
 exports.getTeammate = (req,res, next) => {
    const teamId = req.params.id;
    TeamMate.findById(teamId)
@@ -129,6 +130,7 @@ exports.postEditTemmmate = (req, res, next) => {
         });
     }
    TeamMate.findById(teamId)
+
    .then(teammate=>{
        teammate.surname = updatedMateSurname;
        teammate.name = updatedMateName;
@@ -279,6 +281,7 @@ exports.postAddAdmin = (req,res) => {
     const password = req.body.adPassword;
 
     const errors = validationResult(req);
+
     if(!errors.isEmpty()){
         console.log(errors.array());
         return res.status(422).render('./admin/admin-new',{
@@ -286,7 +289,11 @@ exports.postAddAdmin = (req,res) => {
             pageTipe: "adminIn",
             editing: false,
             errorMessage: errors.array()[0].msg,
-            oldInput: {    
+            oldInput: {  
+                email: '',
+                name: '',
+                surname: '',
+                password: ''  
             }
         });
     }
@@ -350,11 +357,7 @@ exports.getAddTeammate = (req,res) => {
 }
 
 exports.addNewTeamMate = (req, res) => {
-//     const { errors, isValid } = validatorOfTeammate(req.body);
 
-//   if (!isValid) {
-//     return res.status(400).json(errors);
-//   }
    const mateSurname = req.body.mateSurname;
    const mateName = req.body.mateName;
    const mateSecondName = req.body.mateSecondName;
@@ -400,6 +403,7 @@ exports.addNewTeamMate = (req, res) => {
    }
 
    const imageUrl = matePhoto.path;
+  
    TeamMate.create({
         name: mateName,
         secondName: mateSecondName,
@@ -420,8 +424,7 @@ exports.addNewTeamMate = (req, res) => {
     }).catch( err => {
         console.log(err);
     });
-    totalItems++;
-    console.log('This is your total item ' +  totalItems);
+
 } 
 
 exports.postDeleteTeamMate = (req, res) => {

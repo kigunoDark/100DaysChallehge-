@@ -24,13 +24,16 @@
         </div>
 
          <div class="card-action">
-            <a  class="modal-trigger more" href="/adminPar/<%= user.id %>">Читать далее</a> 
+            <a  class="modal-trigger more" href="/admin/adminPar/<%= user.id %>">Читать далее</a> 
 
+
+
+            
             <div id="modal1" class="modal">
                   
                 <div class="container-wrap modalHead">
 
-                    <img class="mamberUser materialboxed z-depth-2 responsive-img circle" src="./image/vlad.jpg">
+                    <img class="mamberUser materialboxed z-depth-2 responsive-img circle" src="/<%= user.parPhoto %>">
                     <h5 class="parfioUser center "><%= user.parFio %></h5>
                                          
                     <div class="container-wrap rowBlock">

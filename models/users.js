@@ -69,7 +69,11 @@ const User = sequelize.define('user', {
       parSize: {
           type: Sequelize.STRING,
           allowNull: false
-      }
+      },
+      parPhoto: {
+        type: Sequelize.STRING,
+        allowNull: false
+     }
 });
 
 module.exports = User;

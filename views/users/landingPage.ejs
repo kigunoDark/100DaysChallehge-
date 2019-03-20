@@ -30,9 +30,6 @@
 </header>
  <!-- About vector and team -->
 <main class="landding-page">
-<% if(errorMessage){%>
-<div  class="user-message"><%=errorMessage%></div>
-<% } %>
 
  <section id="aboutvector">
  <div class="container">
@@ -176,6 +173,7 @@
 
 <section id="register">
  <div class="register">
+ 
      <div class="container-wrap center">
          <h3 class="title center flow-text"><span class="owncolor">Прими</span> участие</h3>
          <div class="row">
@@ -208,7 +206,7 @@
              </div>
 
 <!-- Registration of a one persone -->    
-
+            
              <div class="col s12 m6">
                  <div class=" container-wrap center">
                      <span class="card-title center subtitle">ЗАРЕГИСТРИРОВАТЬСЯ КАК УЧАСТНИК</span>
@@ -218,7 +216,9 @@
                      <div class="center">
 
                      <button  data-target="modal2"  class="regbutton modal-trigger">Подать заявку</button>
-                     
+                     <% if (errorMessage) { %>
+                     <div class="error container" ><%= errorMessage %></div>
+                    <% } %>
                      <!-- Modal Structure -->
                     <div id="modal2" class="modal">  
                   

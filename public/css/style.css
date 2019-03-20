@@ -25,7 +25,7 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .rowCont{ margin-top:2%; text-align: center; }
 .memuAdmin {font-size: 14px; font-family: "Russo One", sans-serif; }
 .memuAdmin:hover {font-size: 14px; font-family: "Russo One", sans-serif; }
-.modalHead{ padding-top: 60px; background-image: linear-gradient( to right bottom, rgba(27, 27, 26, 0.9), rgba(20, 20, 20, 0.9)),url('https://images.unsplash.com/photo-1508145052393-b0328a3ab751?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');background-size: cover; }
+.modalHead{ margin-top: 5%; margin-bottom: 5%; padding-top: 60px; padding-bottom: 60px; background-image: linear-gradient( to right bottom, rgba(27, 27, 26, 0.9), rgba(20, 20, 20, 0.9)),url('https://images.unsplash.com/photo-1508145052393-b0328a3ab751?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');background-size: cover; }
 .menu { margin-right: 1px; margin-top: -11px; padding-top: 9px; padding-bottom: 8px; transition: 1s;font-family: "Russo One", sans-serif; }
 .menu:hover { color: rgb(44, 50, 74, 0.8); background-color: white; }
 .heading-primary-main { display: block; font-size: 26px; font-weight: 400; letter-spacing: 5px; }
