@@ -39,7 +39,7 @@ exports.postLogin = (req, res) => {
         if(!admin)
         {
             req.flash('error', 'Проверьте email или пароль.');
-            return res.redirect('/login');
+            return res.redirect('/admin-login');
         }
 
         bcrypt
@@ -56,11 +56,11 @@ exports.postLogin = (req, res) => {
               
             }
             
-            res.redirect('/login');
+            res.redirect('/admin-login');
         })
         .catch(err => {
             console.log(err);
-            res.redirect('/login');
+            res.redirect('/admin-login');
         });
     })
 }
@@ -69,7 +69,7 @@ exports.postLogin = (req, res) => {
 
 exports.postLogout  = (req, res, next) => {
     req.session.destroy(() => {
-        res.redirect('/login');
+        res.redirect('/admin-login');
     });
 }
 

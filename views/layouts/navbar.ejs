@@ -116,7 +116,7 @@
                     <li><a href="/admin/adminGroup"><i class="fas fa-users"></i>Команды</a></li> 
                     <li><a href="/admin/adminPar"><i class="far fa-user"></i>Участники</a></li>
                     <li><a href="/admin/admins"><i class="fas fa-plus"></i></i>Админ</a></li>
-                    <form id="logOut" action="/logout" method="POST">  
+                    <form id="logOut" action="/admin-login" method="POST">  
                         <li>  
                             <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                             <a href="javascript:{}" onclick="document.getElementById('logOut').submit();"> <i class=" fas fa-sign-out-alt"></i>Выход</a>

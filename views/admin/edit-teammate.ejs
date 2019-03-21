@@ -5,8 +5,6 @@
       <div class="error" ><%= errorMessage %></div>
       <% } %>
     <form  id="add-team" action ="/admin/<%if (editing) { %>edit-teammate<% } else { %>admin-addTeammate<% } %>" method = "POST" enctype="multipart/form-data" > 
-      
-    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
          <div class="container-wrap">
            
             <div class="container-wrap">
@@ -94,6 +92,7 @@
         <% } %>
      
     </div> 
+    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
     <button class="right loginButton" type="submit"> <% if(editing) { %> Изменить <% } else { %>Добавить <% } %></button>
     </form>
 

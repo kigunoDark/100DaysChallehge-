@@ -22,6 +22,24 @@ exports.getLanding = (req, res) => {
         pageTipe:"users",
         path: '/',
         errorMessage: message,
+        oldInput: {
+            parFio:'',
+            parCity:'',
+            parUnivercity:'',
+            parEmail:'',
+            parPhone:'',
+            parDate:'',
+            parSocial:'',
+            parPosition:'',
+            parExp:'',
+            parSocityExp:'',
+            parEventsExp:'',
+            parCharacter:'',
+            parStrengths:'',
+            parWhy:'',
+            parSize:'',
+            parPhoto:''
+        },
         validationErrors:[]
         
     });
@@ -64,10 +82,12 @@ exports.addNewUser = (req, res) => {
 
     const imageUrl = parPhoto.path;
     var dimensions = sizeOf(imageUrl);
+   
     if(dimensions.height != dimensions.width || dimensions.height > 800 || dimensions.width > 800 )
     {
-        console.log("Ширина и высота изображения должны быть одинаковы и не меньше 800px");
-        res.redirect('/');
+        req.flash('errors', 'Ширина и высота изображения должны быть одинаковы и не меньше 800px')
+        console.log('Ошибка с картинкой');
+        return res.redirect('/');
     }
     if(!errors.isEmpty()){
         console.log('Произошла ошибка и ее должно вывести');
@@ -76,10 +96,29 @@ exports.addNewUser = (req, res) => {
         return  res.status(422).render('./users/landingPage',{
             teams: teams,
             pageTitle: "ВекторСКФО",
-            pageTipe: "adminIn",
+            pageTipe: "users",
             editing: false,
             errorMessage: errors.array()[0].msg,
+            oldInput: {
+                parFio: parFio,
+                parCity:parCity,
+                parUnivercity:parUnivercity,
+                parEmail: parEmail,
+                parPhone: parPhone,
+                parDate:parDate,
+                parSocial:parSocial,
+                parPosition:parPosition,
+                parExp:parExp,
+                parSocityExp:parSocityExp,
+                parEventsExp:parEventsExp,
+                parCharacter:parCharacter,
+                parStrengths:parStrengths,
+                parWhy:parWhy,
+                parSize:parSize,
+                parPhoto:parPhoto
+            },
             validationErrors: errors.array()
+            
        });
     })
     .catch(err => {

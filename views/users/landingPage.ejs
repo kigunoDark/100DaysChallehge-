@@ -216,9 +216,11 @@
                      <div class="center">
 
                      <button  data-target="modal2"  class="regbutton modal-trigger">Подать заявку</button>
-                     <% if (errorMessage) { %>
-                     <div class="error container" ><%= errorMessage %></div>
-                    <% } %>
+                     
+                        <% if (errorMessage) { %>
+                            <div class="error container"  style="margin-bottom: 5%;">#Ошибка: <%= errorMessage %></div>
+                        <% } %>
+
                      <!-- Modal Structure -->
                     <div id="modal2" class="modal">  
                   
@@ -226,15 +228,12 @@
                             <h5 class="regTitle">Межрегиональный лагерь студенческого самоуправления и личностного развития СКФО "Вектор - 2018": регистрация участника</h5>
                             <p>Участник программы лагеря по траектории "Личностное развитие" в рамках общей программы сможет посетить мастер-классы и проработать индивидуальный план своего развития. Для участия в данном направлении приглашаются активисты студенческого самоуправления и молодежных объединений.</p>
                                 
-
                             <div class="row">
-                            
                                 <div class="input-field col s12">
-
-                                    <%- include('./register-user.ejs')%>
-                                    
+                                    <%- include('./register-user.ejs')%>    
                                 </div>
-                        </div>
+                            </div>
+
                                 <div class="modal-footer">
                                     <a href="javascript:{}" onclick="document.getElementById('add-user').submit();" style="color:#f2d243;" class="fioUser modal-close waves-effect waves-green btn-flat">Принять</a>
                                     <a href="#!" style="color:#f2d243;" class="fioUser modal-close waves-effect waves-green btn-flat">Закрыть</a>

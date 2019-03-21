@@ -605,8 +605,13 @@ Next step - validation advance level
 **Today's Progress**: Fixed problem with a datapicker , made new photo upload , made a new validation for a usercreate post.
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
+## Day 61: March 21 2019 
+
+**Today's Progress**:Comlete a validation for users and need to find info about phone validation adn file)) I changed a login form for admin and routs. Refactor some code.
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
 My problems
 link of pagination
 table connection
 groupofteam
-teammate - date
+teammate - date +++++
