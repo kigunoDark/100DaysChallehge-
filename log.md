@@ -610,6 +610,13 @@ Next step - validation advance level
 **Today's Progress**:Comlete a validation for users and need to find info about phone validation adn file)) I changed a login form for admin and routs. Refactor some code.
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
+
+
+## Day 62: March 21 2019 
+
+**Today's Progress**:#100DaysOfCode  I've tried to setup a proxy server for telegram bot, because it doesn't work in Russia without it, and I can't test it. Also worked with a React tutorial and practiced it!
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
 My problems
 link of pagination
 table connection
