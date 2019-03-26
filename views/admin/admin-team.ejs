@@ -2,12 +2,14 @@
 
 
 
-    <main  class="user-dashboard"> 
+    <main  class="  "> 
     <div  class="container ">
+  
         <% if (teams.length > 0 ) { %>
       <table  class="team-table highlight" >
       <thead>
       <caption class="accepted"> Сотридники </caption>
+      
         <tr>
             <th>ФИО</th>
             <th>Должность</th>
@@ -18,6 +20,7 @@
       </thead>
       <% for (let team of teams ) { %>
       <tbody>
+     
         <tr>
           <td><%= team.surname %> <%= team.name%> <%= team.secondName%></td>
           <td><%= team.position %> </td>
@@ -55,7 +58,7 @@
       <ul class="pagination center">
         <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
         <% if (currentPage != 1) { %>
-        <li class="active"><a href="/admin/adminTeam/?page=1">1 </a></li> 
+        <li><a href="/admin/adminTeam/?page=1">1 </a></li> 
         <% } %>
 
         <li class="waves-effect"><a href="/admin/adminTeam/?page=<%= currentPage %>"><%= currentPage %></a></li>

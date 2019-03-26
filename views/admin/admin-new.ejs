@@ -3,7 +3,7 @@
 
 
     <main  class="user-dashboard"> 
-     
+   
     <div  class="container teamForm">
         <% if (admins.length > 0   ) { %>
       <table class="team-table highlight">
@@ -38,7 +38,11 @@
       </tbody>
       <% } %>
     </table>
+    
+   
+
         <button data-target="modal2"  class="right loginButton  modal-trigger" >Добавить</button>
+        <%for (let role of roles) {%>
         <div id="modal2" class="modal"> 
             <div class="modal-content" style="text-align: left">
                 <h5 class="regTitle center">Добавить администратора</h5>
@@ -47,16 +51,19 @@
                             
                 <div class="input-field col s12">
 
-                    <%- include('./add-admin.ejs')%>
+                    <%- include('./add-admin.ejs', {role:role} )%>
                     
                 </div>
             </div>
+
             <div class="modal-footer">
                  <a href="javascript:{}" onclick="document.getElementById('add-admin').submit();" style="color:#f2d243;" class="fioUser modal-close waves-effect waves-green btn-flat">Принять</a>
                 <a href="#!" style="color:#f2d243;" class="fioUser modal-close waves-effect waves-green btn-flat">Закрыть</a>
              </div>
             </div>
         </div>
+
+        <%  }  %>
   
  
    <% } else { %>

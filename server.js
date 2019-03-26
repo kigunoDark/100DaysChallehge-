@@ -14,6 +14,7 @@ const flash = require('connect-flash');
 const sequelize = require('./data/database');
 const TeamMate = require('./models/team');
 const Accepted = require('./models/accepted-team');
+const Role = require('./models/roles');
 
 const app = express();
 const csrfProtection = csrf();
@@ -67,6 +68,8 @@ app.use('/admin', adminRoute);
 app.use( authRoute);
 app.use(errControll.get404);
 
+// Role.belongsTo(Admin,{constraints: true, onDelete: 'CASCADE'} );
+Role.hasOne(Admin);
 TeamMate.belongsTo(Accepted, {constraints: true, onDelete: 'CASCADE'});
 
 sequelize

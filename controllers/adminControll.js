@@ -1,5 +1,6 @@
 const User = require('../models/users');
 const Accepted = require('../models/accepted-team');
+const Role = require('../models/roles');
 const TeamMate = require('../models/team');
 const path = require('path');
 const moment = require('moment');
@@ -246,14 +247,27 @@ exports.getAdminTeam = (req, res) => {
 exports.getAddAdmin = (req,res) => {
 
     let message = req.flash('error');
+    let rolevar = '';
     if(message.length > 0){
         message = message[0];
     } else {
         message = null;
     }
+    sequelize.query('SELECT id FROM roles', {type: sequelize.QueryTypes.SELECT})
+    .then(role => 
+    {
+        rolevar = role;
+            console.log(role);
+            for(var i = 0; i<rolevar.length; i++)
+            {
+                console.log('This is row element: ' + rolevar[i].id);
+            }
+            return rolevar;
+    });
     Admin.findAll()
     .then( admins => {
         res.render('./admin/admin-new',{
+            roles: rolevar,
             admins: admins,
             pageTitle: "Добавить админа",
             pageTipe: "adminIn",
@@ -279,6 +293,7 @@ exports.postAddAdmin = (req,res) => {
     const name = req.body.adName;
     const surname = req.body.adSurname;
     const password = req.body.adPassword;
+    
 
     const errors = validationResult(req);
 
@@ -428,8 +443,11 @@ exports.addNewTeamMate = (req, res) => {
 } 
 
 exports.postDeleteTeamMate = (req, res) => {
+    let page = +req.query.page;
     const id = req.body.teamMateId;
-    const page = req.query.page;
+    page = 2;
+    
+    console.log(page);
 
  
     TeamMate.findById(id)
@@ -443,7 +461,7 @@ exports.postDeleteTeamMate = (req, res) => {
     })
     .then(result => {
         console.log("DESTROYED TEAMMATE");
-        res.redirect('/admin/adminTeam/?page=1');
+        res.redirect(`/admin/adminTeam/?page=${page}`);
     })  
     .catch(err => console.log(err));
 }
@@ -546,7 +564,7 @@ exports.postNewPassword = (req, res, next) => {
         return resetAdmin.save();
     })
     .then(result => {
-        res.redirect('/login');
+        res.redirect('/admin-login');
     })
     .catch(err => {
         console.log(err);
