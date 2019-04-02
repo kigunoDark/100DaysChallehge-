@@ -173,54 +173,19 @@
 
 <section id="register">
  <div class="register">
- 
      <div class="container-wrap center">
          <h3 class="title center flow-text"><span class="owncolor">Прими</span> участие</h3>
-         <div class="row">
-             <div class="col s12 m6">
-                 <div class="center">
-                    <span class="card-title center subtitle">ЗАРЕГИСТРИРОВАТЬСЯ КАК КОМАНДА</span>
-                    <h5 class="center reginfo"> Команда образовательной организации (5 человек) сможет пройти
-                         проектную
-                         сессию и составить дорожную карту развития своего объединения</h5>
-                    <div class="center">  
-                    <button data-target="modal1"  class="regbutton modal-trigger">Подать заявку</button>
-
-<!-- Modal Structure -->
-
-<!-- Register for group of people -->
-                            <div id="modal1" class="modal">                          
-                                <div class="modal-content" style="text-align: left">
-                                    <h5 class="regTitle">Межрегиональный лагерь студенческого самоуправления и личностного развития СКФО "Вектор - 2018": регистрация команды </h5>
-                                    <p>Команда образовательной организации состоит из 4-5 участников. Для команд в рамках общей программы будет проведена проектно-стратегическая сессия, в которой они смогут проанализировать систему своей работы и выработать эффективный план дальнейшего развития своего объединения. В состав команды приглашаются лидеры студенческого самоуправления (председатели, заместители председателей советов обучающихся, координаторы направлений деятельности органа студенческого самоуправления, лидеры молодежных объединений). Приветствуется опыт участия в молодежном самоуправлении более 1,5-2 лет. </p>
-                                    <%- include('./register-group.ejs')%>
-                                </div>
-                                
-                                <div class="modal-footer">
-                                    <a href="javascript:{}" onclick="document.getElementById('add-user').submit();" style="color:#f2d243;" class="fioUser modal-close waves-effect waves-green btn-flat">Принять</a>
-                                    <a href="#!" style="color:#f2d243;" class="fioUser modal-close waves-effect waves-green btn-flat">Закрыть</a>
-                                </div>
-                            </div>                                   
-                        </div>
-                    </div>
-             </div>
-
-<!-- Registration of a one persone -->    
-            
-             <div class="col s12 m6">
+         <div class="row">    
+             <div class="col s12 m12">
                  <div class=" container-wrap center">
-                     <span class="card-title center subtitle">ЗАРЕГИСТРИРОВАТЬСЯ КАК УЧАСТНИК</span>
                      <h5 class="center reginfo"> Участников ожидает цикл мастер-классов<br> развития личности и
                          работа c
                          индивидуальным планом <br>развития</h5>
                      <div class="center">
-
                      <button  data-target="modal2"  class="regbutton modal-trigger">Подать заявку</button>
-                     
                         <% if (errorMessage) { %>
                             <div class="error container"  style="margin-bottom: 5%;">#Ошибка: <%= errorMessage %></div>
                         <% } %>
-
                      <!-- Modal Structure -->
                     <div id="modal2" class="modal">  
                   
@@ -233,8 +198,7 @@
                                     <%- include('./register-user.ejs')%>    
                                 </div>
                             </div>
-
-                                <div class="modal-footer">
+                                <div class="modal-footer">  
                                     <a href="javascript:{}" onclick="document.getElementById('add-user').submit();" style="color:#f2d243;" class="fioUser modal-close waves-effect waves-green btn-flat">Принять</a>
                                     <a href="#!" style="color:#f2d243;" class="fioUser modal-close waves-effect waves-green btn-flat">Закрыть</a>
                                  </div>

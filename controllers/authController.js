@@ -1,28 +1,12 @@
 const TeamMate = require('../models/team');
 const Admin = require('../models/admin');
 const bcrypt = require('bcryptjs');
+const User = require('../models/users');
 
 
-exports.getLogin = (req, res) => {
-    
-    TeamMate.findAll()
-    .then(teams => {
-    res.render('./users/landingPage',
-     { 
-        teams: teams,
-        pageTitle: "ВЕКТОР АДМИН",
-        pageTipe:"admin",
-        errorMessage: req.flash('error')
-    });
-    })
-    .catch(err => {
-        console.log(err);
-    })
-}
-
-exports.getMobileLogin = (req, res)  => {
+exports.getUserLogin = (req, res)  => {
    res.render('./admin/mobile-login',
-    {
+    {   name: '',
         pageTitle: "ВЕКТОР АДМИН",
         pageTipe:"mobileLogin",
         isAuthenticated: req.isLoggedIn
@@ -33,34 +17,34 @@ exports.postLogin = (req, res) => {
     const email= req.body.adminEmail;
     const password = req.body.adminPassword;  
 
-    Admin.findOne({where: {email: email }})
-    .then(admin => {
-
-        if(!admin)
+    User.findOne({where: {email: email }})
+    .then(user=> {
+        if(!user)
         {
             req.flash('error', 'Проверьте email или пароль.');
-            return res.redirect('/admin-login');
+            return res.redirect('/user-login');
         }
-
         bcrypt
-        .compare(password, admin.password)
+        .compare(password, user.password)
         .then(doMatch => {
             if(doMatch){
                 req.session.isLoggedIn = true;
-                req.session.admin = admin;
+                req.session.user = user; 
+                // res.locals.adminId =  +req.session.user.roleId;
+           
                return req.session.save(err=>
                 {
                     console.log(err);
-                    return res.redirect('/admin/adminPage');
+                    return res.redirect('/profile');
                 })
               
-            }
-            
-            res.redirect('/admin-login');
+            } else {
+              res.redirect('/profile');
+            }   
         })
         .catch(err => {
             console.log(err);
-            res.redirect('/admin-login');
+            res.redirect('/profile');
         });
     })
 }
@@ -68,11 +52,9 @@ exports.postLogin = (req, res) => {
 
 
 exports.postLogout  = (req, res, next) => {
-    req.session.destroy(() => {
-        res.redirect('/admin-login');
-    });
+        req.session.destroy( err => {
+            console.log(err);
+            res.redirect('/user-login');
+        });
 }
 
-exports.getNewPassword = (req, res, next) => {
-
-}

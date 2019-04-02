@@ -617,6 +617,26 @@ Next step - validation advance level
 **Today's Progress**:#100DaysOfCode  I've tried to setup a proxy server for telegram bot, because it doesn't work in Russia without it, and I can't test it. Also worked with a React tutorial and practiced it!
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
+
+## Day 63-65: March 21 2019 
+
+**Today's Progress**:#100DaysOfCode  Sometimes we work hard till the night. And after that, we exhausted and forget to write twits)) I'm learning and testing MySQL in my project, nothing special but takes a time
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+## Day 66-67: March 21 2019 
+
+**Today's Progress**: Day 67: #100DaysOfCode I found a solution to my problem, and now I have an authentification in my project. YeaHHH. Reading documentation it useful.  Even if you don't know a language!!
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+## Day 67 -71: April 02 2019 
+ I tried to find a problem, but didn't find it. So I decided to work with my project and created a user profile and opportunity to change it.
+
+**Today's Progress**: Day 67: #100DaysOfCode I found a solution to my problem, and now I have an authentification in my project. YeaHHH. Reading documentation it useful.  Even if you don't know a language!!
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
+
 My problems
 link of pagination
 table connection

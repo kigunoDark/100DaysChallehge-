@@ -9,71 +9,83 @@ const User = sequelize.define('user', {
         allowNull: false,
         primaryKey: true
     },
-    parFio: {
+    name: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    parCity: {
+    surname: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    parUnivercity: {
+    secondname: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    parEmail: {
+    city: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    univercity: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    email: {
         type: Sequelize.STRING,
         allowNull: false
     }, 
-    parPhone: {
+    phone: {
         type: Sequelize.STRING,
         allowNull: false
     },
-     parDate: {
+    date: {
          type: Sequelize.DATE,
          allowNull: false
      },
-     parSocial: {
+    social: {
          type: Sequelize.STRING,
          allowNull: false
      },
-     parPosition: {
+    position: {
         type: Sequelize.STRING,
         allowNull: false
      },
 
-     parExp: {
+    exp: {
          type: Sequelize.STRING,
          allowNull: false
      },
-    parSocityExp: {
+    socityExp: {
         type: Sequelize.STRING,
         allowNull: false
     },
-     parEventsExp:{
+    eventsExp:{
         type: Sequelize.STRING,
         allowNull: false
     },
-     parCharacter:{
+    character:{
         type: Sequelize.STRING,
         allowNull: false
      },
-     parStrengths: {
+    strengths: {
         type: Sequelize.STRING,
         allowNull: false
      },
-     parWhy: {
+    why: {
         type: Sequelize.STRING,
         allowNull: false
-     },
-      parSize: {
+    },
+    size: {
           type: Sequelize.STRING,
           allowNull: false
-      },
-      parPhoto: {
+    },
+    photo: {
         type: Sequelize.STRING,
         allowNull: false
-     }
+    },
+    password: {
+         type: Sequelize.TEXT,
+         allowNull: false
+     }     
 });
 
 module.exports = User;

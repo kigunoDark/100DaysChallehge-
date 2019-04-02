@@ -40,7 +40,7 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 #statistic { position: relative; min-height: 500px; background-image: linear-gradient( to right bottom, rgba(19, 19, 19, 0.9), rgba(8, 8, 8, 0.9) ), url("../image/static.jpg"); background-attachment: fixed; background-size: cover; width: 100%; }
 .numbers { margin: 10% 0% 15% 0%; }
 .admSubmit{ display: none; }
-.register { position: relative; min-height: 700px; background-image: linear-gradient( to right bottom, rgba(14, 13, 13, 0.9), rgba(19, 19, 18, 0.9) ), url("../image/reg.jpg"); background-attachment: fixed; background-size: cover; }
+.register { position: relative; min-height: 600px; background-image: linear-gradient( to right bottom, rgba(14, 13, 13, 0.9), rgba(19, 19, 18, 0.9) ), url("../image/reg.jpg"); background-attachment: fixed; background-size: cover; }
 .register #top { position: absolute; top: 0; width: 100%; height: 10vw; fill: white; }
 .register #bot { position: absolute; bottom: 0; width: 100%; height: 10vw; fill: white; }
 .reg-card { background-color: rgba(7, 7, 7, 0); }
@@ -52,7 +52,6 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .team-table{margin: 5% 0% 5% 0%; } 
 .adminInt  {display:inline;  cursor: pointer; margin-right: 10px;}
 
-.mamber:hover { cursor: default; border: 3px solid rgba(255, 255, 255); }
 .social { margin-right: 10px; }
 .copy { padding: 3%; font-size: 18px; }
 .fab { margin-bottom: 20px; }
@@ -62,7 +61,9 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .error{ background:#e6e5e5;  padding: 2% 0% 2% 0%; text-align: center; border-radius: 1%; margin-top: 5%; }
 .adminPhoto {width: 50px; margin-top: 10px; margin-left: 20px; border: 2px solid #f2d243;}
 .navManip {margin-right: 20%;}
-.aminIcon{color:#f2d243; font-size: 20px; margin-top: 5px; height: 62px; }
+.aminIcon{color:#f2d243; font-size: 20px; margin-top: 5px; height: 20px; }
+
+.prof-name{margin-top:10px; text-transform: capitalize; color:#f2d243; font-size: 18px;}
 .adminUl{ margin-right: 5%; }
 .adminDrop{ margin-top: -30px;}
 .log{padding:10% 5% 15% 5%;}
@@ -104,10 +105,12 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .line-down{ width: 50%;  margin:auto; border: 1px solid rgba(255,255,255,0.6);}
 .name-title-profile{ text-transform: uppercase; color:#f2d243;}
 .profile-arrow{ margin-top: 7%; font-size: 40px; color: rgba(255,255,255,0.6);}
-.contact-info{ text-align: center; margin-top: 10%;}
+.contact-info{ text-align: center; margin: 5% 0% 20% 0%; }
+.collapsible{margin-left: 10%;}
 .contact-info li {margin-top: 2%;}
-.edit-person{margin: 15% 0% 5% 0%;}
-.team-info{ color: #f2d243; text-shadow: 1px 1px 2px #000000; margin-top: 15%;}
+.menu-buttons{margin: 20%; width: 100%;}
+.edit-person{margin: 5% 0% 0% 0%;}
+.team-info{ color: #f2d243; text-shadow: 1px 1px 2px #070707; margin-top: 15%; }
 .menu2 { transition: 0.3s}
 .menu2:hover{ color:#f2d243; font-size: 45px; text-shadow: 1px 1px 2px #000000; }
 .team-title{ font-size: 40px;}
@@ -126,6 +129,8 @@ th{ border-radius: 0%;}
 .table-manip:hover{ color:#f2d243; }
 .table-payment{color: green; margin-left: 30%; transition: 0.5s;}
 .table-payment:hover{ color:#f2d243;}
+.user-card { background: rgb(255, 255, 255); box-shadow: 1px 6px 6px 1px #ccc; margin-bottom: 5%;  margin-top: 5%;padding: 2%; border-radius: 1%;}
+
 /* Ides of Structure */
 
 #index-banner { height: 700px; z-index: 0; }
@@ -150,7 +155,7 @@ th{ border-radius: 0%;}
 #per-info{font-size: 20px; color: grey;}
 span { color: grey;}
 #teammate { margin-bottom: 10%;}
-#tables{margin: 5% 0% 5% 0%; background-color: white; border-radius: 1%; padding: 5%;box-shadow: 1px 6px 6px 1px #ccc;}
+#tables{margin: 5% 0% 5% 0%; background-color: white; border-radius: 1%; padding: 5%; box-shadow: 1px 6px 6px 1px #ccc;}
 /* Media */
 
 @media only screen and (max-width: 1200px) { 

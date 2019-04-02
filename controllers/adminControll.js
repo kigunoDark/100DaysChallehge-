@@ -16,7 +16,7 @@ let sizeOf = require('image-size');
 let totalItems = 0;
 
 require('dotenv').config();
-console.log(process.env.SENDGRID_API_KEY)
+
 
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth:{
@@ -180,7 +180,6 @@ exports.getUser = (req,res, next)  => {
 }
 
 exports.getAllPar = (req, res) => {
-    
     User.findAll()
     .then(users => {
         res.render("./admin/admin-participants", {
@@ -195,14 +194,7 @@ exports.getAllPar = (req, res) => {
     })
 };
 
-exports.getAdminPage = (req,res) => {
-    
 
-        res.render('./admin/admin-page',{
-            pageTitle: "Страница администратора",
-            pageTipe: "adminIn"
-        })
-}
 
 // we also need a post request for and adminTeam
 exports.getAdminTeam = (req, res) => {
@@ -247,27 +239,16 @@ exports.getAdminTeam = (req, res) => {
 exports.getAddAdmin = (req,res) => {
 
     let message = req.flash('error');
-    let rolevar = '';
+    var roleName ='';
     if(message.length > 0){
         message = message[0];
     } else {
         message = null;
-    }
-    sequelize.query('SELECT id FROM roles', {type: sequelize.QueryTypes.SELECT})
-    .then(role => 
-    {
-        rolevar = role;
-            console.log(role);
-            for(var i = 0; i<rolevar.length; i++)
-            {
-                console.log('This is row element: ' + rolevar[i].id);
-            }
-            return rolevar;
-    });
+    } 
     Admin.findAll()
     .then( admins => {
         res.render('./admin/admin-new',{
-            roles: rolevar,
+            roleName: roleName,
             admins: admins,
             pageTitle: "Добавить админа",
             pageTipe: "adminIn",
@@ -293,10 +274,14 @@ exports.postAddAdmin = (req,res) => {
     const name = req.body.adName;
     const surname = req.body.adSurname;
     const password = req.body.adPassword;
+    const roleId = req.body.roleId;
+ 
     
 
     const errors = validationResult(req);
 
+
+    
     if(!errors.isEmpty()){
         console.log(errors.array());
         return res.status(422).render('./admin/admin-new',{
@@ -319,7 +304,9 @@ exports.postAddAdmin = (req,res) => {
                 email: email,
                 name: name,
                 surname: surname,
-                password: hashedPassword 
+                password: hashedPassword,
+                roleId: roleId,
+               
             });
             return admin.save();
         }) 
@@ -564,7 +551,7 @@ exports.postNewPassword = (req, res, next) => {
         return resetAdmin.save();
     })
     .then(result => {
-        res.redirect('/admin-login');
+        res.redirect('/user-login');
     })
     .catch(err => {
         console.log(err);

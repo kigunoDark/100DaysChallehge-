@@ -1,0 +1,211 @@
+<%- include('../layouts/navbar.ejs')%>
+
+    <div class=" container ">
+    <% if (errorMessage) { %>
+      <div class="error" ><%= errorMessage %></div>
+      <% } %>
+    <form  id="add-team" action ="/edit-user/:<%=user.id%>" method = "POST" enctype="multipart/form-data" > 
+         <div class="container-wrap user-card">
+           
+            <div class="container-wrap">
+                <h1 style="font-size: 2=35px; " class="title1 center"> <span class="owncolor"> Изменить </span> профиль</h1>
+            <div class="row">
+
+            <div class="row">
+                <div class="input-field col s4">
+                    <input type="text"  name="surname" id="surname" class="<%= validationErrors.find(e => e.param === 'surname') ? 'invalid' : '' %>" value="<%=user.surname %>">
+                    <label style="font-size: 18px;" for="surname">Фамилия</label>
+                    
+                </div>
+                <div class="input-field col s4">
+                    <input type="text"  name="name" id="name"  class="<%= validationErrors.find(e => e.param === 'name') ? 'invalid' : '' %>"  value="<%=user.name %>">
+                    <label style="font-size: 18px;" for="name">Имя</label>
+                </div>
+                <div class="input-field col s4">
+                    <input type="text"  name="secondname" id="secondname" class="<%= validationErrors.find(e => e.param === 'secondname') ? 'invalid' : '' %>"   value="<%=user.secondname %>">
+                    <label style="font-size: 18px;" for="secondname">Отчество</label>
+                </div>
+            </div>
+        
+
+            <div class="row">
+                <div class="input-field col s4">
+                    <input type="text"  name="email" id="email" class="<%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>"  value="<%=user.email %>">
+                    <label style="font-size: 18px;" for="email">E-mail</label>
+                </div>
+                <div class="input-field col s4">
+                <input type="text" name="date" id="date" class="<%= validationErrors.find(e => e.param === 'date') ? 'invalid' : '' %>"  value="<%=user.date %>">
+                <label style="font-size: 18px;" for="date">Дата</label>
+            </div>
+                <div class="input-field col s4">
+                    <input type="text" name="city" id="city" class="<%= validationErrors.find(e => e.param === 'city') ? 'invalid' : '' %>"  value="<%=user.city %>">
+                    <label style="font-size: 18px;" for="city">Город</label>
+                </div>
+            </div>
+
+            <div class="row">
+            <div class="input-field col s4">
+                <input type="text"  name="social" id="social"  class="<%= validationErrors.find(e => e.param === 'social') ? 'invalid' : '' %>"  value="<%=user.social %>">
+                <label style="font-size: 18px;" for="social">Социальная сеть</label>
+            </div>
+                <div class="input-field col s4">
+                    <input type="text" name="position" id="position" class="<%= validationErrors.find(e => e.param === 'position') ? 'invalid' : '' %>"  value="<%=user.position %>">
+                    <label style="font-size: 18px;" for="position">Должность</label>
+                </div>
+                <div class="input-field col s4">
+                    <input type="text"  name="phone" id="phone" class="<%= validationErrors.find(e => e.param === 'phone') ? 'invalid' : '' %>"   value="<%=user.phone %>">
+                    <label style="font-size: 18px;" for="phone">Номер телефона</label>
+                </div>
+            </div>
+
+            <div class="row"> 
+                <div class="input-field col s6">
+                    <input type="text" name="univercity" id="univercity" class="<%= validationErrors.find(e => e.param === 'univercity') ? 'invalid' : '' %>"  value="<%=user.univercity %>">
+                    <label style="font-size: 18px;" for="univercity">Образовательное учереждение</label>
+                </div>    
+                <div class="input-field col s6">
+                    <input type="text"   name="socityExp" id="socityExp" class="<%= validationErrors.find(e => e.param === 'socityExp') ? 'invalid' : '' %>"  value="<%=user.socityExp %>">
+                    <label style="font-size: 18px;" for="socityExp">Направления общественной деятельности</label>
+                </div>
+            </div>
+            <div class="row">
+
+            <div class="input-field col s6">
+                <p>
+                    <label>Укажите свой размер свитшота.
+                    <p>
+                        <label>
+                            <input class="with-gap" value="XS"  name="size" type="radio"  checked />
+                            <span>XS</span>
+                        </label>
+                    </p>
+    
+                    <p>
+                        <label>
+                            <input class="with-gap"  value="S" name="size" type="radio"/>
+                            <span>S</span>
+                        </label>
+                    </p>
+    
+                    <p>
+                        <label>
+                            <input class="with-gap" value="M" name="size" type="radio"/>
+                            <span>M</span>
+                        </label>
+                    </p>
+    
+                    <p>
+                        <label>
+                            <input class="with-gap" value="L" name="size" type="radio"/>
+                            <span>L</span>
+                        </label>
+                    </p>  
+    
+                    <p>
+                        <label>
+                            <input class="with-gap" value="XL" name="size" type="radio"/>
+                            <span>XL</span>
+                        </label>
+                    </p>   
+                </p> 
+                </div>
+                <div class="input-field col s6">
+                <p>
+                    <label>Опыт участие в общественной деятельности?   </label>  
+                    <p>
+                    <label>
+                        <input  class="with-gap" value="до 1 года"  name="exp" type="radio" checked />
+                        <span>до 1 года</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input class="with-gap"  value="от 1 до 2 лет" name="exp" type="radio"/>
+                        <span>от 1 до 2 лет</span>
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input class="with-gap" value="от 2 до 3 лет" name="exp" type="radio"/>
+                        <span>от 2 до 3 лет</span>
+                    </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input class="with-gap" value="от 3 до 4 лет" name="exp" type="radio"/>
+                            <span>от 3 до 4 лет</span>
+                        </label>
+                    </p>   
+                    <p>
+                        <label>
+                            <input class="with-gap" value="4 и более лет" name="exp" type="radio"/>
+                            <span>4 и более лет</span>
+                        </label>
+                    </p>                                                 
+                </p> 
+                </div>
+            </div>
+
+
+         
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="eventsExp"  name="eventsExp"  class=" materialize-textarea <%= validationErrors.find(e => e.param === 'eventsExp') ? 'invalid' : '' %>"><%=user.eventsExp %></textarea>
+                <label for="eventsExp">Мароприятия в которых принимали участия</label>
+            </div>
+        </div>
+           
+
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="character"  name="character"  class="materialize-textarea <%= validationErrors.find(e => e.param === 'character') ? 'invalid' : '' %>"><%=user.character %></textarea>
+                <label for="character">Сильные качества характера</label>
+            </div>
+        </div>
+
+        
+     
+           
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="strengths"   name="strengths"  class="materialize-textarea<%= validationErrors.find(e => e.param === 'strengths') ? 'invalid' : '' %>" ><%=user.strengths %></textarea>
+                <label for="strengths" style="font-size: 18px;">Стороны которые хотеи бы изменить</label>
+             </div>
+        </div>
+           
+   
+
+      
+          
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="why" name="why"  class="materialize-textarea<%= validationErrors.find(e => e.param === 'mateAbout') ? 'invalid' : '' %>" ><%=user.why %></textarea>
+                <label for="why" style="font-size: 18px;">Почему хотите приянть участие</label>
+            </div>
+        </div>
+    
+        
+        <div class="row">
+            <label class="avatar" for="avatar"><i class="fas fa-camera-retro"></i> Выбрать фото</label>
+            <input class="inputfile" name="image" id="avatar" type="file"  accept="image/png, image/jpeg" > 
+            </div>         
+    </div>
+     
+        </div>
+        <% if (editing) { %>
+             <input class="hidden" value="<%= user.id%>" name="userId"/>
+        <% } %>
+     
+    </div> 
+    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+    <button class="right loginButton" type="submit">Изменить</button>
+    </form>
+
+         <a class="right linkButton"   href="/profile"  >Назад</a>
+ 
+</div>
+</div>
+        
+   
+
+<%- include('../layouts/footer.ejs') %>

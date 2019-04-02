@@ -8,7 +8,7 @@ const Role = sequelize.define('role',{
         allowNull: false,
         primaryKey: true
     },
-    name:{
+    role_name:{
         type: Sequelize.TEXT,
         allowNull: false
     }

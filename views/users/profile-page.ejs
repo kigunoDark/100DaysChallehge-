@@ -1,0 +1,88 @@
+<%- include('../layouts/navbar.ejs')%>
+
+
+<section id="user">
+    <div class="container user-card">
+        <div class="row edit-person">
+            <div class="col s12 m4 left">
+                <img class="mamber materialboxed z-depth-2 responsive-img circle" width="500px" src="/<%= user.photo %>">
+            </div>
+    
+        <div class="col s12 m8">
+            <div class="selfpresent">
+            <p class=" team-title  profile-text"><%= user.name %> <%= user.surname %> </p>
+            <p class="team-desctiption">  <span style="color:black;"> Должность: </span><%= user.position %></p> 
+            <p class="team-desctiption"> <span style="color:black;"> Статус:</span> <%= user.about%></p>
+            <p class="team-desctiption"> <span style="color:black;"> Статус заявки: </span><%= user.about%></p>
+            <p class="additional-info "> 
+               </div>
+        </div>
+     
+    </div>
+    <div class="row">
+    <div class="col s12 m4">
+    <ul class="contact-info">
+            <span id="per-info">  Персональная информация </span> 
+                <li>ФИО:</li>
+                <li class="team-info"> <%= user.surname %> <%= user.name %> <%= user.secondname %>  </li> 
+                <li>Город:</li>
+                <li class="team-info"> <%= user.city %>  </li> 
+                <li>Учебное заведение:</li>
+                <li class="team-info"> <%= user.univercity%>  </li> 
+                <li>Дата рождения:</li>
+                <li class="team-info">  <%=  moment(user.date).format('L');%></li> 
+                <li>ДОЛЖНОСТЬ:</li>
+                <li class="team-info"> <%= user.position %> </li> 
+            
+            </ul>
+        </div>
+        <div class="col s12 m8">
+ 
+            <ul  class="collapsible">
+                <li>
+                    <div  class="collapsible-header"><i class="fas fa-chalkboard-teacher"></i>Самоанализ</div>
+                    <div class="collapsible-body"> Предпочел бы изменить в себе: <span class="team-info"> <%=user.strengths%>.</span></div>
+                    <div class="collapsible-body"> Сильные стороны характера: <span class="team-info"><%=user.character%>.</span></div>
+                    <div class="collapsible-body"> Почему хочу принять участие: <span class="team-info"><%=user.why%>.</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="fas fa-book-reader"></i>Опыт</div>
+                        <div class="collapsible-body"> Мероприятия в которых участвовали: <span class="team-info"><%=user.eventsExp%>.</span></div>
+                        <div class="collapsible-body"> Направления общественной теятельности: <span class="team-info"><%=user.socityExp%>.</span></div>
+                    <div class="collapsible-body">Опыт учаастия в общественной деятельности: <span class="team-info"><%= user.exp%></span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="fas fa-mobile"></i>Контакты</div>
+                    <div class="collapsible-body"><span>
+                    <ul>   
+                        <li>Социальная сеть:</li>
+                        <li > <a class="team-info" href="<%= user.vk %>"> <%= user.social %> </a> </li> 
+                        <li>E-mail:</li>
+                        <li> <a class="team-info" href="mailto:<%= user.email %>"> <%= user.email%> </a>  </li>
+                        <li>НОМЕР-ТЕЛЕФОНА:</li>
+                        <li> <a  class="team-info"> <%= user.phone %> </a> </li> 
+                    </ul>
+                    </span></div>
+                </li>
+            </ul>
+            </p>
+            
+            <a class="right linkButton" href="/edit-user/<%= user.id %>?edit=ture">Изменить </a>
+            <form action="">
+                    <button class=" right loginButton" alt="her"  type="submit" >Команда</button>
+            </form>
+            <form action="">
+                    <button class=" right loginButton"  type="submit" >Лидер</button>
+            </form>
+            <form action="">
+                    <button class="right loginButton"  type="submit">Ментор</button>
+            </form> 
+    
+                
+        </div> 
+   
+    </div>
+ 
+    </div>
+</section>
+<%- include('../layouts/footer.ejs') %>

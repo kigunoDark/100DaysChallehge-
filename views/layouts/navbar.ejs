@@ -47,7 +47,7 @@
         <div class="nav-wrapper container">
         <% } %>
             <% if (pageTipe === "mobileLogin") { %>
-                <a id="logo-container" href="/" class="brand-logo"> <img src="./image/fakelogo.png" style="width:100px;"
+          <a id="logo-container" href="/" class="brand-logo"> <img src="./image/fakelogo.png" style="width:100px;"
                 alt=""></a>
                 
             <% } else if( pageTipe === "users" || pageTipe === "admin" || pageTipe === "adminIn" ) { %>
@@ -73,6 +73,8 @@
                     <li><a class="menu" href="#about">Программа</a></li>
                     <li><a class="menu" href="#team">Команда</a></li>
                     <li><a class="menu" href="#contacts">Контакты</a></li>
+                    <li><a class="menu" href="/user-login">Войти</a></li>
+                    
                     
                 </ul>
 
@@ -110,13 +112,13 @@
             <!-- AdminIn Version -->    
                 
             <% } else if(isAuthenticated) { %>
+            
                 <ul id="dropdown1" class="dropdown-content">
-                    <li><a href="/admin/adminPage"> <i class="far fa-list-alt"></i>Утврждение</a></li>
+                    <li><a href="/profile"> <i class="far fa-list-alt"></i>Профиль</a></li>
                     <li><a href="/admin/adminTeam/?page=1"><i class="far fa-address-card"></i>Сотрудники</a></li>
                     <li><a href="/admin/adminGroup"><i class="fas fa-users"></i>Команды</a></li> 
                     <li><a href="/admin/adminPar"><i class="far fa-user"></i>Участники</a></li>
-                    <li><a href="/admin/admins"><i class="fas fa-plus"></i></i>Админ</a></li>
-                    <form id="logOut" action="/admin-login" method="POST">  
+                    <form id="logOut" action="/user-logout" method="POST">  
                         <li>  
                             <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                             <a href="javascript:{}" onclick="document.getElementById('logOut').submit();"> <i class=" fas fa-sign-out-alt"></i>Выход</a>
@@ -126,7 +128,7 @@
             
                   <ul class="adminUl right hide-on-med-and-down">
                     <!-- Dropdown Trigger -->
-                    <li><a class='aminIcon dropdown-trigger ' href='#' data-target='dropdown1'><i style="font-size: 30px;" class="far fa-user-circle"></i></a> </li> 
+                       <li><a class='aminIcon dropdown-trigger' href='#' data-target='dropdown1'> <span class="prof-name"> <%=name%> <%= surname %> </span> <i class=" far fa-user-circle"></i> </a> </li> 
                   </ul>
 
                 <% } else if(pageTipe === "mobileLogin") { %>

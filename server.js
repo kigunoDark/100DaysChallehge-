@@ -3,18 +3,24 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const adminRoute = require('./routes/adminRoute');
 const errControll = require('./controllers/errorController');
+const sequelize = require('./data/database');
 const session = require('express-session');
+var cookieParser = require('cookie-parser');
 var SequelizeStore = require('connect-session-sequelize')(session.Store);
-const Admin = require('./models/admin');
 const multer = require('multer');
 // Зачища от csrf
 const csrf = require('csurf');
 // Для вывода ошибок через сессию
 const flash = require('connect-flash');
-const sequelize = require('./data/database');
+
+
+// My models
 const TeamMate = require('./models/team');
 const Accepted = require('./models/accepted-team');
 const Role = require('./models/roles');
+const Admin = require('./models/admin');
+const User = require('./models/users');
+
 
 const app = express();
 const csrfProtection = csrf();
@@ -38,13 +44,18 @@ const fileStorage = multer.diskStorage({
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 
 app.use(multer({storage: fileStorage, fileFilter: fileFilter }).single('image'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/images' ,express.static(path.join(__dirname, 'images')));
-app.use(session({secret: 'be a human', resave: false, saveUninitialized: false, 
+app.use(cookieParser());
+app.use(session({
+    secret: 'be a human', 
+    resave: false, 
+    saveUninitialized: false, 
     store: new SequelizeStore({
     db: sequelize
 })
@@ -54,6 +65,8 @@ app.use(flash());
 app.use((req,res,next) => {
     res.locals.isAuthenticated = req.session.isLoggedIn;
     res.locals.csrfToken = req.csrfToken();
+    // res.locals.name= req.session.user.name;
+    // res.locals.adminId =  +req.session.user.roleId;
     next();
 })
 
@@ -69,14 +82,12 @@ app.use( authRoute);
 app.use(errControll.get404);
 
 // Role.belongsTo(Admin,{constraints: true, onDelete: 'CASCADE'} );
-Role.hasOne(Admin);
+Role.hasOne(User);
 TeamMate.belongsTo(Accepted, {constraints: true, onDelete: 'CASCADE'});
 
 sequelize
 .sync()
-.then(result => {
-   return Admin.findById(1);
-})
+
 .then(admin => {
    if(!admin)
    {

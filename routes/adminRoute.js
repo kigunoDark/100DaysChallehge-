@@ -8,7 +8,6 @@ const Admin = require('../models/admin');
 
 router.get('/adminPar', isAuth, adminControll.getAllPar);
 router.get('/adminPar/:id', isAuth, adminControll.getUser);
-router.get('/adminPage', isAuth, adminControll.getAdminPage);
 router.get('/accepted-team', isAuth, adminControll.getAcceptedTeam);
 router.get('/adminTeam', isAuth, adminControll.getAdminTeam);
 router.get('/add-teammate',isAuth, adminControll.getAddTeammate);

@@ -16,7 +16,11 @@
             <th>Имя</th>
             <th> Фамилия </th>
             <th>Email</th>  
-            <th> Управление </th>
+            <th>Изменить</th>
+        <% if(roleName === "super_admin") {%>
+            <th> Удалить <th>
+        
+        <%}%>
         </tr>
       </thead>
       <% for (let admin of admins ) { %>
@@ -26,13 +30,17 @@
             <td> <%= admin.surname %> </td>
             <td><a href="mailto:<%= admin.email %>" class="teamDelete"> <i class="fas fa-envelope"></i> </a></td>
             <td > 
-            <a href="/admin/reset" class="teamEdit"><i class="fas fa-user-edit"></i> </a>  
+            <a href="/admin/reset" class="teamEdit"><i class="fas fa-user-edit"></i> </a> 
+          </td>
+          <% if(roleName === "super_admin") { %>
+            <td>
                 <form class="adminInt" id="delete-teammate" action="/admin/delete-admin" method="POST"> 
                     <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                     <input type="hidden" value="<%= admin.id %>" name="adminId">
                     <button type="submint"  class="teamDelete">  <i class="fas fa-user-times"></i> </button>
                 </form>
-          </td>
+            </td>
+            <% } %>
         </tr>
         
       </tbody>
@@ -42,7 +50,7 @@
    
 
         <button data-target="modal2"  class="right loginButton  modal-trigger" >Добавить</button>
-        <%for (let role of roles) {%>
+     
         <div id="modal2" class="modal"> 
             <div class="modal-content" style="text-align: left">
                 <h5 class="regTitle center">Добавить администратора</h5>
@@ -51,7 +59,7 @@
                             
                 <div class="input-field col s12">
 
-                    <%- include('./add-admin.ejs', {role:role} )%>
+                    <%- include('./add-admin.ejs' )%>
                     
                 </div>
             </div>
@@ -63,7 +71,7 @@
             </div>
         </div>
 
-        <%  }  %>
+    
   
  
    <% } else { %>
