@@ -1,10 +1,9 @@
-const User = require('../models/users');
-const Accepted = require('../models/accepted-team');
+
 const Role = require('../models/roles');
 const TeamMate = require('../models/team');
 const path = require('path');
 const moment = require('moment');
-const Admin = require('../models/admin');
+const User = require('../models/users');
 const bcrypt = require('bcryptjs');
 const fileHelper = require('../util/file');
 const nodemailer = require('nodemailer');
@@ -462,19 +461,6 @@ exports.postDeleteAdmin = (req,res) => {
     .then( result => {
         console.log("DESTROYED ADMIN");
         res.redirect('/admin/admins');
-    })
-}
-exports.getAdminGroup = (req, res) =>{
-    User.findAll()
-    .then(users => {
-    res.render('./admin/admin-group', {
-        users: users,
-        pageTitle: "Команды участников",
-        pageTipe: 'adminIn'
-    })
-})
-    .catch(err => {
-        console.log(err);
     })
 }
 

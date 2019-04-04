@@ -16,9 +16,8 @@ const flash = require('connect-flash');
 
 // My models
 const TeamMate = require('./models/team');
-const Accepted = require('./models/accepted-team');
+const Team = require('./models/team');
 const Role = require('./models/roles');
-const Admin = require('./models/admin');
 const User = require('./models/users');
 
 
@@ -82,8 +81,11 @@ app.use( authRoute);
 app.use(errControll.get404);
 
 // Role.belongsTo(Admin,{constraints: true, onDelete: 'CASCADE'} );
-Role.hasOne(User);
-TeamMate.belongsTo(Accepted, {constraints: true, onDelete: 'CASCADE'});
+Role.hasOne(User,  {constraints: true, onDelete: 'CASCADE'});
+User.hasMany(Team, {constraints: true, onDelete: 'CASCADE'});
+Team.belongsTo(User);
+
+// TeamMate.belongsTo(Accepted, {constraints: true, onDelete: 'CASCADE'});
 
 sequelize
 .sync()

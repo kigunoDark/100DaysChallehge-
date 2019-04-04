@@ -1,5 +1,5 @@
 const TeamMate = require('../models/team');
-const Admin = require('../models/admin');
+
 const bcrypt = require('bcryptjs');
 const User = require('../models/users');
 

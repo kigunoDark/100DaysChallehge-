@@ -2,109 +2,112 @@
 
 
 
-<% if(users.length > 0) { %>
+<% if(teams.length > 0) { %>
 
-<div class="container">
-  <h1 class="title1 center"> <span class="owncolor">Участники</span> в командах</h1>
+<div class="container teams-card">
+  <h1 class="title2 center"> <span class="owncolor">Список </span> команд</h1>
   <div class="row">
+  <%  for(let team of teams) { %>
 
-  <%  for(let user of users) { %>
-
-      <div id="user-info" class="col s12 m3">
+      <div id="team-info" class=" col s12 m3">
           <div class="card">
           <div class="card-image ">
-              <img src="https://images.unsplash.com/photo-1510519138101-570d1dca3d66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1462&q=80">
-              <span class="parFio card-title"><%= user.parFio %></span>
+              <img src="<%= team.photo %>">
+              <span class="parFio card-title"><%= team.t_name %></span>
           </div>
-          <div class="card-content">
-              <p><%= user.parCity %></p>
-          </div>
+       
           <div class="card-action">
-              
               <!-- Modal Trigger -->
-              <a class="modal-trigger more" href="#modal1">Читать далее</a>
-
+              <div class="inline">
+                    <a href="/team-details/<%=team.id%>"><i class="left more fas fa-info-circle"></i></a>
+                <% if( team.userId != userId) {%>
+                    <a href="#modal1"><i class="left more fas fa-plus-circle"></i></a>
+                <%} else { %>
+                    <a href="#modal1"><i class="left more fas fa-edit"></i></a>
+                <% } %> 
+              </div>
+        
               <!-- Modal Structure -->
               <div id="modal1" class="modal">
                   <div class="container-wrap modalHead">
                        <img class="mamberUser materialboxed z-depth-2 responsive-img circle" src="./image/vlad.jpg">
-                       <h5 class="parfioUser center "><%= user.parFio %></h5>
+                       <h5 class="parfioUser center "><%= team.parFio %></h5>
                   
                        
                       <div class="container-wrap rowBlock">
                           <div class="row rowCont">
                               <div class=" col s12 m4 ">
-                                  <a  href="#" class="par_cont " style="color:rgba(31, 29, 29, 0.8);"> <i class="fas fa-map-marker-alt linkElement"></i> <%= user.parCity %></a>
+                                  <a  href="#" class="par_cont " style="color:rgba(31, 29, 29, 0.8);"> <i class="fas fa-map-marker-alt linkElement"></i> <%= team.parCity %></a>
                               </div>
                               <div class=" col s12 m4 " id="devider">
-                                 <a href="mailto:<%= user.parEmail %>" class="par_cont" style="color:rgba(31, 29, 29, 0.8);"> <i class="fas fa-at linkElement" ></i> Email</a>
+                                 <a href="mailto:<%= team.parEmail %>" class="par_cont" style="color:rgba(31, 29, 29, 0.8);"> <i class="fas fa-at linkElement" ></i> Email</a>
                               </div>
                               <div class=" col s12 m4 ">
-                                 <a href="tel:<%= user.parPhone %>" class="par_cont" style="color:rgba(31, 29, 29, 0.8);"> <i class="fas fa-mobile-alt linkElement" ></i> Номер</a>
+                                 <a href="tel:<%= team.parPhone %>" class="par_cont" style="color:rgba(31, 29, 29, 0.8);"> <i class="fas fa-mobile-alt linkElement" ></i> Номер</a>
                               </div>
                           </div>                            
                        </div>
                   </div>
                   <div class="modal-content">
-                      <div class="container-wrap userBio">
+                      <div class="container-wrap teamBio">
 
-                          <div class="row" id="userBio">
+                          <div class="row" id="teamBio">
                               <div class="col s12 m12 " >
 
                                   <p>
                                       <span class="fioUser"><span class="parUserOwncolor">Место обучения:</span> </span>
-                                      <span class="fioUser"><%= user.parUnivercity %>.</span> 
+                                      <span class="fioUser"><%= team.parUnivercity %>.</span> 
                                   </p>
                                   <p>
                                       <span class="fioUser"><span class="parUserOwncolor">Дата рождения:</span> </span>
-                                      <span class="fioUser"><%= user.parDate %>.</span> 
+                                      <span class="fioUser"><%= team.parDate %>.</span> 
                                   </p>
 
                                   <p>
                                       <span class="fioUser">  <span class="parUserOwncolor"> Размер свитшота: </span> </span>
-                                      <span class="fioUser"> <%= user.parSize %>.</span> 
+                                      <span class="fioUser"> <%= team.parSize %>.</span> 
                                   </p>
 
                                   <p>
                                       <span class="fioUser"><span class="parUserOwncolor"> Социальные сети:</span></span>
-                                      <span class="fioUser"><a href="<%=user.parSocial %>"> Ссылка. </a></span>
+                                      <span class="fioUser"><a href="<%=team.parSocial %>"> Ссылка. </a></span>
                                   </p>
 
                                   <p>
                                       <span class="fioUser"><span class="parUserOwncolor"> Должность в оссу:</span> </span>
-                                      <span class="fioUser"><%= user.parPosition %>.</span> 
+                                      <span class="fioUser"><%= team.parPosition %>.</span> 
                                   </p>
 
                                   
                                   <p>
                                       <span class="fioUser"><span class="parUserOwncolor"> Почему хочет участвовать:</span> </span>
-                                      <span class="fioUser"><%= user.parWhy %>.</span> 
+                                      <span class="fioUser"><%= team.parWhy %>.</span> 
                                   </p>
 
                                   <p>
                                       <span class="fioUser">  <span class="parUserOwncolor">  Сильные стороны личности: </span> </span>
-                                      <span class="fioUser">  <%= user.parStrengths %>.</span> 
+                                      <span class="fioUser">  <%= team.parStrengths %>.</span> 
                                   </p>
 
                                   <p>
                                       <span class="fioUser"><span class="parUserOwncolor"> Общественной деятельность:</span> </span>
-                                      <span class="fioUser"><%= user.parExp %>.</span> 
+                                      <span class="fioUser"><%= team.parExp %>.</span> 
                                   </p>
 
                                   <p>
                                       <span class="fioUser"><span class="parUserOwncolor"> Сильные качества характера:</span> </span>
-                                      <span class="fioUser"><%= user.parCharacter %>.</span> 
+                                      <span class="fioUser"><%= team.parCharacter %>.</span> 
                                   </p>
                                   
                                   <p>
                                       <span class="fioUser"><span class="parUserOwncolor"> Мероприятия в которых участвовал:</span> </span>
-                                      <span class="fioUser"><%= user.parEventsExp %>.</span> 
+                                      <span class="fioUser"><%= team.parEventsExp %>.</span> 
                                   </p>
 
                                   
                                   <p>
                                       <span class="fioUser">  <span class="parUserOwncolor"> Направления общественной деятельности:</span> </span>
-                                      <span class="fioUser">  <%= user.parSocityExp %>.</span> 
+                                      <span class="fioUser">  <%= team.parSocityExp %>.</span> 
                                   </p>
 
                               </div>    
@@ -118,12 +121,24 @@
               </div>
           </div>
           </div>
+        
       </div>
-  <% } %>    
+      <% }%>
 </div>       
+<%if(roleId != 4 ) { %>
+    <a class="right linkButton" href="/add-team" alt="Создать свою команду"> Добавить </a>
+    
+<% } %>
 
     <% } else { %>
-    <h1> В списке нет пользователей </h1>
+    <div class="container">
+        <div class=" user-card">
+
+            <h1 class="center warning"> В списке нет действующих команд </h1>
+            <a class="right linkButton" href="/add-team" alt="Создать свою команду"> Создать </a>
+        
+        </div>
+    </div>
     <% } %>
 </div>
 

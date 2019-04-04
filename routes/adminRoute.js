@@ -3,7 +3,7 @@ const {check, body} =  require('express-validator/check');
 const router = express.Router();
 const adminControll = require('../controllers/adminControll');
 const isAuth = require('../middleware/is-auth');
-const Admin = require('../models/admin');
+
 
 
 router.get('/adminPar', isAuth, adminControll.getAllPar);
@@ -13,7 +13,6 @@ router.get('/adminTeam', isAuth, adminControll.getAdminTeam);
 router.get('/add-teammate',isAuth, adminControll.getAddTeammate);
 router.get('/detail-teammate/:id', isAuth, adminControll.getTeammate);
 router.get('/edit-teammate/:id', isAuth, adminControll.getEditTeammate);
-router.get('/adminGroup', isAuth, adminControll.getAdminGroup);
 router.get('/admins', isAuth, adminControll.getAddAdmin);
 router.get('/reset', isAuth, adminControll.getReset);
 router.post('/reset',isAuth, adminControll.postReset);

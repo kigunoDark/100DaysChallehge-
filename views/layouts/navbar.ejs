@@ -51,7 +51,7 @@
                 alt=""></a>
                 
             <% } else if( pageTipe === "users" || pageTipe === "admin" || pageTipe === "adminIn" ) { %>
-                <a id="logo-container" href="/admin/adminPage" class="brand-logo"><img src="/image/fakelogo.png" style="width:100px;"
+                <a id="logo-container" href="/profile" class="brand-logo"><img src="/image/fakelogo.png" style="width:100px;"
                 alt=""></a>
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger">
                     <div id="nav-icon1">
@@ -116,8 +116,8 @@
                 <ul id="dropdown1" class="dropdown-content">
                     <li><a href="/profile"> <i class="far fa-list-alt"></i>Профиль</a></li>
                     <li><a href="/admin/adminTeam/?page=1"><i class="far fa-address-card"></i>Сотрудники</a></li>
-                    <li><a href="/admin/adminGroup"><i class="fas fa-users"></i>Команды</a></li> 
-                    <li><a href="/admin/adminPar"><i class="far fa-user"></i>Участники</a></li>
+                    <li><a href="/teams-page"><i class="fas fa-users"></i>Команды</a></li> 
+                    <li><a href="/users-list"><i class="far fa-user"></i>Участники</a></li>
                     <form id="logOut" action="/user-logout" method="POST">  
                         <li>  
                             <input type="hidden" name="_csrf" value="<%=csrfToken%>">
@@ -128,7 +128,7 @@
             
                   <ul class="adminUl right hide-on-med-and-down">
                     <!-- Dropdown Trigger -->
-                       <li><a class='aminIcon dropdown-trigger' href='#' data-target='dropdown1'> <span class="prof-name"> <%=name%> <%= surname %> </span> <i class=" far fa-user-circle"></i> </a> </li> 
+                       <li><a class='aminIcon dropdown-trigger' href='#' data-target='dropdown1'> <span class="prof-name"> <%=name%> </span> <i class=" far fa-user-circle"></i> </a> </li> 
                   </ul>
 
                 <% } else if(pageTipe === "mobileLogin") { %>

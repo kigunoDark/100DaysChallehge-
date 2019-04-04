@@ -1,12 +1,14 @@
 const User = require('../models/users');
 const Role = require('../models/roles');
-const Acceptedd = require('../models/accepted-team');
+const Team = require('../models/team');
 const sizeOf = require('image-size');
 const moment = require('moment');
+const sequelize = require('../data/database');
 const {validationResult } = require('express-validator/check');
 const bcrypt = require('bcryptjs');
 const sendgridTransport= require('nodemailer-sendgrid-transport');
 const nodemailer = require('nodemailer');
+const fileHelper = require('../util/file');
 
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth:{
@@ -24,7 +26,7 @@ exports.getLanding = (req, res) => {
         message = null;
     }
 
-   Acceptedd.findAll()
+   Team.findAll()
     .then(teams => {
     res.render('./users/landingPage',
      {   
@@ -82,6 +84,7 @@ exports.postSignUp = (req,res) => {
     const password = req.body.password;
     const photo = req.file;
     const roleId = req.body.roleId;
+    const status = 'Заявка рассматривается'
     
     const errors = validationResult(req);
     if(!photo)
@@ -128,7 +131,8 @@ exports.postSignUp = (req,res) => {
                 why: why,
                 size: size,
                 photo: photo,
-                roleId:  roleId
+                roleId:  roleId,
+              
             },
             validationErrors: errors.array()
             
@@ -170,7 +174,8 @@ exports.postSignUp = (req,res) => {
                 size: size,
                 photo: imageUrl,
                 password: hashedPassword,
-                roleId: roleId
+                roleId: roleId,
+                status: status
                
             });
             return user.save();
@@ -194,19 +199,14 @@ exports.postSignUp = (req,res) => {
 exports.getMainPage = (req,res) => {
         const userId = req.session.user.id;
         const name = req.session.user.name;
-        const surname = req.session.user.surname;
-        User.findById(userId
-            // include:
-            // [{
-            // model: User,
-            // where: {id:roleId }
-            // }]
-        ).then(user => {
+        const roleId = req.session.user.roleId;
+
+        User.findById(userId).then(user => {
             // roleName = posts[0].name;
             res.render('./users/profile-page',{
+                roleId: roleId,
                 user: user,
                 name: name,
-                surname: surname,
                 moment: moment,
                 pageTitle: "Страница администратора",
                 pageTipe: "adminIn"
@@ -216,8 +216,7 @@ exports.getMainPage = (req,res) => {
 }
 
 exports.getEditUser = (req, res, next) => {
-    var name = req.session.user.name;
-    var surname = req.session.user.surname;
+    const name = req.session.user.name;
     let message = req.flash('error');
     if(message.length > 0)
     {
@@ -244,7 +243,6 @@ exports.getEditUser = (req, res, next) => {
             pageTipe: 'adminIn',
             user: user,
             name: name,
-            surname: surname,
             editing: editMode,
             errorMessage: message,
             validationErrors:[]
@@ -263,7 +261,7 @@ exports.postEditUser = (req, res, next) => {
     const updatedEmail = req.body.email;
     const updatedDate = req.body.date;
     const updatedCity = req.body.city;
-    const updatedXocial = req.body.social;
+    const updatedSocial = req.body.social;
     const updatedPosition = req.body.position;
     const updatedPhone = req.body.phone;
     const updatedUnivercity = req.body.univercity;
@@ -275,10 +273,9 @@ exports.postEditUser = (req, res, next) => {
     const updatedStrengths = req.body.strengths;
     const updatedWhy = req.body.why;
     const userId = req.body.userId;
+    const updatedPhoto = req.file;
 
-
-    const updatedMatePhoto = req.file;
-
+    
     const errors = validationResult(req);
     
     if(!errors.isEmpty()){
@@ -299,24 +296,43 @@ exports.postEditUser = (req, res, next) => {
                 mateCrowns: updatedMateCrowns,
                 mateHobby: updatedMateHobby ,
                 mateEmail: updatedMateEmail,
-                matePhoto: updatedMatePhoto
+                matePhoto: updatedPhoto
             },
             validationErrors: errors.array()
+
         });
     }
    User.findById(userId)
 
    .then(user=>{
+       user.name = updatedName;
+       user.surname = updatedSurname;
+       user.secondname = updatedSecondName;
+       user.Date = updatedDate;
+       user.why = updatedWhy;
+       user.size = updatedSize;
+       user.city = updatedCity;
+       user.univercity = updatedUnivercity;
+       user.email = updatedEmail;
+       user.social = updatedSocial;
+       user.position = updatedPosition;
+       user.phone = updatedPhone;
+       user.socityExp = updatedSocialExp;
+       user.exp = updatedExp;
+       user.character = updatedCharacter;
+       user.eventsExp = updatedEventsExp;
+       user.strengths = updatedStrengths;
+       req.session.user.name = updatedName;
        
-       if(updatedMatePhoto){
-           fileHelper.deleteFile(teammate.photo);
-           teammate.photo = updatedMatePhoto.path;
+       if(updatedPhoto){
+           fileHelper.deleteFile(user.photo);
+          user.photo = updatedPhoto.path;
        }
-       return teammate.save();
+       return user.save();
    })
    .then(retult =>{
        console.log('Updated product');
-       res.redirect('/admin/adminTeam/?page=1');
+       res.redirect('/profile');
    })
    .catch(err => console.log(err));
 
@@ -342,3 +358,152 @@ exports.getUser = (req,res, next)  => {
         console.log(err);
     })
 }
+
+
+exports.getTeamsPage = (req, res) =>{
+    const name = req.session.user.name;
+    const userId = req.session.user.id;
+    const roleId = req.session.user.roleId;
+     
+   Team.findAll()
+    .then(teams => {
+    res.render('./users/teams-page', {
+        roleId: roleId,
+        userId:userId,
+        teams: teams,
+        name: name,
+        pageTitle: "Команды участников",
+        pageTipe: "adminIn"
+    })
+})
+    .catch(err => {
+        console.log(err);
+    })
+}
+
+exports.getAddTeamPage = (req, res ) => {
+    const name= req.session.user.name;
+    res.render("./users/add-team", {
+        name: name,
+        pageTitle: "Создать команду",
+        pageTipe: "adminIn"
+    })
+}
+
+exports.postAddTeam = (req, res) => {
+    const userId = req.session.user.id;
+    console.log("Идентификатор настоящего пользователя: " + userId);
+    const roleID = 4;
+    req.session.user.roleId = roleID;
+    console.log(req.session.user.roleId);
+ 
+        const t_name = req.body.t_name;
+        const t_social = req.body.t_social;
+        const t_exp = req.body.t_exp;
+        const t_str = req.body.t_str;
+        const t_imp = req.body.t_imp;
+        const t_why = req.body.t_why;
+        const t_size = req.body.t_size;
+        const photo = req.file;
+
+        User.findOne({where: {id: userId }})
+        .then( user => {
+            if(user)
+            {
+                user.update({
+                    roleId:roleID
+                })
+                .then(() => {
+                    console.log('Все проапдейтилось!!')
+                })
+            }
+        })
+     
+        if(!photo)
+        {
+            console.log(" Мы не получили данных где хранится файл");
+            res.redirect('/add-team');
+        }
+        const imageUrl = photo.path;
+       
+       
+        Team.create({
+            t_name: t_name,
+            t_social: t_social,
+            t_exp: t_exp,
+            t_str: t_str,
+            t_imp: t_imp,
+            t_why: t_why,
+            t_size: t_size,
+            photo: imageUrl,
+            userId: userId
+            
+        })
+        .then(result => {
+            console.log('Команда создана');
+            res.redirect('/teams-page');
+        }).catch( err => {
+            console.log(err);
+        });
+}
+
+exports.getListOfUsers = (req, res) => {
+    const roleId = req.session.user.roleId;
+    const name = req.session.user.name;
+    const activeUserId = req.session.user.id;
+    User.findAll()
+    .then( users => {
+    res.render('./users/all-users', {
+        roleId: roleId,
+        activeUserId:activeUserId,
+        users: users,
+        name: name,
+        pageTitle: "Список всех участников без команды",
+        pageTipe: "adminIn"
+    })
+    
+})
+}
+
+exports.getUserDetails= (req,res, next) => {
+    const userId = req.params.id;
+    const name = req.session.user.name;
+    const activeUserId = req.session.user.id;
+    User.findById(userId)
+    .then(user => {
+     res.render('./users/user-details',
+     { 
+        name: name,
+        activeUserId: activeUserId,
+        pageTitle: "Профиль участника",
+        pageTipe: 'adminIn',
+        user: user,
+        moment:moment
+    })
+    })
+    .catch(err => {
+        console.log(err);
+    });
+ }
+
+
+ exports.getTeamDetails= (req,res, next) => {
+    const teamId = req.params.id;
+    const name = req.session.user.name;
+    const activeUserId = req.session.user.id;
+    Team.findById(teamId)
+    .then(team => {
+     res.render('./users/team-details',
+     { 
+        name: name,
+        activeUserId: activeUserId,
+        pageTitle: "Профиль участника",
+        pageTipe: 'adminIn',
+        team: team,
+        moment:moment
+    })
+    })
+    .catch(err => {
+        console.log(err);
+    });
+ }

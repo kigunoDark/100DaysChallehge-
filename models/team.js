@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../data/database');
 
-const TeamMate =  sequelize.define('teamMate', {
+const Team =  sequelize.define('teams', {
 
     id: {
         type: Sequelize.INTEGER,
@@ -9,49 +9,33 @@ const TeamMate =  sequelize.define('teamMate', {
         primaryKey: true,
         allowNull: false    
     },
-    name: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    secondName:{
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    surname: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    position: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    vk: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    instagram: { 
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    phone: {
+    t_name: {
         type: Sequelize.TEXT,
         allowNull: false
     },
-    about: {
+    t_social: {
         type: Sequelize.TEXT,
-        allowNull: false,
+        allowNull: true
     },
-    crowns: {
+    t_exp: {
         type: Sequelize.TEXT,
         allowNull: false
     },
-    hobby:{
+    t_str: {
         type: Sequelize.TEXT,
         allowNull: false
     },
-    email:{
+    t_imp: {
         type: Sequelize.TEXT,
         allowNull: false
+    },
+    t_why:{
+        type: Sequelize.TEXT,
+        allowNull: false
+    },
+    t_size: {
+        type:Sequelize.TEXT,
+        allowNull:false
     },
     photo: {
         type: Sequelize.STRING,
@@ -59,4 +43,4 @@ const TeamMate =  sequelize.define('teamMate', {
     }
 })
 
-module.exports = TeamMate;
+module.exports = Team;

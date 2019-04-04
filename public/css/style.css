@@ -49,7 +49,7 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
 .defenition { width: 100%; padding: 10%; margin-left: 10%; margin-top: 15%; height: 90%; margin-bottom: 30%; cursor: auto; }
 .defabout { text-align: left; color: rgba(59, 55, 55, 0.8); font-size: 18px; padding: 1px 3% 2% 3%; font-weight: bold; font-family: "Open Sans", sans-serif; }
 .team { padding-top: 100px; }
-.team-table{margin: 5% 0% 5% 0%; } 
+.team-table{margin: 5% 0% 5% 0%; box-shadow: 1px 6px 6px 1px #ccc; } 
 .adminInt  {display:inline;  cursor: pointer; margin-right: 10px;}
 
 .social { margin-right: 10px; }
@@ -88,7 +88,10 @@ hr { border-top: 1px solid rgba(242, 210, 67, 0.4); width: 80%; margin-top: -15p
     margin-left: 2%;
 }
 
-
+.warning{
+    margin: 20%;
+    font-size: 25px;
+}
 .avatar:hover {
     color: #f2d243;
 }
@@ -129,8 +132,12 @@ th{ border-radius: 0%;}
 .table-manip:hover{ color:#f2d243; }
 .table-payment{color: green; margin-left: 30%; transition: 0.5s;}
 .table-payment:hover{ color:#f2d243;}
+.in-process{color: grey;}
+.accepted-user { color: rgb(96, 151, 96);}
+.rejected { color:rgb(163, 69, 69);}
 .user-card { background: rgb(255, 255, 255); box-shadow: 1px 6px 6px 1px #ccc; margin-bottom: 5%;  margin-top: 5%;padding: 2%; border-radius: 1%;}
-
+.team-card { background: rgb(255, 255, 255); box-shadow: 1px 6px 6px 1px #ccc; margin-bottom: 5%;  margin-top: 5%;padding: 10%; border-radius: 1%;}
+.teams-card { background: rgb(255, 255, 255); box-shadow: 1px 6px 6px 1px #ccc; margin-bottom: 5%;  margin-top: 5%;padding: 3%; border-radius: 1%;}
 /* Ides of Structure */
 
 #index-banner { height: 700px; z-index: 0; }

@@ -637,8 +637,16 @@ Next step - validation advance level
 
 
 
+
+
+## Day  71 - 73: April 4 2019 
+
+
+**Today's Progress**: I almost finished a logic for users in my project. Next step. I'm going to write logic for an admin!!
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
+
 My problems
 link of pagination
 table connection
-groupofteam
-teammate - date +++++
+
