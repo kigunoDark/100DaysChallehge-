@@ -15,7 +15,6 @@ const flash = require('connect-flash');
 
 
 // My models
-const TeamMate = require('./models/team');
 const Team = require('./models/team');
 const Role = require('./models/roles');
 const User = require('./models/users');
@@ -82,8 +81,9 @@ app.use(errControll.get404);
 
 // Role.belongsTo(Admin,{constraints: true, onDelete: 'CASCADE'} );
 Role.hasOne(User,  {constraints: true, onDelete: 'CASCADE'});
-User.hasMany(Team, {constraints: true, onDelete: 'CASCADE'});
-Team.belongsTo(User);
+
+Team.belongsTo(User, { constraints: false});
+Team.hasMany(User, {constraints: false});
 
 // TeamMate.belongsTo(Accepted, {constraints: true, onDelete: 'CASCADE'});
 

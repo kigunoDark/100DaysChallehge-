@@ -364,12 +364,15 @@ exports.getTeamsPage = (req, res) =>{
     const name = req.session.user.name;
     const userId = req.session.user.id;
     const roleId = req.session.user.roleId;
+    const teamId = +req.session.user.teamId;
+    console.log('это иди в юзере: ' + teamId);
      
    Team.findAll()
     .then(teams => {
     res.render('./users/teams-page', {
         roleId: roleId,
         userId:userId,
+        teamId: teamId,
         teams: teams,
         name: name,
         pageTitle: "Команды участников",
@@ -383,6 +386,7 @@ exports.getTeamsPage = (req, res) =>{
 
 exports.getAddTeamPage = (req, res ) => {
     const name= req.session.user.name;
+    const userEmail = req.session.user.email;
     res.render("./users/add-team", {
         name: name,
         pageTitle: "Создать команду",
@@ -440,9 +444,16 @@ exports.postAddTeam = (req, res) => {
             
         })
         .then(result => {
-            console.log('Команда создана');
             res.redirect('/teams-page');
-        }).catch( err => {
+           return transporter.sendMail({
+                to: userEmail,
+                from: 'kiguno1996@gmail.com',
+                subject: 'Вы создали свою команду для "ВекторСКФО',
+                html: '<h1 Команда вектор ждет тебя!!! </h1>',
+                html: '<p style="text-align: justify; padding: 5%; margin: 0 auto;"> Добрый день. Команда "Вектор" хотела бы уведомить вас о том, что вы являетесь лидером новой команды заявка которой будет рассматриваться. Просим вас сообщить вашим ребятам о том, что они могут вступить в нее или пригласить их сами. </p>'
+            }); 
+        })
+      .catch( err => {
             console.log(err);
         });
 }
@@ -490,11 +501,13 @@ exports.getUserDetails= (req,res, next) => {
  exports.getTeamDetails= (req,res, next) => {
     const teamId = req.params.id;
     const name = req.session.user.name;
+    const roleId = req.session.user.roleId;
     const activeUserId = req.session.user.id;
     Team.findById(teamId)
     .then(team => {
      res.render('./users/team-details',
      { 
+        roleId: roleId,
         name: name,
         activeUserId: activeUserId,
         pageTitle: "Профиль участника",
@@ -506,4 +519,78 @@ exports.getUserDetails= (req,res, next) => {
     .catch(err => {
         console.log(err);
     });
+ }
+
+exports.postAddRequest = (req, res) => {
+   console.log("i've got a request");
+   const userId = req.session.user.id;
+   const teamId = req.body.teamId;
+   const userEmail = req.session.user.email;
+   User.findOne({where: {id: userId }})
+   .then( user => {
+       if(user)
+       {
+           user.update({
+               teamId: teamId
+           })
+           .then(result => {
+            res.redirect('/teams-page');
+           return transporter.sendMail({
+                to: userEmail,
+                from: 'kiguno1996@gmail.com',
+                subject: 'Вы  подали заявку в  команду',
+                html: '<h1 Команда вектор ждет тебя!!! </h1>',
+                html: '<p style="text-align: justify; padding: 5%; margin: 0 auto;"> Добрый день. Команда "Вектор" хотела бы вас уведомить о том, что вы подали заявку на вступление в команду. В ближайшее время вашу заявку рассмотрит лидер команды и примет решение. На забудьте проверять свой профиль и почту чтобы видеть свой статус. </p>'
+            }); 
+        })
+        .catch( err => {
+              
+                if(err){
+                    console.log(err);
+                } else {
+                    console.log('Вы успешно подали заявку в команду')
+                }
+              
+           })
+       }
+   })
+   req.session.user.teamId = teamId;
+}
+
+exports.postCancelRequest = (req, res) => {
+    console.log("i've got a request");
+    let userId = req.session.user.id;
+    const userEmail = req.session.user.email;
+    const deleteId = 0;
+    User.findOne({where: {id: userId }})
+    .then( user => {
+        if(user)
+        {
+            user.update({
+                teamId: deleteId
+                
+            })
+            .then(() => {
+                res.redirect('/teams-page');
+                return transporter.sendMail({
+                     to: userEmail,
+                     from: 'kiguno1996@gmail.com',
+                     subject: 'Вы отклонили заявку в команду',
+                     html: '<h1 Команда вектор ждет тебя!!! </h1>',
+                     html: '<p style="text-align: justify; padding: 5%; margin: 0 auto;"> Добрый день. Команда "Вектор" хотела бы уведомить вас о том, что вы являетесь лидером новой команды заявка которой будет рассматриваться. Просим вас сообщить вашим ребятам о том, что они могут вступить в нее или пригласить их сами. </p>'
+                 }); 
+            })
+            .catch(err => {
+                if(err)
+                {
+                    console.log(err);
+                } else {
+                    console.log('Вы успешно отменили заявку в команду!!')
+                }
+            })
+        }
+      req.session.user.teamId = 0;
+      console.log("Новая сессия с  нулем " +  req.session.user.teamId );
+    })
+    
  }

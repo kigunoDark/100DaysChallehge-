@@ -15,5 +15,7 @@ router.get('/team-details/:id', isAuth, userControll.getTeamDetails);
 
 router.post('/signup', userControll.postSignUp);
 router.post('/edit-user', isAuth, userControll.postEditUser);
-router.post('/add-team', isAuth, userControll.postAddTeam)
+router.post('/add-team', isAuth, userControll.postAddTeam);
+router.post('/teammate-request', isAuth, userControll.postAddRequest);
+router.post('/teammate-cancellation', isAuth, userControll.postCancelRequest);
 module.exports = router;

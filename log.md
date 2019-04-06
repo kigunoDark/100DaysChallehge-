@@ -646,6 +646,11 @@ Next step - validation advance level
 **Link to work:** https://github.com/kigunoDark/100DaysChallehge-
 
 
+## Day  74-75: April 6 2019 
+Finished request and cancle logic from user;
+**Today's Progress**: 
+**Link to work:** https://github.com/kigunoDark/100DaysChallehge-
+
 My problems
 link of pagination
 table connection
