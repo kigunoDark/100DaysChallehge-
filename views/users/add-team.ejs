@@ -3,17 +3,17 @@
 <section id="user">
     <div class="container team-card">
             <h1 class="title2 center"> <span class="owncolor">Создать </span> команду</h1>
-        <form action="/add-team" method="POST" enctype="multipart/form-data">
+        <form action="/<%if(editing) { %>edit-team<% } else { %>add-team <% } %>" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="Введите название" id="t_name" type="text" class="validate" name="t_name">
+                    <input placeholder="" value="<%if(editing) { %><%=team.t_name%><% } else { %><%=oldInput.t_name%><% } %>"   id="t_name" type="text" class="validate" name="t_name">
                     <label style="font-size: 18px;" for="t_name">Наименование органа студенческого самоуправления команды</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="Введите ссылку" id="t_social" type="text" class="validate" name = "t_social">
+                    <input placeholder=""  value="<%if(editing) { %><%=team.t_social%><% } else { %><%=oldInput.t_social%><% } %>" id="t_social" type="text" class="validate" name = "t_social">
                     <label style="font-size: 18px;" for="t_social">Ссылки на странички в социальных сетях</label>
                 </div>
             </div>
@@ -53,28 +53,28 @@
             <div class="row">
                 <div class="input-field col s12">
                 <p style="color:#9e9e9e;">Перечислите сильные стороны вашего органа студенческого самоуправления? Каким проектом/направлением работы/элементом организации вы гордитесь? </p>
-                <textarea placeholder="Введите ваш ответ" id="t_str" name="t_str" class="materialize-textarea" data-length="320"></textarea>
+                <textarea id="t_str" name="t_str" class="materialize-textarea" data-length="320"><% if(editing) { %><%=team.t_str%><% } else { %><%=oldInput.t_str%><% } %></textarea>
                 </div>
             </div>   
 
             <div class="row">
                 <div class="input-field col s12">
                 <p style="color:#9e9e9e;">Выделите сферу (сферы) работы вашего органа студенческого самоуправления, которая, на ваш взгляд, нуждается в формировании/усилении/разработке? </p>
-                <textarea placeholder="Введите ваш ответ" id="t_imp" name="t_imp" class="materialize-textarea" data-length="320"></textarea>
+                <textarea id="t_imp" name="t_imp" class="materialize-textarea" data-length="320"><% if(editing) { %><%=team.t_imp%><% } else { %><%=oldInput.t_imp%><% } %></textarea>
                 </div>
             </div>   
 
             <div class="row">
                 <div class="input-field col s12">
                     <p style="color:#9e9e9e;">Почему именно ваша команда должна принять участие в программе "Вектора" в этом году? </p>
-                    <textarea placeholder="Введите ваш ответ" id="t_why"  name="t_why" class="materialize-textarea" data-length="320"></textarea>
+                    <textarea id="t_why"  name="t_why" class="materialize-textarea" data-length="320"><% if(editing){%><%=team.t_why%><% } else { %><%=oldInput.t_why%><% } %></textarea>
                 </div>
             </div>   
 
             <div class="row">
                 <div class="input-field col s12">
                     <p style="color:#9e9e9e;">Укажите размеры свитшотов для вашей команды (например, 1шт. - S, 2 шт. - M и т.д.). Организаторы ничего не гарантируют, но максимально постараются учесть ваши пожелания))</p>
-                        <input placeholder="Размер свитшотов" name="t_size" id="t_size" type="text" class="validate">  
+                        <input value="<% if(editing) { %><%=team.t_size%><% } else { %><%=oldInput.t_size%><% } %>" name="t_size" id="t_size" type="text" class="validate">  
                 </div>
             </div>  
 
@@ -82,8 +82,14 @@
                 <label class="avatar" for="avatar"><i class="fas fa-camera-retro"></i> Выбрать фото</label>
                 <input class="inputfile" name="image" id="avatar" type="file"   accept="image/png, image/jpeg" > 
             </div> 
+
+            <% if (editing) { %>
+            <input class="hidden" value="<%= team.id%>" name="teamId"/>
+            <% } %>
+
             <input type="hidden" name="_csrf" value="<%=csrfToken%>">
-            <button class="right loginButton" type="submit">Добавить</button>   
+          
+            <button class="right loginButton" type="submit"> <%if(editing) { %> Изменить <% } else { %> Добавить <% } %> </button>   
         </form>
     </div>
 </section>

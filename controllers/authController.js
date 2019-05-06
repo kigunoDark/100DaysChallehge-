@@ -5,12 +5,16 @@ const User = require('../models/users');
 
 
 exports.getUserLogin = (req, res)  => {
+ 
+
    res.render('./admin/mobile-login',
     {   name: '',
         pageTitle: "ВЕКТОР АДМИН",
         pageTipe:"mobileLogin",
-        isAuthenticated: req.isLoggedIn
+        isAuthenticated: req.isLoggedIn,
+        userId: req.id
     })
+    
 }
 
 exports.postLogin = (req, res) => {
@@ -30,7 +34,6 @@ exports.postLogin = (req, res) => {
             if(doMatch){
                 req.session.isLoggedIn = true;
                 req.session.user = user; 
-                // res.locals.adminId =  +req.session.user.roleId;
            
                return req.session.save(err=>
                 {

@@ -7,6 +7,10 @@
     "node": "10.15.0"
   },
   "scripts": {
+    "client-install": "npm install --prefix client",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
@@ -24,6 +28,7 @@
     "animate.css": "^3.7.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
     "connect-flash": "^0.1.1",
     "connect-session-sequelize": "^6.0.0",
     "cookie-parser": "^1.4.4",
@@ -40,7 +45,10 @@
     "mysql2": "^1.6.4",
     "nodemailer": "^5.1.1",
     "nodemailer-sendgrid-transport": "^0.2.0",
+    "react-router-dom": "^5.0.0",
+    "save": "^2.3.3",
     "sequelize": "^4.42.0",
+    "soket.io": "^1.0.0",
     "validator": "^10.11.0"
   },
   "devDependencies": {},

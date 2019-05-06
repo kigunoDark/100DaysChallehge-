@@ -15,7 +15,7 @@ router.get('/detail-teammate/:id', isAuth, adminControll.getTeammate);
 router.get('/edit-teammate/:id', isAuth, adminControll.getEditTeammate);
 router.get('/admins', isAuth, adminControll.getAddAdmin);
 router.get('/reset', isAuth, adminControll.getReset);
-router.post('/reset',isAuth, adminControll.postReset);
+router.post('/reset',isAuth, adminControll.postReset)
 router.get('/reset/:token', isAuth, adminControll.getResetPassword);
 router.post('/new-password', isAuth, adminControll.postNewPassword);
 router.post('/admin-add', 

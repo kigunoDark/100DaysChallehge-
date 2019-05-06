@@ -2,79 +2,58 @@
 
 
     <div class="container user-card">
+        <article class="hidden"> <%= team.id%> </article>
         <div class="row edit-person">
             <div class="col s12 m4 left">
-               
+            <ul class="contact-info">
+                 <img class="mamber materialboxed z-depth-2 responsive-img circle" width="500px" src="/<%= team.photo %>">
+            <span id="per-info"> Основная информация</span> 
+            <%  for(let user of users ) { %>
+                <% if(user.roleId === 4) { %>
+                <li >ФИО лидера комады:</li>
+                <li class="team-info"> <%= user.surname %> <%= user.name %> <%= user.secondname %> </li>
+                <li >Контакты лидера:</li>
+                <li class="team-info"><%= user.social%> </li> 
+                <li>Город команды:</li>
+                <li class="team-info"><%= user.city%> </li> 
+                <li>Учебное заведение команды:</li>
+                <li class="team-info"> <%= user.univercity %></li>
+                <li>Контакты команды::</li>
+                 <li><a class="team-info" href="<%= team.t_social %>"> Email</i></a></li>  
+                <% } %>
+            <%} %>
+            </ul>   
             </div>
     
-        <div class="col s12 m8">
-            <div class="selfpresent">
-            <p class=" team-title  profile-text"><%= team.t_name %></p>
-            <p class="team-desctiption">  <span style="color:black;"></p> 
-        
-        </div>
-     
-    </div>
-    <div class="row">
-    <div class="col s12 m4">
-    <ul class="contact-info">
-            <span id="per-info">  Персональная информация </span> 
-                <li>ФИО лидера комады:</li>
-                <li class="team-info">???  </li> 
-                <li>Город команды:</li>
-                <li class="team-info"> ???? </li> 
-                <li>Учебное заведение команды:</li>
-                <li class="team-info"> ???  </li> 
-            </ul>
-        </div>
-        <div class="col s12 m8">
- 
-            <ul  class="collapsible">
-                <li>
-                    <div  class="collapsible-header"><i class="fas fa-chalkboard-teacher"></i>Самоанализ</div>
-                    <div class="collapsible-body"> Предпочел бы изменить в себе: <span class="team-info"> <%=team.t_str%>.</span></div>
-                    <div class="collapsible-body"> Сильные стороны характера: <span class="team-info"><%=team.t_imp%>.</span></div>
-                    <div class="collapsible-body"> Почему хочу принять участие: <span class="team-info"><%=team.t_why%>.</span></div>
-                </li>
-                <li>
-                    <div class="collapsible-header"><i class="fas fa-book-reader"></i>Опыт</div>
-                        <div class="collapsible-body"> Мероприятия в которых участвовали: <span class="team-info"><%=team.t_exp%>.</span></div>
-                        <div class="collapsible-body"> Направления общественной теятельности: <span class="team-info"></span></div>
-                    <div class="collapsible-body">Опыт учаастия в общественной деятельности: <span class="team-info"><%= team.exp%></span></div>
-                </li>
-                <li>
-                    <div class="collapsible-header"><i class="fas fa-mobile"></i>Контакты</div>
-                    <div class="collapsible-body"><span>
-                    <ul>   
-                        <li>Социальная сеть команды:</li>
-                        <li > <a class="team-info" href="<%= team.t_social %>"> <%= team.t_social %> </a> </li> 
-                        <li>E-mail лидера команды:</li>
-                        <li> <a class="team-info" href="mailto:<%=  %>"> ??? </a>  </li>
-                        <li>Номер телефона лидера команды:</li>
-                        <li> <a  class="team-info">??? </a> </li> 
+    <div class="col s12 m8">
+            <div>
+                <p class="team-title  profile-text"><%= team.t_name %></p>
+                    <p class="team-desctiption">  <span style="color:black;"></p> 
+                    <ul class="collection with-header">
+                    <li class="collection-header"><h6>Команда</h6></li>
+                    <%  for(let user of users ) { %>
+                    <a href="#!" class="collection-item"><%= user.surname %> <%= user.name %><%= user.secondname %></a>  
+                    <% } %>
                     </ul>
-                    </span></div>
-                </li>
-            </ul>
-            </p>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">        
+    <% if (roleId === 4) { %>
+        <a class="right linkButton" href="/edit-team/<%=team.id %>?edit=ture">Изменить </a>
+        <form action='/delete-team' id="delete-team" method="POST">
+            <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+            <input type="hidden" name="teamId" value="<%=team.id%>">
+            <a href="javascript:{}" onclick="document.getElementById('delete-team').submit();" class=" right linkButton"> Удалить </a>
+        </form>
+
+       
+    <% } %>
         
-            <% if (roleId === 4) { %>
-                <a class="right linkButton" href="/edit-user/<%=team.id %>?edit=ture">Изменить </a>
-            <% } %>
-         
-            <a class="right linkButton" href="/profile" alt="Создать свою команду">Профиль</a>
-            <a class="right linkButton" href="/teams-page" alt="Создать свою команду">Команды</a>
-                
-        </div> 
-   
-    </div>
- 
-    </div>
-      
-            
-  
+    </div> 
+</div>  
 </div>     
-
-
 
 <%- include('../layouts/footer.ejs') %>

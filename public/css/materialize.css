@@ -3148,7 +3148,8 @@ td, th {
   display: block;
   -webkit-transition: .25s;
   transition: .25s;
-  color: #26a69a;
+  color: #31302d;
+ 
 }
 
 .collection a.collection-item:not(.active):hover {
@@ -7590,7 +7591,7 @@ input[type=range]::-ms-thumb {
 }
 
 .sidenav li.active {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.06);
 }
 
 .sidenav li > a {

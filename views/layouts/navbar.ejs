@@ -78,36 +78,6 @@
                     
                 </ul>
 
-                <!-- PC Navbar for admin -->
-                
-                <% } else if (pageTipe === "admin"){ %>
-
-                <ul class="right hide-on-med-and-down">
-
-                    <li><a class="menu" href="#aboutvector">О нас</a></li>
-                    <li><a class="menu" href="#info">О проекте</a></li>
-                    <li><a class="menu" href="#about">Программа</a></li>
-                    <li><a class="menu" href="#team">Команда</a></li>
-                    <li><a class="menu" href="#contacts">Контакты</a></li>
-
-                   <li>
-                    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                        <a class='menu dropdown-trigger ' href='#' data-target='dropdown1'>Войти</a>
-                            <ul id='dropdown1' class='dropdown-content'>
-                                <form class="log" action="/login", method="POST"> 
-                                    <div class="container">
-                                        <p>
-                                            <h5 class="center" style="font-weight: bold;"> Вход </h5>
-                                                <input type="hidden" name="_csrf" value="<%=csrfToken%>">
-                                                <input  id="autocomplete-input" class="autocomplete" type="text" name="adminEmail" placeholder="E-mail"> <br />
-                                                <input  id="autocomplete-input" class="autocomplete" type="password" name="adminPassword" placeholder="Пароль"> 
-                                            <button class="admSubmit" type="submit"> Submit</button>
-                                        </p>
-                                    </div>
-                                </form>
-                            </ul>
-                    </li>
-                </ul> 
 
             <!-- AdminIn Version -->    
                 
@@ -116,8 +86,14 @@
                 <ul id="dropdown1" class="dropdown-content">
                     <li><a href="/profile"> <i class="far fa-list-alt"></i>Профиль</a></li>
                     <li><a href="/admin/adminTeam/?page=1"><i class="far fa-address-card"></i>Сотрудники</a></li>
-                    <li><a href="/teams-page"><i class="fas fa-users"></i>Команды</a></li> 
+                    <li><a href="/teams-page"><i class="fas fa-users"></i>Команды</a></li>
+                    <%if(pageTipe != 'users') { %>
+                        <%if(roleId === 4) { %>
+                             <li><a href="/team-requests"><i class="fas fa-envelope"></i>Заявки</a></li>
+                        <% } %>
+                    <% } %>
                     <li><a href="/users-list"><i class="far fa-user"></i>Участники</a></li>
+                    
                     <form id="logOut" action="/user-logout" method="POST">  
                         <li>  
                             <input type="hidden" name="_csrf" value="<%=csrfToken%>">
@@ -156,6 +132,7 @@
             <li><a class="menu" href="#about">Программа</a></li>
             <li><a class="menu" href="#team">Команда</a></li>
             <li><a class="menu" href="#contacts">Контакты</a></li>
+            <li><a class="menu" href="/user-login">Войти</a></li>
 
         <!-- Mobile navbar for admin -->
 
@@ -169,10 +146,27 @@
             <li>><a class="menu", href = "/mobileLogin" >Войти</a></li>
 
          <% } else if(pageTipe === "adminIn") { %>
-               
-            <li><a class="menu" href="#aboutvector">Участники</a></li>
-            <li><a class="menu" href="#aboutvector">Команды</a></li>
-            <li><a class="menu" href="#aboutvector">Выход</a></li>
+         
+         <li><a href="/profile" class="menu" > Профиль</a></li>
+         <%if(pageTipe != 'users') { %>
+            <%if(roleId === 4) { %>
+                <li><a href="/teams-page" class="menu" >Заявки</a></li>
+            <% } %>
+        <% } %>
+         <li><a href="/teams-page"class="menu">Команды</a></li>
+         <li><a href="/users-list" class="menu" >Участники</a></li>
+         <%if(pageTipe === 'adminIn') { %>
+            <%if(roleId === '2' || roleId === '1') { %>
+                <li><a href="/admin/adminTeam/?page=1" class="menu" >Сотрудники</a></li>
+            <% } %>
+         <% } %>
+         <form id="logOut" action="/user-logout" method="POST">  
+             <li>  
+                 <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                 <a href="javascript:{}" class="menu"  onclick="document.getElementById('logOut').submit();">Выход</a>
+             </li>
+         </form> 
+            
         <% } %>
     </ul>   
 </div>

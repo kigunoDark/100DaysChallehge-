@@ -18,6 +18,7 @@ const flash = require('connect-flash');
 const Team = require('./models/team');
 const Role = require('./models/roles');
 const User = require('./models/users');
+const Status = require('./models/status');
 
 
 const app = express();
@@ -63,8 +64,31 @@ app.use(flash());
 app.use((req,res,next) => {
     res.locals.isAuthenticated = req.session.isLoggedIn;
     res.locals.csrfToken = req.csrfToken();
-    // res.locals.name= req.session.user.name;
-    // res.locals.adminId =  +req.session.user.roleId;
+    if(res.locals.isAuthenticated)
+    {
+      
+        const id = req.session.user.id;
+         User.findById(id)
+            .then(user => {
+    
+                res.locals.userId = user.id;
+                res.locals.name = user.name;
+                res.locals.roleId = user.roleId;
+        
+        })
+        .catch(err => {
+
+            if(err)
+            {
+                console.log(err);
+            } else {
+                console.log('Find everything!');
+            }
+
+        })
+    
+    }
+   
     next();
 })
 
@@ -82,8 +106,14 @@ app.use(errControll.get404);
 // Role.belongsTo(Admin,{constraints: true, onDelete: 'CASCADE'} );
 Role.hasOne(User,  {constraints: true, onDelete: 'CASCADE'});
 
-Team.belongsTo(User, { constraints: false});
+User.belongsTo(Team, { constraints: false});
 Team.hasMany(User, {constraints: false});
+User.hasOne(Team, {constraints:false});
+Team.belongsTo(User,{constraints: false});
+
+Status.belongsTo(User,{ as: 'userinfo', foreignKey: { name: 'userId' }, constraints: false});
+Status.belongsTo(Team,{ as: 'teaminfo', foreignKey: { name: 'teamId' }, constraints: false});
+
 
 // TeamMate.belongsTo(Accepted, {constraints: true, onDelete: 'CASCADE'});
 
@@ -98,13 +128,17 @@ sequelize
    return admin;
 })
 .then( admin => {
-    app.listen(process.env.PORT || 3000, (err,next) => {
+    const server = app.listen( 8080, (err,next) => {
         if(err){
             console.log("Server is not working!");
         } else {
-            console.log("Your server is running on a port 3000");
+            console.log("Your server is running on a port 8080");
         }
-    }); 
+    });
+    const io = require('soket.io')(server);
+    io.on('connection', socket => {
+        console.log('Client connected');
+    }) 
 })
 .catch(err => {
     console.log(err);

@@ -1,3 +1,4 @@
+<%if(roleId) { %>
 <%- include('../layouts/navbar.ejs')%>
 
 
@@ -5,7 +6,7 @@
 <% if(teams.length > 0) { %>
 
 <div class="container teams-card">
-    <h1 class="title2 center"> <span class="owncolor">Список </span> команд</h1>
+    <h1 class="title2 center"> <span class="owncolor">Список </span> команд  </h1>
     
     <div class="row">
     <%  for(let team of teams) { %>
@@ -15,13 +16,13 @@
                 <img src="<%= team.photo %>">
                 <span class="parFio card-title"><%= team.t_name %></span>
             </div>
-           
+
                 <div class="card-action">
                     <div class="inline">
+                    
                             <a href="/team-details/<%=team.id%>"><i class="left more fas fa-info-circle"></i></a>
-                        <% if(  teamId === team.id  && team.userId != userId ) {%>
-    
-                        
+                       
+                        <% if( roleId != 4 && user.teamStatus === "Заявка подана" && status.teamId === team.id) {%>
                             <a href="#modal1" class="modal-trigger"><i class="left more far fa-check-circle"></i></a>
                             
                             <div id="modal1" class="modal">
@@ -38,9 +39,9 @@
                                     </form>
                                   </div>
                                 </div>
-                         
-                        <% } else if(team.userId != userId && teamId === 0 ) { %>
-     
+                               
+                        <% } %>
+                        <% if( user.teamStatus === "Команды нет" ) { %>
                                 <a href="#modal1" class="modal-trigger"><i class="left more fas fa-plus-circle"></i></a>
                                 <!-- Check a user request -->
                                 <div id="modal1" class="modal">
@@ -50,18 +51,36 @@
                                   </div>
                                   <div class="modal-footer">
                                     <form id="teamAddRequest" action="/teammate-request" method = "POST">
+                                  
                                         <input type="hidden" name="_csrf" value="<%=csrfToken%>">
-                                        <input type="hidden" name="teamId" value="<%=team.id%>">
+                                        <input type="hidden" name="teamId" value="<%= team.id %>">
                                         <a href="#!" class="modal-close waves-effect waves-green btn-flat">Отменить</a>
                                         <a href="javascript:{}"  class="modal-close waves-effect waves-green btn-flat" onclick="document.getElementById('teamAddRequest').submit();">Принять</i></a>
                                     </form>
                                   </div>
                                 </div>
-                     
-                        <% }  else if(team.userId === userId) { %>
-                            <a href="#modal1"><i class="left more fas fa-edit"></i></a>
-                        <% } %> 
-                    
+                 
+                        <% } else if( user.teamStatus === "Принят" && user.teamId === team.id ) {%>
+                      
+                        <a href="#modal2" class="modal-trigger"><i class="left more fas fa-minus-circle"></i></a> 
+                        <div id="modal2" class="modal">
+                            <div class="modal-content">
+                                <h6 class="regTitle">Заявка в команду</h6>
+                                    <p> Вы действительно хотите откланить заявку данного участника в команду? После согласия ему на почту будет отправленно подтверждение!</p>
+                            </div>
+                                <div class="modal-footer">
+                                    <form class="adminInt" id="reject-user" action="/teammate-cancellation" method="POST">
+                                        <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                                          <input type="hidden" name="teamId" value="<%=team.id%>">
+                                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Отменить</a>
+                                        <a href="javascript:{}"  class="modal-close waves-effect waves-green btn-flat" onclick="document.getElementById('reject-user').submit();">Отказать</i></a>
+                                    </form>
+                                </div>
+                            </div>        
+                        <%} %>
+                        <%if(team.userId === userId) { %>
+                            <a  href="/edit-team/<%=team.id %>?edit=ture"><i class="left more fas fa-edit"></i></a>
+                        <% }  %>
                     </div>   
                 </div>
             </div>
@@ -69,15 +88,22 @@
         <% } %>
     </div>
     <div class="row"> 
-    
-        <% if(roleId === 5 && !teamId) { %>
+        <% if(roleId === 5 && !user.teamId) { %>
             <a class="right linkButton" href="/add-team" alt="Создать свою команду"> Добавить </a>  
         <% } %>
     </div>
 
 </div>
+<% } else { %>
+    <div class="container  teams-card">
+        <h3 class="center title1"> В списке нет команд </h3>
+    <a class="right linkButton" href="/add-team" alt="Создать свою команду"> Добавить </a>  
+    </div>
 <% } %>
 
 
 
 <%- include('../layouts/footer.ejs') %>
+<% } else {%>
+ <h1> Her </h1>
+ <% } %>

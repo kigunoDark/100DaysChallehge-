@@ -1,0 +1,89 @@
+<%- include('../layouts/navbar.ejs')%>
+<main  class="  "> 
+<div  class="container">
+
+<% if (statuses.length > 0 ) { %>
+<table class="team-table highlight responsive-table">
+        <thead>
+            <tr>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Должность</th>
+            <th>Город</th>
+            <th class="center">Профиль</th>
+            <th class="center">Принять</th>
+            <th class="center">Отклонить</th>
+            </tr>
+        </thead>
+
+        <tbody class="all-users">
+
+    <article id='reqInfo'>
+        <% for (let status of statuses) { %>
+            <tr>
+                <td><%= status.userinfo.surname %></td>
+                <td><%= status.userinfo.name %></td>
+                <td><%= status.userinfo.secondname %></td>
+                <td><%= status.userinfo.position %> </td>
+                <td><%= status.userinfo.city %> </td>
+                <td class="center">
+                    <a  href="/user-details/<%=status.userinfo.id%>"  class="teamEdit" > <i class="fas fa-info-circle"></i> </a>
+                </td>
+                <td class="center">
+                <a href="#modal1" class="modal-trigger"><i class="userAdd fas fa-plus-circle"></i></a>          
+                </td>
+                <div id="modal1" class="modal">
+                <div class="modal-content">
+                <h5 class="regTitle">Принять заявку на вступление в команду</h5>
+                        <p> Вы действительно хотите принять данного участника в команду? После согласия ему на почту будет отправленно подтверждение!</p>
+                </div>
+                    <div class="modal-footer">
+                        <form class="adminInt" id="delete-teammate" action="/accept-user" method="POST">
+                            <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                            <input type="hidden" value="<%= status.userinfo.id %>" name="teamMateId">
+                            <input type="hidden" value="<%= status.teamId %>" name="teamId">
+                            <input type="hidden" value="<%= status.userinfo.email %>" name="teamMateEmail">
+                            <a href="#!" class="requesty modal-close waves-effect waves-green btn-flat">Отменить</a>
+                            <a href="javascript:{}"  class="requesty modal-close waves-effect waves-green btn-flat" onclick="document.getElementById('delete-teammate').submit();">Принять</i></a>
+                        </form>
+                    </div>
+                </div>      
+
+                <td class="center">
+                     <a href="#modal2" class="modal-trigger"><i class="userAdd fas fa-minus-circle"></i></a>    
+                 <div id="modal2" class="modal">
+            <div class="modal-content">
+                <h6 class="regTitle">Отклонить заявку на вступление в команду</h6>
+                    <p> Вы действительно хотите откланить заявку данного участника в команду? После согласия ему на почту будет отправленно подтверждение!</p>
+            </div>
+                <div class="modal-footer">
+                        <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                        <input type="hidden" value="<%= status.userinfo.id %>" name="teamMateId">
+                        <input type="hidden" value="<%= status.userinfo.email %>" name="teamMateEmail">
+                        <a href="#!" class="requesty modal-close waves-effect waves-green btn-flat">Отменить</a>
+                        <% if (statuses.length > 1) {%>
+                        <a href="javascript:{}"  class="requesty modal-close waves-effect waves-green btn-flat" onclick="deleteTeam(this)">Отказать</i></a>
+                        <% } else {  %>
+                 <a href="javascript:{}"  class="requesty modal-close waves-effect waves-green btn-flat" onclick="deleteTeams(this)">Отказать</i></a>
+                        <% } %>
+                </div>
+            </div>             
+                </td>
+            </tr>
+            <%}%>
+        </article>
+    </tbody>
+</table>
+<% } else { %>
+   
+    <div class="container  teams-card">
+        <h3 class="center title1">Список заявок пуст </h3>
+    </div>
+        <a  class="right linkButton" href="/users-list" alt="Создать свою команду"> Пригласить </a>   
+<% } %>
+</div>
+</main>
+
+<%- include('../layouts/footer.ejs') %>
+<script src="/js/user.js"> </script>

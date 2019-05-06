@@ -12,12 +12,21 @@
             <div class="selfpresent">
             <p class=" team-title  profile-text"><%= user.name %> <%= user.surname %> </p>
             <p class="team-desctiption">  <span style="color:black;"> Должность: </span><%= user.position %></p> 
-            <p class="team-desctiption"> <span style="color:black;"> Статус:</span> <% if (roleId === 5) { %> Участник <% } else if (roleId === 4 ) { %> Лидер команды <% } else if(roleId === 3) { %> Ментор <% } %></p>
-
-            <p class=" <% if(user.status === "Заявка рассматривается" ) { %> in-process <% } else if (user.status === "Заявка принята") { %> accepted-user <% } else if (user.status === "Заявка отклонена") { %> rejected <% } %> "> <span style="color:black;"> Статус заявки: </span><%=user.status%></p>
-            <p class="team-desctiption"> <span style="color:black;"> Стать наставником: <a href="#" style=" color: #f2d243; text-shadow: 1px 1px 3px #000000;">Подать заявку</a></span> 
-      
-            <p class="team-desctiption"> <span style="color:black;"> Создать команду: <a href="#" style=" color: #f2d243; text-shadow: 1px 1px 3px #000000;">Создать команду</a></span> 
+            <p class="team-desctiption"> <span style="color:black;"> Статус: </span> <% if (user.roleId === 5) { %> Участник <% } else if (user.roleId === 4 ) { %> Лидер команды <% } else if(user.roleId === 3) { %> Ментор <% } %> </p>
+            <p class="team-desctiption <% if(user.status === 'Заявка рассматривается' ) { %> in-process <% } else if (user.status === 'Заявка принята') { %> accepted-user <% } else if (user.status === 'Заявка отклонена') { %> rejected <% } %> "> 
+                <span style="color:black;"> Статус заявки: </span>
+             
+            </p> 
+           
+            <% if(user.teamStatus != 'Лидер команды' && user.teamStatus != "Принят") { %>
+                <p class="team-desctiption">
+                <form class='team-desctiption' action='/mentor-request' method="POST" id="mentRequest">
+                    <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                    <span style="color:black;"> Стать наставником: <a href="javascript:{}" onclick="document.getElementById('mentRequest').submit();" style=" color: #f2d243; text-shadow: 1px 1px 3px #000000;">Подать заявку</a></span> </p>
+                </form>
+            <% } %>
+            
+            <p class="team-desctiption"> <span style="color:black;"> Команда: <a href="<%if(user.roleId === 5 && !user.teamId || user.teamId === 0) { %>/teams-page<% } else { %>/team-details/<%=user.teamId%><% } %>" style=" color: #f2d243; text-shadow: 1px 1px 3px #000000;"><%if(user.roleId === 5 && !user.teamId || user.teamId === 0) { %>Создать команду<% } else { %> Смотреть команду <% } %></a></span> </p>
             </div>
         </div>
      

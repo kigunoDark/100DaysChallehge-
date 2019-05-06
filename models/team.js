@@ -41,6 +41,7 @@ const Team =  sequelize.define('teams', {
         type: Sequelize.STRING,
         allowNull: false
     }
+ 
 })
 
 module.exports = Team;

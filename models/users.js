@@ -82,14 +82,19 @@ const User = sequelize.define('user', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    status: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
     password: {
          type: Sequelize.TEXT,
          allowNull: false
-     }     
+     },    
+     teamStatus:{ 
+         type: Sequelize.TEXT,
+         allowNull: true
+    },
+    eventStatus:{
+        type: Sequelize.TEXT,
+        allowNull: true
+    }
+
 });
 
 module.exports = User;

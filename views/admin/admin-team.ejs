@@ -77,7 +77,8 @@
    </section>
 
     <form action="/admin/add-teammate">
-        <button class="right loginButton "  type="submit">Добавить</button>
+  
+        <button class="right loginButton "  type="submit">  <% if(editing) { %> Изменить <% } else { %> Добавить <% } %></button>
     </form>
  
    <% } else { %>
