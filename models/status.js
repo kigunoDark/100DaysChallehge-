@@ -7,12 +7,7 @@ const Status =  sequelize.define('statuses', {
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
-    },
-    s_type:{
-        type: Sequelize.TEXT,
-        allowNull: true
     }
-    
 })
 
 module.exports = Status;

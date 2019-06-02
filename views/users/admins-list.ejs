@@ -1,0 +1,55 @@
+<%- include('../layouts/navbar.ejs')%>
+<main class="users-page"> 
+<% if (admins.length > 0 ) { %>
+<div class="container"> 
+    <table class="team-table highlight responsive-table">
+        <thead>
+        <tr>
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Отчество</th>
+        <th>Должность</th>
+        <th>Город</th>
+        </tr>
+        </thead>
+        <tbody class="all-users">
+        <% for (let admin of admins ) { %>
+        <tr  class="<%if(admin.id === userId) { %> accepted-user <% }%>">
+            <td><%= admin.surname %></td>
+            <td><%= admin.name%></td>
+            <td><%= admin.secondname%></td>
+            <td><%= admin.position %> </td>
+            <td><%= admin.city %> </td>
+        </tr>
+       <% } %>
+        </tbody>
+    </table>
+
+    <% if( roleId === 1 ) { %>
+    <form action="/admin/add-teammate">
+        <button class="right loginButton modal-trigger"   data-target="modal3"   type="submit">Добавить</button>
+    </form>
+      <div id="modal3" class="modal">
+      <h5 class="modal-close cross">&#10005</h5>
+        <div class="modal-content">
+            <h4 class="regTitle">Добавить администратора</h4>
+            <div class="row">
+                <div class="input-field col s12">
+                    <%- include('./add-admin.ejs')%>    
+                </div>
+            </div>
+        </div>
+            <div class="modal-footer">
+            <a href="javascript:{}" onclick="document.getElementById('add-admin').submit();" style="color:#f2d243;"  class="modal-close waves-effect waves-green btn-flat">Принять</a>
+        </div>
+    </div>
+ 
+<% } %>
+
+</div>
+<%} else  { %>
+    <h1> Не существует ни одного администратора, что-то случилось обратитесь в техподдержку </h1>
+<% } %>
+</main>
+
+<%- include('../layouts/footer.ejs') %>

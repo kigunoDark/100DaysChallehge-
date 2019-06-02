@@ -46,7 +46,24 @@
         <form action='/delete-team' id="delete-team" method="POST">
             <input type="hidden" name="_csrf" value="<%=csrfToken%>">
             <input type="hidden" name="teamId" value="<%=team.id%>">
+           
+           <% if (statuses.length > 0) { %> 
+            <a href="#modal1" class="modal-trigger right linkButton" >Удалить</a>
+             <div id="modal1" class="modal">
+                 <h5 class="modal-close cross">&#10005</h5>
+                     <div class="modal-content">
+                         <h4 class="regTitle">Удаление команды <%= team.t_name %></h4>
+                        <p> Для того, чтобы удалить команду, вам необходимо отменить все заявки.</p>
+                        </div>
+                    <div class="modal-footer">
+                          <a href="/team-requests"  class="requesty modal-close waves-effect waves-green btn-flat">Заявки</a>
+                     </form>
+                </div>
+             </div>
+           
+           <% } else { %>
             <a href="javascript:{}" onclick="document.getElementById('delete-team').submit();" class=" right linkButton"> Удалить </a>
+            <% } %>
         </form>
 
        

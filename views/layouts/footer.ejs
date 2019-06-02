@@ -1,3 +1,4 @@
+
 <footer class="page-footer mobileFooter ">
 <div class="container ">
     <div class="row ">
@@ -35,9 +36,14 @@
 
 
 <!--  Scripts-->
+<script src="/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-2.1.1.min.js "></script>
 <script src="/js/materialize.js "></script>
 <script src="/js/init.js "></script>
+
+<% if (isAuthenticated) { %>
+<script src="/js/socketioVec.js"> </script>
+<% } %>
 </body>
 
 </html>

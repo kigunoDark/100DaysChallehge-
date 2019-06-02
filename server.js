@@ -1,5 +1,8 @@
 const path = require('path');
 const express = require('express');
+const app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 const bodyParser = require('body-parser');
 const adminRoute = require('./routes/adminRoute');
 const errControll = require('./controllers/errorController');
@@ -13,15 +16,14 @@ const csrf = require('csurf');
 // Для вывода ошибок через сессию
 const flash = require('connect-flash');
 
-
 // My models
 const Team = require('./models/team');
 const Role = require('./models/roles');
 const User = require('./models/users');
 const Status = require('./models/status');
 
+var requests = [];
 
-const app = express();
 const csrfProtection = csrf();
 
 const fileFilter = (req,file, cb) => {
@@ -32,6 +34,7 @@ const fileFilter = (req,file, cb) => {
     }
  
 }
+
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'images');
@@ -68,6 +71,7 @@ app.use((req,res,next) => {
     {
       
         const id = req.session.user.id;
+        
          User.findById(id)
             .then(user => {
     
@@ -86,9 +90,7 @@ app.use((req,res,next) => {
             }
 
         })
-    
     }
-   
     next();
 })
 
@@ -113,13 +115,11 @@ Team.belongsTo(User,{constraints: false});
 
 Status.belongsTo(User,{ as: 'userinfo', foreignKey: { name: 'userId' }, constraints: false});
 Status.belongsTo(Team,{ as: 'teaminfo', foreignKey: { name: 'teamId' }, constraints: false});
-
-
 // TeamMate.belongsTo(Accepted, {constraints: true, onDelete: 'CASCADE'});
+
 
 sequelize
 .sync()
-
 .then(admin => {
    if(!admin)
    {
@@ -127,18 +127,47 @@ sequelize
    }
    return admin;
 })
-.then( admin => {
-    const server = app.listen( 8080, (err,next) => {
+.then( () => {
+   http.listen(8080, (err,next) => {
         if(err){
             console.log("Server is not working!");
         } else {
             console.log("Your server is running on a port 8080");
         }
+
+        io.on('connection', function(socket) {
+         
+            socket.on('addRequest', function(newRequest) {
+                const reqTeamMateId = newRequest.reqTeamMateId;
+                console.log(reqTeamMateId);
+                const reqTeamId = newRequest.reqTeamId;
+                const ms = "  1";
+                User.findById(reqTeamMateId)
+                .then(user => {
+                    console.log(user.name);
+                    
+                });
+                User.findById(reqTeamMateId)
+                .then(user => {
+                    if(user)
+                    {
+                    user.update({
+                        teamId:reqTeamId,
+                        teamStatus: "Принят"
+                    })
+                    Status.destroy({where: {userId:reqTeamMateId}})
+                    io.emit("addRequest", ms );
+                    return user.save();
+                }
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+            })
+            console.log('Socket is working')
+        })
     });
-    const io = require('soket.io')(server);
-    io.on('connection', socket => {
-        console.log('Client connected');
-    }) 
+
 })
 .catch(err => {
     console.log(err);

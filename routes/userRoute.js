@@ -15,7 +15,11 @@ router.get('/user-details/:id', isAuth, userControll.getUserDetails);
 router.get('/team-details/:id', isAuth, userControll.getTeamDetails);
 router.get('/edit-team/:id', isAuth, userControll.getEditTeam);
 router.get('/team-requests', isAuth, userControll.getRequestsPage);
+router.get('/admins-list', isAuth, userControll.getAdmins);
 
+
+router.post('/decline-all', isAuth, userControll.declineAllRequests);
+router.post('/add-admin', isAuth, userControll.postAddAmin);
 router.post('/delete-team', isAuth, userControll.postDeleteTeam);
 router.post('/edit-team', isAuth, userControll.postEditTeam);
 router.post('/signup', userControll.postSignUp);

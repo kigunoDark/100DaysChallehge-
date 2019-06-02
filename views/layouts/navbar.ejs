@@ -94,6 +94,9 @@
                     <% } %>
                     <li><a href="/users-list"><i class="far fa-user"></i>Участники</a></li>
                     
+                    <% if(roleId === 1 ) { %>
+                        <li><a href="/admins-list"><i class="fas fa-user-shield"></i>Админы</a></li>
+                    <% } %>
                     <form id="logOut" action="/user-logout" method="POST">  
                         <li>  
                             <input type="hidden" name="_csrf" value="<%=csrfToken%>">
@@ -104,7 +107,8 @@
             
                   <ul class="adminUl right hide-on-med-and-down">
                     <!-- Dropdown Trigger -->
-                       <li><a class='aminIcon dropdown-trigger' href='#' data-target='dropdown1'> <span class="prof-name"> <%=name%> </span> <i class=" far fa-user-circle"></i> </a> </li> 
+                       <li><a class='aminIcon dropdown-trigger' href='#' data-target='dropdown1'> <span class="prof-name"> <%=name%> </span> <i class=" far fa-user-circle"></i> </a></li>
+                   
                   </ul>
 
                 <% } else if(pageTipe === "mobileLogin") { %>

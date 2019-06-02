@@ -1,5 +1,6 @@
 <%- include('../layouts/navbar.ejs')%>
-<main  class="  "> 
+<main  class="user-dashboard"> 
+
 <div  class="container">
 
 <% if (statuses.length > 0 ) { %>
@@ -18,7 +19,7 @@
         </thead>
 
         <tbody class="all-users">
-
+   
     <article id='reqInfo'>
         <% for (let status of statuses) { %>
             <tr>
@@ -31,50 +32,66 @@
                     <a  href="/user-details/<%=status.userinfo.id%>"  class="teamEdit" > <i class="fas fa-info-circle"></i> </a>
                 </td>
                 <td class="center">
-                <a href="#modal1" class="modal-trigger"><i class="userAdd fas fa-plus-circle"></i></a>          
+                    <a href="#modal1" class="modal-trigger"><i class="userAdd fas fa-plus-circle"></i></a>          
                 </td>
                 <div id="modal1" class="modal">
+                <h5 class="modal-close cross">&#10005</h5>
                 <div class="modal-content">
                 <h5 class="regTitle">Принять заявку на вступление в команду</h5>
                         <p> Вы действительно хотите принять данного участника в команду? После согласия ему на почту будет отправленно подтверждение!</p>
                 </div>
                     <div class="modal-footer">
-                        <form class="adminInt" id="delete-teammate" action="/accept-user" method="POST">
+                        <form class="adminInt" id="accept-teammate"  >
                             <input type="hidden" name="_csrf" value="<%=csrfToken%>">
-                            <input type="hidden" value="<%= status.userinfo.id %>" name="teamMateId">
-                            <input type="hidden" value="<%= status.teamId %>" name="teamId">
-                            <input type="hidden" value="<%= status.userinfo.email %>" name="teamMateEmail">
-                            <a href="#!" class="requesty modal-close waves-effect waves-green btn-flat">Отменить</a>
-                            <a href="javascript:{}"  class="requesty modal-close waves-effect waves-green btn-flat" onclick="document.getElementById('delete-teammate').submit();">Принять</i></a>
+                            <input type="hidden" id="reqTeamMateId" value="<%= status.userinfo.id %>" name="teamMateId">
+                            <input type="hidden" id="reqTeamId" value="<%= status.teamId %>" name="teamId">
+                            <input type="hidden" id="reqTeamMateEmail" value="<%= status.userinfo.email %>" name="teamMateEmail">
+                            <input type="submit"  value="принять"  class="requesty btn btn btn-flat modal-close  waves-green">
                         </form>
                     </div>
                 </div>      
 
                 <td class="center">
-                     <a href="#modal2" class="modal-trigger"><i class="userAdd fas fa-minus-circle"></i></a>    
-                 <div id="modal2" class="modal">
-            <div class="modal-content">
-                <h6 class="regTitle">Отклонить заявку на вступление в команду</h6>
-                    <p> Вы действительно хотите откланить заявку данного участника в команду? После согласия ему на почту будет отправленно подтверждение!</p>
-            </div>
-                <div class="modal-footer">
-                        <input type="hidden" name="_csrf" value="<%=csrfToken%>">
-                        <input type="hidden" value="<%= status.userinfo.id %>" name="teamMateId">
-                        <input type="hidden" value="<%= status.userinfo.email %>" name="teamMateEmail">
-                        <a href="#!" class="requesty modal-close waves-effect waves-green btn-flat">Отменить</a>
-                        <% if (statuses.length > 1) {%>
-                        <a href="javascript:{}"  class="requesty modal-close waves-effect waves-green btn-flat" onclick="deleteTeam(this)">Отказать</i></a>
-                        <% } else {  %>
-                 <a href="javascript:{}"  class="requesty modal-close waves-effect waves-green btn-flat" onclick="deleteTeams(this)">Отказать</i></a>
-                        <% } %>
-                </div>
-            </div>             
+                     <a href="#modal2" class="modal-trigger"><i class="userAdd fas fa-minus-circle"></i></a>             
                 </td>
+                <div id="modal2" class="modal">
+                <h5 class="modal-close cross">&#10005</h5>
+                <div class="modal-content">
+                    <h6 class="regTitle">Отклонить заявку на вступление в команду</h6>
+                        <p> Вы действительно хотите откланить заявку данного участника в команду? После согласия ему на почту будет отправленно подтверждение!</p>
+                    </div>
+                        <div class="modal-footer">
+                                <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                                <input type="hidden" value="<%= status.userinfo.id %>" name="teamMateId">
+                                <input type="hidden" value="<%= status.userinfo.email %>" name="teamMateEmail">
+                                <% if (statuses.length > 1) {%>
+                                <a href="javascript:{}"  class="requesty modal-close waves-effect waves-green btn-flat" onclick="deleteTeam(this)">Отказать</a>
+                                <% } else {  %>
+                                <a href="javascript:{}"  class="requesty modal-close waves-effect waves-green btn-flat" onclick="deleteTeams(this)">Отказать</a>
+                                <% } %>
+                        </div>
+                    </div> 
+                </div>   
             </tr>
             <%}%>
+               
         </article>
     </tbody>
 </table>
+ <a  class="modal-trigger right linkButton" href="#modal3" alt="Создать свою команду"> Отменить все </a> 
+ <div id="modal3" class="modal">
+                 <h5 class="modal-close cross">&#10005</h5>
+                     <div class="modal-content">
+                         <h4 class="regTitle">Отклонить заявки.</h4>
+                        <p> Вы дейстивтельно хотите отклонить все заявки в команду?</p>
+                        </div>
+                    <div class="modal-footer">
+                        <form action="/decline-all" method="POST" id="declineAll">
+                            <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                            <a  href="javascript:{}"  onclick="document.getElementById('declineAll').submit();"  class="requesty modal-close waves-effect waves-green btn-flat">Подтвердить</a>
+                         </form>
+                </div>
+    </div> 
 <% } else { %>
    
     <div class="container  teams-card">

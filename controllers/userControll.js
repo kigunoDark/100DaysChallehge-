@@ -18,7 +18,10 @@ const transporter = nodemailer.createTransport(sendgridTransport({
 
 
 exports.getLanding = async (req, res) => {
-       let message = req.flash('error');
+    if(!req.session.isLoggedIn)
+    {
+    const userStatus = "Участник";
+    let message = req.flash('error');
     if(message.length > 0)
     {
         messege = message[0];
@@ -30,7 +33,7 @@ exports.getLanding = async (req, res) => {
         const teams = await  Team.findAll()
         res.render('./users/landingPage',
         {   
-        
+            userStatus:userStatus,
             teams: teams,
             pageTitle: "ВекторСКФО",
             pageTipe:"users",
@@ -65,6 +68,9 @@ exports.getLanding = async (req, res) => {
             console.log('Success!');
         }
     }
+} else {
+    res.redirect('/profile');
+}
     
 }
 
@@ -213,7 +219,7 @@ exports.getMainPage = async (req,res) => {
       const user = await User.findById(userId)
          
             res.render('./users/profile-page',{
-
+                userId:userId,
                 user: user,
                 teamId: teamId,
                 moment: moment,
@@ -556,7 +562,8 @@ exports.getTeamsPage = async (req, res) => {
 
             const teams = await Team.findAll()
         
-            res.render('./users/teams-page', {  
+            res.render('./users/teams-page', {
+                s_type: user.s_type, 
                 status:status, 
                 userId:userId,
                 teams: teams,
@@ -584,7 +591,7 @@ exports.getTeamsPage = async (req, res) => {
 
 exports.postAddTeam = (req, res) => {
     const userId = req.session.user.id;
-    console.log("Идентификатор настоящего пользователя: " + userId);
+   
     const roleID = 4;
     // req.session.user.roleId = roleID;
  
@@ -722,10 +729,13 @@ exports.getUserDetails = async (req,res) => {
             model: User,
             where: {teamId:teamId}
         }}).then(team => {
+            Status.findAll({where: {teamId: teamId}})
+            .then(statuses => {
+            
             const t = team;
             res.render('./users/team-details',
             { 
-            
+                statuses: statuses,
                 name: name,
                 activeUserId: activeUserId,
                 pageTitle: "Профиль участника",
@@ -736,15 +746,18 @@ exports.getUserDetails = async (req,res) => {
             })
 
         })
+    })
         .catch(err => {
             console.log(err);
         })
  }
-
+ 
 exports.postAddRequest = (req, res) => {
    console.log("i've got a request");
    const userId = req.session.user.id;
    const teamId = req.body.teamId;
+   console.log(teamId);
+
    const userEmail = req.session.user.email; 
    
    User.findById(userId)
@@ -758,8 +771,7 @@ exports.postAddRequest = (req, res) => {
             Status.create({
                 userId:userId,
                 accepted: false,
-                teamId: teamId
-                
+                teamId: teamId      
             })
             .then(()=> {
             res.redirect('/teams-page');
@@ -832,6 +844,31 @@ exports.postCancelRequest = (req, res) => {
             // req.session.user.teamId = 0;   
 }
 
+exports.declineAllRequests = (req, res) => {
+    console.log('a good effort bro');
+    const teamId= req.session.user.teamId;
+    Status.findAll({where: {teamId:teamId}})
+    .then(statuses => {
+        for(let i = 0 ; i< statuses.length; i++ )
+        {
+            console.log('This is a stauts id: ' + statuses[i].userId);
+            User.findOne({where: {id: statuses[i].userId }})
+            .then(user => {
+                console.log('This is your userId ' + user.name + " team status " + user.teamStatus);
+                user.update({
+                    teamStatus:'Команды нет'
+                })
+
+            })
+        }
+       
+    })
+    Status.destroy({where: {teamId: teamId}})
+    .then(() => {
+        res.redirect('/team-requests');
+    })
+    
+} 
 exports.getRequestsPage = (req,res) => {
     const name = req.session.user.name;
     const teamId = req.session.user.teamId;
@@ -861,7 +898,7 @@ exports.postAcceptRequest = (req, res) => {
     const teamMateId = req.body.teamMateId;
     const teamId = req.body.teamId;
     const teamMateEmail = req.body.teamMateEmail;
-
+   
     User.findById(teamMateId)
     .then(user=>{
        user.teamId = teamId;
@@ -918,15 +955,17 @@ exports.postAcceptRequest = (req, res) => {
  }  
 
  exports.postDeleteTeam = (req, res) => {
-     const teamId = req.body.teamId;
-     Team.findOne({include:{
-        model: User,
-        where: {teamId:teamId}}})
-        .then(team => {
-            team.users[0].teamId = 0;
-            team.users[0].roleId = 5;
-            team.users[0].teamStatus = 'Команды нет';
-            return team.users[0].save();
+    const teamId = req.body.teamId;   
+    User.findAll({ where: {teamId: teamId}})
+    .then(users => {
+         for(let i = 0; i < users.length; i++)
+            {
+                users[i].update({
+                    roleId: 5,
+                    teamId: 0,
+                    teamStatus: 'Команды нет'
+                })
+            }
         })
         .then(()=>{
             Team.destroy({where: {id:teamId}})
@@ -985,8 +1024,76 @@ exports.postAcceptRequest = (req, res) => {
         })
         .catch(err => {
             console.log(err);
+        })      
+        
+ }
+
+ exports.getAdmins = (req,res) => {
+    const roleId = req.session.user.roleId;
+    console.log('This is a roleId: ' +  roleId);
+    const userId = req.session.user.id;
+    User.findAll({where:  { 
+        $or:
+            [
+                {
+                    roleId:{
+                        $eq: 1
+                    }, 
+                },
+                
+                 {   roleId:{
+                        $eq: 2
+                    }
+                }
+            ] 
+        }
         })
-        
-       
-        
+    .then(admins => {
+        res.render('./users/admins-list',
+        {
+           userId: userId,
+           admins: admins,
+           roleId: roleId,
+           pageTitle: "Страница администратора",
+           pageTipe:"adminIn",
+           path: '/',
+        })
+    })
+ }
+
+ exports.postAddAmin = (req,res) => {
+    const name = req.body.adminName;
+    const surName = req.body.adminSurname;
+    const secondName = req.body.adminSecondname;
+    const city = req.body.city;
+    const position = req.body.position;
+    const password = req.body.password;
+    const email = req.body.adminEmail;
+    const roleId = 2;
+
+    bcrypt
+    .hash(password, 12)
+    .then(hashedPassword => {
+      User.create({
+            name:name,
+            roleId:roleId,
+            surname:surName,
+            secondname: secondName,
+            city:city,
+            position: position,
+            password: hashedPassword,
+            email: email
+            
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    })
+    .then(() => {
+        console.log('Admin have been created!');
+        res.redirect('/admins-list');
+    })    
+    .catch(err => {
+        console.log(err);
+    })
  }

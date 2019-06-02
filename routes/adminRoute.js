@@ -171,4 +171,9 @@ router.post('/delete-admin', isAuth, adminControll.postDeleteAdmin);
 router.post('/edit-teammate', isAuth, adminControll.postEditTemmmate);
 router.post('/delete-accepted', isAuth, adminControll.postDeleteAceepted);
 
+
+
+
+
+
 module.exports = router;

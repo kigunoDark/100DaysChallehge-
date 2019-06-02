@@ -6,14 +6,18 @@ const User = require('../models/users');
 
 exports.getUserLogin = (req, res)  => {
  
-
-   res.render('./admin/mobile-login',
+if(!req.session.isLoggedIn)
+{   res.render('./admin/mobile-login',
     {   name: '',
         pageTitle: "ВЕКТОР АДМИН",
         pageTipe:"mobileLogin",
         isAuthenticated: req.isLoggedIn,
         userId: req.id
     })
+
+} else {
+    res.redirect('/profile');
+}
     
 }
 

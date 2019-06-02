@@ -89,7 +89,10 @@ $(document).ready(function() {
 $(document).ready(function(){
   $('.datepicker').datepicker();
 });
-    
+
+setTimeout( function(){ 
+$('.smile').addClass('fa-grin-alt').removeClass('fa-frown-open');  
+}  , 2000 );
 
 // Animation of navigation bar
 $(document).ready(function() {

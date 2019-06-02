@@ -2,7 +2,7 @@
 
 <section id="user">
     <div class="container team-card">
-            <h1 class="title2 center"> <span class="owncolor">Создать </span> команду</h1>
+            <h1 class="title2 center"> <span class="owncolor"> <% if(editing) { %> Изменить <% } else { %> Создать <% } %> </span> команду</h1>
         <form action="/<%if(editing) { %>edit-team<% } else { %>add-team <% } %>" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="input-field col s12">

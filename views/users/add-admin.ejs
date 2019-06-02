@@ -1,0 +1,43 @@
+<form action = "/add-admin" id="add-admin" method = "POST" >
+    <div class="row">
+        <div class="input-field col s6">
+            <input  class="input-style"  type="text" placeholder="Заполните поле",  name="adminName" id="name">
+            <label style="font-size: 18px;" for="name">Имя</label>
+        </div>
+        <div class="input-field col s6">
+            <input class="input-style" type="text" placeholder="Заполните поле",  name="adminSurname" id="surname">
+            <label style="font-size: 18px;" for="surname">Фамилия</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+            <input  class="input-style"  type="text" placeholder="Заполните поле",   name="adminSecondname" id="secondname">
+            <label style="font-size: 18px;" for="secondname">Отчество</label>
+        </div>
+       <div class="input-field col s6">
+            <input class="input-style" type="text" placeholder="Заполните поле", name="adminEmail" id="adminEmail">
+            <label style="font-size: 18px;" for="adminEmail">Email</label>
+        </div>
+    </div>
+    <div class="row">
+         <div class="input-field col s6">
+            <input class="input-style" type="text" placeholder="Заполните поле", name="position" id="position">
+            <label style="font-size: 18px;" for="position">Должность</label>
+        </div>
+        <div class="input-field col s6">
+            <input class="input-style" type="text" placeholder="Заполните поле", name="city" id="city">
+            <label style="font-size: 18px;" for="city">Регион, город</label>
+        </div>
+    </div>
+    <div class="row">
+         <div class="input-field col s6">
+            <input class="input-style" type="password" placeholder="Заполните поле", name="password" id="password">
+            <label style="font-size: 18px;" for="password">Пароль</label>
+        </div>
+         <div class="input-field col s6">
+            <input class="input-style" type="password" placeholder="Заполните поле", name="rpassword" id="rpassword">
+            <label style="font-size: 18px;" for="rpassword">Повторить пароль</label>
+        </div>
+        <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+    </div>
+</form>
